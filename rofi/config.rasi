@@ -1,0 +1,87 @@
+// vim: filetype=rasi
+
+@theme "/home/mario/.config/rofi/themes/vars.rasi"
+
+configuration {
+  font:                             "Inconsolata 14";
+  show-icons:                       false;
+  icon-theme:                       "Papirus";
+  disable-history:                  false;
+  hide-scrollbar:                   true;
+}
+
+window {
+  transparency:                     "real";
+  background-color:                 @bg0;
+  text-color:                       @fg;
+  border:                           1px;
+  border-color:                     @border-alt;
+  border-radius:                    @bordrad;
+  width:                            300;
+  location:                         center;
+}
+
+prompt {
+  padding:                          -9 20 0 0;
+  background-color:                 @transparent;
+  text-color:                       @accent;
+  font:                             "Inconsolata NF 25";
+}
+
+entry {
+  background-color:                 @transparent;
+  text-color:                       @fg;
+  placeholder-color:                @border-alt;
+  expand:                           true;
+  horizontal-align:                 0;
+  placeholder:                      "launch";
+  blink:                            false;
+}
+
+inputbar {
+  children:                         [ prompt, entry ];
+  background-color:                 @border;
+  text-color:                       @fg;
+  padding:                          15 20 6 20;
+}
+
+listview {
+  background-color:                 @bg0;
+  padding:                          3;
+  columns:                          1;
+  lines:                            5;
+  cycle:                            false;
+  dynamic:                          true;
+  layout:                           vertical;
+  border-radius:                    @bordrad;
+  border-color:                     @border-alt;
+  border:                           1px;
+  margin:                           -2 -1 -1 -1;
+}
+
+mainbox {
+  background-color:                 @border;
+  border-color:                     @border-alt;
+  children:                         [ inputbar, listview ];
+}
+
+element {
+  background-color:                 @transparent;
+  orientation:                      vertical;
+  border-radius:                    @bordrad;
+  padding:                          10 0;
+}
+
+element-text {
+  text-color:                       @fg;
+  background-color:                 @transparent;
+  expand:                           true;
+  horizontal-align:                 0.5;
+  vertical-align:                   0.5;
+}
+
+element selected {
+  background-color:                 @border-alt;
+  text-color:                       @fg;
+  border-radius:                    @bordrad;
+}

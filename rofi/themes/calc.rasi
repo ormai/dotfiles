@@ -1,0 +1,116 @@
+// vim: filetype=rasi
+
+@import "vars"
+
+configuration {
+  font:                             "Inconsolata 14";
+  display-calc:                     "";
+  calc-display-format:              "{name}";
+  hide-scrollbar:                   true;
+}
+
+window {
+  background-color:                 @bg;
+  text-color:                       @fg;
+  border:                           2px;
+  border-color:                     @border;
+  border-radius:                    @bordrad;
+  width:                            500;
+  location:                         south east;
+  x-offset:                         -50;
+  y-offset:                         -90;
+}
+
+mainbox {
+  background-color:                 @bg-light;
+  border:                           1px;
+  border-radius:                    @bordrad;
+  border-color:                     @bg-light;
+  children:                         [ inputbar, message, listview ];
+}
+
+inputbar {
+  children:                         [ prompt, entry ];
+  background-color:                 inherit;
+  text-color:                       @fg;
+  border-color:                     inherit;
+  expand:                           false;
+}
+
+prompt {
+  enabled:                          true;
+  padding:                          5 15;
+  background-color:                 inherit;
+  text-color:                       @accent;
+  font:                             "Inconsolata NF 25";
+}
+
+entry {
+  background-color:                 inherit;
+  text-color:                       @fg;
+  placeholder-color:                @fg-dimmed;
+  expand:                           true;
+  placeholder:                      "Compute";
+  blink:                            false;
+  padding:                          12 0 0 0;
+}
+
+message {
+  text-color:                       @fg;
+  children:                         [ textbox ];
+  background-color:                 @bg;
+  border:                           1px;
+  border-radius:                    inherit;
+  border-color:                     inherit;
+  padding:                          10; 
+  margin:                           0 5 5 5;
+  expand:                           false;
+}
+
+textbox {
+  text-color:                       @fg;
+  expand:                           true;
+  background-color:                 inherit;
+  text-color:                       @fg;
+  placeholder:                      "...";
+  placeholder-color:                @accent;
+  horizontal-align:                 0.5;
+  expand:                           false;
+}
+
+listview {
+  text-color:                       @fg-dimmed;
+  background-color:                 @bg;
+  padding:                          3;
+  columns:                          1;
+  lines:                            3;
+  cycle:                            false;
+  border-radius:                    @bordrad;
+  border-color:                     inherit;
+  margin:                           0 5 5;
+  dynamic:                          true;
+}
+
+element {
+  background-color:                 @transparent;
+  text-color:                       @fg;
+  border-radius:                    @bordrad;
+}
+
+element-text {
+  background-color:                 @transparent;
+  text-color:                       @fg;
+  expand:                           true;
+  horizontal-align:                 0.5;
+  vertical-align:                   0.5;
+  margin:                           5;
+}
+
+element selected {
+  background-color:                 @bg-element-selected;
+  border-radius:                    @bordrad;
+}
+
+element-text selected {
+  text-color:                       @fg;
+}

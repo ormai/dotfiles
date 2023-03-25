@@ -4,7 +4,7 @@ My [Arch Linux](https://wiki.archlinux.org/title/Arch_Linux) configuration based
 
 %% screenshots
 
-## Applications
+## Programs
 
 - compositor: [Hyprland](https://hyprland.org/)
 - bar: [Waybar](https://github.com/Alexays/Waybar)
