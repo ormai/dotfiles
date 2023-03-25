@@ -1,0 +1,87 @@
+// vim: filetype=rasi
+
+@import "vars.rasi"
+
+configuration {
+  font:                             "Inconsolata 14";
+  dmenu-display-format:             "{name}";
+  disable-history:                  false;
+  hide-scrollbar:                   true;
+}
+
+window {
+  background-color:                 @bg;
+  text-color:                       @fg;
+  border:                           2px;
+  border-color:                     @border;
+  border-radius:                    @bordrad;
+  width:                            500;
+  location:                         south west;
+  x-offset:                         60;
+  y-offset:                         -100;
+}
+
+inputbar {
+  children:                         [ prompt, entry ];
+  background-color:                 @bg-light;
+  text-color:                       @fg;
+  padding:                          10 20 5;
+}
+
+prompt {
+  padding:                          0 20 0 0;
+  background-color:                 inherit;
+  text-color:                       @accent;
+  font:                             "Inconsolata NF 15";
+}
+
+entry {
+  background-color:                 inherit;
+  text-color:                       @fg;
+  placeholder-color:                @fg-dimmed;
+  expand:                           true;
+  placeholder:                      "Copy";
+  blink:                            false;
+}
+
+listview {
+  background-color:                 @bg;
+  padding:                          5;
+  columns:                          1;
+  lines:                            5;
+  cycle:                            false;
+  dynamic:                          true;
+  layout:                           vertical;
+  border-radius:                    @bordrad;
+  border-color:                     @bg-light;
+  border:                           1px;
+}
+
+mainbox {
+  background-color:                 @bg-light;
+  children:                         [ inputbar, listview ];
+}
+
+element {
+  background-color:                 @transparent;
+  orientation:                      vertical;
+  border-radius:                    @bordrad;
+  padding:                          5 0 5 5;
+}
+
+element-text {
+  text-color:                       @fg-dimmed;
+  background-color:                 @transparent;
+  expand:                           true;
+  horizontal-align:                 0;
+  vertical-align:                   0.5;
+}
+
+element selected {
+  background-color:                 @bg-element-selected;
+  border-radius:                    @bordrad;
+}
+
+element-text selected {
+  text-color:                       @fg;
+}
