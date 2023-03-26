@@ -12,10 +12,10 @@ configuration {
 
 window {
   transparency:                     "real";
-  background-color:                 @bg0;
+  background-color:                 @bg;
   text-color:                       @fg;
-  border:                           1px;
-  border-color:                     @border-alt;
+  border:                           2px;
+  border-color:                     @border;
   border-radius:                    @bordrad;
   width:                            300;
   location:                         center;
@@ -31,22 +31,22 @@ prompt {
 entry {
   background-color:                 @transparent;
   text-color:                       @fg;
-  placeholder-color:                @border-alt;
+  placeholder-color:                @fg-dimmed;
   expand:                           true;
   horizontal-align:                 0;
-  placeholder:                      "launch";
+  placeholder:                      "rofi";
   blink:                            false;
 }
 
 inputbar {
   children:                         [ prompt, entry ];
-  background-color:                 @border;
+  background-color:                 @bg-light;
   text-color:                       @fg;
   padding:                          15 20 6 20;
 }
 
 listview {
-  background-color:                 @bg0;
+  background-color:                 @bg;
   padding:                          3;
   columns:                          1;
   lines:                            5;
@@ -54,14 +54,14 @@ listview {
   dynamic:                          true;
   layout:                           vertical;
   border-radius:                    @bordrad;
-  border-color:                     @border-alt;
+  border-color:                     @bg-light;
   border:                           1px;
   margin:                           -2 -1 -1 -1;
 }
 
 mainbox {
   background-color:                 @border;
-  border-color:                     @border-alt;
+  border-color:                     @border;
   children:                         [ inputbar, listview ];
 }
 
@@ -81,7 +81,6 @@ element-text {
 }
 
 element selected {
-  background-color:                 @border-alt;
-  text-color:                       @fg;
+  background-color:                 @bg-element-selected;
   border-radius:                    @bordrad;
 }
