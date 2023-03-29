@@ -16,8 +16,7 @@ window {
   border-color:                     @border;
   border-radius:                    @bordrad;
   width:                            500;
-  location:                         south east;
-  x-offset:                         -50;
+  location:                         south;
   y-offset:                         -90;
 }
 
@@ -26,7 +25,7 @@ mainbox {
   border:                           1px;
   border-radius:                    @bordrad;
   border-color:                     @bg-light;
-  children:                         [ inputbar, message, listview ];
+  children:                         [ inputbar, message ];
 }
 
 inputbar {
@@ -76,41 +75,4 @@ textbox {
   placeholder-color:                @accent;
   horizontal-align:                 0.5;
   expand:                           false;
-}
-
-listview {
-  text-color:                       @fg-dimmed;
-  background-color:                 @bg;
-  padding:                          3;
-  columns:                          1;
-  lines:                            3;
-  cycle:                            false;
-  border-radius:                    @bordrad;
-  border-color:                     inherit;
-  margin:                           0 5 5;
-  dynamic:                          true;
-}
-
-element {
-  background-color:                 @transparent;
-  text-color:                       @fg;
-  border-radius:                    @bordrad;
-}
-
-element-text {
-  background-color:                 @transparent;
-  text-color:                       @fg;
-  expand:                           true;
-  horizontal-align:                 0.5;
-  vertical-align:                   0.5;
-  margin:                           5;
-}
-
-element selected {
-  background-color:                 @bg-element-selected;
-  border-radius:                    @bordrad;
-}
-
-element-text selected {
-  text-color:                       @fg;
 }

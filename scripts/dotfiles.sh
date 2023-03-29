@@ -1,7 +1,5 @@
 #!/bin/sh
 
-loc="~/bench/dotfiles"
-
 cp -f ~/.config/hypr/hyprland.conf ~/bench/dotfiles/hypr/
 cp -f ~/.config/nvim/init.lua ~/bench/dotfiles/nvim/
 cp -rf ~/.config/nvim/lua ~/bench/dotfiles/nvim/
