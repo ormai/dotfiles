@@ -1,5 +1,4 @@
-// vim: filetype=rasi
-
+// vim:ft=rasi
 @import "vars"
 
 configuration {
