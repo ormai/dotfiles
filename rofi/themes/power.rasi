@@ -1,52 +1,51 @@
-// vim: filetype=rasi
-
-@import "vars.rasi"
+// vim:ft=rasi
+@import "vars"
 
 window {
-  background-color:               @bg;
-  text-color:                     @fg;
-  border-radius:                  @bordrad;
-  border:                         2px;
-  border-color:                   @border;
-  height:                         269; // nice
-  width:                          60;
-  location:                       west;
-  x-offset:                       15;
+  background-color:                 @bg;
+  text-color:                       @fg;
+  border-radius:                    @bordrad;
+  border:                           2px;
+  border-color:                     @border;
+  height:                           269; // nice
+  width:                            60;
+  location:                         west;
+  x-offset:                         15;
 }
 
 mainbox {
-  background-color:               @bg;
-  children:                       [ listview ];
+  background-color:                 @bg;
+  children:                         [ listview ];
 }
 
 listview {
-  background-color:               @bg;
-  margin:                         5;
-  spacing:                        5;
-  cycle:                          false;
-  layout:                         vertical;
+  background-color:                 @bg;
+  margin:                           5;
+  spacing:                          5;
+  cycle:                            false;
+  layout:                           vertical;
 }
 
 element {
-  background-color:               @bg;
-  text-color:                     @fg;
-  orientation:                    vertical;
-  border-radius:                  @bordrad;
-  padding:                        5 0;
+  background-color:                 @bg;
+  text-color:                       @fg;
+  orientation:                      vertical;
+  border-radius:                    @bordrad;
+  padding:                          5 0;
 }
 
 element-text {
-  background-color:               @transparent;
-  text-color:                     @fg-dimmed;
-  font:                           "feather 20";
-  horizontal-align:               0.5;
-  vertical-align:                 0.5;
+  background-color:                 @transparent;
+  text-color:                       @fg-dimmed;
+  font:                             "feather 20";
+  horizontal-align:                 0.5;
+  vertical-align:                   0.5;
 }
 
 element selected {
-  background-color:               @bg-element-selected;
+  background-color:                 @bg-element-selected;
 }
 
 element-text selected {
-  text-color:                     @red;
+  text-color:                       @red;
 }

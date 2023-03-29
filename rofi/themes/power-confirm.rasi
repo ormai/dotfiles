@@ -1,64 +1,63 @@
-// vim: filetype=rasi
-
-@import "vars.rasi"
+// vim:ft=rasi
+@import "vars"
 
 configuration {
-  disable-history:                    true;
+  disable-history:                  true;
 }
 
 window {
-  width:                              126;
-  border:                             2px;
-  border-radius:                      @bordrad;
-  border-color:                       @border;
-  location:                           center;
-  background-color:                   @bg;
+  width:                            126;
+  border:                           2px;
+  border-radius:                    @bordrad;
+  border-color:                     @border;
+  location:                         center;
+  background-color:                 @bg;
 }
 
 mainbox {
-  children:                           [ inputbar, listview ];
-  background-color:                   @bg;
+  children:                         [ inputbar, listview ];
+  background-color:                 @bg;
 }
 
 inputbar {
-  children:                           [ prompt ];
-  background-color:                   @bg-light;
+  children:                         [ prompt ];
+  background-color:                 @bg-light;
 }
 
 prompt {
-  font:                               "Inconsolata 20";
-  background-color:                   @bg-light;
-  text-color:                         @fg;
-  padding:                            10;
+  font:                             "Inconsolata 20";
+  background-color:                 @bg-light;
+  text-color:                       @fg;
+  padding:                          10;
 }
 
 listview{
-  cycle:                              false;
-  layout:                             horizontal;
-  spacing:                            12;
-  margin:                             10 10 10 22;
-  background-color:                   @bg;
+  cycle:                            false;
+  layout:                           horizontal;
+  spacing:                          12;
+  margin:                           10 10 10 22;
+  background-color:                 @bg;
 }
 
 element {
-  background-color:                   @transparent;
-  border-radius:                      @bordrad;
-  text-color:                         @fg-dimmed;
-  padding:                            10;
+  background-color:                 @transparent;
+  border-radius:                    @bordrad;
+  text-color:                       @fg-dimmed;
+  padding:                          10;
 }
 
 element-text {
-  text-color:                         @fg-dimmed;
-  font:                               "Inconsolata 20";
-  horizontal-align:                   0.5;
-  vertical-align:                     0.5;
-  background-color:                   @transparent;
+  text-color:                       @fg-dimmed;
+  font:                             "Inconsolata 20";
+  horizontal-align:                 0.5;
+  vertical-align:                   0.5;
+  background-color:                 @transparent;
 }
 
 element selected {
-  background-color:                   @red;
+  background-color:                 @red;
 }
 
 element-text selected {
-  text-color:                         @fg;
+  text-color:                       @fg;
 }
