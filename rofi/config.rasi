@@ -1,28 +1,25 @@
-// vim: filetype=rasi
+// vim:ft=rasi
 
-@theme "/home/mario/.config/rofi/themes/vars.rasi"
+// Rofi defaults
+
+@theme "vars"
 
 configuration {
   font:                             "Inconsolata 14";
   show-icons:                       false;
-  icon-theme:                       "Papirus";
   disable-history:                  false;
   hide-scrollbar:                   true;
 }
 
 window {
-  transparency:                     "real";
   background-color:                 @bg;
   text-color:                       @fg;
   border:                           2px;
   border-color:                     @border;
   border-radius:                    @bordrad;
-  width:                            300;
-  location:                         center;
 }
 
 prompt {
-  padding:                          -9 20 0 0;
   background-color:                 @transparent;
   text-color:                       @accent;
   font:                             "Inconsolata NF 25";
@@ -34,7 +31,6 @@ entry {
   placeholder-color:                @fg-dimmed;
   expand:                           true;
   horizontal-align:                 0;
-  placeholder:                      "rofi";
   blink:                            false;
 }
 

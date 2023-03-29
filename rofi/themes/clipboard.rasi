@@ -1,6 +1,5 @@
-// vim: filetype=rasi
-
-@import "vars.rasi"
+// vim:ft=rasi
+@import "vars"
 
 configuration {
   font:                             "Inconsolata 14";
