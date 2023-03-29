@@ -14,7 +14,7 @@ My [Arch Linux](https://wiki.archlinux.org/title/Arch_Linux) configuration based
 - browser: Firefox, with custom css and [my startpage](https://github.com/ormai/NewTab)
 - text-editor: [neovim](https://neovim.io/)
 - notifications: [dunst](https://github.com/dunst-project/dunst)
-- file manager: [lf](https://github.com/gokcehan/lf)
+- file manager: [lf](https://github.com/gokcehan/lf), with [ctpv](https://github.com/NikitaIvanovV/ctpv) for previews
 - [Obsidian](https://obsidian.md/) for notes
 - btop as system monitor
 - mpd + ncmpcpp for music
