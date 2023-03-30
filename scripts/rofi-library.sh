@@ -5,7 +5,10 @@ library="$HOME/vault/library" # There are only pdfs, epubs, and djvus in here
 cd $library
 theme="-theme ~/.config/rofi/themes/library.rasi"
 
-file=$( fd . -tf -e 'pdf' -e 'epub' -e 'djvu' | rofi -dmenu -i -matching fuzzy -no-custom -location 0 -p "" $theme )
+file=$(
+  fd . -tf -e 'pdf' -e 'epub' -e 'djvu' | \
+  rofi -dmenu -i -matching fuzzy -p "" $theme \
+)
 
 if [ "$file" ] ; then
   zathura $library/"$file"

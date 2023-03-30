@@ -12,10 +12,10 @@ configuration {
 window {
   background-color:                 @bg;
   text-color:                       @fg;
-  border:                           2px;
+  border:                           2;
   border-color:                     @border;
   border-radius:                    @bordrad;
-  width:                            1000;
+  width:                            900;
   location:                         center;
 }
 
@@ -32,7 +32,7 @@ entry {
   placeholder-color:                @fg-dimmed;
   expand:                           true;
   horizontal-align:                 0;
-  placeholder:                      "Search books";
+  placeholder:                      " Read";
   blink:                            false;
 }
 

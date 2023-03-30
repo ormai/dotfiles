@@ -16,8 +16,8 @@ window {
   border-radius:                    @bordrad;
   width:                            500;
   location:                         south west;
-  x-offset:                         60;
-  y-offset:                         -100;
+  x-offset:                         90;
+  y-offset:                         -90;
 }
 
 inputbar {
@@ -39,7 +39,7 @@ entry {
   text-color:                       @fg;
   placeholder-color:                @fg-dimmed;
   expand:                           true;
-  placeholder:                      "Copy";
+  placeholder:                      " Clipboard";
   blink:                            false;
 }
 

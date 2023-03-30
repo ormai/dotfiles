@@ -1,16 +1,20 @@
 // vim:ft=rasi
 @import "vars"
 
+configuration {
+  disable-history:                  true;
+}
+
 window {
   background-color:                 @bg;
   text-color:                       @fg;
   border-radius:                    @bordrad;
-  border:                           2px;
+  border:                           2;
   border-color:                     @border;
   height:                           269; // nice
   width:                            60;
   location:                         west;
-  x-offset:                         15;
+  x-offset:                         30;
 }
 
 mainbox {
