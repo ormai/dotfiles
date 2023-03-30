@@ -4,14 +4,14 @@
 configuration {
   font:                             "Inconsolata 14";
   display-calc:                     "";
-  calc-display-format:              "{name}";
   hide-scrollbar:                   true;
+  disable-history:                  true;
 }
 
 window {
   background-color:                 @bg;
   text-color:                       @fg;
-  border:                           2px;
+  border:                           2;
   border-color:                     @border;
   border-radius:                    @bordrad;
   width:                            500;
@@ -21,7 +21,7 @@ window {
 
 mainbox {
   background-color:                 @bg-light;
-  border:                           1px;
+  border:                           1;
   border-radius:                    @bordrad;
   border-color:                     @bg-light;
   children:                         [ inputbar, message ];
@@ -48,7 +48,7 @@ entry {
   text-color:                       @fg;
   placeholder-color:                @fg-dimmed;
   expand:                           true;
-  placeholder:                      "Compute";
+  placeholder:                      " Calculate";
   blink:                            false;
   padding:                          12 0 0 0;
 }
@@ -57,7 +57,7 @@ message {
   text-color:                       @fg;
   children:                         [ textbox ];
   background-color:                 @bg;
-  border:                           1px;
+  border:                           1;
   border-radius:                    inherit;
   border-color:                     inherit;
   padding:                          10; 

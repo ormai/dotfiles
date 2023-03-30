@@ -1,8 +1,7 @@
 // vim:ft=rasi
+@import "vars"
 
 // Rofi defaults
-
-@theme "vars"
 
 configuration {
   font:                             "Inconsolata 14";
