@@ -15,11 +15,13 @@ window {
   transparency:                     "real";
   background-color:                 @bg;
   text-color:                       @fg;
-  border:                           2px;
+  border:                           2;
   border-color:                     @border;
   border-radius:                    @bordrad;
   width:                            300;
-  location:                         center;
+  location:                         south east;
+  x-offset:                         -90;
+  y-offset:                         -90;
 }
 
 prompt {
@@ -35,7 +37,7 @@ entry {
   placeholder-color:                @fg-dimmed;
   expand:                           true;
   horizontal-align:                 0;
-  placeholder:                      "launch";
+  placeholder:                      " Launch";
   blink:                            false;
 }
 
@@ -56,8 +58,8 @@ listview {
   layout:                           vertical;
   border-radius:                    @bordrad;
   border-color:                     @bg-light;
-  border:                           1px;
-  margin:                           -2 -1 -1 -1;
+  border:                           1;
+  
 }
 
 mainbox {
