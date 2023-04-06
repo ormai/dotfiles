@@ -10,9 +10,15 @@ file=$(
   rofi -dmenu -i -matching fuzzy -p "" $theme \
 )
 
-if [ "$file" ] ; then
-  zathura $library/"$file"
-  exit 0
+if [[ $file ]] ; then
+  if [[ $file == *.epub ]]; then
+    # Terminal ebook reader
+    # https://github.com/wustho/epy
+    $TERM epy $library/"$file"
+    exit 0
+  else
+    zathura $library/"$file"
+  fi
 fi
 exit 1
 
