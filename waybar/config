@@ -1,0 +1,133 @@
+// vim:ft=json
+{
+  "id": "bar-0",
+  "layer": "top",
+  "position": "top",
+  "spacing": 5,
+  "margin": "5 5 3 5",
+  "height": 33,
+  "modules-left": [ "idle_inhibitor", "backlight", "custom/pacman", "network", "bluetooth", "pulseaudio", "custom/microphone" , "mpd" ],
+  "modules-center": [ "wlr/workspaces" ],
+  "modules-right": [ "battery", "battery#bat2", "temperature", "cpu", "memory", "custom/weather", "clock" ],
+  "custom/microphone": {
+    "exec": "waybar-microphone-indicator.sh",
+    "format": "{}",
+    "interval": 2
+  },
+  "bluetooth": {
+    "format": "󰂲",
+    "format-connected": "",
+    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+    "on-click": "kitty -e bluetoothctl"
+  }, 
+  "network": {
+    "format-wifi": "{icon} ",
+    "format-icons": [ "󰤯", "󰤟", "󰤢", "󰤢" , "󰤨" ],
+    "format-ethernet": "{ipaddr}/{cidr}",
+    "format-disconnected": "󰤮 ",
+    "tooltip-format-wifi": "{essid} via {ifname}, Strength: {signalStrength}%",
+    "tooltip-format-ethernet": "",
+    "max-length": 50,
+    "on-click": "kitty"
+  },
+  "battery": {
+    "bat": "BAT0",
+    "interval": 3,
+    "format": "{capacity}% {icon} ",
+    "format-icons": ["", "", "", "", ""],
+    "format-charging": "󱐋 {capacity}% {icon} ",
+    "tooltip-format": "{power} W, {time}"
+  },
+  "battery#bat2": {
+   "bat": "BAT1",
+    "interval": 3,
+    "format": "{capacity}% {icon} ",
+    "format-icons": ["", "", "", "", ""],
+    "format-charging": "󱐋 {capacity}% {icon} ",
+    "tooltip-format": "{power} W, {time}"
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon} {percent}%",
+    "format-icons": [ "󰃚", "󰃛", "󰃜", "󰃝", "󰃞", "󰃟", "󰃠" ]
+  },
+  "mpd": {
+    "format": "{stateIcon} {title} - {artist}",
+    "format-disconnected": "󰎊",
+    "format-stopped": " 栗",
+    "max-length": 60,
+    "tooltip-format": "{elapsedTime:%M:%S}/{totalTime:%M:%S}, Vol: {volume} %, Queue: {songPosition}/{queueLength}, Opts: {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}",
+    "state-icons": {
+      "paused": "契",
+      "playing": ""
+    },
+    "consume-icons": {
+      "on": ""
+    },
+    "random-icons": {
+      "on": "  "
+    },
+    "repeat-icons": {
+      "on": " "
+    },
+    "single-icons": {
+      "on": "1 "
+    }
+  },
+  "pulseaudio": {
+    "scroll-step": 5,
+    "format": "{icon} {volume}%",
+    "format-icons": ["󰕿", "󰖀", "󰕾"],
+    "format-muted": "󰝟 ",
+    "on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",
+    "on-click-right": "pavucontrol"
+  },
+  "cpu": {
+    "interval": 5,
+    "format": "{usage}% ",
+    "on-click": "kitty -e btop -p 1"
+  },
+  "memory": {
+    "interval": 5,
+    "format": "{}% ",
+    "on-click": "kitty -e btop -p 2"
+  },
+  "temperature": { 
+    "interval": 5,
+    "thermal-zone": 2,
+    "format": "{temperatureC}°C ",
+    "on-click": "kitty -e btop -p 3",
+    "tooltip": false
+  },
+  "clock": {
+    "interval": 60,
+    "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+    "timezone": "Europe/Rome"
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+    "activated": "",
+    "deactivated": "鈴"
+    }
+  },
+  "custom/pacman": {
+    "interval": 350,
+    "format": " {}",
+    "exec": "checkupdates | wc -l",
+    "exex-if": "checkupdates",
+    "on-click": "kitty -e paru -Syu && pkill -SIGRTMIN+8 waybar",
+    "signal": 8
+  },
+  "custom/weather": {
+    "interval": 600,
+    "exec": "waybar-weather-indicator.sh",
+    "exec-if": "ping wttr.in -c 1",
+    "format": "{}",
+    "on-click": "$BROWSER 'https://www.3bmeteo.com/meteo/luzzi'",
+    "tooltip": false
+  }
+}
