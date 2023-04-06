@@ -10,7 +10,7 @@ My [Arch Linux](https://wiki.archlinux.org/title/Arch_Linux) configuration based
 - bar: [Waybar](https://github.com/Alexays/Waybar)
 - terminal: [kitty](https://sw.kovidgoyal.net/kitty/)
 - menus: [rofi](https://github.com/lbonn/rofi) (lbonn's fork)
-- calculator: [rofi-calc](https://github.com/svenstaro/rofi-calc)
+    - calculator: [rofi-calc](https://github.com/svenstaro/rofi-calc)
 - browser: Firefox, with custom css and [my startpage](https://github.com/ormai/NewTab)
 - text-editor: [neovim](https://neovim.io/)
 - notifications: [dunst](https://github.com/dunst-project/dunst)
