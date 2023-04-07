@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# If the file in the repo seem weird to you...
+
 cp -f ~/.config/hypr/hyprland.conf ~/bench/dotfiles/hypr/
 cp -f ~/.config/nvim/init.lua ~/bench/dotfiles/nvim/
 cp -rf ~/.config/nvim/lua ~/bench/dotfiles/nvim/
@@ -20,6 +22,7 @@ cp -rf ~/.config/lf/ ~/bench/dotfiles/
 cp -rf ~/.config/imv/ ~/bench/dotfiles/
 cp -f ~/.config/glava/bars.glsl ~/bench/dotfiles/glava/
 cp -rf ~/.mozilla/mario/chrome/* ~/bench/dotfiles/firefox
-cp -r ~/.local/bin/dotfiles.sh ~/bench/dotfiles/scripts
-cp -r ~/.local/bin/rofi-library.sh ~/bench/dotfiles/scripts
-cp -r ~/.local/bin/rofi-power.sh ~/bench/dotfiles/scripts
+cp -f ~/.local/bin/dotfiles.sh ~/bench/dotfiles/scripts
+cp -f ~/.local/bin/rofi-library.sh ~/bench/dotfiles/scripts
+cp -f ~/.local/bin/rofi-power.sh ~/bench/dotfiles/scripts
+cp -f ~/.local/bin/hyprland_focus-mode.sh ~/bench/dotfiles/scripts/
