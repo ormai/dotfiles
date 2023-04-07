@@ -65,7 +65,7 @@ element {
   background-color:                 @transparent;
   orientation:                      vertical;
   border-radius:                    @bordrad;
-  padding:                          5 0 5 5;
+  padding:                          8 0 8 5;
 }
 
 element-text {
