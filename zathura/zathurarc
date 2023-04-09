@@ -1,0 +1,51 @@
+# OPTIONS
+set selection-clipboard clipboard        # Copy selected text to clipboard
+set recolor true                         # En/Disables recoloring
+set recolor-keephue true                 # En/Disables keeping original hue when recoloring
+set recolor-reverse-video false          # Defines if original image colors should be kept while recoloring.
+set statusbar-home-tilde true            # Display a short version of the file path, which replaces $HOME with ~, in the statusbar.
+set vertical-center true                 # Center the screen at the vertical midpoint of the page by default.
+set font "Inconsolata 13"                # Defines the font that will be used
+set guioptions ""                        # Shows or hides GUI elements. [ c (command line), s (statusbar), h (horizontal scrollbar), v (vertical scrollbar)].
+set statusbar-h-padding 10               # Defines the horizontal padding of the statusbar and notificationbar
+set statusbar-v-padding 3                # Defines the vertical padding of the statusbar and notificationbar
+
+# COLORS
+# recoloring
+set recolor-lightcolor "#282828"         # Defines the color value that is used to represent dark colors in recoloring mode
+set recolor-darkcolor "#F9F5D7"          # Defines the color value that is used to represent light colors in recoloring mode
+# highlight
+set highlight-color "#A89984"            # Defines the color that is used for highlighting parts of the document (e.g.: show search results)
+set highlight-fg "#00FF00"               # Defines the color that is used for text when highlighting parts of the document (e.g.: number for links).
+set highlight-active-color "#D3869B"     # Defines the color that is used to show the current selected highlighted element (e.g: current search result)
+# completion menu 
+set completion-bg "#3C3836"              # Defines the background color that is used for command line completion entries
+set completion-fg "#EBDBB2"              # Defines the foreground color that is used for command line completion entries
+set completion-group-bg "#504945"        # Defines the background color that is used for command line completion group elements
+set completion-group-fg "#FABD2F"        # Defines the foreground color that is used for command line completion group elements
+set completion-highlight-bg "#FE8019"    # Defines the background color that is used for the current command line completion element
+set completion-highlight-fg "#1D2021"    # Defines the foreground color that is used for the current command line completion element
+# generic
+set render-loading-bg "#282828"          # Defines the background color that is used for the "Loading..." text.
+set render-loading-fg "#EBDBB2"          # Defines the foreground color that is used for the "Loading..." text.
+set default-fg "#EBDBB2"                 # Defines the default foreground color
+set default-bg "#282828"                 # Defines the default background color
+set font "Inconsolata 12"                # Defines the font that will be used
+# inputbar
+set inputbar-bg "#3C3836"
+set inputbar-fg "#FBF1C7"
+# statusbar
+set statusbar-bg "#32302F"
+set statusbar-fg "#BDAE93"
+# notifications
+set notification-bg "#3C3836"             # Defines the background color for a notification
+set notification-fg "#FBF1C7"             # Defines the foreground color for a notification
+set notification-error-bg "#1D2021"       # Defines the background color for an error notification
+set notification-error-fg "#FB4934"       # Defines the foreground color for an error notification
+set notification-warning-bg "#3C3836"     # Defines the background color for a warning notification
+set notification-warning-fg "#FABD2F"     # Defines the foreground color for a warning notification
+# index
+set index-fg "#EBDBB2"                    # Defines the foreground color of the index mode.
+set index-bg "#282828"                    # Define the background color of the index mode.
+set index-active-fg "#1D2021"             # Defines the foreground color of the selected element in index mode.
+set index-active-bg "#8EC07C"             # Define the background color of the selected element in index mode.
