@@ -1,0 +1,50 @@
+# vim: filetype=conf
+
+ncmpcpp_directory = "~/.config/ncmpcpp"
+mpd_music_dir = "~/Music"
+user_interface = "alternative"
+autocenter_mode = "yes"
+
+playlist_editor_display_mode = "columns"
+search_engine_display_mode = "columns"
+browser_display_mode = "columns"
+playlist_display_mode = "classic"
+
+message_delay_time = "1"
+
+progressbar_look = "-"
+media_library_primary_tag = "album_artist"
+media_library_albums_split_by_date = "no"
+startup_screen = "media_library"
+display_volume_level = "yes"
+ignore_leading_the = "yes"
+external_editor = "nvim"
+use_console_editor = "yes"
+
+visualizer_data_source = "/tmp/mpd.fifo"
+visualizer_output_name = "Visualizer feed"
+visualizer_in_stereo = "yes"
+visualizer_type = "spectrum"
+visualizer_color = "15,15,15,15,2"
+visualizer_fps = "60"
+visualizer_autoscale = "no"
+visualizer_spectrum_smooth_look = "yes"
+visualizer_spectrum_dft_size = "5"
+
+lyrics_directory = "~/Music/.lyrics"
+follow_now_playing_lyrics = "yes"
+fetch_lyrics_for_current_song_in_background = "yes"
+
+empty_tag_color = "9"
+header_window_color = "green"
+volume_color = "magenta"
+state_flags_color = "cyan"
+main_window_color = "white"
+progressbar_color = "black"
+progressbar_elapsed_color = "magenta"
+
+song_columns_list_format = "(10)[blue]{l} (30)[green]{t} (30)[yellow]{a} (30)[red]{b}"
+song_list_format = "{$5%t$9}$R{$4%a$9}$1  >  $9{$2%b $9}$1   -   $9{$3%l$9}"
+
+current_item_prefix = "$(blue) $r"
+now_playing_prefix = " "
