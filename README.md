@@ -9,9 +9,10 @@ My [Arch Linux](https://wiki.archlinux.org/title/Arch_Linux) configuration based
 - compositor: [Hyprland](https://hyprland.org/)
 - bar: [Waybar](https://github.com/Alexays/Waybar)
 - terminal: [kitty](https://sw.kovidgoyal.net/kitty/)
+    - [Zsh](https://www.zsh.org/) as shell with [syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) and autocompletion
 - menus: [rofi](https://github.com/lbonn/rofi) (lbonn's fork)
     - calculator: [rofi-calc](https://github.com/svenstaro/rofi-calc)
-- browser: Firefox, with custom css and [my startpage](https://github.com/ormai/NewTab)
+- browser: Firefox, with custom css, [Minimalist Gruvbox](https://github.com/canbeardig/MinimalistFox#minimalist-gruvbox) as theme and, [my startpage](https://github.com/ormai/NewTab)
 - text-editor: [neovim](https://neovim.io/)
 - notifications: [dunst](https://github.com/dunst-project/dunst)
 - file manager: [lf](https://github.com/gokcehan/lf), with [ctpv](https://github.com/NikitaIvanovV/ctpv) for previews
@@ -19,6 +20,17 @@ My [Arch Linux](https://wiki.archlinux.org/title/Arch_Linux) configuration based
 - btop as system monitor
 - mpd + ncmpcpp for music
 
-Themes:
+### Themes
+
 - GTK theme: [Gruvbox-GTK-Theme by Fausto-Korpsvart](https://github.com/Fausto-Korpsvart/Gruvbox-GTK-Theme) 
 - Telegram theme: [tdesktop-gruvbox-dark-medium](https://github.com/ttohin/tdesktop-gruvbox-dark-medium)
+
+### Focus mode
+
+The desktop can turn boring by just pressing <kbd>CTRL</kbd>+<kbd>B</kbd>. This is done by a simple script that toggles the bar and removes all the fancy Hyprland decorations.
+
+%% video, gif?
+
+## Hardware
+
+This setup runs on a Thinkpad T470 that I recently bought used.
