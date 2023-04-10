@@ -1,8 +1,11 @@
-source "$ZDOTDIR/environment"
-source "$ZDOTDIR/aliases"
-source "$ZDOTDIR/plugins/syntax-highlighting/zsh-syntax-highlighting.zsh"
-source "$ZDOTDIR/syntax-highlighting"
-source "$ZDOTDIR/fzf.zsh"
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $ZDOTDIR/highlighting.zsh
+
+source $ZDOTDIR/environment.zsh
+source $ZDOTDIR/aliases.zsh
+
+source $ZDOTDIR/fzf.zsh
+# source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 # Keybindings
 bindkey -s '^o' 'lfcd\n'
@@ -23,12 +26,12 @@ HISTFILE="$ZDOTDIR/history"
 setopt auto_cd
 
 # Autocompletion
-autoload -Uz compinit
-zstyle ':completion:*' menu select
-compinit
-setopt COMPLETE_ALIASES
-zstyle ':completion::complete:*' gain-privileges 1
-_comp_options+=(globdots)
+# autoload -Uz compinit
+# zstyle ':completion:*' menu select
+# compinit
+# setopt COMPLETE_ALIASES
+# zstyle ':completion::complete:*' gain-privileges 1
+# _comp_options+=(globdots)
 
 # Prompt
 PROMPT='%F{green}%~%f %F{red}%f ' 
@@ -41,18 +44,16 @@ PROMPT='%F{green}%~%f %F{red}%f '
 #zstyle ':vcs_info:*' enable git
 
 # Vi mode
-bindkey -v
-export KEYTIMEOUT=1
+# bindkey -v
+# export KEYTIMEOUT=1
 
 # Change cursor shape for different vi modes.
 function zle-keymap-select {
-  if [[ ${KEYMAP} == vicmd ]] ||
-     [[ $1 = 'block' ]]; then
+  if [[ ${KEYMAP} == vicmd ]] || [[ $1 = 'block' ]]; then
     echo -ne '\e[1 q'
-  elif [[ ${KEYMAP} == main ]] ||
-       [[ ${KEYMAP} == viins ]] ||
-       [[ ${KEYMAP} = '' ]] ||
-       [[ $1 = 'beam' ]]; then
+  elif [[ ${KEYMAP} == main ]] || [[ ${KEYMAP} == viins ]] ||
+      [[ ${KEYMAP} = '' ]] ||
+      [[ $1 = 'beam' ]]; then
     echo -ne '\e[5 q'
   fi
 }
