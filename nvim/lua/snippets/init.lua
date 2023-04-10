@@ -27,3 +27,4 @@ Parse = require("luasnip.util.parser").parse_snippet
 MS = LS.multi_snippet
 
 require("snippets.asm")
+require("snippets.all")

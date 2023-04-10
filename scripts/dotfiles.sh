@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# If the file in the repo seem weird to you...
+# Where do this file really come from?
 
 cp -f ~/.config/hypr/hyprland.conf ~/bench/dotfiles/hypr/
 cp -f ~/.config/nvim/init.lua ~/bench/dotfiles/nvim/
@@ -8,10 +8,9 @@ cp -rf ~/.config/nvim/lua ~/bench/dotfiles/nvim/
 cp -f ~/.config/kitty/kitty.conf ~/bench/dotfiles/kitty/
 cp -rf ~/.config/rofi/ ~/bench/dotfiles/
 cp -rf ~/.config/waybar/ ~/bench/dotfiles/
-cp -f ~/.config/zsh/zshenv ~/bench/dotfiles/zsh/
 cp -f ~/.config/zsh/.zshrc ~/bench/dotfiles/zsh/
-cp -f ~/.config/zsh/aliases ~/bench/dotfiles/zsh/
-cp -f ~/.config/zsh/environment ~/bench/dotfiles/zsh/
+cp -f ~/.config/zsh/aliases.zsh ~/bench/dotfiles/zsh/
+cp -f ~/.config/zsh/environment.zsh ~/bench/dotfiles/zsh/
 cp -f ~/.config/zsh/fzf.zsh ~/bench/dotfiles/zsh/
 cp -f ~/.config/zathura/zathurarc ~/bench/dotfiles/zathura/
 cp -f ~/.config/zathura/zathurarc ~/bench/dotfiles/zathura/

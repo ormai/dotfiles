@@ -1,5 +1,0 @@
-# This file is located in ~/.config/zsh/ and symbolically linked to /etc/zsh.
-# doas ln -s ~/.config/zsh/zshenv /etc/zsh/
-
-export ZDOTDIR=$HOME/.config/zsh
-source $ZDOTDIR/.zshrc
