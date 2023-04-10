@@ -3,12 +3,16 @@
   "id": "bar-0",
   "layer": "top",
   "position": "top",
-  "spacing": 5,
-  "margin": "5 5 3 5",
+  "spacing": 7,
+  "margin": "5 5 0 5",
   "height": 33,
   "modules-left": [ "idle_inhibitor", "backlight", "custom/pacman", "network", "bluetooth", "pulseaudio", "custom/microphone" , "mpd" ],
   "modules-center": [ "wlr/workspaces" ],
   "modules-right": [ "battery", "battery#bat2", "temperature", "cpu", "memory", "custom/weather", "clock" ],
+  "wlr/workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+  },
   "custom/microphone": {
     "exec": "waybar-microphone-indicator.sh",
     "format": "{}",
@@ -56,7 +60,7 @@
   },
   "mpd": {
     "format": "{stateIcon} {title} - {artist}",
-    "format-disconnected": "󰎊",
+    "format-disconnected": "󰎊 ",
     "format-stopped": " 栗",
     "max-length": 60,
     "tooltip-format": "{elapsedTime:%M:%S}/{totalTime:%M:%S}, Vol: {volume} %, Queue: {songPosition}/{queueLength}, Opts: {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}",
