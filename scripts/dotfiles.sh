@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Where do this file really come from?
+# If you are wondering were this files come from:
 
 cp -f ~/.config/hypr/hyprland.conf ~/bench/dotfiles/hypr/
 cp -f ~/.config/nvim/init.lua ~/bench/dotfiles/nvim/

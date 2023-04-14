@@ -8,7 +8,12 @@
 
 /* Hide ui elements */
 #tracking-protection-icon-container, #remote-control-box,
-#urlbar-search-button, #urlbar-label-box,
-#urlbar-go-button, #pageActionButton, #star-button-box {
+#urlbar-search-button, #urlbar-label-box, #reader-mode-button,
+#urlbar-go-button, #pageActionButton, #star-button-box, #identity-box {
     display: none;
+}
+
+/* Center url */
+#urlbar-input-container {
+    text-align: center;
 }
