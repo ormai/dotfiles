@@ -1,17 +1,17 @@
 * {
-  font-family: "Inconsolata Nerd Font";
-  font-weight: 700;
-  font-size: 17px;
+    font-family: "Inconsolata Nerd Font";
+    font-weight: 700;
+    font-size: 16px;
 }
 
 window#waybar { background: transparent; }
 
 /* Groups */
 .modules-right, .modules-left, .modules-center {
-  background-color: #282828;
-  border: 2px solid #7c6f64;
-  padding: 2px;
-  border-radius: 8px;
+    background-color: #282828;
+    border: 2px solid #7c6f64;
+    padding: 2px;
+    border-radius: 8px;
 }
 
 label, button { padding: 0 8px; }
@@ -24,10 +24,10 @@ tooltip label { color: #EBDBB2; text-shadow: none; border: none; }
 
 /* Per module customization. */
 #idle_inhibitor.activated { 
-  color: #3C3836;
-  background: #FABD2F;
-  border: none; 
-  border-radius: 5px;
+    color: #3C3836;
+    background: #FABD2F;
+    border: none; 
+    border-radius: 5px;
 }
 #idle_inhibitor { color: #FBF1C7; padding-right: 15px}
 #backlight { color: #EBDBB2; }
@@ -37,18 +37,18 @@ tooltip label { color: #EBDBB2; text-shadow: none; border: none; }
 #pulseaudio { color: #928374; }
 #custom-microphone { color: #7C6F64; }
 #custom-microphone.recording, #custom-microphone.recording-muted {
-  color: #FB4934; 
+    color: #FB4934; 
 }
 #mpd { color: #665c54 }
 #workspaces { background: transparent; }
 #workspaces button {
-  color: #928374;
-  margin: 0;
-  padding: 0 5px;
+    color: #928374;
+    margin: 0;
+    padding: 0 5px;
 }
 #workspaces button.active {
-  color: #282828;
-  background: #427b58;
+    color: #282828;
+    background: #427b58;
 }
 #workspaces button.active:hover { background: #689d6a; }
 #battery { color: #D65D0E; }
