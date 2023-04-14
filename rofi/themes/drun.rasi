@@ -2,10 +2,10 @@
 @import "vars"
 
 configuration {
-  font:                             "Inconsolata 14";
+  font:                             "Inconsolata Nerd Font 14";
   show-icons:                       false;
   icon-theme:                       "Papirus";
-  display-drun:                      "";
+  display-drun:                     "";
   drun-display-format:              "{name}";
   disable-history:                  false;
   hide-scrollbar:                   true;
@@ -25,10 +25,10 @@ window {
 }
 
 prompt {
-  padding:                          -9 20 0 0;
+  padding:                          -5 20 0 0;
   background-color:                 @transparent;
   text-color:                       @accent;
-  font:                             "Inconsolata NF 25";
+  font:                             "Inconsolata Nerd Font 20";
 }
 
 entry {

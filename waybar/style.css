@@ -1,7 +1,7 @@
 * {
-  font-family: "InconsolataGo Nerd Font";
+  font-family: "Inconsolata Nerd Font";
   font-weight: 700;
-  font-size: 16px;
+  font-size: 17px;
 }
 
 window#waybar { background: transparent; }
@@ -43,7 +43,7 @@ tooltip label { color: #EBDBB2; text-shadow: none; border: none; }
 #workspaces { background: transparent; }
 #workspaces button {
   color: #928374;
-  margin: 0 1px;
+  margin: 0;
   padding: 0 5px;
 }
 #workspaces button.active {

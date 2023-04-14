@@ -3,6 +3,7 @@
 # Simple script to toggle some Hyprland properties.
 
 turn_on() {
+  killall waybar
   hyprctl keyword general:gaps_in 0
   hyprctl keyword general:gaps_out 0
   hyprctl keyword decoration:rounding 0
@@ -13,6 +14,7 @@ turn_on() {
 }
 
 turn_off() {
+  waybar &
   hyprctl keyword general:gaps_in 3
   hyprctl keyword general:gaps_out 10
   hyprctl keyword decoration:rounding 5
@@ -26,7 +28,9 @@ main() {
   rounding=$(hyprctl getoptions decoration:rounding | rg int | \
     sed -e "s/[[:space:]]int: //")
 
-  pkill -SIGUSR1 waybar # Toggle waybar
+  # waybar can be toggled but I prefer to kill the process completely to save
+  # a little battery, even tough it takes some more milliseconds
+  #pkill -SIGUSR1 waybar
 
   if [[ $rounding == 5 ]]; then
     turn_on

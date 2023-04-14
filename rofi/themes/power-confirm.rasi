@@ -25,7 +25,7 @@ inputbar {
 }
 
 prompt {
-  font:                             "Inconsolata 20";
+  font:                             "Inconsolata Nerd Font 20";
   background-color:                 @bg-light;
   text-color:                       @fg;
   padding:                          10;
@@ -48,7 +48,7 @@ element {
 
 element-text {
   text-color:                       @fg-dimmed;
-  font:                             "Inconsolata 20";
+  font:                             "Inconsolata Nerd Font 20";
   horizontal-align:                 0.5;
   vertical-align:                   0.5;
   background-color:                 @transparent;
