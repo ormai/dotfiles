@@ -5,3 +5,10 @@
 @import url(snippets/prevent-tab-overflow.css);
 @import url(snippets/dim-pending-tabs.css);
 @import url(snippets/red-addressbar-insecure.css);
+
+/* Hide ui elements */
+#tracking-protection-icon-container, #remote-control-box,
+#urlbar-search-button, #urlbar-label-box,
+#urlbar-go-button, #pageActionButton, #star-button-box {
+    display: none;
+}
