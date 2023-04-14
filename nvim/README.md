@@ -28,3 +28,5 @@
       ├── 📄 asm.lua
       └── 📄 init.lua
 ```
+
+Hours spent editing this config: 14
