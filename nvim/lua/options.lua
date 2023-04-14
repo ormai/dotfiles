@@ -41,7 +41,7 @@ local options = {
   scrolloff = 10,                             -- line offset when scrolling
   sidescrolloff = 10,                         -- same but for line scroll
   foldmethod = "marker",                      -- folds are created by markers
-  spell = true,                               -- spell checking
+  spell = false,                               -- spell checking
   spelllang = { "it", "en" },
 }
 

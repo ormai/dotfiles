@@ -29,8 +29,8 @@ alias mv="mv -i"
 alias cp="cp -i"
 
 # exa
+alias ls="exa --icons"                       # LiSt
 alias le="exa -Blars modified --git --icons" # List Everything
-alias ll="exa --icons"                       # List Less
 alias lt="exa -T --icons"                    # List Tree
 
 #git
