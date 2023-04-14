@@ -26,12 +26,12 @@ HISTFILE="$ZDOTDIR/history"
 setopt auto_cd
 
 # Autocompletion
-# autoload -Uz compinit
-# zstyle ':completion:*' menu select
-# compinit
-# setopt COMPLETE_ALIASES
-# zstyle ':completion::complete:*' gain-privileges 1
-# _comp_options+=(globdots)
+autoload -Uz compinit
+zstyle ':completion:*' menu select
+compinit
+setopt COMPLETE_ALIASES
+zstyle ':completion::complete:*' gain-privileges 1
+_comp_options+=(globdots)
 
 # Prompt
 PROMPT='%F{green}%~%f %F{red}%f ' 

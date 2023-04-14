@@ -2,7 +2,7 @@
 @import "vars"
 
 configuration {
-  font:                             "Inconsolata 14";
+  font:                             "Inconsolata Nerd Font 14";
   dmenu-display-format:             "{name}";
   disable-history:                  false;
   hide-scrollbar:                   true;
@@ -31,7 +31,7 @@ prompt {
   padding:                          0 20 0 0;
   background-color:                 inherit;
   text-color:                       @accent;
-  font:                             "Inconsolata NF 15";
+  font:                             "Inconsolata Nerd Font 15";
 }
 
 entry {

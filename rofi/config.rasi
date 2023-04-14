@@ -4,7 +4,7 @@
 // Rofi defaults
 
 configuration {
-  font:                             "Inconsolata 14";
+  font:                             "Inconsolata Nerd Font 14";
   show-icons:                       false;
   disable-history:                  false;
   hide-scrollbar:                   true;

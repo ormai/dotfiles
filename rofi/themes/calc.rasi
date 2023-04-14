@@ -2,7 +2,7 @@
 @import "vars"
 
 configuration {
-  font:                             "Inconsolata 14";
+  font:                             "Inconsolata Nerd Font 14";
   display-calc:                     "";
   hide-scrollbar:                   true;
   disable-history:                  true;
@@ -37,10 +37,10 @@ inputbar {
 
 prompt {
   enabled:                          true;
-  padding:                          5 15;
+  padding:                          8 15 0 15;
   background-color:                 inherit;
   text-color:                       @accent;
-  font:                             "Inconsolata NF 25";
+  font:                             "Inconsolata NF 20";
 }
 
 entry {
