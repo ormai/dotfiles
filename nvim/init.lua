@@ -4,6 +4,8 @@
 --  | | | | | | | | | |_   _  | | | |_| | | (_| |
 --  |_| |_| |_| |_|  \__| (_) |_|  \__,_|  \__,_|-
 
+vim.loader.enable()
+
 require("keymaps") -- leader key is set before lazy
 require("options")
 
