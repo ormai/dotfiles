@@ -8,7 +8,7 @@ turn_on() {
   hyprctl keyword general:gaps_out 0
   hyprctl keyword decoration:rounding 0
   hyprctl keyword decoration:inactive_opacity 1
-  hyprctl keyword general:col.active_border "rgba(fbf9c7ff)"
+  # hyprctl keyword general:col.active_border "rgba(fbf9c7ff)"
   hyprctl keyword general:border_size 2
   notify-send -t 3000 "Focus mode ON"
 }
@@ -19,8 +19,8 @@ turn_off() {
   hyprctl keyword general:gaps_out 10
   hyprctl keyword decoration:rounding 5
   hyprctl keyword decoration:inactive_opacity 0.95
-  hyprctl keyword general:col.active_border "rgba(7c6f64ff)"
-  hyprctl keyword general:border_size 1
+  # hyprctl keyword general:col.active_border "rgba(7c6f64ff)"
+  hyprctl keyword general:border_size 2
   notify-send -t 3000 "Focus mode OFF"
 }
 
