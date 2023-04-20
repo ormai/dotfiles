@@ -13,10 +13,10 @@ k('n', '<C-k>', '<C-w>k', { silent = true, desc = '[] Go to top buffer' })
 k('n', '<C-l>', '<C-w>l', { silent = true, desc = '[] Go to right buffer' })
 
 -- Resize with arrows
-k('n', '<C-Up>', ':resize -2<CR>', { silent = true, desc = 'Reduce buffer height' })
-k('n', '<C-Down>', ':resize +2<CR>', { silent = true, desc = 'Increase buffer height' })
-k('n', '<C-Left>', ':vertical resize -2<CR>', { silent = true, desc = 'Reduce buffer width' })
-k('n', '<C-Right>', ':vertical resize +2<CR>', { silent = true, desc = 'Increase buffer width' })
+k('n', '<C-Up>', ':resize -2<CR>', { silent = true, desc = 'Reduce split height' })
+k('n', '<C-Down>', ':resize +2<CR>', { silent = true, desc = 'Increase split height' })
+k('n', '<C-Left>', ':vertical resize -2<CR>', { silent = true, desc = 'Reduce split width' })
+k('n', '<C-Right>', ':vertical resize +2<CR>', { silent = true, desc = 'Increase split width' })
 
 
 -- Move text up and down

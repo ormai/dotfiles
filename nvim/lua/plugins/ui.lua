@@ -105,7 +105,7 @@ return {
             require("tabline").setup { -- Tabline uses lualine's config for the major part
                 enabled = true,
                 options = {
-                    max_bufferline_percent = 66, -- set to nil by default, and it uses vim.o.columns * 2/3
+                    max_bufferline_percent = 100, -- set to nil by default, and it uses vim.o.columns * 2/3
                     show_tabs_always = false, -- doesn't word
                     show_devicons = true, -- this shows devicons in buffer section
                     show_filename_only = true, -- show just the filename instead of path
