@@ -20,8 +20,12 @@ cp -f ~/.config/ncmpcpp/bindings ~/bench/dotfiles/ncmpcpp/
 cp -rf ~/.config/lf/ ~/bench/dotfiles/
 cp -rf ~/.config/imv/ ~/bench/dotfiles/
 cp -f ~/.config/glava/bars.glsl ~/bench/dotfiles/glava/
-cp -rf ~/.mozilla/mario/chrome/* ~/bench/dotfiles/firefox
-cp -f ~/.local/bin/dotfiles.sh ~/bench/dotfiles/scripts
-cp -f ~/.local/bin/rofi-library.sh ~/bench/dotfiles/scripts
-cp -f ~/.local/bin/rofi-power.sh ~/bench/dotfiles/scripts
+cp -rf ~/.mozilla/mario/chrome/* ~/bench/dotfiles/firefox/
+cp -f ~/.local/bin/dotfiles.sh ~/bench/dotfiles/scripts/
+cp -f ~/.local/bin/rofi-library.sh ~/bench/dotfiles/scripts/
+cp -f ~/.local/bin/rofi-power.sh ~/bench/dotfiles/scripts/
 cp -f ~/.local/bin/hyprland_focus-mode.sh ~/bench/dotfiles/scripts/
+cp -f ~/.local/bin/lock.sh ~/bench/dotfiles/scripts/
+cp -f ~/.local/bin/idle.sh ~/bench/dotfiles/scripts/
+cp -f ~/.local/bin/waybar-weather-indicator.sh ~/bench/dotfiles/scripts/
+cp -f ~/.local/bin/panes.sh ~/bench/dotfiles/scripts/
