@@ -28,3 +28,4 @@ MS = LS.multi_snippet
 
 require("snippets.asm")
 require("snippets.all")
+require("snippets.markdown")
