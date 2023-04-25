@@ -8,8 +8,9 @@ turn_on() {
   hyprctl keyword general:gaps_out 0
   hyprctl keyword decoration:rounding 0
   hyprctl keyword decoration:inactive_opacity 1
-  # hyprctl keyword general:col.active_border "rgba(fbf9c7ff)"
-  hyprctl keyword general:border_size 2
+  hyprctl keyword decoration:blur false
+  hyprctl keyword decoration:drop_shadow false
+  hyprctl keyword general:col.active_border "rgba(fbf9c7ff)"
   notify-send -t 3000 "Focus mode ON"
 }
 
@@ -18,9 +19,10 @@ turn_off() {
   hyprctl keyword general:gaps_in 3
   hyprctl keyword general:gaps_out 10
   hyprctl keyword decoration:rounding 5
-  hyprctl keyword decoration:inactive_opacity 0.95
-  # hyprctl keyword general:col.active_border "rgba(7c6f64ff)"
-  hyprctl keyword general:border_size 2
+  hyprctl keyword decoration:inactive_opacity 0.8
+  hyprctl keyword decoration:blur true
+  hyprctl keyword decoration:drop_shadow true
+  hyprctl keyword general:col.active_border "rgb(fabd2f) rgb(8ec07c) 45deg"
   notify-send -t 3000 "Focus mode OFF"
 }
 
@@ -29,7 +31,7 @@ main() {
     sed -e "s/[[:space:]]int: //")
 
   # waybar can be toggled but I prefer to kill the process completely to save
-  # a little battery, even tough it takes some more milliseconds
+  # a little battery, even tough it takes some more milliseconds to start
   #pkill -SIGUSR1 waybar
 
   if [[ $rounding == 5 ]]; then
