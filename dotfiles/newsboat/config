@@ -1,0 +1,40 @@
+# vim: filetype=conf
+
+auto-reload yes
+download-full-page yes
+
+color background          white   default
+color listnormal          white   default
+color listfocus           white   yellow   bold
+color listnormal_unread   yellow  default bold
+color listfocus_unread    black  yellow  bold
+color title               color15 default bold
+color info                yellow  default   bold
+color hint-key            color14 default   bold
+color hint-keys-delimiter yellow  default
+color hint-separator      default default   invis
+color hint-description    color15 default
+color article             white   default
+
+highlight article "^(Feed|Link):.*$" color12 default bold
+highlight article "^(Title|Date|Author):.*$" red default bold
+highlight article "https?://[^ ]+" color2 default underline
+highlight article "\\[[0-9]+\\]" color6 default bold
+highlight article "\\[image\\ [0-9]+\\]" color13 default bold
+highlight feedlist "^─.*$" white white bold
+
+text-width 0
+
+bind-key j next
+bind-key k prev
+bind-key j down
+bind-key k up
+bind-key l open
+bind-key h quit
+bind-key u pageup
+bind-key d pagedown
+
+bind-key t toggle-article-read
+bind-key ^U show-urls
+
+browser "firefox %u"
