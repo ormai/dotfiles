@@ -28,4 +28,4 @@
 
 The desktop can turn boring by just pressing <kbd>CTRL</kbd>+<kbd>B</kbd>. This is done by a simple script that toggles the bar and removes all the fancy Hyprland decorations.
 
-![focus-mode](screenshot/focus-mode.png)
+![focus-mode](screenshots/focus-mode.png)
