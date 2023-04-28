@@ -7,7 +7,7 @@ return {
 
     keys = {
         {
-            "<leader><space>",
+            "<leader>tt",
             "<cmd>Telescope<CR>",
             desc = "Spawn Telescope"
         },
@@ -56,7 +56,7 @@ return {
             desc = "[T]elescope: [O]ld files"
         },
         {
-            "<leader>tb",
+            "<leader><space>",
             function() require('telescope.builtin').buffers() end,
             desc = "[T]elescope: change [B]uffer"
         },

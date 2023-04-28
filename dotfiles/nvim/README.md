@@ -22,7 +22,7 @@
    │  ├── 📄 telescope.lua
    │  ├── 📄 toggleterm.lua
    │  ├── 📄 tree-sitter.lua           -- Tresitter and its extensions
-   │  └── 📄 ui.lua                    -- Color scheme, status line and tabline
+   │  └── 📄 ui.lua                    -- Color scheme and status line
    └── 📂 snippets
       ├── 📄 asm.lua
       └── 📄 init.lua
