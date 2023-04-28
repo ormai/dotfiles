@@ -1,4 +1,4 @@
-<h1 style="text-align: center;">ormai/dotfiles</h1>
+<h1 align="center">ormai/dotfiles</h1>
 
 ![screenshot](screenshots/three-screens-28_04_2023.png)
 
@@ -28,4 +28,4 @@
 
 The desktop can turn boring by just pressing <kbd>CTRL</kbd>+<kbd>B</kbd>. This is done by a simple script that toggles the bar and removes all the fancy Hyprland decorations.
 
-%% video, gif?
+![focus-mode](screenshot/focus-mode.png)
