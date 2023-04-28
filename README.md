@@ -24,7 +24,7 @@
 - GTK theme: [Gruvbox-GTK-Theme by Fausto-Korpsvart](https://github.com/Fausto-Korpsvart/Gruvbox-GTK-Theme) 
 - Telegram theme: [tdesktop-gruvbox-dark-medium](https://github.com/ttohin/tdesktop-gruvbox-dark-medium)
 
-### Focus mode
+## Focus mode
 
 The desktop can turn boring by just pressing <kbd>CTRL</kbd>+<kbd>B</kbd>. This is done by a simple script that toggles the bar and removes all the fancy Hyprland decorations.
 
