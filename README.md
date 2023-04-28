@@ -12,7 +12,7 @@
 - menus: [rofi](https://github.com/lbonn/rofi) (lbonn's fork)
     - calculator: [rofi-calc](https://github.com/svenstaro/rofi-calc)
 - browser: Firefox, with custom css, [Minimalist Gruvbox](https://github.com/canbeardig/MinimalistFox#minimalist-gruvbox) as theme and, [my startpage](https://github.com/ormai/NewTab)
-- text-editor: [neovim](https://neovim.io/)
+- text-editor: [neovim](https://neovim.io/) (=> go to the [config](https://github.com/ormai/dotfiles/tree/main/dotfiles/nvim))
 - notifications: [dunst](https://github.com/dunst-project/dunst)
 - file manager: [lf](https://github.com/gokcehan/lf), with [ctpv](https://github.com/NikitaIvanovV/ctpv) for previews
 - [Obsidian](https://obsidian.md/) for notes
