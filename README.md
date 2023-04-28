@@ -1,12 +1,11 @@
 # dotfiles
 
-My [Arch Linux](https://wiki.archlinux.org/title/Arch_Linux) configuration based on Hyprland.
-
 %% screenshots
 
 ## Programs
 
-- compositor: [Hyprland](https://hyprland.org/)
+- Linux distribution: [Arch Linux](https://wiki.archlinux.org/title/Arch_Linux)
+- Wayland compositor: [Hyprland](https://hyprland.org/)
 - bar: [Waybar](https://github.com/Alexays/Waybar)
 - terminal: [kitty](https://sw.kovidgoyal.net/kitty/)
     - [Zsh](https://www.zsh.org/) as shell with [syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) and autocompletion
