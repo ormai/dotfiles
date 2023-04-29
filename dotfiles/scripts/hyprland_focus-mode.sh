@@ -10,7 +10,7 @@ turn_on() {
   hyprctl keyword decoration:inactive_opacity 1
   hyprctl keyword decoration:blur false
   hyprctl keyword decoration:drop_shadow false
-  hyprctl keyword general:col.active_border "rgba(fbf9c7ff)"
+  hyprctl keyword general:col.active_border "rgb(928374)"
   notify-send -t 3000 "Focus mode ON"
 }
 
