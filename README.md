@@ -29,3 +29,7 @@
 The desktop can turn boring by pressing <kbd>CTRL</kbd>+<kbd>B</kbd>. This is done by a simple [script](https://github.com/ormai/dotfiles/blob/main/dotfiles/scripts/hyprland_focus-mode.sh) that *kills* the bar and toggles some of Hyprland's decorations.
 
 ![focus-mode](screenshots/focus-mode.png)
+
+## Miscellaneous information
+
+This repository was created the 19/03/2023 and was made public the 29/04/2023.
