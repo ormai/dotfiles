@@ -1,5 +1,6 @@
 # vim:ft=conf
 
+# SETTINGS
 set preview on
 set previewer ctpv
 set cleaner ctpvclear
@@ -16,7 +17,7 @@ set autoquit on
 set timefmt "[2/03/2006 15:04:05]"
 set tabstop 2 
 
-# Mappings
+# KEYMAPS
 map A rename # at the very end
 map c push A<c-u> # new name
 map I push A<c-a> # at the very beginning
@@ -32,13 +33,12 @@ map u :{{
   unselect
 }}
 
-# Commands
-cmd dir %mkdir $1
-cmd new %touch $1
-cmd nvim %nvim $1
-cmd trash %set -f; mv "$f" $XDG_CACHE_HOME/trash
+# COMMANDS
+cmd dir %mkdir $1 # create new directory
+cmd new %touch $1 # create new file
+cmd trash %set -f; mv "$f" $XDG_CACHE_HOME/trash # send element to trash
 
-cmd extract ${{
+cmd extract ${{ # extract archive
     set -f
     case $f in
         *.tar.bz|*.tar.bz2|*.tbz|*.tbz2) tar xjvf $f;;
@@ -50,7 +50,7 @@ cmd extract ${{
     esac
 }}
 
-cmd tar ${{ # :tar archive
+cmd tar ${{ # create tar archive
     set -f
     mkdir $1
     cp -r $fx $1
@@ -58,7 +58,7 @@ cmd tar ${{ # :tar archive
     rm -rf $1
 }}
 
-cmd zip ${{ # :zip zipped
+cmd zip ${{ # create zip archive
     set -f
     mkdir $1
     cp -r $fx $1
