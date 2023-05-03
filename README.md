@@ -32,4 +32,4 @@ The desktop can turn boring by pressing <kbd>CTRL</kbd>+<kbd>B</kbd>. This is do
 
 ## Miscellaneous information
 
-This repository was created the 19/03/2023 and was made public the 29/04/2023.
+This repository was created on 19/03/2023 and was made public on 29/04/2023.
