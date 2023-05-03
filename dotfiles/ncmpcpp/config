@@ -1,4 +1,4 @@
-# vim: filetype=conf
+# vim:ft=conf
 
 ncmpcpp_directory = "~/.config/ncmpcpp"
 mpd_music_dir = "~/Music"
