@@ -1,11 +1,12 @@
 #!/bin/sh
 
-# If you are wondering were this files come from:
+# If you were wondering were this files come from
 
 cp -f ~/.config/hypr/hyprland.conf ~/bench/dotfiles/dotfiles/hypr/
 cp -f ~/.config/nvim/init.lua ~/bench/dotfiles/dotfiles/nvim/
 cp -rf ~/.config/nvim/lua ~/bench/dotfiles/dotfiles/nvim/
 cp -f ~/.config/kitty/kitty.conf ~/bench/dotfiles/dotfiles/kitty/
+cp -f ~/.config/kitty/gruvbox_dark.conf ~/bench/dotfiles/dotfiles/kitty/
 cp -rf ~/.config/rofi/ ~/bench/dotfiles/dotfiles/
 cp -rf ~/.config/waybar/ ~/bench/dotfiles/dotfiles/
 cp -f ~/.config/zsh/.zshrc ~/bench/dotfiles/dotfiles/zsh/
