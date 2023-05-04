@@ -21,11 +21,12 @@
    │  ├── 📄 smartcolumn.lua
    │  ├── 📄 telescope.lua
    │  ├── 📄 toggleterm.lua
-   │  ├── 📄 tree-sitter.lua           -- Tresitter and its extensions
-   │  └── 📄 ui.lua                    -- Color scheme and status line
+   │  ├── 📄 lualine.lua
+   │  ├── 📄 tresitter.lua
+   │  └── 📄 gruvbox.lua               -- Color scheme and status line
    └── 📂 snippets
       ├── 📄 asm.lua
       └── 📄 init.lua
 ```
 
-Hours spent editing neovim's config: 15
+h: 15
