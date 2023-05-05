@@ -23,10 +23,12 @@
    │  ├── 📄 toggleterm.lua
    │  ├── 📄 lualine.lua
    │  ├── 📄 tresitter.lua
-   │  └── 📄 gruvbox.lua               -- Color scheme and status line
+   │  └── 📄 gruvbox.lua               -- Color scheme
    └── 📂 snippets
+      ├── 📄 all.lua
       ├── 📄 asm.lua
-      └── 📄 init.lua
+      ├── 📄 init.lua
+      └── 📄 markdown.lua
 ```
 
 h: 15
