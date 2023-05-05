@@ -5,7 +5,7 @@ set recolor-keephue true                 # En/Disables keeping original hue when
 set recolor-reverse-video false          # Defines if original image colors should be kept while recoloring.
 set statusbar-home-tilde true            # Display a short version of the file path, which replaces $HOME with ~, in the statusbar.
 set vertical-center true                 # Center the screen at the vertical midpoint of the page by default.
-set font "InconsolataGO Nerd Font 14"    # Defines the font that will be used
+set font "Inconsolata Nerd Font 14"    # Defines the font that will be used
 set guioptions ""                        # Shows or hides GUI elements. [ c (command line), s (statusbar), h (horizontal scrollbar), v (vertical scrollbar)].
 set statusbar-h-padding 10               # Defines the horizontal padding of the statusbar and notificationbar
 set statusbar-v-padding 3                # Defines the vertical padding of the statusbar and notificationbar
@@ -30,7 +30,7 @@ set render-loading-bg "#282828"          # Defines the background color that is 
 set render-loading-fg "#EBDBB2"          # Defines the foreground color that is used for the "Loading..." text.
 set default-fg "#EBDBB2"                 # Defines the default foreground color
 set default-bg "#282828"                 # Defines the default background color
-set font "InconsolataGO Nerd Font 14"    # Defines the font that will be used
+set font "Inconsolata Nerd Font 14"    # Defines the font that will be used
 # inputbar
 set inputbar-bg "#3C3836"
 set inputbar-fg "#FBF1C7"
