@@ -19,6 +19,10 @@
 - btop as system monitor
 - mpd + ncmpcpp for music
 
+The wallpaper is managed by [swaybg](https://github.com/swaywm/swaybg) which picks an image *randomly* from a folder.
+
+For the session management [swayidle](https://github.com/swaywm/swayidle) and [swaylock](https://github.com/swaywm/swaylock), which also uses a random image as wallpaper, as configured in [lock.sh](https://github.com/ormai/dotfiles/blob/main/dotfiles/scripts/lock.sh)
+
 ### Themes
 
 - GTK theme: [Gruvbox-GTK-Theme by Fausto-Korpsvart](https://github.com/Fausto-Korpsvart/Gruvbox-GTK-Theme) 
@@ -30,6 +34,8 @@ The desktop can turn boring by pressing <kbd>CTRL</kbd>+<kbd>B</kbd>. This is do
 
 ![focus-mode](screenshots/focus-mode.png)
 
-## Miscellaneous information
+## About
 
 This repository was created on 19/03/2023 and was made public on 29/04/2023.
+
+[r/unixporn post](https://www.reddit.com/r/unixporn/comments/136xdb0/hyprland_my_daily_driver/) (03/05/2023)
