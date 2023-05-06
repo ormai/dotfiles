@@ -9,15 +9,9 @@ file=$(
     rofi -dmenu -i -matching normal -p "" $rofi_theme \
 )
 
-if [[ $file ]]; then
-    if [[ $file == *.epub ]]; then
-        # Terminal ebook reader
-        # https://github.com/wustho/epy
-        $TERM epy $library/"$file"
-        exit 0
-    else
-        zathura $library/"$file"
-        exit 0
-    fi
+# Open the file only if it exists
+if [[ -e $file ]]; then
+    zathura $library/"$file"
+    exit 0
 fi
 exit 1
