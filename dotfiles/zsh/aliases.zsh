@@ -2,8 +2,8 @@
 
 alias sudo="doas "
 alias doas="doas "
+alias find="fd"
 alias grep="rg"
-alias cat="cat"
 
 alias rz="source $ZDOTDIR/.zshrc"
 
@@ -22,6 +22,8 @@ alias mw="monero-wallet-cli --wallet-file ~/.bitmonero/xmrwlt"
 
 alias hide="mv ~/vault/collections/ml.md ~/vault/collections/.ml.md"
 alias show="mv ~/vault/collections/.ml.md ~/vault/collections/ml.md"
+
+alias neofetch="neofetch --kitty  ~/Pictures/arch.png --size 280px --xoffset 2"
 
 # safety
 alias rm="rm -i"
