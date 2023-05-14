@@ -49,7 +49,7 @@ end
 k("n", "dd", enhanced_dd, { noremap = true, expr = true } );
 
 --- ToggleTerm
-k("n", "<leader>p", ":TermExec cmd='python '%:.'<CR>", { desc = "Run the current file as a Python script" })
+k("n", "<leader>p", ":TermExec cmd='python %:.'<CR>", { desc = "Run the current file as a Python script" })
 k("n", "<leader>a", ":TermExec cmd='asm run %:.'<CR>", { desc = "Assembly and run the current file" })
 
 function _G.set_terminal_ks()

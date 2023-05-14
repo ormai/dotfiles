@@ -90,11 +90,12 @@ return {
                 enable = true,
                 extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
                 colors = {
-                    "#789d6a", -- Level 1
-                    "#98971a",
-                    "#d79921",
-                    "#d65d0e",
-                    "#cc241d", -- Level 5
+                    "#83A598", -- Level 1
+                    "#8ec07c",
+                    "#b8bb26",
+                    "#fabd2f",
+                    "#f38019",
+                    "#fb4934", -- Level 6
                 },
             },
         }

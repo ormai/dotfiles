@@ -1,4 +1,6 @@
 local servers = { -- configured servers
+    "tsserver",
+    "eslint",
     "clangd",
     "pyright",
     "lua_ls",
