@@ -39,7 +39,7 @@ local options = {
     wrap = false,                               -- nowrap
 
     scrolloff = 10,                             -- line offset when scrolling
-    sidescrolloff = 10,                         -- same but for line scroll
+    sidescrolloff = 2,                          -- same but for line scroll
     foldmethod = "marker",                      -- folds are created by markers
     spell = false,                               -- spell checking
     spelllang = { "it", "en" },

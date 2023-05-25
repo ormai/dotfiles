@@ -27,7 +27,7 @@ map a push A<a-b> # after extention
 map Y $printf "%s" "$fx" | wl-copy # yank the path
 map <enter> shell
 map t trash
-map x delete
+# map x delete # too dangerous
 map u :{{
   clear
   unselect
