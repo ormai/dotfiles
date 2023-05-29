@@ -2,8 +2,6 @@
 
 alias sudo="doas "
 alias doas="doas "
-alias find="fd"
-alias grep="rg"
 
 alias rz="source $ZDOTDIR/.zshrc"
 
