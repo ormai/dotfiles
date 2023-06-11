@@ -17,17 +17,12 @@ return {
             { buffer = bufnr, desc = "[T]elescope: go to [R]eference" }
         },
         {
-            "<leader>ty",
+            "<leader>ts",
             function() require('telescope.builtin').lsp_document_symbols() end,
-            { buffer = bufnr, desc = "[T]elescope: show local s[Y]mbols" }
+            { buffer = bufnr, desc = "[T]elescope: show local [S]ymbols" }
         },
         {
-            "<leader>tm",
-            function() require('telescope.builtin').lsp_document_symbols() end,
-            { buffer = bufnr, desc = "[T]elescope: show global sy[M]bols" }
-        },
-        {
-            "<leader>tf",
+            "<leader><space>",
             function() require('telescope.builtin').find_files() end,
             desc = "[T]elescope: search [F]iles"
         },
@@ -49,16 +44,17 @@ return {
         {
             "<leader>td",
             function() require('telescope.builtin').diagnostics() end,
-            desc = "[T]elescope: [D]iagnostics" },
+            desc = "[T]elescope: [D]iagnostics"
+        },
         {
             "<leader>to",
             function() require('telescope.builtin').oldfiles() end,
             desc = "[T]elescope: [O]ld files"
         },
         {
-            "<leader><space>",
+            "<leader><tab>",
             function() require('telescope.builtin').buffers() end,
-            desc = "[T]elescope: change [B]uffer"
+            desc = "Telescope: change buffer"
         },
         {
             "<leader>tk",
@@ -66,7 +62,7 @@ return {
             desc = "[T]elescope: find [K]eymaps"
         },
         {
-            "<leader>tl",
+            "<leader>/",
             function()
                 require('telescope.builtin').current_buffer_fuzzy_find(
                     require("telescope.themes").get_dropdown {
@@ -74,7 +70,7 @@ return {
                         previewer = false,
                     }
                 ) end,
-            desc = "[Telescope]: go to [L]ine"
+            desc = "Telescope: fuzzy find in buffer"
         },
     },
 
