@@ -11,7 +11,7 @@ set shell sh
 set shellopts '-eu'
 set ifs "\n"
 set scrolloff 10
-set icons on
+set icons
 set dircounts on
 set autoquit on
 set timefmt "[2/03/2006 15:04:05]"
@@ -36,7 +36,7 @@ map u :{{
 # COMMANDS
 cmd dir %mkdir $1 # create new directory
 cmd new %touch $1 # create new file
-cmd trash %set -f; mv "$f" $XDG_CACHE_HOME/trash # send element to trash
+cmd trash %set -f; mv -f "$f" $XDG_CACHE_HOME/trash && mv -f # send element to trash
 
 cmd extract ${{ # extract archive
     set -f
