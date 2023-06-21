@@ -7,7 +7,7 @@
   fg:                              #FBF1C7;
   fg-dimmed:                       #A89984;
   accent:                          #8EC07C;
-  border:                          #8ec07c;
+  border:                          #8EC07c;
   red:                             #FB4934;
 
   bordrad:                         5px;
