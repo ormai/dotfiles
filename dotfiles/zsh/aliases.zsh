@@ -17,11 +17,14 @@ alias sputifai="(pgrep mpd > /dev/null || mpd) && ncmpcpp"
 alias night="gammastep -qq -l 39.4:16.3 -b 1:0.8 -m wayland -t 6500:3500 &"
 alias mw="monero-wallet-cli --wallet-file ~/.bitmonero/xmrwlt"
 
+alias camera="ffplay rtsp://admin:marioMARIO04@192.168.1.3:554/onvif2"
 
 alias hide="mv ~/vault/collections/ml.md ~/vault/collections/.ml.md"
 alias show="mv ~/vault/collections/.ml.md ~/vault/collections/ml.md"
 
 alias neofetch="neofetch --kitty  ~/Pictures/arch.png --size 280px --xoffset 2"
+
+alias ssh="kitty +kitten ssh"
 
 # safety
 alias rm="rm -i"
