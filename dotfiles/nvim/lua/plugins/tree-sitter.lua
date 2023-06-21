@@ -6,7 +6,9 @@ local filetypes = {
     "cpp",
     "html",
     "css",
-    "javascript"
+    "javascript",
+    "markdown",
+    "markdown_inline",
 }
 
 return {
@@ -30,7 +32,10 @@ return {
         require("nvim-treesitter.configs").setup {
             auto_install = true,
             ensure_installed = filetypes,
-            highlight = { enable = true },
+            highlight = {
+                enable = true,
+                additional_vim_regex_highlighting = { "markdown" },
+            },
             indent = { enable = true, },
             incremental_selection = {
                 enable = true,
