@@ -66,8 +66,8 @@ return {
             function()
                 require('telescope.builtin').current_buffer_fuzzy_find(
                     require("telescope.themes").get_dropdown {
-                        winblend = 30,
-                        previewer = false,
+                        -- winblend = 0,
+                        previewer = true,
                     }
                 ) end,
             desc = "Telescope: fuzzy find in buffer"

@@ -15,6 +15,7 @@ return {
                 "man",
                 "text",
                 "asm",
+                "yuck",
             }
         }
     end
