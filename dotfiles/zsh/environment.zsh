@@ -10,7 +10,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_SCREENSHOTS_DIR="$HOME/Pictures/Screenshots"
-export PATH="$PATH:$HOME/.local/bin:/usr/local/go/bin:$HOME/.local/share/cargo/bin"
+export PATH="$PATH:$HOME/.local/bin:$HOME/.local/scripts:/usr/local/go/bin:$HOME/.local/share/cargo/bin"
 export XCURSOR_PATH="${XCURSOR_PATH}:~/.local/share/icons"
 export GSETTINGS_SCHEMA_DIR="/usr/share/glib-2.0/schemas"
 
@@ -45,6 +45,7 @@ export GOPATH="$XDG_DATA_HOME/go"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export HOME_ETC="$XDG_CONFIG_HOME"
 export NODE_REPL_HISTORY="$XDG_CACHE_HOME/node_repl_history"
+export NODE_PATH="$XDG_DATA_HOME/node_modules"
 
 # Firefox
 export MOZ_DBUS_REMOTE=1
@@ -56,6 +57,3 @@ export QT_QPA_PLATFORM="wayland;xcb"
 export SDL_VIDEODRIVER="wayland"
 export XDG_CURRENT_DESKTOP="Hyprland"
 dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-
-# Locale config
-unset LANG && source /etc/profile.d/locale.sh

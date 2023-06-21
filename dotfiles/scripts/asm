@@ -1,0 +1,151 @@
+#!/usr/bin/bash
+# This script helps with working with aarch64 assembly.
+# Author: Mario D'Andrea <goffredo2004@gmail.com>
+# Depends on:
+# - sed
+# - binutils-aarch64-linux-gnu (aarch64-linux-gnu-gcc for pacman)
+# - qemu-user-binfmt (qemu-user for pacman)
+
+r="\e[0;31m\033[1m"
+b="\e[0;34m\033[1m"
+g="\e[0;36m\033[1m"
+m="\e[0;35m\033[1m"
+y="\e[0;33m"
+w="\e[0;37m"
+
+# Get the arguments
+comm=$1
+commands=("run" "exe" "dis" "gdb" "help")
+if [[ ! " ${commands[*]} " =~ " ${comm} " ]] ; then 
+    printf "${b}asm${g} [run, exe, dis, gdb, help]\n"
+    exit 1
+fi
+
+flags=("-s" "-t" "-d" "-D" "-k")
+if [[ $3 && " ${flags[*]} " =~ " ${2} " ]] ; then
+    flag="$2"
+    file="$3"
+else
+    t=$(echo $2 | sed -n "/^-/p")
+    if [[ $t ]]; then
+        flag=$2
+        file=""
+    else
+        flag=""
+        file=$2
+    fi
+fi
+
+no_ext=$(echo $file | sed -e "s/.s$//")
+
+function main {
+    case $comm in
+        run)
+            assembly_and_execute
+            ;;
+        exe)
+            execute
+            ;;
+        dis)
+            disassembly
+            ;;
+        gdb)
+            debug
+            ;;
+        help)
+            print_help
+            ;;
+    esac
+}
+
+function debug {
+    if [[ ! "$file" ]] ; then
+        printf "${b}asm${g} gdb${w} file.s\n"
+        exit 1
+    fi
+
+    if [[ $(whoami) == "osboxes" ]]; then # if we are on THE virtualmachine:
+        # on debian
+        pkill gdb-multiarch
+        aarch64-linux-gnu-gcc -static -o $no_ext -g $file
+        xfce4-terminal --hold -e "qemu-aarch64 -singlestep -g 1234 $no_ext"
+        gdb-multiarch -tui -ex "file $no_ext" \
+        -ex "target remote :1234" -ex "layout regs"
+        exit 0
+    fi
+
+    pkill aarch64-linux-gnu-gdb
+    aarch64-linux-gnu-gcc -static -o $no_ext -g $file
+    kitty --hold -e qemu-aarch64 -singlestep -g 1234 $no_ext &
+    aarch64-linux-gnu-gdb -tui -ex "file $no_ext" \
+        -ex "target remote :1234" -ex "layout regs"
+    exit 0
+}
+
+function disassembly {
+    dis_flags=("-s" "-t" "-d" "-D")
+    if [[ ! " ${dis_flags[*]} " =~ " ${flag} " ]] ; then 
+        printf "${b}asm ${g}dis${y} [-s, -t, -d, -D]${w} file.s\n"
+        exit 1
+    fi
+    aarch64-linux-gnu-gcc -c $file && \
+        aarch64-linux-gnu-objdump $flag "$no_ext.o" && \
+        \rm -f "$no_ext.o"
+    exit 0
+}
+
+function assembly_and_execute {
+    if [[ ! "$file" ]] ; then
+        printf "${b}asm${g} run${w} file.s\n"
+        exit 1
+    fi
+    aarch64-linux-gnu-gcc -static -o $no_ext $file && qemu-aarch64 $no_ext
+
+    if [[ $flag == "-k" ]] ; then
+        exit 0
+    elif [[ -e $no_ext ]] ; then
+        \rm -f "$no_ext"
+    fi
+    \rm -rf *.core # remove .core qemu files to keep the directory clean
+    exit 0
+}
+
+function execute {
+    if [[ ! $file ]] ; then
+          printf "${b}asm${g} exe${w} file.s\n"
+          exit 1
+    fi
+    qemu-aarch64 $file
+    \rm -rf *.core
+    exit 0
+}
+
+function print_help {
+    printf "\n${r}  Questo script rende più facile lavorare con aarch64 assembly.\n
+  ${w}Per vedere i comandi supportati esegui ${b}asm${w}. Comandi supportati:\n
+  ${g}run${w}: assembla ed esegue partendo dal codice sorgente. Ha bisogn di un ${y}file sorgente
+       ${w}come argomento. Normalmente il file eseguibile prodotto viene eliminato. Ciò può
+       essere evitato usando l'opzione ${y}-k${w} (keep).\n
+       ${r}Esempi${w}:
+\t\t${b}asm ${g}run${w} file.s
+\t\t${b}asm ${g}run${w} ${y}-k${w} file.s\n
+  ${g}exe${w}: esegue un file binario. Ha bisogno di un${y} file eseguibile${w} come argomento.\n
+       ${r}Esempio${w}:\t${b}asm ${g}exe${w} binary\n
+  ${g}dis${w}: effettua il disassemblaggio. Ha bisogno di un ${y}file sorgente${w} e di una ${y}flag${w} come
+       argomenti.\n
+       Flags:
+\t\t${y}-s${w} stampa il contenuto completo di ogni sezione.
+\t\t${y}-t${w} stampa la ${y}symbol table${w}.
+\t\t${y}-d${w} disassembla, ovvero mostra la traduzione in linguaggio macchina.
+\t\t${y}-D${w} disassembla tutto, anche le sezioni prive di istruzioni.\n
+       ${r}Esempio${w}:\t${b}asm ${g}dis${y} -s${w} file.s${w}\n
+  ${g}gdb${w}: fa partire una sessione di debug in due fineste di terminale.
+       Ha bisogno di un ${y}file sorgente${w}.
+
+       ${r}Esempio${w}:\t${b}asm ${g}gdb${w} file.s
+
+  ${g}help${w}: mostra questo messaggio.\n\n"
+  exit 0
+}
+
+main

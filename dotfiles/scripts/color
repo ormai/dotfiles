@@ -1,0 +1,49 @@
+#!/bin/bash
+# Author: Mario D'Andrea <goffredo2004@gmail.com>
+# This script manages the systemwide color scheme configuration.
+# When the script is called without any argument it checks if the current time
+# resides in a predecided interval and sets the mode accordingly.
+#   $ color
+# A mode can be specified so that the theme is set manually:
+#   $ color dark
+#   $ color light
+# To save up on performance, if the mode is already it won't be set again.
+#
+# The current mode is stored and read from a file
+FILE="/tmp/color.txt"
+[[ ! -a $FILE ]] && touch $FILE
+mode=$( < $FILE )
+
+function dark {
+    if [[ $mode != "dark" ]]; then
+        echo "dark" > $FILE
+        gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+        gsettings set org.gnome.desktop.interface gtk-theme Gruvbox-Dark-BL
+        kitty +kitten themes --reload-in=all Gruvbox Dark
+        notify-send -t 2000 "Dark mode enabled"
+    fi
+}
+
+function light {
+    if [[ $mode != "light" ]]; then
+        echo "light" > $FILE
+        gsettings set org.gnome.desktop.interface gtk-theme Gruvbox-Light
+        gsettings set org.gnome.desktop.interface color-scheme prefer-light
+        #kitty +kitten themes --reload-in=all Gruvbox Light Hard
+        notify-send -t 2000 "Light mode enabled"
+    fi
+}
+
+case "$1" in
+    dark ) dark && exit 0 ;;
+    light ) light && exit 0 ;;
+    * ) # update the theme automatically
+        DAWN=05
+        SUNSET=20
+        now=$(date +%H)
+
+        # If it is day, set light, otherwise set dark.
+        [[ ${now#0} -gt $DAWN && ${now#0} -lt $SUNSET ]] && light || dark
+        exit 0
+    ;;
+esac
