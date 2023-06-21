@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 TRANSPARENT=00000000
 BG="282828"

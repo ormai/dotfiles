@@ -1,6 +1,6 @@
 #!/bin/bash
 
-library="$HOME/vault/library/books" # There are only pdfs, epubs, and djvus in here
+library="$HOME/library/books" # There are only pdfs, epubs, and djvus in here
 cd $library
 rofi_theme="-theme ~/.config/rofi/themes/library.rasi"
 

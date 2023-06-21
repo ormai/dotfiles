@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 temp=$( curl --no-progress-meter "https://www.3bmeteo.com/meteo/luzzi"  | sed -n "/tattuale/p" | sed -e "s/ 'tattuale': '//" | sed -e "s/[[']....*[]']*//g")
 weatherCondition=$(curl --no-progress-meter "wttr.in/Luzzi?format=%c\n" | sed -e "s/ //g")
