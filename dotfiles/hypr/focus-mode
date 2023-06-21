@@ -11,7 +11,7 @@ turn_on() {
     hyprctl keyword decoration:blur false
     hyprctl keyword decoration:drop_shadow false
     hyprctl keyword general:col.active_border "rgb(928374)"
-    notify-send -t 3000 "Focus mode ON"
+    notify-send -t 3000 "Focus mode enabled"
 }
 
 turn_off() {
@@ -23,7 +23,7 @@ turn_off() {
     hyprctl keyword decoration:blur true
     hyprctl keyword decoration:drop_shadow true
     hyprctl keyword general:col.active_border "rgb(fabd2f) rgb(8ec07c) 45deg"
-    notify-send -t 3000 "Focus mode OFF"
+    notify-send -t 3000 "Focus mode disabled"
 }
 
 main() {

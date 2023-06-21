@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# If you were wondering were this files come from
+
+dest=~/bench/dotfiles/dotfiles/
+cpdir="/usr/bin/cp -r"
+copy="/usr/bin/cp"
+
+$cpdir ~/.local/scripts $dest
+$cpdir ~/.config/hypr $dest
+$cpdir ~/.config/waybar $dest
+$cpdir ~/.config/nvim $dest
+$cpdir ~/.config/kitty $dest
+$cpdir ~/.config/rofi $dest
+$cpdir ~/.config/zathura $dest
+$cpdir ~/.config/newsboat  $dest
+$cpdir ~/.config/ncmpcpp $dest
+$cpdir ~/.config/lf $dest
+$cpdir ~/.config/imv $dest
+$cpdir ~/.mozilla/mario/chrome/* $dest/firefox
+
+$copy ~/.config/glava/bars.glsl $dest/glava
+$copy ~/.config/imv/config $dest/imv
+
+$copy ~/.config/zsh/.zshrc $dest/zsh/
+$copy ~/.config/zsh/aliases.zsh $dest/zsh/
+$copy ~/.config/zsh/environment.zsh $dest/zsh/
+$copy ~/.config/zsh/fzf.zsh $dest/zsh/
