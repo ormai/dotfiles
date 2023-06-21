@@ -6,7 +6,7 @@
     "spacing": 7,
     "margin": "5 5 0 5",
     "height": 33,
-    "modules-left": [ "idle_inhibitor", "backlight", "custom/pacman", "network", "bluetooth", "pulseaudio", "custom/microphone" , "mpd" ],
+    "modules-left": [ "idle_inhibitor", "backlight", "custom/pacman", "network", "bluetooth", "pulseaudio", "mpd" ],
     "modules-center": [ "wlr/workspaces" ],
     "modules-right": [ "battery", "battery#bat2", "temperature", "cpu", "memory", "custom/weather", "clock" ],
     "wlr/workspaces": {
@@ -15,7 +15,7 @@
         "sort-by-number": true,
     },
     "custom/microphone": {
-        "exec": "waybar-microphone-indicator.sh",
+        "exec": "~/.config/waybar/microphone",
         "format": "{}",
         "interval": 2
     },
@@ -129,7 +129,7 @@
     },
     "custom/weather": {
         "interval": 600,
-        "exec": "waybar-weather-indicator.sh",
+        "exec": "~/.config/waybar/weather",
         "exec-if": "ping wttr.in -c 1",
         "format": "{}",
         "on-click": "$BROWSER 'https://www.3bmeteo.com/meteo/luzzi'",
