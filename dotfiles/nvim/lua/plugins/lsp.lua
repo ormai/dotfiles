@@ -1,14 +1,11 @@
 local servers = { -- configured servers
     "tsserver",
-    "eslint",
     "clangd",
     "pyright",
     "lua_ls",
     "cssls",
     "html",
     "bashls",
-    "asm_lsp",
-    "zk",
 }
 
 return {
@@ -74,8 +71,6 @@ return {
                 vim.lsp.buf.format or vim.lsp.buf.formatting,
                 { desc = "Format current buffer with LSP" })
         end
-
-        require'lspconfig'.zk.setup{}
 
         local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
