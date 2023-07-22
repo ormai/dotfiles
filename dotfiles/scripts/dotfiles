@@ -17,6 +17,7 @@ $cpdir ~/.config/newsboat  $dest
 $cpdir ~/.config/ncmpcpp $dest
 $cpdir ~/.config/lf $dest
 $cpdir ~/.config/imv $dest
+$cpdir ~/.config/gammastep $dest
 $cpdir ~/.mozilla/mario/chrome/* $dest/firefox
 
 $copy ~/.config/glava/bars.glsl $dest/glava

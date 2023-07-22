@@ -37,6 +37,12 @@ function light {
 case "$1" in
     dark ) dark && exit 0 ;;
     light ) light && exit 0 ;;
+    period-changed) # gammastep hook
+        case "$3" in
+            night) dark ;;
+            daytime) light ;;
+        esac
+        ;;
     * ) # update the theme automatically
         DAWN=05
         SUNSET=20
