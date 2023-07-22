@@ -33,7 +33,7 @@ local options = {
     updatetime = 250,                           -- (ms) time to save swap file
 
     expandtab = true,                           -- convert tabs to spaces
-    tabstop = 4,                                -- insert 2 spaces for a tab
+    tabstop = 4,                                -- insert 4 spaces for a tab
     shiftwidth = 4,                             -- size of indentation
     relativenumber = false,
     wrap = false,                               -- nowrap

@@ -23,6 +23,7 @@ return {
                 completion = {
                     nvim_cmp = true,
                 },
+                disable_frontmatter = true,
                 templates = {
                     subdir = "meta/syntax/templates",
                     date_format = "%d-%m-%Y",
