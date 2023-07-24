@@ -10,9 +10,10 @@
 /* Hide ui elements */
 #tracking-protection-icon-container, #remote-control-box,
 #urlbar-search-button, #urlbar-label-box,
-#urlbar-go-button, #star-button-box, #identity-box {
-    display: none;
-}
+#urlbar-go-button, #star-button-box, #identity-box,
+.unified-extensions-item-message,
+.titlebar-buttonbox-container .titlebar-buttonbox {
+    display: none !important; }
 
 /* Center url */
 #urlbar-input-container {
