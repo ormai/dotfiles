@@ -1,0 +1,156 @@
+$bg-el: #282828;
+$bg: #1d2021;
+$radius-el: 0.5em;
+$spacing: 1em;
+$fg: #ebdbb2;
+$bg-active: #3c3836;
+$light-aqua: #8ec07c;
+
+* {
+    font-family: Inconsolata;
+    font-size: 15px;
+}
+
+button {
+    background: none;
+    border-radius: $radius-el;
+}
+
+.dashboard {
+    background: $bg;
+    border-radius: 1em;
+    border: 2px solid #3c3836;
+}
+
+.calendar {
+    font-size: 1.2em;
+    font-weight: 500;
+    background: $bg-el;
+    border-radius: $radius-el;
+    border: none;
+
+    calendar {
+        padding: 0.3em;
+
+        color: $fg;
+
+        &.button {
+            color: $fg;
+
+            &:hover {
+                background-color: $bg-active;
+            }
+        }
+
+        &:selected {
+            color: $light-aqua;
+            text-shadow: 0 0 3px lighten($color: $light-aqua, $amount: 5%);
+            border-radius: 1rem
+        }
+
+        &.header {
+            background-color: transparent;
+            border: none;
+        }
+
+        &.highlight {
+            color: #bdae93;
+        }
+
+        &:indeterminate {
+            color: #504945;
+        }
+    }
+}
+
+.controls {
+    padding: 0 $spacing;
+
+    & button {
+        padding: 0;
+    }
+
+    .brightnessBar trough highlight {
+        background: #458588;
+    }
+    .volumeBar trough highlight {
+            background: #b8bb26;
+    }
+    .micVolumeBar trough highlight {
+        background: #fb4934;
+    }
+}
+
+scale {
+    padding: 0 0.8em;
+
+    & trough {
+        all: unset;
+        min-height: 0.6em;
+        border-radius: 0.5em;
+        background: #383c36;
+
+        & slider {
+            box-shadow: none;
+            background: transparent;
+        }
+
+        & highlight {
+            all: unset;
+            border-radius: 0.5em;
+        }
+    }
+}
+
+.pacman {
+    margin: $spacing  0  $spacing $spacing;
+    background: $bg-el;
+}
+.weather {
+    margin: 0 1.5em;
+    background: $bg-el;
+}
+
+.session {
+    padding: $spacing;
+
+    .text {
+        padding: $spacing;
+    }
+
+    .whoami {
+        font-size: 2em;
+    }
+
+    .uptime {
+        font-size: 1em;
+    }
+}
+
+.connections {
+    & button {
+        margin: 2.5em 0;
+        background: $bg-el;
+    }
+}
+
+.time { font-size: 4em; }
+.dateTime { padding: $spacing; }
+
+.system {
+    margin: $spacing;
+}
+
+label {
+    font-size: 1.5em;
+    color: $fg;
+}
+
+circular-progress {
+    background: #3c3836;
+}
+
+.cpu  { color: $light-aqua; }
+.ram  { color: #d3869b; }
+.disk { color: #fabd2f; }
+.bat  { color: #fe8019; }
