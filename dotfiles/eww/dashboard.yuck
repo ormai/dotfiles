@@ -1,0 +1,272 @@
+(defvar image-big "50")
+(defvar image-small "30")
+
+(defwindow dashboard :monitor 0
+                     :stacking "overlay"
+                     :geometry (geometry :anchor "center right"
+                                         :x "3%"
+                                         :width "28%"
+                                         :height "68%")
+    (box :orientation "v" :space-evenly false
+        (box :orientation "v" :space-evenly false
+            (dateTime)
+            (box :orientation "h"
+                :space-evenly false
+                (pacman)
+                (controls))
+            (system)
+            (box :orientation "h"
+                 :valign "end"
+                 :halign "fill"
+                 :space-evenly false
+                (session)
+                (connections)))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defpoll temperature :interval "10s"
+    `curl --no-progress-meter "https://www.3bmeteo.com/meteo/luzzi" \
+        | rg tattuale | cut -d " " -f 3 | cut -d "'" -f 2`)
+
+(deflisten weatherIcon :initial "./images/weather/rainbow.svg"
+    `./weather.sh`)
+
+(defwidget weather []
+    (button :onclick "$BROWSER https://www.3bmeteo.com/meteo/luzzi &"
+            :class "weather"
+        (box :orientation "h"
+             :space-evenly false
+             :halign "center"
+             :spacing 10
+            (image :image-width image-small :path weatherIcon)
+            (label :text `${ temperature }°C`))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defpoll isConnected :interval "1s" :initial false
+    `[[ $(nmcli -terse -field STATE general) == "connected" ]] \
+         && echo true || echo false`)
+
+(defpoll network :interval "3s" :initial "LOADING"
+    `nmcli -terse -fields SSID,ACTIVE device wifi \
+        | awk --field-separator ':' '{if($2=="yes")print$1}'`)
+
+(defpoll signalStrength :interval "1s" :initial "0"
+    `nmcli -terse -fields SIGNAL,ACTIVE device wifi \
+        | awk --field-separator ':' '{if($2=="yes")print$1}'`)
+
+(defpoll isEthernet :interval "1s" :initial false
+    `[[ $(nmcli device | rg ethernet | rg connected) ]] \
+        && echo true || echo false`)
+
+(defpoll bluetoothDevices :interval "1s" :initial ""
+    `bluetoothctl devices Connected`)
+
+(defwidget connections []
+    (box :orientation "h"
+         :class "connections"
+         :spacing 15
+
+         (button :onclick "kitty &"
+                 :tooltip { `${network}, ${signalStrength}%` }
+                 :class "wifi"
+             (image :image-width image-big :path {
+                 isConnected
+                    ? isEthernet
+                        ? "./images/cable.svg"
+                        : signalStrength >= 75
+                            ? "./images/wifi-full.svg"
+                            : (signalStrength >= 50)
+                                ? "./images/wifi-medium.svg"
+                                : (signalStrength >= 25)
+                                    ? "./images/wifi-low.svg"
+                                    : "./images/wifi-none.svg"
+                    : "./images/wifi-slash.svg"
+                    }))
+         (button :onclick "kitty -e bluetoothctl &"
+                 :tooltip { bluetoothDevices }
+                 :class "bluetooth"
+            (image :image-width image-big :path {
+                strlength(bluetoothDevices) > 0
+                    ? "./images/bluetooth-connected.svg"
+                    : "./images/bluetooth-off.svg"
+                }))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defpoll uptime :interval "1m" `uptime -p`)
+(defpoll whoami :interval "1m" `whoami`)
+
+(defwidget session []
+    (box :orientation "h"
+         :space-evenly false
+         :class "session"
+        (image :image-width 120
+               :path "/home/mario/Pictures/ormai.png"
+               :class "profilePic")
+    (box :orientation "v"
+         :class "text"
+         :hexpand true
+         :space-evenly false
+         :valign "center"
+         (label :class "whoami" :text whoami :halign "start")
+         (label :class "uptime ":text uptime :halign "start"))))
+
+
+
+(defpoll packagesPending :interval "100s" :initial "0" `checkupdates | wc -l`)
+
+(defwidget pacman []
+    (button :onclick "kitty -e paru -Syu &"
+            :class "pacman"
+        (box :orientation "v"
+             :space-evenly false
+             :valign "center"
+             :width 50
+             :spacing 10
+            (label :text packagesPending)
+            (image :image-width image-small :path "./images/package.svg"))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defpoll brightness :interval "1s" :initial "0"
+    `brightnessctl -m | cut -d ',' -f 4 | cut -d "%" -f 1`)
+
+(defpoll volume :interval "1s" :initial "0"
+    `wpctl get-volume @DEFAULT_SINK@ | cut -d " " -f 2`)
+
+(defpoll isVolumeMuted :interval "1s" :initial false
+    `[[ $(wpctl get-volume @DEFAULT_SINK@ | cut -d " " -f 3) ]] \
+         && echo true || echo false`)
+
+(defpoll micVolume :interval "1s" :initial "0"
+    `wpctl get-volume @DEFAULT_SOURCE@ | cut -d " " -f 2`)
+
+(defpoll isMicMuted :interval "1s" :initial false
+    `[[ $(wpctl get-volume @DEFAULT_SOURCE@ | cut -d " " -f 3) ]] \
+         && echo true || echo false`)
+
+(defpoll isRecording :interval "1s" :initial false
+    `[[ $(wpctl status | rg "capture") ]] && echo true || echo false`)
+
+(defwidget controls []
+    (box :orientation "v"
+         :hexpand true
+         :class "controls"
+         (box :orientation "h"
+             :height 45
+             :tooltip "${ brightness }%"
+             :space-evenly false
+             (image :image-width image-small :path {
+                brightness >= 66
+                    ? "./images/sun.svg"
+                    : brightness >= 33
+                         ? "./images/sun-medium.svg"
+                         : "./images/sun-dim.svg"})
+             (scale :value brightness
+                    :class "brightnessBar"
+                    :hexpand true
+                    :orientation "h"
+                    :onchange "brightnessctl -q s {}% &"
+                    :min 5
+                    :max 101))
+        (box :orientation "h" :tooltip "${ round(volume * 100, 0) }%"
+             :space-evenly false
+             (button :onclick "wpctl set-mute @DEFAULT_SINK@ toggle"
+                 (image :image-width image-small :path {
+                     isVolumeMuted || volume == 0
+                         ? "./images/volume-x.svg"
+                         : volume >= 0.66
+                            ? "./images/volume-2.svg"
+                            : volume >= 0.33
+                                ? "./images/volume-1.svg"
+                                : "./images/volume.svg" }))
+            (scale :value { volume * 100 }
+                   :class "volumeBar"
+                   :onchange "wpctl set-volume @DEFAULT_SINK@ {}% &"
+                   :orientation "h"
+                   :hexpand true
+                   :min 0
+                   :max 101))
+        (box :orientation "h"
+             :tooltip "${ round(micVolume * 100, 0) }%"
+             :space-evenly false
+             (button :onclick "wpctl set-mute @DEFAULT_SOURCE@ toggle"
+                 (image :image-width image-small :path {
+                     isMicMuted || micVolume == 0
+                         ? "./images/mic-off.svg"
+                         : isRecording
+                            ? "./images/podcast.svg"
+                            : "./images/mic.svg" }))
+             (scale :value { micVolume * 100 }
+                    :class "micVolumeBar"
+                    :onchange "wpctl set-volume @DEFAULT_SOURCE@ {}% &"
+                    :orientation "h"
+                    :hexpand true
+                    :min 0
+                    :max 101))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defpoll hour :interval "60s" `date +%H`)
+(defpoll mins :interval "60s" `date +%M`)
+
+(defwidget dateTime []
+    (box :orientation "h"
+         :space-evenly false
+         :class "dateTime"
+        (calendar :class "calendar"
+                  :hexpand true)
+        (box :orientation "v"
+             :space-evenly false
+             :width 150
+             :spacing 10
+            (box :orientation "v"
+                 :valign "center"
+                 :vexpand true
+                (label :text hour :class "time")
+                (label :text mins :class "time"))
+            (weather))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defwidget system[]
+    (button :onclick "kitty -e btop &"
+            :class "system" 
+        (box :orientation "h"
+             :spacing 10
+             :height 120
+            (circular-progress :thickness 5
+                               :start-at 75
+                               :class "cpu"
+                               :value { EWW_CPU.avg }
+                               :tooltip "${round(EWW_CPU.avg, 1)}%"
+                    (image :image-width image-big :path "./images/cpu.svg"))
+            (circular-progress :thickness 5
+                               :start-at 75
+                               :class "ram"
+                               :value { EWW_RAM.used_mem_perc }
+                               :tooltip "${round(EWW_RAM.used_mem_perc, 1)}%"
+                    (image :image-width image-big
+                           :path "./images/memory-stick.svg"))
+            (circular-progress :thickness 5
+                               :start-at 75
+                               :class "disk"
+                               :value { EWW_DISK["/"].used_perc }
+                               :tooltip "${ round(EWW_DISK["/"].used_perc,1) }%"
+                    (image :image-width image-big
+                           :path "./images/hard-drive.svg"))
+            (circular-progress :thickness 5
+                               :start-at 75
+                               :class "bat"
+                               :value { EWW_BATTERY.total_avg }
+                               :tooltip "${ EWW_BATTERY.total_avg }%"
+                    (image :image-width image-big :path {
+                        (EWW_BATTERY.BAT1.status != "Discharging"
+                            && EWW_BATTERY.BAT0.status != "Discharging")
+                        ? "./images/plug.svg"
+                        : EWW_BATTERY.total_avg >= 66
+                            ? "./images/battery-full.svg"
+                            : EWW_BATTERY.total_avg >= 33
+                                ? "./images/battery-medium.svg"
+                                : "./images/battery-low.svg" })))))
