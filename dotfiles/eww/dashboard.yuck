@@ -253,7 +253,7 @@
                                :start-at 75
                                :class "disk"
                                :value { EWW_DISK["/"].used_perc }
-                               :tooltip "${ round(EWW_DISK["/"].used_perc,1) }%"
+                               :tooltip "${round(EWW_DISK["/"].used_perc,1)}%"
                     (image :image-width image-big
                            :path "./images/hard-drive.svg"))
             (circular-progress :thickness 5
