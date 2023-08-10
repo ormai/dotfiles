@@ -40,3 +40,8 @@ alias ga="git add ."
 alias gc="git commit -a"
 alias gp="git push origin main"
 alias gr="git pull --rebase origin main"
+
+# remove padding when running tui programs with wrapper script
+alias nvim="tuipadding.sh nvim $@"
+alias btop="tuipadding.sh btop $@"
+alias ncdu="tuipadding.sh ncdu $@"
