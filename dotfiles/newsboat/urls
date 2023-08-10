@@ -1,44 +1,63 @@
-https://www.repubblica.it/rss/homepage/rss2.0.xml "~La Repubblica"
-https://www.valigiablu.it/feed/
-https://www.lindipendente.online/feed "~L'Indipendente"
-https://www.ansa.it/sito/ansait_rss.xml "~ANSA"
-https://www.pulplibri.it/feed
-https://www.ft.com/rss/home/international "~Financial Times"
-https://www.thearmchairtrader.com/rss
-https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml "~The New York Times"
-https://www.sciencedaily.com/rss/all.xml "~ScienceDaily"
-https://www.nature.com/nature.rss
+# UPDATES
 
+https://obsidian.md/changelog.xml
 https://frame.work/blog.rss
 https://archlinux.org/feeds/news/
-https://github.com/neovim/neovim/tags.atom
 https://www.getmonero.org/feed.xml
-https://news.ycombinator.com/rss
 https://standardebooks.org/feeds/atom/new-releases
 
-https://retireinprogress.com/feed
-https://gwern.substack.com/feed
-https://www.lesswrong.com/feed.xml?view=community-rss&karmaThreshold=2
-https://sapienjournal.org/feed/
+# NEWS, NEWSPAPERS, MAGAZINES, JOURNALS
 
+https://www.sciencedaily.com/rss/all.xml
+https://rss.sciencedirect.com/publication/science/03043975
+https://www.theverge.com/rss/index.xml
+https://news.ycombinator.com/rss
+https://www.valigiablu.it/feed/
+https://www.lindipendente.online/feed
+https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml
+https://www.pulplibri.it/feed
+https://sapienjournal.org/feed/
+https://themarkup.org/feeds/rss.xml
+https://pudding.cool/rss.xml
+https://psyche.co/feed
+
+# BLOGS, PEOPLE, PERSONAL WEBSITES
+
+https://www.lesswrong.com/feed.xml?view=community-rss&karmaThreshold=2
+https://gwern.substack.com/feed
 https://fasterthanli.me/index.xml
-https://neugierig.org/software/blog/atom.xml "~Tech Notes, Evan Martin"
-http://lukesmith.xyz/rss.xml "~Luke Smith"
-https://blog.liw.fi/index.rss "~Lars Wirzenius's blog"
+https://neugierig.org/software/blog/atom.xml
 https://thevaluable.dev/index.xml
+https://ruudvanasseldonk.com/feed.xml
+https://pointieststick.com/feed/
+https://thephd.dev/feed.xml
+https://sandeep.ramgolam.com/rss.xml
+http://www.aaronsw.com/weblog/index.xml
+http://blog.pkh.me/rss.xml
+https://eschatologist.net/blog/?feed=rss2
+https://textual.textualize.io/feed_rss_updated.xml
+https://feeds.feedburner.com/TroyHunt
+https://www.ansa.it/sito/ansait_rss.xml
+http://lukesmith.xyz/rss.xml
+https://blog.liw.fi/index.rss
 https://mjg59.dreamwidth.org/data/rss
 https://theevilskeleton.gitlab.io/feed.xml
 https://blog.orhun.dev/rss.xml
-https://ruudvanasseldonk.com/feed.xml
-https://pointieststick.com/feed/ "~The pointieststick"
 https://ciechanow.ski/atom.xml
 https://jichu4n.com/posts/rss/
-https://thephd.dev/feed.xml
-https://jcs.org/rss
-https://markodenic.com/feed/
 https://127001.me/index.xml
-https://sandeep.ramgolam.com/rss.xml "~Sandeep Ramgolam"
-https://kennydodrill.com/atom.xml
-http://www.aaronsw.com/weblog/index.xml "Because yes."
-http://blog.pkh.me/rss.xml
 http://www.aaronsw.com/2002/feeds/pgessays.rss
+https://frantic.im/feed.xml
+https://marijnhaverbeke.nl/blog/feed.atom
+https://www.alexmolas.com/feed.xml
+https://www.brendangregg.com/blog/rss.xml
+https://nickcraver.com/blog/feed.xml
+https://scotthelme.co.uk/rss/
+https://www.schneier.com/feed/atom
+https://blog.zsec.uk/rss/
+https://danielmiessler.com/rss
+https://javvadmalik.com/feed/
+https://raymii.org/s/feed.xml
+https://linux-audit.com/feed/
+https://peteris.rocks/rss.xml
+https://dynomight.net/feed.xml

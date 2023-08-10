@@ -1,40 +1,53 @@
 # vim:ft=conf
 
-auto-reload yes
+feedlist-title-format "%N (%u/%t)"
+feedlist-format "%t"
+articlelist-title-format "%N - %T (%u/%t)"
+articlelist-format "%-6L %D  %t"
+itemview-title-format "%N - %F - %T"
+
 download-full-page yes
 
-color background          white   default
-color listnormal          white   default
-color listfocus           white   yellow  bold
-color listnormal_unread   yellow  default bold
-color listfocus_unread    black   yellow  bold
-color title               color15 default bold
-color info                yellow  default bold
-color hint-key            color14 default bold
-color hint-keys-delimiter yellow  default
-color hint-separator      default default invis
-color hint-description    color15 default
-color article             white   default
-
-highlight article "^(Feed|Link):.*$" color12 default bold
-highlight article "^(Title|Date|Author):.*$" red default bold
-highlight article "https?://[^ ]+" color2 default underline
-highlight article "\\[[0-9]+\\]" color6 default bold
-highlight article "\\[image\\ [0-9]+\\]" color13 default bold
-highlight feedlist "^─.*$" white white bold
-
-text-width 0
-
-bind-key j next
-bind-key k prev
-bind-key j down
-bind-key k up
+bind-key h toggle-show-read-feeds
+bind-key s sort
+bind-key ^W hard-quit
+bind-key r reload
+bind-key R reload-all
+bind-key O open-all-unread-in-browser-and-mark-read
+bind-key o open-in-browser
 bind-key l open
 bind-key h quit
-bind-key u pageup
-bind-key d pagedown
+bind-key k up
+bind-key j down
+bind-key g home
+bind-key G end
+bind-key ^U halfpageup
+bind-key ^D halfpagedown
+bind-key ^F pagedown
+bind-key ^B pageup
+bind-key ? help
 
-bind-key t toggle-article-read
-bind-key ^U show-urls
+# COLORS
+# NOTE: color0 through 15 are the terminal colors
+# color <element> <foreground color> <background color> [<attribute> ...]
 
-browser "firefox %u"
+color title               color9   color235
+color background          color15  color235
+color article             color15  color235
+color info                color208 color235 bold
+
+color listnormal          color8   color235
+color listfocus           color8   color237 bold
+color listnormal_unread   color10  color235
+color listfocus_unread    color10  color237 bold
+
+color hint-key            color14  color235 bold
+color hint-keys-delimiter color6   color235 dim
+color hint-separator      color6   color235 dim
+color hint-description    color6   color235
+
+highlight article "^(Title|Date|Author|Feed):.*$" color7  default dim
+highlight article "^Link: http.*$"                color7  default dim
+highlight article "https?://[^ ]+"                color13 default underline
+highlight article "\\[image\\ [0-9]+.*\\]"        color12 default bold
+highlight article "\\[[0-9]+\\]"                  color11 default bold
