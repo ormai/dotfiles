@@ -1,63 +1,70 @@
-# UPDATES
-
-https://obsidian.md/changelog.xml
-https://frame.work/blog.rss
-https://archlinux.org/feeds/news/
-https://www.getmonero.org/feed.xml
-https://standardebooks.org/feeds/atom/new-releases
-
-# NEWS, NEWSPAPERS, MAGAZINES, JOURNALS
-
-https://www.sciencedaily.com/rss/all.xml
-https://rss.sciencedirect.com/publication/science/03043975
-https://www.theverge.com/rss/index.xml
-https://news.ycombinator.com/rss
 https://www.valigiablu.it/feed/
 https://www.lindipendente.online/feed
-https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml
-https://www.pulplibri.it/feed
-https://sapienjournal.org/feed/
+https://www.ansa.it/sito/ansait_rss.xml
+https://www.thearmchairtrader.com/rss
+https://news.ycombinator.com/rss
+https://www.theverge.com/rss/index.xml
 https://themarkup.org/feeds/rss.xml
 https://pudding.cool/rss.xml
 https://psyche.co/feed
-
-# BLOGS, PEOPLE, PERSONAL WEBSITES
-
-https://www.lesswrong.com/feed.xml?view=community-rss&karmaThreshold=2
-https://gwern.substack.com/feed
-https://fasterthanli.me/index.xml
-https://neugierig.org/software/blog/atom.xml
-https://thevaluable.dev/index.xml
-https://ruudvanasseldonk.com/feed.xml
-https://pointieststick.com/feed/
-https://thephd.dev/feed.xml
-https://sandeep.ramgolam.com/rss.xml
-http://www.aaronsw.com/weblog/index.xml
-http://blog.pkh.me/rss.xml
-https://eschatologist.net/blog/?feed=rss2
 https://textual.textualize.io/feed_rss_updated.xml
-https://feeds.feedburner.com/TroyHunt
-https://www.ansa.it/sito/ansait_rss.xml
-http://lukesmith.xyz/rss.xml
-https://blog.liw.fi/index.rss
-https://mjg59.dreamwidth.org/data/rss
-https://theevilskeleton.gitlab.io/feed.xml
-https://blog.orhun.dev/rss.xml
-https://ciechanow.ski/atom.xml
-https://jichu4n.com/posts/rss/
-https://127001.me/index.xml
-http://www.aaronsw.com/2002/feeds/pgessays.rss
-https://frantic.im/feed.xml
-https://marijnhaverbeke.nl/blog/feed.atom
-https://www.alexmolas.com/feed.xml
-https://www.brendangregg.com/blog/rss.xml
-https://nickcraver.com/blog/feed.xml
-https://scotthelme.co.uk/rss/
-https://www.schneier.com/feed/atom
-https://blog.zsec.uk/rss/
 https://danielmiessler.com/rss
-https://javvadmalik.com/feed/
-https://raymii.org/s/feed.xml
 https://linux-audit.com/feed/
-https://peteris.rocks/rss.xml
-https://dynomight.net/feed.xml
+https://lobste.rs/rss
+https://www.open.online/feed/
+https://futurism.com/feed
+https://www.telegraph.co.uk/rss.xml
+https://www.pulplibri.it/feed "Books"
+https://themillions.com/rss "Books"
+https://lithub.com/feed/ "Books"
+https://www.economist.com/the-world-this-week/rss.xml "Economist"
+https://www.economist.com/letters/rss.xml "Economist"
+https://www.economist.com/leaders/rss.xml "Economist"
+https://www.economist.com/special-report/rss.xml "Economist"
+https://www.economist.com/europe/rss.xml "Economist"
+https://www.economist.com/international/rss.xml "Economist"
+https://www.economist.com/finance-and-economics/rss.xml "Economist"
+https://www.economist.com/books-and-arts/rss.xml "Economist"
+https://www.economist.com/economic-and-financial-indicators/rss.xml "Economist"
+https://www.economist.com/science-and-technology/rss.xml "Economist"
+https://www.economist.com/the-economist-explains/rss.xml "Economist"
+https://fasterthanli.me/index.xml "People"
+https://neugierig.org/software/blog/atom.xml "People"
+http://lukesmith.xyz/rss.xml "People"
+https://blog.liw.fi/index.rss "People"
+https://thevaluable.dev/index.xml "People"
+https://mjg59.dreamwidth.org/data/rss "People"
+https://theevilskeleton.gitlab.io/feed.xml "People"
+https://blog.orhun.dev/rss.xml "People"
+https://ruudvanasseldonk.com/feed.xml "People"
+https://pointieststick.com/feed/ "People"
+https://ciechanow.ski/atom.xml "People"
+https://jichu4n.com/posts/rss/ "People"
+https://thephd.dev/feed.xml "People"
+https://127001.me/index.xml "People"
+http://www.aaronsw.com/weblog/index.xml "People"
+http://blog.pkh.me/rss.xml "People"
+http://www.aaronsw.com/2002/feeds/pgessays.rss "People"
+https://frantic.im/feed.xml "People"
+https://marijnhaverbeke.nl/blog/feed.atom "People"
+https://eschatologist.net/blog/?feed=rss2 "People"
+https://www.alexmolas.com/feed.xml "People"
+https://www.brendangregg.com/blog/rss.xml "People"
+https://nickcraver.com/blog/feed.xml "People"
+https://scotthelme.co.uk/rss/ "People"
+https://www.schneier.com/feed/atom "People"
+https://blog.zsec.uk/rss/ "People"
+https://javvadmalik.com/feed/ "People"
+https://feeds.feedburner.com/TroyHunt "People"
+https://raymii.org/s/feed.xml "People"
+https://peteris.rocks/rss.xml "People"
+https://pdx.su/rss.xml "People"
+https://www.sciencedaily.com/rss/all.xml "Science"
+https://rss.sciencedirect.com/publication/science/03043975 "Science"
+https://obsidian.md/changelog.xml "Updates"
+https://frame.work/blog.rss "Updates"
+https://archlinux.org/feeds/news/ "Updates"
+https://www.getmonero.org/feed.xml "Updates"
+https://standardebooks.org/feeds/atom/new-releases "Updates"
+https://news.nononsenseapps.com/index.atom "Updates"
+https://neovim.io/news.xml "Updates"

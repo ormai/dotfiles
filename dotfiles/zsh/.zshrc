@@ -34,7 +34,7 @@ zstyle ':completion::complete:*' gain-privileges 1
 _comp_options+=(globdots)
 
 # Prompt
-PROMPT='%F{green}%~%f %F{red}%f ' 
+PROMPT='%F{green}%~%f %F{red}$%f ' 
 #autoload -Uz vcs_info
 #precmd_vcs_info() { vcs_info }
 #precmd_functions+=( precmd_vcs_info )
