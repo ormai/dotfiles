@@ -1,6 +1,6 @@
 /* location ~/.mozilla/mario/chrome/userChrome.css */
 
-/* @import url(snippets/autohide_tabstoolbar.css); */
+@import url(snippets/autohide_tabstoolbar.css);
 @import url(snippets/blank_page_background.css);
 @import url(snippets/hide_tabs_scrollbuttons.css);
 @import url(snippets/hide_close_button.css);

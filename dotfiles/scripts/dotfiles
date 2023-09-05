@@ -8,7 +8,7 @@ copy="/usr/bin/cp"
 
 $cpdir ~/.local/scripts $dest
 $cpdir ~/.config/hypr $dest
-$cpdir ~/.config/eww $dest
+$cpdir ~/.config/waybar $dest
 $cpdir ~/.config/nvim $dest
 $cpdir ~/.config/kitty $dest
 $cpdir ~/.config/rofi $dest

@@ -7,6 +7,7 @@ articlelist-format "%-6L %D  %t"
 itemview-title-format "%N - %F - %T"
 
 download-full-page yes
+auto-reload yes
 
 bind-key h toggle-show-read-feeds
 bind-key s sort
