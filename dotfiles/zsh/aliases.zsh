@@ -39,6 +39,7 @@ alias gp="git push origin main"
 alias gr="git pull --rebase origin main"
 
 # remove padding when running tui programs with wrapper script
-alias nvim="tuipadding.sh nvim $@"
-alias btop="tuipadding.sh btop $@"
-alias ncdu="tuipadding.sh ncdu --color dark $@"
+alias nvim="toggle-kitty-padding.sh nvim $@"
+alias btop="toggle-kitty-padding.sh btop $@"
+alias ncdu="toggle-kitty-padding.sh ncdu --color dark $@"
+alias man="toggle-kitty-padding.sh man $@"
