@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/sh
 
 # This is a wrapper scripts called through aliases whenever a tui program is
 # run by kitty.
@@ -9,4 +9,4 @@
 
 kitty @ set-spacing padding=0
 $@ # like a sandwich
-kitty @ set-spacing padding=5 # restore padding on quit
+kitty @ set-spacing padding=5

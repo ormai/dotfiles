@@ -17,26 +17,26 @@ action="$(echo -e "$options" | rofi -theme $theme -p -dmenu -selected-row 1)"
 
 confirm_exit() 
 {
-  yn="Y\nN"
-  echo -e $yn | rofi -dmenu -p "Confirm?" -theme $confirm_theme -selected-row 1
+    yn="Y\nN"
+    echo -e $yn | rofi -dmenu -p "Confirm?" -theme $confirm_theme -selected-row 1
 }
 
 case $action in
-  $shutdown)
-    [[ $(confirm_exit &) == "Y" ]] && shutdown now || exit 0
-    ;;
-  $reboot)
-    [[ $(confirm_exit &) == "Y" ]] && systemctl reboot || exit 0
-    ;;
-  $lock)
-    lock.sh
-    ;;
-  $suspend)
-    [[ $(confirm_exit &) == "Y" ]] && systemctl suspend || \
-    exit 0
-    ;;
-  $logout)
-  [[ $(confirm_exit &)$ == "Y" ]] && hyprctl dispatch exit || \
-    exit 0
-    ;;
+    $shutdown)
+        [[ $(confirm_exit &) == "Y" ]] && shutdown now || exit 0
+        ;;
+    $reboot)
+        [[ $(confirm_exit &) == "Y" ]] && systemctl reboot || exit 0
+        ;;
+    $lock)
+        lock.sh
+        ;;
+    $suspend)
+        [[ $(confirm_exit &) == "Y" ]] && systemctl suspend \
+            || exit 0
+        ;;
+    $logout)
+    [[ $(confirm_exit &) == "Y" ]] && hyprctl dispatch exit \
+            || exit 0
+        ;;
 esac
