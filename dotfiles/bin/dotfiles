@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/sh
 
 # If you were wondering were this files come from
 
@@ -25,5 +25,7 @@ $copy ~/.config/imv/config $dest/imv
 
 $copy ~/.config/zsh/.zshrc $dest/zsh/
 $copy ~/.config/zsh/aliases.zsh $dest/zsh/
-$copy ~/.config/zsh/environment.zsh $dest/zsh/
-$copy ~/.config/zsh/fzf.zsh $dest/zsh/
+$copy ~/.config/zsh/completion.zsh $dest/zsh/
+$copy ~/.config/zsh/lscolors.sh $dest/zsh/
+$copy ~/.zshenv $dest/zsh/
+$copy ~/.config/zsh/.zlogin $dest/zsh/
