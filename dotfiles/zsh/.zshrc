@@ -14,10 +14,10 @@ PROMPT="%F{cyan}%~%f %B%F{9}$%f%b "
 
 # lf
 lfcd () {
-    tmp="$(mktemp)"
-    /usr/bin/lf -last-dir-path="$tmp" "$@"
-    dir="$(< "$tmp")" && rm -f "$tmp"
-    [[ -d "$dir" && "$dir" != "$(pwd)" ]] && cd "$dir"
+  tmp="$(mktemp)"
+  /usr/bin/lf -last-dir-path="$tmp" "$@"
+  dir="$(< "$tmp")" && rm -f "$tmp"
+  [[ -d "$dir" && "$dir" != "$(pwd)" ]] && cd "$dir"
 }
 bindkey -s '^o' 'lfcd\n'
 
@@ -25,6 +25,7 @@ bindkey -s '^o' 'lfcd\n'
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh # for Debian
 
 KEYTIMEOUT=1
 MODE_CURSOR_VIINS="bar"
@@ -38,8 +39,10 @@ source $ZDOTDIR/plugins/zsh-vim-mode/zsh-vim-mode.plugin.zsh
 
 # https://github.com/junegunn/fzf#fuzzy-completion-for-bash-and-zsh
 source /usr/share/fzf/completion.zsh
+#source /usr/share/doc/fzf/examples/completion.zsh # for Debian
 
 # https://github.com/junegunn/fzf#key-bindings-for-command-line
 FZF_CTRL_T_OPTS="--preview 'bat -n --color=always {}'
-    --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
 source /usr/share/fzf/key-bindings.zsh
+#source /usr/share/doc/fzf/examples/key-bindings.zsh # for Debian
