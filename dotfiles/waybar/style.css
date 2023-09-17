@@ -1,58 +1,58 @@
 * {
-    font-family: "Inconsolata Nerd Font";
-    font-weight: 600;
-    font-size: 16px;
+  font-family: "Inconsolata Nerd Font";
+  font-weight: 600;
+  font-size: 16px;
 }
 
 window {
-    background: #282828;
+  background: #1d2021;
 }
 
 label {
-    padding: 0 8px;
-    color: #FBF9C7;
+  padding: 0 8px;
+  color: #FBF9C7;
 }
 
 button {
-    margin: 4px 0;
-    border-radius: 4px;
+  margin: 4px 0;
+  border-radius: 4px;
 }
 
 tooltip {
-    background: #282828;
-    border: solid 1px #928374;
-    border-radius: 4px;
+  background: #282828;
+  border: solid 1px #928374;
+  border-radius: 4px;
 }
 
 #idle_inhibitor {
-    margin: 4px 30px 4px 15px;
-    padding-right: 15px;
-    border-radius: 4px;
+  margin: 4px 30px 4px 15px;
+  padding-right: 15px;
+  border-radius: 4px;
 }
 
 #idle_inhibitor.activated {
-    color: #3C3836;
-    background: #FABD2F;
+  color: #3C3836;
+  background: #FABD2F;
 }
 
 #workspaces button {
-    padding: 0;
+  padding: 0;
 }
 #workspaces button.active {
-    background: #689d6a;
+  background: #689d6a;
 }
 
 #custom-bat.critical, #custom-microphone {
-    color: #FB4934;
+  color: #FB4934;
 }
 
 /* Layout */
 #custom-bat {
-    margin: 0 20px 0 30px;
+  margin: 0 20px 0 30px;
 }
 #pulseaudio {
-    margin-left: 30px;
+  margin-left: 30px;
 }
 #network {
-    margin-left: 30px;
+  margin-left: 30px;
 }

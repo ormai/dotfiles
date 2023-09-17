@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/sh
 
 TRANSPARENT=00000000
 BG="282828"
@@ -11,7 +11,7 @@ YELLOW="FABD2F"
 GREEN="B8BB26"
 RANDOM_WP=$( \ls ~/Pictures/wp/light | sort -R | tail -1 )
 
-swaylock \
+/usr/bin/swaylock \
   --daemonize \
   --image ~/Pictures/wp/light/$RANDOM_WP \
   --ignore-empty-password \

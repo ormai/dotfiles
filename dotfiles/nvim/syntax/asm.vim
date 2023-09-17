@@ -7,18 +7,18 @@
 " Purpose:  ARM64 Assembly Syntax Highlighting
 
 if version < 600
-    syntax clear
+  syntax clear
 elseif exists("b:current_syntax")
-    finish
+  finish
 endif
 
 " NOTE(compnerd) '.' is not in the default keyword, and will cause the
 " directives to not be recognised by default.  Also add '!' to ensure that the
 " increment operator is matched.
 if version < 600
-    set iskeyword=!,#,$,%,.,48-57,:,;,=,@,_
+  set iskeyword=!,#,$,%,.,48-57,:,;,=,@,_
 else
-    setlocal iskeyword=!,#,$,.,48-57,:,;,=,@,_
+  setlocal iskeyword=!,#,$,.,48-57,:,;,=,@,_
 endif
 
 syntax case match
@@ -272,19 +272,19 @@ syntax match A64Type /%tls_object/
 syntax match A64Type /%common/
 syntax match A64Type /%notype/
 
-highlight default link A64Comment    Comment
+highlight default link A64Comment  Comment
 highlight default link A64Directive  PreProc
 highlight default link A64Identifier Identifier
-highlight default link A64Label      Label
-highlight default link A64Macro      Macro
+highlight default link A64Label    Label
+highlight default link A64Macro    Macro
 highlight default link A64Mnemonic   Keyword
 highlight default link A64Modifier   Special
-highlight default link A64Number     Number
-highlight default link A64String     String
+highlight default link A64Number   Number
+highlight default link A64String   String
 highlight default link A64Operator   Operator
 highlight default link A64Register   StorageClass
-highlight default link A64Type       Tag
-highlight default link A64TODO       Todo
+highlight default link A64Type     Tag
+highlight default link A64TODO     Todo
 
 let b:current_syntax = "asm"
 

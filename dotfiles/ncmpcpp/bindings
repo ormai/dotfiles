@@ -1,17 +1,17 @@
 def_key "j"
-    scroll_down
+  scroll_down
 def_key "k"
-    scroll_up
+  scroll_up
 def_key "l"
-    next_column
+  next_column
 def_key "h"
-    previous_column
+  previous_column
 
 def_key "space"
-    pause
+  pause
 
 def_key "a"
-    add_item_to_playlist
+  add_item_to_playlist
 
 def_key "t"
-    show_lyrics
+  show_lyrics

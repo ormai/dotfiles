@@ -8,17 +8,17 @@ STATUS1=$( < /sys/class/power_supply/BAT0/status )
 STATUS2=$( < /sys/class/power_supply/BAT1/status )
 [[ $STATUS1 == "Charging" || $STATUS2 == "Charging" ]] && CHARGING="  󱐋"
 
-if   [[ $LEVEL -lt 20 ]]; then
-    ICON=" "
-    CLASS="critical"
+if [[ $LEVEL -lt 20 ]]; then
+  ICON=" "
+  CLASS="critical"
 elif [[ $LEVEL -lt 40 ]]; then
-    ICON=""
+  ICON=""
 elif [[ $LEVEL -lt 60 ]]; then
-    ICON=""
+  ICON=""
 elif [[ $LEVEL -lt 80 ]]; then
-    ICON=""
+  ICON=""
 else
-    ICON=""
+  ICON=""
 fi
 
 echo -e "$LEVEL% $ICON$CHARGING\n\n$CLASS"
