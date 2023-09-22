@@ -1,7 +1,7 @@
 [options]
-  background = #1d2021
-  overlay_font = Inconsolata:15
-  overlay_text_color = #fbf1c7
-  overlay_background_color = #282828
-  overlay_background_alpha = ff
-  overlay_position_bottom = true
+background = #1d2021
+overlay_font = Inconsolata:15
+overlay_text_color = #fbf1c7
+overlay_background_color = #282828
+overlay_background_alpha = ff
+overlay_position_bottom = true

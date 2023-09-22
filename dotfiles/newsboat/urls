@@ -1,19 +1,6 @@
-https://www.valigiablu.it/feed/
-https://www.lindipendente.online/feed
-https://www.ansa.it/sito/ansait_rss.xml
-https://www.thearmchairtrader.com/rss
-https://news.ycombinator.com/rss
-https://www.theverge.com/rss/index.xml
-https://themarkup.org/feeds/rss.xml
-https://pudding.cool/rss.xml
-https://psyche.co/feed
-https://textual.textualize.io/feed_rss_updated.xml
-https://danielmiessler.com/rss
-https://linux-audit.com/feed/
-https://lobste.rs/rss
-https://www.open.online/feed/
-https://futurism.com/feed
-https://www.telegraph.co.uk/rss.xml
+https://xkcd.com/rss.xml
+https://eff.org/rss.xml
+https://gitlab.com/oelmekki.atom?feed_token=glft-33359b65aea7e695555c7697dfbf13332a92ab6563364d691cb5c9e010128968-10500319
 https://www.pulplibri.it/feed "Books"
 https://themillions.com/rss "Books"
 https://lithub.com/feed/ "Books"
@@ -28,6 +15,25 @@ https://www.economist.com/books-and-arts/rss.xml "Economist"
 https://www.economist.com/economic-and-financial-indicators/rss.xml "Economist"
 https://www.economist.com/science-and-technology/rss.xml "Economist"
 https://www.economist.com/the-economist-explains/rss.xml "Economist"
+https://www.valigiablu.it/feed/ "Magazines"
+https://themarkup.org/feeds/rss.xml "Magazines"
+https://pudding.cool/rss.xml "Magazines"
+https://psyche.co/feed "Magazines"
+https://futurism.com/feed "Magazines"
+http://www.newyorker.com/feed/everything "Magazines"
+https://www.theatlantic.com/feed/all/ "Magazines"
+https://www.lindipendente.online/feed "News"
+https://www.ansa.it/sito/ansait_rss.xml "News"
+https://www.open.online/feed/ "News"
+https://www.spiegel.de/international/index.rss "News"
+https://feeds.elpais.com/mrss-s/pages/ep/site/english.elpais.com/portada "News"
+https://www.aljazeera.com/xml/rss/all.xml "News"
+https://www.ilsole24ore.com/rss/italia.xml "News"
+https://ilmanifesto.it/feed "News"
+https://www.ilfattoquotidiano.it/feed/ "News"
+http://www.repubblica.it/rss/homepage/rss2.0.xml "News"
+https://www.theguardian.com/international/rss "News"
+https://www.lastampa.it/rss "News"
 https://fasterthanli.me/index.xml "People"
 https://neugierig.org/software/blog/atom.xml "People"
 http://lukesmith.xyz/rss.xml "People"
@@ -59,12 +65,23 @@ https://feeds.feedburner.com/TroyHunt "People"
 https://raymii.org/s/feed.xml "People"
 https://peteris.rocks/rss.xml "People"
 https://pdx.su/rss.xml "People"
+https://danschnau.com/feed "People"
+https://chavanniclass.com/feed "People"
+https://drewdevault.com/blog/index.xml "People"
 https://www.sciencedaily.com/rss/all.xml "Science"
 https://rss.sciencedirect.com/publication/science/03043975 "Science"
+https://news.ycombinator.com/rss "Technology"
+https://www.theverge.com/rss/index.xml "Technology"
+https://danielmiessler.com/rss "Technology"
+https://linux-audit.com/feed/ "Technology"
+https://lobste.rs/rss "Technology"
+https://feeds.arstechnica.com/arstechnica/index "Technology"
 https://obsidian.md/changelog.xml "Updates"
 https://frame.work/blog.rss "Updates"
 https://archlinux.org/feeds/news/ "Updates"
 https://www.getmonero.org/feed.xml "Updates"
 https://standardebooks.org/feeds/atom/new-releases "Updates"
 https://news.nononsenseapps.com/index.atom "Updates"
+https://textual.textualize.io/feed_rss_updated.xml "Updates"
 https://neovim.io/news.xml "Updates"
+https://blog.joinmastodon.org/index.xml "Updates"
