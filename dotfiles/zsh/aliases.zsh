@@ -34,10 +34,10 @@ alias gp="git push origin main"
 alias gr="git pull --rebase origin main"
 
 # Remove Kitty's paddings when running a tui
-alias nvim="toggle-kitty-padding.sh nvim $@"
-alias btop="toggle-kitty-padding.sh btop $@"
-alias ncdu="toggle-kitty-padding.sh ncdu --color dark $@"
-alias man="toggle-kitty-padding.sh man $@"
+# alias nvim="toggle-kitty-padding.sh nvim $@"
+# alias btop="toggle-kitty-padding.sh btop $@"
+# alias ncdu="toggle-kitty-padding.sh ncdu --color dark $@"
+# alias man="toggle-kitty-padding.sh man $@"
 
 # on remote machines
 #alias nvim="kitten edit-in-kitty"

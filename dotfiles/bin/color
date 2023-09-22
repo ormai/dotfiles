@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/usr/bin/env bash
 # Author: Mario D'Andrea <goffredo2004@gmail.com>
 # This script manages the systemwide color scheme configuration.
 # When the script is called without any argument it checks if the current time
@@ -14,7 +14,7 @@ FILE="/tmp/color.txt"
 [[ ! -a $FILE ]] && touch $FILE
 mode=$( < $FILE )
 
-function dark {
+dark() {
   if [[ $mode != "dark" ]]; then
     echo "dark" > $FILE
     gsettings set org.gnome.desktop.interface color-scheme prefer-dark
@@ -26,7 +26,7 @@ function dark {
   fi
 }
 
-function light {
+light() {
   if [[ $mode != "light" ]]; then
     echo "light" > $FILE
     gsettings set org.gnome.desktop.interface gtk-theme Gruvbox-Light

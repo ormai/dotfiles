@@ -2,9 +2,9 @@
 
 feedlist-title-format "%N (%u/%t)"
 feedlist-format "%t"
-articlelist-title-format "%N - %T (%u/%t)"
+articlelist-title-format "%N · %T (%u/%t)"
 articlelist-format "%-6L %D  %t"
-itemview-title-format "%N - %F - %T"
+itemview-title-format "%N · %F · %T"
 
 download-full-page yes
 auto-reload yes
@@ -30,8 +30,7 @@ bind-key ? help
 
 # COLORS
 # NOTE: color0 through 15 are the terminal colors
-# color <element> <foreground color> <background color> [<attribute> ...]
-
+#     <element>           <fg>     <bg>     [<attribute> ...]
 color title               color9   color235
 color background          color15  color235
 color article             color15  color235
