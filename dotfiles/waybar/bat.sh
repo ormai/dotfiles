@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/usr/bin/env bash
 
 BAT1=$( < /sys/class/power_supply/BAT0/capacity )
 BAT2=$( < /sys/class/power_supply/BAT1/capacity )
@@ -6,7 +6,10 @@ LEVEL=$(( ($BAT1 + $BAT2) / 2 ))
 
 STATUS1=$( < /sys/class/power_supply/BAT0/status )
 STATUS2=$( < /sys/class/power_supply/BAT1/status )
-[[ $STATUS1 == "Charging" || $STATUS2 == "Charging" ]] && CHARGING="  󱐋"
+
+if [[ $STATUS1 == "Charging" || $STATUS2 == "Charging" ]]; then
+  CHARGING="  󱐋"
+fi
 
 if [[ $LEVEL -lt 20 ]]; then
   ICON=" "

@@ -1,17 +1,9 @@
 #!/usr/bin/env bash
-# Author: Mario D'Andrea <goffredo2004@gmail.com>
-# This script manages the systemwide color scheme configuration.
-# When the script is called without any argument it checks if the current time
-# resides in a predecided interval and sets the mode accordingly.
-#   $ color
-# A mode can be specified so that the theme is set manually:
-#   $ color dark
-#   $ color light
-# To save up on performance, if the mode is already it won't be set again.
-#
-# The current mode is stored and read from a file
+
 FILE="/tmp/color.txt"
-[[ ! -a $FILE ]] && touch $FILE
+if [[ ! -a $FILE ]]; then
+  touch $FILE
+fi
 mode=$( < $FILE )
 
 dark() {
@@ -52,8 +44,11 @@ case "$1" in
     SUNSET=20
     now=$(date +%H)
 
-    # If it is day, set light, otherwise set dark.
-    [[ ${now#0} -gt $DAWN && ${now#0} -lt $SUNSET ]] && light || dark
+    if [[ ${now#0} -gt $DAWN && ${now#0} -lt $SUNSET ]]; then
+      light
+    else
+      dark
+    fi
     exit 0
     ;;
   * )
