@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/usr/bin/env bash
 
 /usr/bin/swayidle -w \
   timeout 180 lock.sh \

@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/usr/bin/env bash
 
 # This is a wrapper scripts called through aliases whenever a tui program is
 # run by kitty.
