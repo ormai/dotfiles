@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/usr/bin/env bash
 
 TEMP=$(curl -sm 2 "https://www.3bmeteo.com/meteo/luzzi" \
   | rg tattuale | cut -d " " -f 3 | cut -d "'" -f 2)

@@ -1,6 +1,6 @@
-#!/usr/bin/sh
+#!/usr/bin/env bash
 # This script helps with working with aarch64 assembly.
-# Author: Mario D'Andrea <goffredo2004@gmail.com>
+# Author: Mario D'Andrea <>
 # Depends on:
 # - sed
 # - binutils-aarch64-linux-gnu (aarch64-linux-gnu-gcc for pacman)
@@ -38,7 +38,7 @@ fi
 
 no_ext=$(echo $file | sed -e "s/.s$//")
 
-function main {
+main() {
   case $comm in
     run)
       assembly_and_execute
@@ -58,7 +58,7 @@ function main {
   esac
 }
 
-function debug {
+debug() {
   if [[ ! "$file" ]] ; then
     printf "${b}asm${g} gdb${w} file.s\n"
     exit 1
@@ -82,7 +82,7 @@ function debug {
   exit 0
 }
 
-function disassembly {
+disassembly() {
   dis_flags=("-s" "-t" "-d" "-D")
   if [[ ! " ${dis_flags[*]} " =~ " ${flag} " ]] ; then 
     printf "${b}asm ${g}dis${y} [-s, -t, -d, -D]${w} file.s\n"
@@ -94,7 +94,7 @@ function disassembly {
   exit 0
 }
 
-function assembly_and_execute {
+assembly_and_execute() {
   if [[ ! "$file" ]] ; then
     printf "${b}asm${g} run${w} file.s\n"
     exit 1
@@ -110,7 +110,7 @@ function assembly_and_execute {
   exit 0
 }
 
-function execute {
+execute() {
   if [[ ! $file ]] ; then
       printf "${b}asm${g} exe${w} file.s\n"
       exit 1

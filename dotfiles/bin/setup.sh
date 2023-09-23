@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/usr/bin/env bash
 #
 # This is a script to set up my system. For now it's just a work in progress.
 
