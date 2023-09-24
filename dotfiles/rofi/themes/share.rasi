@@ -1,7 +1,0 @@
-// vim:ft=rasi
-@import "dark-colors"
-
-* {
-  bordrad:     5px;
-  transparent: #00000000;
-}

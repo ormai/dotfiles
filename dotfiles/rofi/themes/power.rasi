@@ -1,55 +1,22 @@
 // vim:ft=rasi
-@import "share"
-
-configuration {
-  disable-history:                  true;
-}
+@import "config"
 
 window {
-  background-color:                 @bg;
-  text-color:                       @fg;
-  border-radius:                    @bordrad;
-  border:                           2;
-  border-color:                     @border;
-  height:                           269; // nice
-  width:                            60;
-  location:                         west;
-  x-offset:                         30;
+  height: 264;
+  width: 60;
+  location: west;
+  x-offset: 50;
 }
 
 mainbox {
-  background-color:                 @bg;
-  children:                         [ listview ];
-}
-
-listview {
-  background-color:                 @bg;
-  margin:                           5;
-  spacing:                          5;
-  cycle:                            false;
-  layout:                           vertical;
-}
-
-element {
-  background-color:                 @bg;
-  text-color:                       @fg;
-  orientation:                      vertical;
-  border-radius:                    @bordrad;
-  padding:                          5 0;
+  children: [ listview ];
 }
 
 element-text {
-  background-color:                 @transparent;
-  text-color:                       @fg-dimmed;
-  font:                             "feather 20";
-  horizontal-align:                 0.5;
-  vertical-align:                   0.5;
-}
-
-element selected {
-  background-color:                 @bg-element-selected;
+  padding: 2 0 2 -8;
+  font: "Inconsolata Nerd Font 20";
 }
 
 element-text selected {
-  text-color:                       @red;
+  text-color: @red;
 }

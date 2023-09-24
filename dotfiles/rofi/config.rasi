@@ -1,81 +1,90 @@
 // vim:ft=rasi
-@import "vars"
+@import "dark-colors"
 
-// Rofi defaults
+* {
+  bordrad: 5px;
+  transparent: #00000000;
+}
 
 configuration {
-  font:                             "Inconsolata Nerd Font 14";
-  show-icons:                       false;
-  disable-history:                  false;
-  hide-scrollbar:                   true;
+  font: "Inconsolata Nerd Font 14";
+  hide-scrollbar: true;
+  disable-history: true;
+  show-icons: false;
 }
 
 window {
-  background-color:                 @bg;
-  text-color:                       @fg;
-  border:                           2px;
-  border-color:                     @border;
-  border-radius:                    @bordrad;
-}
-
-prompt {
-  background-color:                 @transparent;
-  text-color:                       @accent;
-  font:                             "Inconsolata NF 25";
-}
-
-entry {
-  background-color:                 @transparent;
-  text-color:                       @fg;
-  placeholder-color:                @fg-dimmed;
-  expand:                           true;
-  horizontal-align:                 0;
-  blink:                            false;
-}
-
-inputbar {
-  children:                         [ prompt, entry ];
-  background-color:                 @bg-light;
-  text-color:                       @fg;
-  padding:                          15 20 6 20;
-}
-
-listview {
-  background-color:                 @bg;
-  padding:                          3;
-  columns:                          1;
-  lines:                            5;
-  cycle:                            false;
-  dynamic:                          true;
-  layout:                           vertical;
-  border-radius:                    @bordrad;
-  border-color:                     @bg-light;
-  border:                           1px;
-  margin:                           -2 -1 -1 -1;
+  background-color: @bg;
+  text-color: @text;
+  border: 2px;
+  border-color: @border;
+  border-radius: @bordrad;
 }
 
 mainbox {
-  background-color:                 @border;
-  border-color:                     @border;
-  children:                         [ inputbar, listview ];
+  background-color: @bg-dim;
+  border: 1;
+  border-radius: @bordrad;
+  border-color: @bg-dim;
+}
+
+inputbar {
+  background-color: @bg-dim;
+  text-color: @text;
+  border-color: @bg-dim;
+  padding: 15 20 10 15;
+}
+
+prompt {
+  padding: -4 25 0 0;
+  text-color: @accent;
+  font: "Inconsolata Nerd Font 20";
+  background-color: @transparent;
+  text-color: @accent;
+}
+
+entry {
+  background-color: @transparent;
+  text-color: @text;
+  placeholder-color: @text-dim;
+  blink: false;
+  horizontal-align: 0;
+  expand: true;
+}
+
+listview {
+  background-color: @bg;
+  border-radius: @bordrad;
+  border-color: @bg-dim;
+  border: 1px;
+  padding: 3;
+  columns: 1;
+  cycle: false;
+  dynamic: true;
+  layout: vertical;
+  margin: -2 -1 -1 -1;
 }
 
 element {
-  background-color:                 @transparent;
-  orientation:                      vertical;
-  border-radius:                    @bordrad;
-  padding:                          10 0;
+  background-color: @transparent;
+  orientation: vertical;
+  border-radius: @bordrad;
+  padding: 8 0;
 }
 
 element-text {
-  text-color:                       @fg;
-  background-color:                 @transparent;
-  expand:                           true;
-  horizontal-align:                 0.5;
-  vertical-align:                   0.5;
+  text-color: @text-dim;
+  background-color: @transparent;
+  expand: true;
+  horizontal-align: 0.5;
+  vertical-align: 0.5;
 }
 
 element selected {
-  background-color:                 @bg-element-selected;
-  border-radius:                    @bordrad;
+  background-color: @bg-selected;
+  border-radius: @bordrad;
+}
+
+element-text selected {
+  text-color: @text;
 }
