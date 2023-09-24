@@ -1,77 +1,47 @@
 // vim:ft=rasi
-@import "share"
+@import "config"
 
 configuration {
-  font:                             "Inconsolata Nerd Font 14";
-  display-calc:                     "";
-  hide-scrollbar:                   true;
-  disable-history:                  true;
+  display-calc: "";
 }
 
 window {
-  background-color:                 @bg;
-  text-color:                       @fg;
-  border:                           2;
-  border-color:                     @border;
-  border-radius:                    @bordrad;
-  width:                            500;
-  location:                         south;
-  y-offset:                         -90;
+  width: 500;
+  location: south;
+  y-offset: -50;
 }
 
 mainbox {
-  background-color:                 @bg-light;
-  border:                           1;
-  border-radius:                    @bordrad;
-  border-color:                     @bg-light;
-  children:                         [ inputbar, message ];
+  children: [ inputbar, message ];
 }
 
 inputbar {
-  children:                         [ prompt, entry ];
-  background-color:                 inherit;
-  text-color:                       @fg;
-  border-color:                     inherit;
-  expand:                           false;
-}
-
-prompt {
-  enabled:                          true;
-  padding:                          8 15 0 15;
-  background-color:                 inherit;
-  text-color:                       @accent;
-  font:                             "Inconsolata NF 20";
+  children: [ prompt, entry ];
 }
 
 entry {
-  background-color:                 inherit;
-  text-color:                       @fg;
-  placeholder-color:                @fg-dimmed;
-  expand:                           true;
-  placeholder:                      " Calculate";
-  blink:                            false;
-  padding:                          12 0 0 0;
+  placeholder: " Calculate";
 }
 
 message {
-  text-color:                       @fg;
-  children:                         [ textbox ];
-  background-color:                 @bg;
-  border:                           1;
-  border-radius:                    inherit;
-  border-color:                     inherit;
-  padding:                          10; 
-  margin:                           0 5 5 5;
-  expand:                           false;
+  text-color: @text;
+  children: [ textbox ];
+  background-color: @bg;
+  border: 1;
+  border-radius: inherit;
+  border-color: inherit;
+  padding: 10; 
+  margin: 0 5 5 5;
+  expand: false;
 }
 
 textbox {
-  text-color:                       @fg;
-  expand:                           true;
-  background-color:                 inherit;
-  text-color:                       @fg;
-  placeholder:                      "...";
-  placeholder-color:                @accent;
-  horizontal-align:                 0.5;
-  expand:                           false;
+  text-color: @text;
+  expand: true;
+  background-color: inherit;
+  text-color: @text;
+  placeholder: "...";
+  placeholder-color: @accent;
+  horizontal-align: 0.5;
+  expand: false;
 }

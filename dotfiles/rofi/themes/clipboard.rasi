@@ -1,86 +1,32 @@
 // vim:ft=rasi
-@import "share"
-
-configuration {
-  font:                             "Inconsolata Nerd Font 14";
-  dmenu-display-format:             "{name}";
-  disable-history:                  false;
-  hide-scrollbar:                   true;
-}
+@import "config"
 
 window {
-  background-color:                 @bg;
-  text-color:                       @fg;
-  border:                           2px;
-  border-color:                     @border;
-  border-radius:                    @bordrad;
-  width:                            500;
-  location:                         south west;
-  x-offset:                         90;
-  y-offset:                         -90;
-}
-
-inputbar {
-  children:                         [ prompt, entry ];
-  background-color:                 @bg-light;
-  text-color:                       @fg;
-  padding:                          10 20 5;
-}
-
-prompt {
-  padding:                          0 20 0 0;
-  background-color:                 inherit;
-  text-color:                       @accent;
-  font:                             "Inconsolata Nerd Font 15";
-}
-
-entry {
-  background-color:                 inherit;
-  text-color:                       @fg;
-  placeholder-color:                @fg-dimmed;
-  expand:                           true;
-  placeholder:                      " Clipboard";
-  blink:                            false;
-}
-
-listview {
-  background-color:                 @bg;
-  padding:                          5;
-  columns:                          1;
-  lines:                            5;
-  cycle:                            false;
-  dynamic:                          true;
-  layout:                           vertical;
-  border-radius:                    @bordrad;
-  border-color:                     @bg-light;
-  border:                           1px;
+  width: 700;
+  location: south west;
+  x-offset: 50;
+  y-offset: -50;
 }
 
 mainbox {
-  background-color:                 @bg-light;
-  children:                         [ inputbar, listview ];
+  children: [ inputbar, listview ];
+}
+
+inputbar {
+  children: [ prompt, entry ];
+}
+entry {
+  placeholder: " Clipboard";
+}
+
+listview {
+  lines: 5;
 }
 
 element {
-  background-color:                 @transparent;
-  orientation:                      vertical;
-  border-radius:                    @bordrad;
-  padding:                          8 0 8 5;
+  padding: 8 0 8 5;
 }
 
 element-text {
-  text-color:                       @fg-dimmed;
-  background-color:                 @transparent;
-  expand:                           true;
-  horizontal-align:                 0;
-  vertical-align:                   0.5;
-}
-
-element selected {
-  background-color:                 @bg-element-selected;
-  border-radius:                    @bordrad;
-}
-
-element-text selected {
-  text-color:                       @fg;
+  horizontal-align: 0;
 }
