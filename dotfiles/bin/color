@@ -1,55 +1,102 @@
 #!/usr/bin/env bash
 
 FILE="/tmp/color.txt"
-if [[ ! -a $FILE ]]; then
+if [[ ! -a $FILE ]]
+then
   touch $FILE
 fi
 mode=$( < $FILE )
 
 dark() {
-  if [[ $mode != "dark" ]]; then
-    echo "dark" > $FILE
-    gsettings set org.gnome.desktop.interface color-scheme prefer-dark
-    gsettings set org.gnome.desktop.interface gtk-theme Gruvbox-Dark-BL
-    kitty +kitten themes --reload-in=all Gruvbox Dark
-    notify-send -t 2000 "Dark mode enabled"
-  else
-    echo "Nothing to do"
-  fi
+  sed -i "s/light-colors.css/dark-colors.css/" \
+    ~/.config/waybar/style.css
+  sed -i "s/~\/Pictures\/wp\/light/~\/Pictures\/wp\/dark/" \
+    ~/.config/hypr/hyprland.conf
+  hyprctl reload
+
+  gsettings set org.gnome.desktop.interface gtk-theme Gruvbox-Dark-BL
+  gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+
+  sed -i "s/background = \"#f9f5d7\"/background = \"#1d2021\"/" \
+    ~/.config/dunst/dunstrc
+  sed -i "s/foreground = \"#1d2021\"/foreground = \"#f9f5d7\"/" \
+    ~/.config/dunst/dunstrc
+  pkill dunst
+
+  sed -i "s/light/dark/" \
+    ~/.config/rofi/themes/share.rasi
+
+  sed -i "s/background = \"light\"/background = \"dark\"/" \
+    ~/.config/nvim/lua/options.lua
+  kitty +kitten themes --reload-in=all Gruvbox Dark
+
+  notify-send -t 2000 "Dark mode enabled"
+  echo "dark" > $FILE
 }
 
 light() {
-  if [[ $mode != "light" ]]; then
-    echo "light" > $FILE
-    gsettings set org.gnome.desktop.interface gtk-theme Gruvbox-Light
-    gsettings set org.gnome.desktop.interface color-scheme prefer-light
-    #kitty +kitten themes --reload-in=all Gruvbox Light Hard
-    notify-send -t 2000 "Light mode enabled"
+  sed -i "s/dark-colors.css/light-colors.css/" \
+    ~/.config/waybar/style.css
+  sed -i "s/~\/Pictures\/wp\/dark/~\/Pictures\/wp\/light/" \
+    ~/.config/hypr/hyprland.conf
+  hyprctl reload
+
+  gsettings set org.gnome.desktop.interface gtk-theme Gruvbox-Light
+  gsettings set org.gnome.desktop.interface color-scheme prefer-light
+
+  sed -i "s/background = \"#1d2021\"/background = \"#f9f5d7\"/" \
+    ~/.config/dunst/dunstrc
+  sed -i "s/foreground = \"#f9f5d7\"/foreground = \"#1d2021\"/" \
+    ~/.config/dunst/dunstrc
+  pkill dunst
+
+  sed -i "s/dark/light/" \
+    ~/.config/rofi/themes/share.rasi
+
+  sed -i "s/background = \"dark\"/background = \"light\"/" \
+    ~/.config/nvim/lua/options.lua
+  kitty +kitten themes --reload-in=all Gruvbox Light
+
+  notify-send -t 2000 "Light mode enabled"
+  echo "light" > $FILE
+}
+
+changeTheme() {
+  if [[ $mode != "$1" ]]
+  then
+    $1
   else
     echo "Nothing to do"
   fi
+  exit 0
 }
 
 case "$1" in
-  dark ) dark && exit 0 ;;
-  light ) light && exit 0 ;;
-  period-changed) # gammastep hook
-    case "$3" in
-      night) dark ;;
-      daytime) light ;;
-    esac
+  dark )
+    changeTheme dark
+    ;;
+  light )
+    changeTheme light
+    ;;
+  toggle )
+    if [[ $mode == "dark" ]]
+    then
+      light
+    else
+      dark
+    fi
     ;;
   auto ) # update the theme automatically
     DAWN=05
     SUNSET=20
     now=$(date +%H)
 
-    if [[ ${now#0} -gt $DAWN && ${now#0} -lt $SUNSET ]]; then
-      light
+    if [[ ${now#0} -gt $DAWN && ${now#0} -lt $SUNSET ]]
+    then
+      changeTheme light
     else
-      dark
+      changeTheme dark
     fi
-    exit 0
     ;;
   * )
     echo $mode
