@@ -1,3 +1,5 @@
+@import "dark-colors.css";
+
 * {
   font-family: "Inconsolata Nerd Font";
   font-weight: 600;
@@ -5,12 +7,12 @@
 }
 
 window {
-  background: #1d2021;
+  background: @bg;
 }
 
 label {
   padding: 0 8px;
-  color: #FBF9C7;
+  color: @text;
 }
 
 button {
@@ -19,8 +21,8 @@ button {
 }
 
 tooltip {
-  background: #282828;
-  border: solid 1px #928374;
+  background: @bg1;
+  border: solid 1px @border;
   border-radius: 4px;
 }
 
@@ -31,19 +33,19 @@ tooltip {
 }
 
 #idle_inhibitor.activated {
-  color: #3C3836;
-  background: #FABD2F;
+  color: @bg2;
+  background: @yellow;
 }
 
 #workspaces button {
   padding: 0;
 }
 #workspaces button.active {
-  background: #689d6a;
+  background: @green;
 }
 
 #custom-bat.critical, #custom-microphone {
-  color: #FB4934;
+  color: @red;
 }
 
 /* Layout */

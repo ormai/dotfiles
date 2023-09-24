@@ -1,5 +1,5 @@
 // vim:ft=rasi
-@import "vars"
+@import "share"
 
 configuration {
   disable-history:                  true;
