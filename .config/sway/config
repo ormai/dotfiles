@@ -1,0 +1,115 @@
+exec "gsettings set org.gnome.desktop.interface cursor-theme $XCURSOR_THEME"
+exec "gsettings set org.gnome.desktop.interface cursor-size $XCURSOR_SIZE"
+exec "wl-paste exec-once = --type text --watch cliphist store"
+exec "wl-paste --type image --watch cliphist store"
+exec = idle.sh
+
+# exec_always = "pkill waybar; waybar"
+
+xwayland enable
+
+set $super Mod4
+
+# Keyboard
+input * {
+  xkb_layout "it"
+  repeat_delay 250
+  repeat_rate 60
+
+  accel_profile flat
+  pointer_accel 0.5
+}
+
+seat * {
+  xcursor_theme Pix 10
+  hide_cursor when-typing enable
+}
+
+# RULES
+# for_window {
+#   [title=".*"] border pixel 0 
+# }
+
+# GAPS AND BORDERS
+default_border pixel 0
+# gaps inner 3
+# gaps outer 5
+# smart_borders on
+
+# colors
+client.focused #000000 #000000 #000000 #689D6A #427b48
+client.focused_inactive #000000 #000000 #000000 #000000 #000000
+client.unfocused #000000 #000000 #000000 #000000 #000000
+client.urgent #000000 #000000 #000000 #000000 #FB4934
+
+# BINDINGS
+floating_modifier $super
+
+bindsym {
+  $super+Return exec kitty
+  $super+r exec "rofi -show drun -theme ~/.config/rofi/themes/drun.rasi"
+  # Toggle waybar
+  # $super+b exec "pgrep waybar && killall -SIGUSR1 waybar || waybar"
+
+  # Session
+  $super+Shift+r reload
+  $super+Shift+q exec "~/.config/rofi/powermenu.sh"
+
+  # Containers
+  $super+q kill
+  $super+f fullscreen toggle
+  $super+e layout toggle split
+  $super+space floating toggle
+  $super+Shift+space focus mode_toggle
+  $super+h focus left
+  $super+j focus down
+  $super+k focus up
+  $super+l focus right
+  $super+Shift+h move left
+  $super+Shift+j move down
+  $super+Shift+k move up
+  $super+Shift+l move right
+  $super+o split h
+  $super+v split v
+  $super+Shift+minus move scratchpad
+  $super+minus scratchpad show
+
+  # Workspaces
+  $super+1 workspace number 1
+  $super+2 workspace number 2
+  $super+3 workspace number 3
+  $super+4 workspace number 4
+  $super+5 workspace number 5
+  $super+Shift+1 move container to workspace number 1
+  $super+Shift+2 move container to workspace number 2
+  $super+Shift+3 move container to workspace number 3
+  $super+Shift+4 move container to workspace number 4
+  $super+Shift+5 move container to workspace number 5
+  # Media keys
+  XF86AudioRaiseVolume exec "pactl set-sink-volume @DEFAULT_SINK@ +5%"
+  XF86AudioLowerVolume exec "pactl set-sink-volume @DEFAULT_SINK@ -5%"
+  XF86AudioMicMute exec "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+  XF86AudioMute exec "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+  XF86AudioPrev exec "playerctl previous" 
+  XF86AudioNext exec "playerctl next"
+  XF86AudioPlay exec "playerctl play-pause"
+}
+
+# Resize mode
+# bindsym $super+r mode "resize"
+# mode "resize" {
+#   bindsym {
+#     h resize shrink width 10 px 
+#     j resize grow height 10 px 
+#     k resize shrink height 10 px 
+#     l resize grow width 10 px
+#     # Escape from resize mode
+#     Return mode "default"
+#     Escape mode "default"
+#     $super+r mode "default"
+#   }
+# }
+
+bar {
+  swaybar_command waybar
+}
