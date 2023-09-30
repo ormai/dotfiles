@@ -1,12 +1,6 @@
 [submodule ".config/zsh/plugins/zsh-vim-mode"]
 	path = .config/zsh/plugins/zsh-vim-mode
 	url = https://github.com/softmoth/zsh-vim-mode
-[submodule ".local/share/fonts/Inconsolata"]
-	path = .local/share/fonts/Inconsolata
-	url = git@github.com:googlefonts/Inconsolata.git
-[submodule ".local/share/fonts/JetBrainsMono"]
-	path = .local/share/fonts/JetBrainsMono
-	url = git@github.com:JetBrains/JetBrainsMono.git
 [submodule ".local/share/fonts/inter"]
 	path = .local/share/fonts/inter
 	url = git@github.com:rsms/inter.git
