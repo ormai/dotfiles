@@ -2,7 +2,7 @@
 @import "config"
 
 configuration {
-  display-calc: "";
+  display-calc: "󰃬";
 }
 
 window {

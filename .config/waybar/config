@@ -82,7 +82,7 @@
     "format": "{icon}",
     "format-icons": {
       "activated": "",
-      "deactivated": "鈴"
+      "deactivated": "󰒲"
     }
   },
   "custom/pacman": {
