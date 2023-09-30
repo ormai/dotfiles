@@ -13,10 +13,10 @@ allow_remote_control            yes
 # italic_font                     JetBrains Mono
 # bold_italic_font                JetBrains Mono
 
-font_family                     Inconsolata
-bold_font                       Inconsolata
-italic_font                     Inconsolata
-bold_italic_font                Inconsolata
+font_family                     Inconsolata Nerd Font
+bold_font                       Inconsolata Nerd Font
+italic_font                     Inconsolata Nerd Font
+bold_italic_font                Inconsolata Nerd Fon
 font_size                       13
 font_features                   Inconsolata-Regular +dlig
 font_features                   Inconsolata-Bold +dlig
@@ -38,6 +38,6 @@ enable_audio_bell               no
 # $ kitty +kitten themes --reload-in=all Gruvbox Light
 
 # BEGIN_KITTY_THEME
-# Gruvbox Light
+# Gruvbox Dark
 include current-theme.conf
 # END_KITTY_THEME

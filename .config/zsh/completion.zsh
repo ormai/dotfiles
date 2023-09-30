@@ -14,8 +14,8 @@ _comp_options+=(globdots) # for hidden files
 zstyle ":completion:*" completer _extensions _complete _approximate _expand_alias
 
 zstyle ":completion:*" use-cache on
-zstyle ":completion:*" cache-path "$ZDOTDIR/zcompcache"
-compinit -d $ZDOTDIR/zcompdump-$ZSH_VERSION
+zstyle ":completion:*" cache-path "$XDG_CACHE_HOME/zsh/zcompcache"
+compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
 
 zstyle ":completion::complete:*" gain-privileges 1 # for sudo and doas
 
