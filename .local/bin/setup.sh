@@ -24,3 +24,4 @@ done
 
 ln -s $dotfiles_dir/.local/bin $HOME/.local/bin
 ln -s $dotfiles_dir/.zshenv $HOME
+ln -s $dotfiles_dir/.mozilla/mario/chrome $HOME/.mozilla/mario/chrome
