@@ -7,7 +7,7 @@ rofiTheme="-theme ~/.config/rofi/themes/library.rasi"
 
 file=$(
   fd . -tf -e 'pdf' -e 'epub' -e 'djvu' | \
-  rofi -dmenu -i -matching normal -p "" $rofiTheme \
+  rofi -dmenu -i -matching normal -p "󱉟" $rofiTheme \
 )
 
 # Open the file only if it exists
