@@ -5,9 +5,9 @@ text/html=nvim.desktop
 text/css=nvim.desktop
 text/javascript=nvim.desktop
 text/xml=nvim.desktop
-text/html=nvim.desktop
 inode/x-emtpy=nvim.desktop
 text/csv=libreoffice-calc.desktop
+application/vnd.oasis.opendocument.text=libreoffice.desktop
 image/bmp=imv.desktop
 image/gif=imv.desktop
 image/png=imv.desktop
@@ -42,35 +42,3 @@ application/xhtml+xml=firefox.desktop
 application/x-extension-xhtml=firefox.desktop
 application/x-extension-xht=firefox.desktop
 x-scheme-handler/etcher=balena-etcher.desktop
-
-[Added Associations]
-text/markdown=nvim.desktop;
-text/plain=nvim.desktop;
-inode/x-emtpy=nvim.desktop
-text/csv=libreoffice-calc.desktop
-image/png=gcr-viewer.desktop;imv.desktop;;gimp.desktop;
-image/svg+xml=imv.desktop;
-video/x-matroska=mpv.desktop;
-x-scheme-handler/tg=userapp-Telegram Desktop-VIETQ1.desktop;userapp-Telegram Desktop-PZXXW1.desktop;org.telegram.desktop.desktop;
-x-scheme-handler/chrome=firefox.desktop;
-x-scheme-handler/http=firefox.desktop;
-x-scheme-handler/https=firefox.desktop;
-x-scheme-handler/obsidian=obsidian.desktop
-application/json=nvim.desktop;
-application/xml=nvim.desktop;
-application/pdf=firefox.desktop;org.pwmt.zathura.desktop;
-application/epub+zip=org.pwmt.zathura.desktop
-application/x-extension-htm=firefox.desktop;
-application/x-extension-html=firefox.desktop;
-application/x-extension-shtml=firefox.desktop;
-application/xhtml+xml=firefox.desktop;
-application/x-extension-xhtml=firefox.desktop;
-application/x-extension-xht=firefox.desktop;
-application/rdf+xml=firefox.desktop;
-application/rss+xml=firefox.desktop;
-text/html=firefox.desktop;
-text/x-asm=nvim.desktop;
-
-[Removed Associations]
-image/png=chromium.desktop;
-inode/x-emtpy=firefox.desktop
