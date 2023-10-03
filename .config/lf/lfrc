@@ -11,12 +11,13 @@ set cursorpreviewfmt "\033[7;90m"
 set shell sh
 set shellopts '-eu'
 set ifs "\n"
-set scrolloff 10
-set icons
+set scrolloff 2
+set icons true
 set dircounts true
 set autoquit true
 set timefmt "[2/03/2006 15:04:05]"
 set tabstop 2 
+set incsearch true
 
 # KEYMAPS
 map A rename # at the very end
