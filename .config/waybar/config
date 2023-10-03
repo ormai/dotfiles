@@ -63,7 +63,7 @@
   "pulseaudio": {
     "scroll-step": 5,
     "format": "{volume}% {icon}",
-    "format-icons": ["󰕿", "󰖀", "󰕾"],
+    "format-icons": ["", "", ""],
     "format-muted": "  󰝟",
     "on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",
     "on-click-right": "pavucontrol"
