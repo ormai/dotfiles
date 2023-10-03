@@ -13,6 +13,8 @@ alias camera="ffplay rtsp://admin:marioMARIO04@192.168.1.2:554/onvif2"
 
 alias ssh="kitty +kitten ssh"
 
+alias nvim="nvim --listen ~/.cache/nvim/nvim_$RANDOM.pipe"
+
 # iamb performance workaround
 alias iamb="systemd-run --uid=$USER --slice=iamb.slice -t iamb"
 
@@ -20,6 +22,7 @@ alias iamb="systemd-run --uid=$USER --slice=iamb.slice -t iamb"
 alias rm="rm -i"
 alias mv="mv -i"
 alias cp="cp -i"
+
 
 # exa
 alias ls="exa --icons"                       # list
