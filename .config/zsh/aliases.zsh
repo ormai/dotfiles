@@ -22,12 +22,12 @@ alias mv="mv -i"
 alias cp="cp -i"
 
 # exa
-alias ls="exa --icons"                       # [L]i[S]t
-alias le="exa -Blars modified --git --icons" # [L]ist [E]verything
-alias lt="exa -T --icons"                    # [L]ist [T]ree
+alias ls="exa --icons"                       # list
+alias le="exa -Blars modified --git --icons" # list everything
+alias lt="exa -T --icons"                    # list tree
 
 #git
-alias gs="git status"
+alias gs="git status --short"
 alias gc="git commit -a"
 alias ga="git add ."
 alias gp="git push origin main"
