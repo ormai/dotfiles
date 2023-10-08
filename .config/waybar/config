@@ -1,8 +1,7 @@
-// vim:ft=json
 {
   "layer": "top",
   "position": "top",
-  "spacing": 1,
+  "spacing": 5,
   "height": 32,
   "modules-left": [
     "idle_inhibitor",
@@ -13,7 +12,7 @@
     "clock"
   ],
   "modules-right": [
-    "custom/pacman",
+    "custom/acman",
     "custom/microphone",
     "network",
     "bluetooth",
