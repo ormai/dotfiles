@@ -49,12 +49,6 @@ tooltip {
 }
 
 /* Layout */
-#custom-bat {
-  margin: 0 20px 0 30px;
-}
-#pulseaudio {
-  margin-left: 30px;
-}
-#network {
-  margin-left: 30px;
-}
+#custom-bat { margin: 0 20px 0 30px; }
+#pulseaudio { margin-left: 30px; }
+#network    { margin-left: 30px; }

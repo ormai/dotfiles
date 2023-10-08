@@ -26,15 +26,16 @@ append_path "$HOME/.local/bin"
 append_path "$XDG_DATA_HOME/cargo/bin"
 append_path "$XDG_DATA_HOME/gem/ruby/3.0.0/bin"
 append_path "$XDG_DATA_HOME/npm/bin"
+append_path "$XDG_DATA_HOME/go/bin"
 export PATH
 
 source $ZDOTDIR/lscolors.sh # Used by lf, zsh completion menu, exa
 
 export SHELL="/usr/bin/zsh"
-export VISUAL="nvim"
-export EDITOR="nvim"
-export SYSTEMD_EDITOR="nvim"
-export TERMINAL="kitty"
+export VISUAL=nvim
+export EDITOR=nvim
+export SYSTEMD_EDITOR=nvim
+export TERMINAL=kitty
 
 export BROWSER="firefox"
 export PAGER="less"
@@ -65,7 +66,7 @@ export NODE_REPL_HISTORY="$XDG_CACHE_HOME/node_repl_history"
 export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 
 # Wayland session
-export QT_QPA_PLATFORM="wayland;xcb"
+export QT_QPA_PLATFORM="xcb"
 export SDL_VIDEODRIVER="wayland"
 export XDG_CURRENT_DESKTOP="Hyprland"
 

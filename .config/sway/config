@@ -1,10 +1,17 @@
-exec "gsettings set org.gnome.desktop.interface cursor-theme $XCURSOR_THEME"
-exec "gsettings set org.gnome.desktop.interface cursor-size $XCURSOR_SIZE"
-exec "wl-paste exec-once = --type text --watch cliphist store"
-exec "wl-paste --type image --watch cliphist store"
-exec = idle.sh
+exec {
+  "gsettings set org.gnome.desktop.interface cursor-theme $XCURSOR_THEME"
+  "gsettings set org.gnome.desktop.interface cursor-size $XCURSOR_SIZE"
+  "wl-paste --type text --watch cliphist store"
+  "wl-paste --type image --watch cliphist store"
+  "syncthing --no-browser"
+  idle.sh
+}
 
-# exec_always = "pkill waybar; waybar"
+exec_always {
+  "notify-send Reloading"
+  # ~/.config/hypr/waybar.sh
+  # "[[ $(pgrep waybar) ]] && pkill -SIGUSR1 waybar || waybar"
+}
 
 xwayland enable
 
@@ -18,6 +25,7 @@ input * {
 
   accel_profile flat
   pointer_accel 0.5
+  tap enabled
 }
 
 seat * {
@@ -25,22 +33,17 @@ seat * {
   hide_cursor when-typing enable
 }
 
-# RULES
-# for_window {
-#   [title=".*"] border pixel 0 
-# }
+default_border pixel 2
+smart_borders on
 
-# GAPS AND BORDERS
-default_border pixel 0
-# gaps inner 3
-# gaps outer 5
-# smart_borders on
+gaps inner 5
+smart_gaps on
 
 # colors
-client.focused #000000 #000000 #000000 #689D6A #427b48
+client.focused          #000000 #000000 #000000 #689D6A #427b48
 client.focused_inactive #000000 #000000 #000000 #000000 #000000
-client.unfocused #000000 #000000 #000000 #000000 #000000
-client.urgent #000000 #000000 #000000 #000000 #FB4934
+client.unfocused        #000000 #000000 #000000 #000000 #000000
+client.urgent           #000000 #000000 #000000 #000000 #FB4934
 
 # BINDINGS
 floating_modifier $super
@@ -48,7 +51,6 @@ floating_modifier $super
 bindsym {
   $super+Return exec kitty
   $super+r exec "rofi -show drun -theme ~/.config/rofi/themes/drun.rasi"
-  # Toggle waybar
   # $super+b exec "pgrep waybar && killall -SIGUSR1 waybar || waybar"
 
   # Session
@@ -69,8 +71,8 @@ bindsym {
   $super+Shift+j move down
   $super+Shift+k move up
   $super+Shift+l move right
-  $super+o split h
-  $super+v split v
+  $super+o split horizontal
+  $super+v split vertical
   $super+Shift+minus move scratchpad
   $super+minus scratchpad show
 
@@ -80,23 +82,38 @@ bindsym {
   $super+3 workspace number 3
   $super+4 workspace number 4
   $super+5 workspace number 5
+  $super+6 workspace number 6
+  $super+7 workspace number 7
+  $super+8 workspace number 8
+  $super+9 workspace number 9
+  $super+0 workspace number 10
   $super+Shift+1 move container to workspace number 1
   $super+Shift+2 move container to workspace number 2
   $super+Shift+3 move container to workspace number 3
   $super+Shift+4 move container to workspace number 4
   $super+Shift+5 move container to workspace number 5
-  # Media keys
-  XF86AudioRaiseVolume exec "pactl set-sink-volume @DEFAULT_SINK@ +5%"
-  XF86AudioLowerVolume exec "pactl set-sink-volume @DEFAULT_SINK@ -5%"
-  XF86AudioMicMute exec "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
-  XF86AudioMute exec "pactl set-sink-mute @DEFAULT_SINK@ toggle"
-  XF86AudioPrev exec "playerctl previous" 
-  XF86AudioNext exec "playerctl next"
-  XF86AudioPlay exec "playerctl play-pause"
+  $super+Shift+6 move container to workspace number 6
+  $super+Shift+7 move container to workspace number 7
+  $super+Shift+8 move container to workspace number 8
+  $super+Shift+9 move container to workspace number 9
+  $super+Shift+0 move container to workspace number 10
+
 }
 
-# Resize mode
+bindsym {
+  XF86MonBrightnessUp exec "brightnessctl set +5%"
+  XF86MonBrightnessDown exec "brightnessctl set 5%-"
+  XF86AudioRaiseVolume exec "wpctl set-volume @DEFAULT_SINK@ 0.05+"
+  XF86AudioLowerVolume exec "wpctl set-volume @DEFAULT_SINK@ 0.05-"
+  XF86AudioMute exec "wpctl set-mute @DEFAULT_SINK@ toggle"
+  XF86AudioMicMute exec "wpctl set-mute @DEFAULT_SOURCE@ toggle"
+  XF86AudioPrev exec "playerctl previous"
+  XF86AudioNext exec "playerctl next"
+  XF86AudioPlay exec "playerctl play-pause""
+}
+
 # bindsym $super+r mode "resize"
+
 # mode "resize" {
 #   bindsym {
 #     h resize shrink width 10 px 
@@ -110,6 +127,4 @@ bindsym {
 #   }
 # }
 
-bar {
-  swaybar_command waybar
-}
+bar swaybar_command waybar
