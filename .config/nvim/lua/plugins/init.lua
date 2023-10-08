@@ -5,6 +5,12 @@ return {
   {
     "folke/neodev.nvim",
     lazy = true,
+    ft = "lua",
+    opts = {}
+  },
+  {
+    "folke/twilight.nvim",
+    enabled = false,
     opts = {}
   },
   {
@@ -12,6 +18,10 @@ return {
     ft = "kitty",
   },
   {
-    "iamcco/markdown-preview.nvim"
+    "iamcco/markdown-preview.nvim",
+    ft = "markdown"
+  },
+  {
+    "romainl/vim-cool"
   }
 }

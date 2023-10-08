@@ -13,7 +13,7 @@ local options = {
   list = true,
   listchars = "eol:↴,space:⋅,lead: ,trail:-,tab:  ",
   number = true,
-  relativenumber = true,
+  relativenumber = false,
   cursorline = true,
 
   writebackup = true,
@@ -47,7 +47,7 @@ local options = {
 
   foldmethod = "marker",
 
-  spell = false,
+  spell = true,
   spelllang = { "it", "en" },
 }
 
