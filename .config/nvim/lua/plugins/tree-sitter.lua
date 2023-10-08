@@ -1,5 +1,5 @@
 local filetypes = {
-  "rust",
+  -- "rust",
   "lua",
   "bash",
   "python",
@@ -22,6 +22,7 @@ return {
     "p00f/nvim-ts-rainbow",
     "nvim-treesitter/nvim-treesitter-textobjects",
     "lukas-reineke/indent-blankline.nvim",
+    "m4xshen/smartcolumn.nvim",
   },
   keys = {
     { "[d", vim.diagnostic.goto_prev },

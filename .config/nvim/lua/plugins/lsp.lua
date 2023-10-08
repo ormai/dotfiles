@@ -83,6 +83,7 @@ return {
       k("<leader>D",  buf.type_definition,         "type definition")
       k("<leader>wa", buf.add_workspace_folder,    "add workspace folder")
       k("<leader>wr", buf.remove_workspace_folder, "remove workspace folder")
+      k("<leader>f",  buf.format,                  "format")
 
       k("<leader>r", telescope.lsp_references "list references")
       k("<leader>s", telescope.lsp_document_symbols, "list symbols")
@@ -99,7 +100,7 @@ return {
       )
     end
 
-    local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+    --[[ local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
     function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
       opts.border = {
         {"╭", "FloatBorder"},
@@ -112,7 +113,7 @@ return {
         {"│", "FloatBorder"},
       }
       return orig_util_open_floating_preview(contents, syntax, opts, ...)
-    end
+    end ]]
 
     vim.keymap.set(
       "n",

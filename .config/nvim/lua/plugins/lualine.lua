@@ -33,7 +33,6 @@ return {
         }
       },
       lualine_c = { "diagnostics" },
-
       lualine_x = { "%S", "searchcount", "selectioncount"},
       lualine_y = {
         { "filetype", icon = { align = "right" } },
