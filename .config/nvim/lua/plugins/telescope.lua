@@ -72,8 +72,6 @@ return {
   },
 
   config = function(plugin)
-    print(plugin.keys)
-
     require("telescope").setup {
       defaults = {
         mappings = {
