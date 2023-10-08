@@ -29,7 +29,7 @@ dark() {
   sed -i "s/background = \"light\"/background = \"dark\"/" \
     ~/.config/nvim/lua/options.lua
 
-  for sock in $(ls ~/.cache/nvim/nvim_*); do
+  for sock in $(/usr/bin/ls ~/.cache/nvim/nvim_*); do
     nvim --server $sock --remote-send "<cmd>set bg=dark<CR>"&
   done
 
@@ -61,7 +61,7 @@ light() {
   sed -i "s/background = \"dark\"/background = \"light\"/" \
     ~/.config/nvim/lua/options.lua
 
-  for sock in $(ls ~/.cache/nvim/nvim_*); do
+  for sock in $(/usr/bin/ls ~/.cache/nvim/nvim_*); do
     nvim --server $sock --remote-send "<cmd>set bg=light<CR>"&
   done
 
