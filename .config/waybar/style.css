@@ -38,9 +38,13 @@ tooltip {
 }
 
 #workspaces button {
+  min-width: 0;
   padding: 0;
 }
-#workspaces button.active {
+/* #workspaces button.active { */
+/*   background: @green; */
+/* } */
+#workspaces button.visible {
   background: @green;
 }
 

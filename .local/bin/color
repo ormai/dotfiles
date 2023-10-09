@@ -11,8 +11,8 @@ dark() {
   sed -i "s/light-colors.css/dark-colors.css/" \
     ~/.config/waybar/style.css
   sed -i "s/~\/Pictures\/wp\/light/~\/Pictures\/wp\/dark/" \
-    ~/.config/hypr/hyprland.conf
-  hyprctl reload
+    ~/.config/sway/config
+  swaymsg reload
 
   gsettings set org.gnome.desktop.interface gtk-theme Gruvbox-Dark-BL
   gsettings set org.gnome.desktop.interface color-scheme prefer-dark
@@ -43,8 +43,8 @@ light() {
   sed -i "s/dark-colors.css/light-colors.css/" \
     ~/.config/waybar/style.css
   sed -i "s/~\/Pictures\/wp\/dark/~\/Pictures\/wp\/light/" \
-    ~/.config/hypr/hyprland.conf
-  hyprctl reload
+    ~/.config/sway/config
+  swaymsg reload
 
   gsettings set org.gnome.desktop.interface gtk-theme Gruvbox-Light
   gsettings set org.gnome.desktop.interface color-scheme prefer-light

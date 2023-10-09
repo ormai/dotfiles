@@ -4,20 +4,13 @@ exec {
   "wl-paste --type text --watch cliphist store"
   "wl-paste --type image --watch cliphist store"
   "syncthing --no-browser"
-  idle.sh
+  "idle.sh"
 }
 
-exec_always {
-  "notify-send Reloading"
-  # ~/.config/hypr/waybar.sh
-  # "[[ $(pgrep waybar) ]] && pkill -SIGUSR1 waybar || waybar"
-}
-
+exec_always "notify-send 'Reloading Sway'"
 xwayland enable
-
 set $super Mod4
 
-# Keyboard
 input * {
   xkb_layout "it"
   repeat_delay 250
@@ -28,39 +21,41 @@ input * {
   tap enabled
 }
 
+output * background "`fd . ~/Pictures/wp/dark | sort -R | head -1`" fill #1d2021
+
 seat * {
   xcursor_theme Pix 10
   hide_cursor when-typing enable
 }
 
-default_border pixel 2
+default_border pixel 1
 smart_borders on
-
 gaps inner 5
 smart_gaps on
 
-# colors
-client.focused          #000000 #000000 #000000 #689D6A #427b48
-client.focused_inactive #000000 #000000 #000000 #000000 #000000
-client.unfocused        #000000 #000000 #000000 #000000 #000000
-client.urgent           #000000 #000000 #000000 #000000 #FB4934
+# colors                border  bg      text    indicat child_border
+client.focused          #000000 #000000 #000000 #427b48 #8ec07c
+client.focused_inactive #000000 #000000 #000000 #000000 #3c3836
+client.unfocused        #000000 #000000 #000000 #000000 #3c3836
+client.urgent           #000000 #000000 #000000 #000000 #fb4934
 
-# BINDINGS
 floating_modifier $super
-
 bindsym {
   $super+Return exec kitty
-  $super+r exec "rofi -show drun -theme ~/.config/rofi/themes/drun.rasi"
-  # $super+b exec "pgrep waybar && killall -SIGUSR1 waybar || waybar"
+  $super+a exec "~/.config/rofi/library.sh"
+  $super+b exec "pgrep waybar && killall -SIGUSR1 waybar || waybar"
+  $super+c exec "rofi -show calc -terse -no-history -no-sort -no-bold -theme ~/.config/rofi/themes/calc.rasi -hint-result '' -hint-welcome '' | wl-copy"
+  $super+m exec "kitty -e lf"
+  $super+s exec "color toggle"
+  $super+v exec "cliphist list | rofi -dmenu -p "󰆒" -theme ~/.config/rofi/themes/clipboard.rasi | cliphist decode | wl-copy"
+  $super+w exec "rofi -show drun -theme ~/.config/rofi/themes/drun.rasi"
 
-  # Session
-  $super+Shift+r reload
   $super+Shift+q exec "~/.config/rofi/powermenu.sh"
+  $super+Shift+r reload
 
-  # Containers
   $super+q kill
   $super+f fullscreen toggle
-  $super+e layout toggle split
+  $super+t layout toggle split
   $super+space floating toggle
   $super+Shift+space focus mode_toggle
   $super+h focus left
@@ -71,12 +66,11 @@ bindsym {
   $super+Shift+j move down
   $super+Shift+k move up
   $super+Shift+l move right
-  $super+o split horizontal
-  $super+v split vertical
+  # $super+o split horizontal
+  # $super+v split vertical
   $super+Shift+minus move scratchpad
   $super+minus scratchpad show
 
-  # Workspaces
   $super+1 workspace number 1
   $super+2 workspace number 2
   $super+3 workspace number 3
@@ -112,19 +106,19 @@ bindsym {
   XF86AudioPlay exec "playerctl play-pause""
 }
 
-# bindsym $super+r mode "resize"
+bindsym $super+r mode "Resize 󰩨"
+mode "Resize 󰩨" {
+  bindsym {
+    plus resize grow width 10 px
+    minus resize shrink width 10 px 
 
-# mode "resize" {
-#   bindsym {
-#     h resize shrink width 10 px 
-#     j resize grow height 10 px 
-#     k resize shrink height 10 px 
-#     l resize grow width 10 px
-#     # Escape from resize mode
-#     Return mode "default"
-#     Escape mode "default"
-#     $super+r mode "default"
-#   }
-# }
+    Shift+plus resize grow height 10 px 
+    Shift+minus resize shrink height 10 px 
+
+    Return mode "default"
+    Escape mode "default"
+    $super+r mode "default"
+  }
+}
 
 bar swaybar_command waybar

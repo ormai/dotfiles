@@ -43,6 +43,8 @@ run() {
   # rm -f $executable
 }
 
+alias freq="history 0 | sed 's/[\t ]*[0-9]\+[\t ]*\([^ ]*\).*/\1/' | sort | uniq -c | sort -n | tail | sort -rn"
+
 # Remove Kitty's paddings when running a tui
 # alias nvim="toggle-kitty-padding.sh nvim $@"
 # alias btop="toggle-kitty-padding.sh btop $@"
