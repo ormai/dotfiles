@@ -4,6 +4,7 @@ FILE="/tmp/color.txt"
 if [[ ! -a $FILE ]]
 then
   touch $FILE
+  echo "dark" > $FILE
 fi
 mode=$( < $FILE )
 
@@ -29,13 +30,16 @@ dark() {
   sed -i "s/background = \"light\"/background = \"dark\"/" \
     ~/.config/nvim/lua/options.lua
 
-  for sock in $(/usr/bin/ls ~/.cache/nvim/nvim_*); do
-    nvim --server $sock --remote-send "<cmd>set bg=dark<CR>"&
+  for pipe in $(/usr/bin/fd --max-depth 1 nvim_ ~/.cache/nvim/); do
+    if [[ -a $pipe ]]
+    then
+      nvim --server $pipe --remote-send "<cmd>set bg=dark<CR>" &
+    fi
   done
 
   kitty +kitten themes --reload-in=all Gruvbox Dark
 
-  notify-send -t 2000 "Dark mode enabled"
+  # notify-send -t 2000 "Dark mode enabled"
   echo "dark" > $FILE
 }
 
@@ -61,13 +65,16 @@ light() {
   sed -i "s/background = \"dark\"/background = \"light\"/" \
     ~/.config/nvim/lua/options.lua
 
-  for sock in $(/usr/bin/ls ~/.cache/nvim/nvim_*); do
-    nvim --server $sock --remote-send "<cmd>set bg=light<CR>"&
+  for pipe in $(/usr/bin/fd --max-depth 1 nvim_ ~/.cache/nvim/); do
+    if [[ -a $pipe ]]
+    then
+      nvim --server $pipe --remote-send "<cmd>set bg=light<CR>" &
+    fi
   done
 
   kitty +kitten themes --reload-in=all Gruvbox Light
 
-  notify-send -t 2000 "Light mode enabled"
+  # notify-send -t 2000 "Light mode enabled"
   echo "light" > $FILE
 }
 
