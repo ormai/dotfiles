@@ -13,6 +13,8 @@ dark() {
     ~/.config/waybar/style.css
   sed -i "s/~\/Pictures\/wp\/light/~\/Pictures\/wp\/dark/" \
     ~/.config/sway/config
+  sed -i "s/light-theme-colors/dark-theme-colors/" \
+    ~/.config/sway/config
   swaymsg reload
 
   gsettings set org.gnome.desktop.interface gtk-theme Gruvbox-Dark-BL
@@ -47,6 +49,8 @@ light() {
   sed -i "s/dark-colors.css/light-colors.css/" \
     ~/.config/waybar/style.css
   sed -i "s/~\/Pictures\/wp\/dark/~\/Pictures\/wp\/light/" \
+    ~/.config/sway/config
+  sed -i "s/dark-theme-colors/light-theme-colors/" \
     ~/.config/sway/config
   swaymsg reload
 
