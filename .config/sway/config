@@ -1,3 +1,5 @@
+include dark-theme-colors
+
 exec {
   "gsettings set org.gnome.desktop.interface cursor-theme $XCURSOR_THEME"
   "gsettings set org.gnome.desktop.interface cursor-size $XCURSOR_SIZE"
@@ -23,21 +25,20 @@ input * {
 
 output * background "`fd . ~/Pictures/wp/dark | sort -R | head -1`" fill #1d2021
 
+output HDMI-A-2 resolution 1920x1080@60Hz position 0 -1080
+output eDP-1 resolution 1920x1080@60Hz position 0 0
+
 seat * {
   xcursor_theme Pix 10
   hide_cursor when-typing enable
 }
 
-default_border pixel 1
+default_floating_border none
+default_border pixel 2
 smart_borders on
 gaps inner 5
 smart_gaps on
 
-# colors                border  bg      text    indicat child_border
-client.focused          #000000 #000000 #000000 #427b48 #8ec07c
-client.focused_inactive #000000 #000000 #000000 #000000 #3c3836
-client.unfocused        #000000 #000000 #000000 #000000 #3c3836
-client.urgent           #000000 #000000 #000000 #000000 #fb4934
 
 floating_modifier $super
 bindsym {
@@ -66,8 +67,8 @@ bindsym {
   $super+Shift+j move down
   $super+Shift+k move up
   $super+Shift+l move right
-  # $super+o split horizontal
-  # $super+v split vertical
+  $super+p split horizontal
+  $super+o split vertical
   $super+Shift+minus move scratchpad
   $super+minus scratchpad show
 
@@ -92,6 +93,8 @@ bindsym {
   $super+Shift+9 move container to workspace number 9
   $super+Shift+0 move container to workspace number 10
 
+  Print exec "grimblast --notify copysave area"
+  Shift+Print exec "grimblast --notify copysave screen"
 }
 
 bindsym {
