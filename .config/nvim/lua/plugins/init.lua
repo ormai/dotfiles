@@ -1,27 +1,31 @@
 return {
-  -- "tpope/vim-fugitive",
-  -- "tpope/vim-sleuth",
-  -- "tpope/vim-rhubarb",
+  -- 'tpope/vim-fugitive',
+  -- 'tpope/vim-sleuth',
+  -- 'tpope/vim-rhubarb',
   {
-    "folke/neodev.nvim",
+    'folke/neodev.nvim',
     lazy = true,
-    ft = "lua",
+    ft = 'lua',
     opts = {}
   },
   {
-    "folke/twilight.nvim",
+    'folke/twilight.nvim',
     enabled = false,
     opts = {}
   },
   {
-    "fladson/vim-kitty", -- provides syntax highlighting for kitty.conf
-    ft = "kitty",
+    'fladson/vim-kitty', -- provides syntax highlighting for kitty.conf
+    ft = 'kitty'
   },
   {
-    "iamcco/markdown-preview.nvim",
-    ft = "markdown"
+    'iamcco/markdown-preview.nvim',
+    ft = 'markdown'
   },
   {
-    "romainl/vim-cool"
+    'romainl/vim-cool'
+  },
+  {
+    'echasnovski/mini.nvim',
+    version = false
   }
 }
