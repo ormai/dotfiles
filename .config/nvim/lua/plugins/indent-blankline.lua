@@ -1,28 +1,24 @@
 return {
-  "lukas-reineke/indent-blankline.nvim",
-  lazy = true, -- after tree-sitter
+  'lukas-reineke/indent-blankline.nvim',
+  lazy = true,
 
   opts = {
     indent = {
-      char = "▎",
-      -- highlight = "hl-Whitespace"
+      char = '▎',
+      -- highlight = 'hl-Whitespace'
     },
     viewport_buffer = {
       max = 30,
       min = 500
     },
     scope = {
-      char = "▎",
-      -- highlight = "hl-LineNr"
+      char = '▎',
+      -- highlight = 'hl-LineNr'
     },
-    exclude = {
-      filetypes = {
-        "asm"
-      }
-    }
+    exclude = { filetypes = { 'asm' } }
   },
 
-  config = function (_, opts)
-    require("ibl").setup(opts)
+  config = function(_, opts)
+    require('ibl').setup(opts)
   end
 }

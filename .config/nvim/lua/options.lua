@@ -1,37 +1,37 @@
 local options = {
   termguicolors = true,
-  background = "dark",
+  background = 'dark',
   laststatus = 3, -- global status line
   pumheight = 10, -- pop up menu height
-  signcolumn = "yes",
+  signcolumn = 'yes',
   showmode = false,
   cmdheight = 0,
-  showcmdloc = "statusline",
+  showcmdloc = 'statusline',
   history = 100,
 
   conceallevel = 0,
   list = true,
-  listchars = "eol:↴,space:⋅,lead: ,trail:-,tab:  ",
+  listchars = 'eol:↴,space:⋅,lead: ,trail:-,tab:  ',
   number = true,
   relativenumber = false,
   cursorline = true,
 
   writebackup = true,
   backup = true,
-  backupdir = "/home/mario/.local/state/nvim/backup",
+  backupdir = '/home/mario/.local/state/nvim/backup',
   swapfile = true,
   undofile = true,
-  updatetime = 250, -- (ms) time to save swap file
+  updatetime = 250,          -- (ms) time to save swap file
 
-  clipboard = "unnamedplus", -- share system clipboard
-  completeopt = "menuone,noselect",
-  fileencoding = "utf-8",
+  clipboard = 'unnamedplus', -- share system clipboard
+  completeopt = 'menuone,noselect',
+  fileencoding = 'utf-8',
 
   hlsearch = true,
   ignorecase = true,
   smartcase = true,
 
-  mouse = "a",
+  mouse = 'a',
   smartindent = true,
   splitbelow = true, -- split below horizontally
   splitright = true, -- split on the left vertically
@@ -45,10 +45,10 @@ local options = {
 
   sidescrolloff = 2,
 
-  foldmethod = "marker",
+  foldmethod = 'marker',
 
   spell = true,
-  spelllang = { "it", "en" },
+  spelllang = { 'it', 'en' },
 }
 
 vim.g.loaded_perl_provider = 0

@@ -1,5 +1,5 @@
 vim.keymap.set(
   'n',
   '<leader>r',
-  ":TermExec cmd='run %:.'<CR>"
+  ":TermExec cmd='asm run %:.'<CR>"
 )
