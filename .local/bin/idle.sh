@@ -2,6 +2,6 @@
 
 /usr/bin/swayidle -w \
   timeout 180 lock.sh \
-  timeout 200 "hyprctl dispatcher dpms off" \
-  resume "hyprctl dispatcher dpms on" \
+  timeout 200 "swaymsg 'output \'*\' power off'" \
+  resume "swaymsg 'output \'*\' power on'" \
   before-sleep lock.sh
