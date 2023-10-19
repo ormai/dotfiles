@@ -11,7 +11,21 @@ exec {
 
 exec_always "notify-send 'Reloading Sway'"
 xwayland enable
-set $super Mod4
+set $SUPER Mod4
+
+seat * {
+  xcursor_theme Pix 10
+  hide_cursor when-typing enable
+}
+
+default_orientation auto
+
+default_floating_border none
+default_border pixel 2
+smart_borders on
+gaps inner 5
+smart_gaps on
+focus_follows_mouse always
 
 input * {
   xkb_layout "it"
@@ -24,80 +38,76 @@ input * {
 }
 
 output * background "`fd . ~/Pictures/wp/dark | sort -R | head -1`" fill #1d2021
-
 output HDMI-A-2 resolution 1920x1080@60Hz position 0 -1080
 output eDP-1 resolution 1920x1080@60Hz position 0 0
 
-seat * {
-  xcursor_theme Pix 10
-  hide_cursor when-typing enable
-}
-
-default_floating_border none
-default_border pixel 2
-smart_borders on
-gaps inner 5
-smart_gaps on
-
-
-floating_modifier $super
-bindsym {
-  $super+Return exec kitty
-  $super+a exec "~/.config/rofi/library.sh"
-  $super+b exec "pgrep waybar && killall -SIGUSR1 waybar || waybar"
-  $super+c exec "rofi -show calc -terse -no-history -no-sort -no-bold -theme ~/.config/rofi/themes/calc.rasi -hint-result '' -hint-welcome '' | wl-copy"
-  $super+m exec "kitty -e lf"
-  $super+s exec "color toggle"
-  $super+v exec "cliphist list | rofi -dmenu -p "󰆒" -theme ~/.config/rofi/themes/clipboard.rasi | cliphist decode | wl-copy"
-  $super+w exec "rofi -show drun -theme ~/.config/rofi/themes/drun.rasi"
-
-  $super+Shift+q exec "~/.config/rofi/powermenu.sh"
-  $super+Shift+r reload
-
-  $super+q kill
-  $super+f fullscreen toggle
-  $super+t layout toggle split
-  $super+space floating toggle
-  $super+Shift+space focus mode_toggle
-  $super+h focus left
-  $super+j focus down
-  $super+k focus up
-  $super+l focus right
-  $super+Shift+h move left
-  $super+Shift+j move down
-  $super+Shift+k move up
-  $super+Shift+l move right
-  $super+p split horizontal
-  $super+o split vertical
-  $super+Shift+minus move scratchpad
-  $super+minus scratchpad show
-
-  $super+1 workspace number 1
-  $super+2 workspace number 2
-  $super+3 workspace number 3
-  $super+4 workspace number 4
-  $super+5 workspace number 5
-  $super+6 workspace number 6
-  $super+7 workspace number 7
-  $super+8 workspace number 8
-  $super+9 workspace number 9
-  $super+0 workspace number 10
-  $super+Shift+1 move container to workspace number 1
-  $super+Shift+2 move container to workspace number 2
-  $super+Shift+3 move container to workspace number 3
-  $super+Shift+4 move container to workspace number 4
-  $super+Shift+5 move container to workspace number 5
-  $super+Shift+6 move container to workspace number 6
-  $super+Shift+7 move container to workspace number 7
-  $super+Shift+8 move container to workspace number 8
-  $super+Shift+9 move container to workspace number 9
-  $super+Shift+0 move container to workspace number 10
-
-  Print exec "grimblast --notify copysave area"
-  Shift+Print exec "grimblast --notify copysave screen"
-}
+floating_modifier $SUPER
 
 bindsym {
+  $SUPER+RETURN exec kitty
+  $SUPER+A exec "~/.config/rofi/library.sh"
+  $SUPER+B exec "pgrep waybar && killall -SIGUSR1 waybar || waybar"
+  $SUPER+C exec "rofi -show calc -terse -no-history -no-sort -no-bold -theme ~/.config/rofi/themes/calc.rasi -hint-result '' -hint-welcome '' | wl-copy"
+  $SUPER+M exec "kitty -e lf"
+  $SUPER+S exec "color toggle"
+  $SUPER+V exec "cliphist list | rofi -dmenu -p "󰆒" -theme ~/.config/rofi/themes/clipboard.rasi | cliphist decode | wl-copy"
+  $SUPER+W exec "rofi -show drun -theme ~/.config/rofi/themes/drun.rasi"
+
+  PRINT exec "grimblast --notify copysave area"
+  SHIFT+PRINT exec "grimblast --notify copysave screen"
+
+  $SUPER+SHIFT+Q exec "~/.config/rofi/powermenu.sh"
+  $SUPER+SHIFT+R reload
+  $SUPER+Q kill
+  $SUPER+F fullscreen toggle
+
+  $SUPER+T layout toggle split
+  $SUPER+P split horizontal
+  $SUPER+O split vertical
+
+  $SUPER+PLUS resize grow width 10 px
+  $SUPER+MINUS resize shrink width 10 px 
+  $SUPER+SHIFT+PLUS resize grow height 10 px 
+  $SUPER+SHIFT+MINUS resize shrink height 10 px 
+
+  $SUPER+SPACE floating toggle
+  $SUPER+SHIFT+SPACE focus mode_toggle
+
+  $SUPER+SHIFT+BACKSPACE move scratchpad
+  $SUPER+BACKSPACE scratchpad show
+
+  $SUPER+H focus left
+  $SUPER+J focus down
+  $SUPER+K focus up
+  $SUPER+L focus right
+
+  $SUPER+SHIFT+H move left
+  $SUPER+SHIFT+J move down
+  $SUPER+SHIFT+K move up
+  $SUPER+SHIFT+L move right
+
+  $SUPER+1 workspace number 1
+  $SUPER+2 workspace number 2
+  $SUPER+3 workspace number 3
+  $SUPER+4 workspace number 4
+  $SUPER+5 workspace number 5
+  $SUPER+6 workspace number 6
+  $SUPER+7 workspace number 7
+  $SUPER+8 workspace number 8
+  $SUPER+9 workspace number 9
+  $SUPER+0 workspace number 10
+
+  $SUPER+SHIFT+1 move container to workspace number 1
+  $SUPER+SHIFT+2 move container to workspace number 2
+  $SUPER+SHIFT+3 move container to workspace number 3
+  $SUPER+SHIFT+4 move container to workspace number 4
+  $SUPER+SHIFT+5 move container to workspace number 5
+  $SUPER+SHIFT+6 move container to workspace number 6
+  $SUPER+SHIFT+7 move container to workspace number 7
+  $SUPER+SHIFT+8 move container to workspace number 8
+  $SUPER+SHIFT+9 move container to workspace number 9
+  $SUPER+SHIFT+0 move container to workspace number 10
+
   XF86MonBrightnessUp exec "brightnessctl set +5%"
   XF86MonBrightnessDown exec "brightnessctl set 5%-"
   XF86AudioRaiseVolume exec "wpctl set-volume @DEFAULT_SINK@ 0.05+"
@@ -107,21 +117,6 @@ bindsym {
   XF86AudioPrev exec "playerctl previous"
   XF86AudioNext exec "playerctl next"
   XF86AudioPlay exec "playerctl play-pause""
-}
-
-bindsym $super+r mode "Resize 󰩨"
-mode "Resize 󰩨" {
-  bindsym {
-    plus resize grow width 10 px
-    minus resize shrink width 10 px 
-
-    Shift+plus resize grow height 10 px 
-    Shift+minus resize shrink height 10 px 
-
-    Return mode "default"
-    Escape mode "default"
-    $super+r mode "default"
-  }
 }
 
 bar swaybar_command waybar
