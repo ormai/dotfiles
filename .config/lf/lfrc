@@ -29,7 +29,7 @@ map a push A<a-b> # after extention
 map Y $printf "%s" "$fx" | wl-copy # yank the path
 map <enter> shell
 map t trash
-map x delete
+# map x delete
 map u :{{
   clear
   unselect
@@ -38,7 +38,10 @@ map u :{{
 # COMMANDS
 cmd dir %mkdir $1 # create new directory
 cmd new %touch $1 # create new file
-cmd trash %set -f; mv -f "$f" $XDG_CACHE_HOME/trash && mv -f # send element to trash
+
+%mkdir -p $XDG_CHACHE_HOME/trash
+
+cmd trash %set -f; mv $fx $XDG_CACHE_HOME/trash
 
 cmd extract ${{ # extract archive
     set -f
