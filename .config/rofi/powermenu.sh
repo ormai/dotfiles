@@ -28,6 +28,6 @@ case $action in
     systemctl suspend
     ;;
   $logout)
-    hyprctl dispatch exit
+    swaymsg exit
     ;;
 esac

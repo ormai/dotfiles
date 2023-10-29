@@ -25,8 +25,6 @@ return {
           return not disabled
         end,
 
-        preselect = types.cmp.PreselectMode.Item,
-
         snippet = {
           expand = function(args)
             luasnip.lsp_expand(args.body)
