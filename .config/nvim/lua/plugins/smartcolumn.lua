@@ -10,7 +10,8 @@ return {
       'tex',
       'lazy',
       'mason',
-      'lspinfo'
+      'lspinfo',
+      'markdown'
     },
   },
 }

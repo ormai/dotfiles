@@ -4,13 +4,9 @@ return {
   -- 'tpope/vim-rhubarb',
   {
     'folke/neodev.nvim',
+    enabled = false,
     lazy = true,
     ft = 'lua',
-    opts = {}
-  },
-  {
-    'folke/twilight.nvim',
-    enabled = false,
     opts = {}
   },
   {
@@ -25,7 +21,7 @@ return {
     'romainl/vim-cool'
   },
   {
-    'echasnovski/mini.nvim',
-    version = false
+    'Pocco81/auto-save.nvim',
+    config = true,
   }
 }

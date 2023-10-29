@@ -12,6 +12,7 @@ local options = {
   conceallevel = 0,
   list = true,
   listchars = 'eol:↴,space:⋅,lead: ,trail:-,tab:  ',
+  fillchars = 'eob: ', -- hide ~
   number = true,
   relativenumber = false,
   cursorline = true,
