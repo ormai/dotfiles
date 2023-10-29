@@ -9,9 +9,9 @@ return {
       delete       = { text = '▁' },
       topdelete    = { text = '▔' },
       changedelete = { text = '~' },
-      untracked    = { text = '┃' },
+      untracked    = { text = ''  },
     },
-    numhl = true, -- line number highlight
+    -- numhl = true, -- line number highlight
     max_file_length = 10000
   }
 }
