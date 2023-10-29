@@ -14,7 +14,6 @@ return {
     },
     config = function()
       local cmp = require('cmp')
-      local types = require('cmp.types')
       local luasnip = require('luasnip')
 
       cmp.setup {
@@ -26,25 +25,12 @@ return {
           return not disabled
         end,
 
-        performance = {
-          debounce = 60,
-          throttle = 30,
-          fetching_timeout = 500,
-          confirm_resolve_timeout = 80,
-          async_budget = 1,
-          max_view_entries = 200,
-        },
-
         preselect = types.cmp.PreselectMode.Item,
 
         snippet = {
           expand = function(args)
             luasnip.lsp_expand(args.body)
           end,
-        },
-
-        experimental = {
-          ghost_text = false,
         },
 
         mapping = cmp.mapping.preset.insert {
@@ -97,19 +83,10 @@ return {
           },
         },
 
-        window = {
+        --[[ window = {
           completion = cmp.config.window.bordered(),
           documentation = cmp.config.window.bordered(),
-        },
-
-        completion = {
-          autocomplete = {
-            types.cmp.TriggerEvent.TextChanged,
-          },
-          completeopt = 'menu,menuone,noselect',
-          keyword_pattern = [[\%(-\?\d\+\%(\.\d\+\)\?\|\h\w*\%(-\w*\)*\)]],
-          keyword_length = 1,
-        },
+        }, ]]
       }
       -- Put () after completing the name of a function
       cmp.event:on(

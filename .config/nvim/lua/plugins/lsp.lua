@@ -62,10 +62,9 @@ return {
     }
   },
 
+
   config = function()
     local on_attach = function(_, bufnr)
-      local buf = vim.lsp.buf
-      local telescope = require('telescope.builtin')
       local k = function(keys, func, desc)
         if desc then
           desc = 'LSP: ' .. desc
@@ -73,6 +72,7 @@ return {
         vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
       end
 
+      local buf = vim.lsp.buf
       k('<leader>rn', buf.rename, 'rename buffer')
       k('<leader>ca', buf.code_action, 'code actions')
       k('gd', buf.definition, 'go to definition')
@@ -85,6 +85,7 @@ return {
       k('<leader>wr', buf.remove_workspace_folder, 'remove workspace folder')
       k('<leader>f', buf.format, 'format')
 
+      local telescope = require('telescope.builtin')
       k('<leader>r', telescope.lsp_references 'list references')
       k('<leader>s', telescope.lsp_document_symbols, 'list symbols')
 
@@ -107,10 +108,14 @@ return {
       { desc = 'LSP: toggle inlay-hints' }
     )
 
+    vim.lsp.handlers["textDocument/hover"] =
+        vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
+
+    vim.lsp.handlers["textDocument/signatureHelp"] =
+        vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
+
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-
-    require('neodev').setup() -- before lspconfig
 
     require('mason-lspconfig').setup_handlers {
       function(server_name)
