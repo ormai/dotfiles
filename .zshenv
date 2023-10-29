@@ -10,7 +10,7 @@ export XCURSOR_PATH="${XCURSOR_PATH}:~/.local/share/icons"
 export GSETTINGS_SCHEMA_DIR="/usr/share/glib-2.0/schemas"
 
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
-export HISTFILE="$ZDOTDIR/history"
+export HISTFILE="$XDG_DATA_HOME/zsh/history"
 
 append_path () {
   case "$PATH" in
@@ -27,6 +27,7 @@ append_path "$XDG_DATA_HOME/cargo/bin"
 append_path "$XDG_DATA_HOME/gem/ruby/3.0.0/bin"
 append_path "$XDG_DATA_HOME/npm/bin"
 append_path "$XDG_DATA_HOME/go/bin"
+append_path "$XDG_DATA_HOME/pipx"
 export PATH
 
 source $ZDOTDIR/lscolors.sh # Used by lf, zsh completion menu, exa
@@ -55,6 +56,7 @@ export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export GOPATH="$XDG_DATA_HOME/go"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export PIPX_BIN_DIR="$XDG_DATA_HOME/pipx"
 export HOME_ETC="$XDG_CONFIG_HOME"
 export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
