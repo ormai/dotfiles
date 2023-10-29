@@ -6,11 +6,7 @@ return {
   },
 
   keys = {
-    {
-      '<leader>p',
-      '<cmd>Telescope<CR>',
-      desc = 'Telescope'
-    },
+    { '<C-p>', '<cmd>Telescope<CR>', desc = 'Telescope' },
     {
       '<leader>w',
       function() require('telescope.builtin').grep_string() end,
@@ -63,7 +59,7 @@ return {
     },
   },
 
-  config = function(plugin)
+  config = function()
     require('telescope').setup {
       defaults = {
         mappings = {
