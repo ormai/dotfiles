@@ -26,13 +26,14 @@ dark() {
     ~/.config/dunst/dunstrc
   pkill dunst
 
-  sed -i "s/@import \"light-colors\"/@import \"dark-colors\"/" \
+  sed -i "s/@import 'light-colors'/@import 'dark-colors'/" \
     ~/.config/rofi/config.rasi
 
   sed -i "s/background = \"light\"/background = \"dark\"/" \
     ~/.config/nvim/lua/options.lua
 
-  for pipe in $(/usr/bin/fd --max-depth 1 nvim_ ~/.cache/nvim/); do
+  for pipe in $(/usr/bin/fd --max-depth 1 nvim_ ~/.cache/nvim/)
+  do
     if [[ -a $pipe ]]
     then
       nvim --server $pipe --remote-send "<cmd>set bg=dark<CR>" &
@@ -66,10 +67,11 @@ light() {
   sed -i "s/@import \"dark-colors\"/@import \"light-colors\"/" \
     ~/.config/rofi/config.rasi
 
-  sed -i "s/background = \"dark\"/background = \"light\"/" \
+  sed -i "s/background = 'dark'/background = 'light'/" \
     ~/.config/nvim/lua/options.lua
 
-  for pipe in $(/usr/bin/fd --max-depth 1 nvim_ ~/.cache/nvim/); do
+  for pipe in $(/usr/bin/fd --max-depth 1 nvim_ ~/.cache/nvim/)
+  do
     if [[ -a $pipe ]]
     then
       nvim --server $pipe --remote-send "<cmd>set bg=light<CR>" &
