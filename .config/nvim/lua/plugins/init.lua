@@ -21,7 +21,32 @@ return {
     'romainl/vim-cool'
   },
   {
-    'Pocco81/auto-save.nvim',
-    config = true,
+    "okuuva/auto-save.nvim",
+    cmd = "ASToggle",
+    event = { "InsertLeave", "TextChanged" },
+    opts = { execution_message = { enabled = false } },
+  },
+  {
+    "folke/zen-mode.nvim",
+    keys = { { '<leader>z', '<cmd>ZenMode<cr>', desc = "Toggle ZenMode" } },
+    cmd = 'ZenMode',
+    opts = {
+      window = {
+        options = {
+          number = false,
+          cursorline = false,
+          list = false,
+          signcolumn = "no"
+        }
+      },
+      plugins = {
+        options = {
+          enabled = true,
+          laststatus = 0,
+          showcmd = false,
+          ruler = false
+        }
+      }
+    }
   }
 }
