@@ -1,51 +1,50 @@
 return {
-  -- 'tpope/vim-fugitive',
-  -- 'tpope/vim-sleuth',
-  -- 'tpope/vim-rhubarb',
   {
-    'folke/neodev.nvim',
-    enabled = false,
-    lazy = true,
+    'tpope/vim-fugitive', -- A Git wrapper so awesome, it should be illegal
+    cmd = {
+      'G', 'Git', 'Ggrep', 'Glrep', 'Gclog', 'Gcd', 'Glcd', 'Gedit', 'Gsplit',
+      'Gvsplit', 'Gtabedit', 'Gpedit', 'Gdrop', 'Gread', 'Gwrite', 'Gdiffsplit',
+      'Gvdiffsplit', 'Ghdiffsplit', 'GMove', 'Gremove', 'GUnlink', 'GBrowser'
+    }
+  },
+  'tpope/vim-rhubarb', -- GitHub extension for fugitive.vim
+  'tpope/vim-sleuth',  -- Heuristically set buffer options
+  'romainl/vim-cool',  -- A very simple plugin that makes hlsearch more useful.
+  {
+    'folke/neodev.nvim', -- Neovim setup for init.lua and plugin development...
     ft = 'lua',
     opts = {}
   },
   {
-    'fladson/vim-kitty', -- provides syntax highlighting for kitty.conf
+    'fladson/vim-kitty', -- Vim syntax highlighting for Kitty terminal config
     ft = 'kitty'
   },
   {
-    'iamcco/markdown-preview.nvim',
+    'windwp/nvim-autopairs',
+    event = 'InsertEnter',
+    opts = {}
+  },
+  {
+    'iamcco/markdown-preview.nvim', -- markdown preview plugin for (neo)vim
     ft = 'markdown'
   },
   {
-    'romainl/vim-cool'
-  },
-  {
-    "okuuva/auto-save.nvim",
-    cmd = "ASToggle",
-    event = { "InsertLeave", "TextChanged" },
-    opts = { execution_message = { enabled = false } },
-  },
-  {
-    "folke/zen-mode.nvim",
-    keys = { { '<leader>z', '<cmd>ZenMode<cr>', desc = "Toggle ZenMode" } },
-    cmd = 'ZenMode',
+    'j-hui/fidget.nvim', -- Standalone UI for nvim-lsp progress
+    tag = 'legacy',
+    event = "LspAttach",
     opts = {
       window = {
-        options = {
-          number = false,
-          cursorline = false,
-          list = false,
-          signcolumn = "no"
-        }
-      },
-      plugins = {
-        options = {
-          enabled = true,
-          laststatus = 0,
-          showcmd = false,
-          ruler = false
-        }
+        blend = 0
+      }
+    }
+  },
+  {
+    'okuuva/auto-save.nvim', -- Automatically save your changes in NeoVim
+    cmd = 'ASToggle',
+    event = { 'InsertLeave', 'TextChanged' },
+    opts = {
+      execution_message = {
+        enabled = false
       }
     }
   }

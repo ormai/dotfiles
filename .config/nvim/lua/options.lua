@@ -1,21 +1,25 @@
 local options = {
-  termguicolors = true,
+  termguicolors = true, -- 24-bit RGB colors
   background = 'dark',
-  laststatus = 3, -- global status line
-  pumheight = 10, -- pop up menu height
-  signcolumn = 'yes',
-  showmode = false,
-  cmdheight = 0,
-  showcmdloc = 'statusline',
-  history = 100,
 
+  laststatus = 3, -- global status line
+  cmdheight = 0,  -- hide the command line completely
+  showcmdloc = 'statusline',
+  showmode = false,
+
+  signcolumn = 'yes',
+  statuscolumn = '%s%l', -- sign column and line numbers
+
+  pumheight = 10,        -- max height of the pop up completion menu
+  history = 100,
   conceallevel = 0,
   list = true,
-  listchars = 'eol:↴,space:⋅,lead: ,trail:-,tab:  ',
+  listchars = 'eol:↴,space:⋅,lead: ,trail:-',
   fillchars = 'eob: ', -- hide ~
   number = true,
   relativenumber = false,
   cursorline = true,
+  cursorlineopt = 'number', -- highlight only active line number
 
   writebackup = true,
   backup = true,

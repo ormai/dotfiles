@@ -19,6 +19,7 @@ return {
       lualine_b = {
         {
           'filename',
+          newfile_status = true,
           symbols = {
             modified = '',
             readonly = '',

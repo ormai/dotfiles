@@ -31,10 +31,15 @@ local servers = { -- configured servers with settings
   html = {},
   bashls = {},
   lua_ls = {
-    Lua = { -- https://luals.github.io/wiki/settings/
-      workspace = { checkThirdParty = false },
-      hint = { enabled = true }
-    }
+    Lua = {
+      hint = {
+        enable = true,
+        setType = true,
+      },
+      diagnostics = {
+        globals = { 'vim' }
+      }
+    },
   }
 }
 
@@ -62,8 +67,9 @@ return {
     }
   },
 
-
   config = function()
+    require('lspconfig.ui.windows').default_options.border = 'rounded'
+
     local on_attach = function(_, bufnr)
       local k = function(keys, func, desc)
         if desc then
@@ -84,10 +90,6 @@ return {
       k('<leader>wa', buf.add_workspace_folder, 'add workspace folder')
       k('<leader>wr', buf.remove_workspace_folder, 'remove workspace folder')
       k('<leader>f', buf.format, 'format')
-
-      local telescope = require('telescope.builtin')
-      k('<leader>r', telescope.lsp_references 'list references')
-      k('<leader>s', telescope.lsp_document_symbols, 'list symbols')
 
       k('<leader>wl', function()
         print(vim.inspect(buf.list_workspace_folders()))
