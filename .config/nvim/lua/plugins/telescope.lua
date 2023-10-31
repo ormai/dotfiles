@@ -57,6 +57,16 @@ return {
       function() require('telescope.builtin').keymaps() end,
       desc = 'Telescope: keymaps'
     },
+    {
+      '<leader>r',
+      function() require('telescope.builtin').lsp_references() end,
+      'Telescope: LSP references'
+    },
+    {
+      '<leader>s',
+      function() require('telescope.builtin').lsp_document_symbols() end,
+      'Telescope: LSP symbols'
+    }
   },
 
   config = function()

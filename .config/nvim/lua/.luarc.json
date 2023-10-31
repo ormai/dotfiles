@@ -73,6 +73,7 @@
         "/home/mario/.local/share/nvim/lazy/cmp-path/lua",
         "/home/mario/.config/nvim/lua",
         "/home/mario/.config/nvim/lua",
-        "${3rd}/luv/library"
+        "${3rd}/luv/library",
+        "${3rd}/luassert/library"
     ]
 }

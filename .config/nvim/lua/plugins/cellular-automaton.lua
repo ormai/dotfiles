@@ -1,7 +1,6 @@
 return {
   'eandrju/cellular-automaton.nvim',
   cmd = 'CellularAutomaton',
-  lazy = true,
   keys = {
     {
       '<leader>rain',
