@@ -1,9 +1,9 @@
 @import "dark-colors.css";
 
 * {
-  font-family: "Inconsolata Nerd Font";
+  font-family: "JetBrainsMono Nerd Font";
   font-weight: 600;
-  font-size: 15px;
+  font-size: 12px;
 }
 
 window { background: @bg; }
