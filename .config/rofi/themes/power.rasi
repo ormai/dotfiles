@@ -13,8 +13,8 @@ mainbox {
 }
 
 element-text {
-  padding: 2 0 2 -8;
-  font: "Inconsolata Nerd Font 20";
+  padding: 2 0 2 -3;
+  font: "JetBrainsMono Nerd Font 16";
 }
 
 element-text selected {
