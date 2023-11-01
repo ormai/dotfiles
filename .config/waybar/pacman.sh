@@ -2,8 +2,9 @@
 
 PACKAGES=$(checkupdates | wc -l)
 
-if [[ $PACKAGES == 0 ]]; then
+if [[ $PACKAGES == 0 ]]
+then
   exit 0
 fi
 
-echo $PACKAGES 
+echo "$PACKAGES "

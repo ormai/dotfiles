@@ -3,12 +3,10 @@
 * {
   font-family: "Inconsolata Nerd Font";
   font-weight: 600;
-  font-size: 16px;
+  font-size: 15px;
 }
 
-window {
-  background: @bg;
-}
+window { background: @bg; }
 
 label {
   padding: 0 8px;
@@ -26,33 +24,20 @@ tooltip {
   border-radius: 4px;
 }
 
-#idle_inhibitor {
-  margin: 4px 30px 4px 15px;
-  padding-right: 15px;
-  border-radius: 4px;
-}
-
-#idle_inhibitor.activated {
-  color: @bg2;
-  background: @yellow;
-}
+#idle_inhibitor { padding: 0 20px 0 15px; }
+#idle_inhibitor.activated { color: @yellow; }
 
 #workspaces button {
   min-width: 0;
+  min-height: 0;
   padding: 0;
 }
-/* #workspaces button.active { */
-/*   background: @green; */
-/* } */
-#workspaces button.visible {
-  background: @green;
-}
+#workspaces button label         { color: @text-dimmed; }
+#workspaces button.visible label { color: @text; }
 
-#custom-bat.critical, #custom-microphone {
-  color: @red;
-}
+#custom-bat.critical, #custom-microphone { color: @red; }
 
 /* Layout */
 #custom-bat { margin: 0 20px 0 30px; }
-#pulseaudio { margin-left: 30px; }
-#network    { margin-left: 30px; }
+#pulseaudio { margin-left: 20px; }
+#network    { margin-left: 20px; }
