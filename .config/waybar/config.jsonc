@@ -2,8 +2,8 @@
 	"layer": "top",
 	"position": "top",
 	"spacing": 5,
-	"height": 32,
-	"modules-left": ["idle_inhibitor", "sway/workspaces", "sway/mode"],
+	"height": 26,
+	"modules-left": ["idle_inhibitor", "sway/workspaces"],
 	"modules-center": ["custom/cmus", "image", "clock"],
 	"modules-right": [
 		"custom/pacman",
@@ -17,10 +17,10 @@
 	"custom/cmus": {
 		"exec-if": "pgrep cmus",
 		"exec": "playerctl --player=cmus --format \"{{duration(position)}}/{{duration(mpris:length)}} {{trunc(title, 40)}} - {{trunc(artist, 20)}}\" metadata",
-    "on-click": "playerctl --player=cmus play-pause",
-    "on-click-middle": "playerctl --player=cmus previous",
-    "on-click-right": "playerctl --player=cmus next",
-		"interval": 1
+		"on-click": "playerctl --player=cmus play-pause",
+		"on-click-middle": "playerctl --player=cmus previous",
+		"on-click-right": "playerctl --player=cmus next",
+		"interval": 2
 	},
 	"custom/bat": {
 		"exec": "~/.config/waybar/bat.sh",
@@ -42,10 +42,10 @@
 		"on-click": "kitty -e bluetoothctl"
 	},
 	"network": {
-		"format-wifi": "{icon} ",
+		"format-wifi": "{icon}",
 		"format-icons": ["󰤯", "󰤟", "󰤢", "󰤢", "󰤨"],
 		"format-ethernet": "{ipaddr}/{cidr}",
-		"format-disconnected": "󰤮 ",
+		"format-disconnected": "󰤮",
 		"tooltip-format-wifi": "{essid}, Strength: {signalStrength}%",
 		"tooltip-format-ethernet": "",
 		"max-length": 50,
