@@ -1,24 +1,28 @@
 return {
   'lukas-reineke/indent-blankline.nvim',
-  lazy = true,
-
+  main = 'ibl',
   opts = {
     indent = {
-      char = '▎',
-      -- highlight = 'hl-Whitespace'
-    },
-    viewport_buffer = {
-      max = 30,
-      min = 500
+      char = '▏',
+      highlight = 'IblIndent'
     },
     scope = {
-      char = '▎',
-      -- highlight = 'hl-LineNr'
+      char = '▏',
+      highlight = 'GruvboxYellow',
+      include = { -- use additional nodes as scope
+        node_type = {
+          lua = {
+            'return_statement', 'table_constructor'
+          },
+          cpp = {
+            'for_range_loop'
+          },
+          c = {
+            'union_specifier'
+          }
+        }
+      }
     },
     exclude = { filetypes = { 'asm' } }
-  },
-
-  config = function(_, opts)
-    require('ibl').setup(opts)
-  end
+  }
 }
