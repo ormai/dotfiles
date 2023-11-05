@@ -4,10 +4,12 @@ return {
   opts = {
     indent = {
       char = '▏',
+      priority = 1,
       highlight = 'IblIndent'
     },
     scope = {
       char = '▏',
+      priority = 1024,
       highlight = 'GruvboxYellow',
       include = { -- use additional nodes as scope
         node_type = {
@@ -16,13 +18,14 @@ return {
           },
           cpp = {
             'for_range_loop'
-          },
-          c = {
-            'union_specifier'
           }
         }
       }
     },
-    exclude = { filetypes = { 'asm' } }
+    exclude = {
+      filetypes = {
+        'asm'
+      }
+    }
   }
 }

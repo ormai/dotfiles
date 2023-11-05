@@ -48,7 +48,7 @@ return {
   event = { 'BufReadPre', 'BufNewFile' },
 
   dependencies = {
-    { -- To install servers
+    {
       'williamboman/mason.nvim',
       opts = {
         ui = {
@@ -61,7 +61,6 @@ return {
     {
       'williamboman/mason-lspconfig.nvim',
       opts = {
-        ensure_installed = vim.tbl_keys(servers),
         automatic_installation = true
       }
     }
@@ -109,12 +108,6 @@ return {
       function() vim.lsp.inlay_hint(0, nil) end,
       { desc = 'LSP: toggle inlay-hints' }
     )
-
-    vim.lsp.handlers["textDocument/hover"] =
-        vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
-
-    vim.lsp.handlers["textDocument/signatureHelp"] =
-        vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
 
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
