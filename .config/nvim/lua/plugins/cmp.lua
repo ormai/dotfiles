@@ -19,7 +19,8 @@ return {
       cmp.setup {
         enabled = function()
           local disabled = false
-          disabled = disabled or (vim.api.nvim_buf_get_option(0, 'buftype') == 'prompt')
+          disabled = disabled or
+            (vim.api.nvim_get_option_value('buftype', { buf = 0 }) == 'prompt')
           disabled = disabled or (vim.fn.reg_recording() ~= '')
           disabled = disabled or (vim.fn.reg_executing() ~= '')
           return not disabled
@@ -63,7 +64,7 @@ return {
         },
 
         sources = {
-          { name = 'nvim_lsp',                group_index = 1 },
+          { name = 'nvim_lsp',               group_index = 1 },
           { name = 'nvim_lsp_signature_help', group_index = 2 },
           { name = 'luasnip',                 group_index = 3 },
           { name = 'path',                    group_index = 4 },

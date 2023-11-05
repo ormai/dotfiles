@@ -1,7 +1,7 @@
 return {
   'lewis6991/gitsigns.nvim',
   event = { 'BufReadPost', 'BufNewFile' },
-  dependencies = { 'nvim-lua/plenary.nvim' },
+  dependencies = 'nvim-lua/plenary.nvim',
   config = {
     signs = {
       untracked = { text = '' },

@@ -29,16 +29,6 @@ return {
     ft = 'markdown'
   },
   {
-    'j-hui/fidget.nvim', -- Standalone UI for nvim-lsp progress
-    tag = 'legacy',
-    event = "LspAttach",
-    opts = {
-      window = {
-        blend = 0
-      }
-    }
-  },
-  {
     'okuuva/auto-save.nvim', -- Automatically save your changes in NeoVim
     cmd = 'ASToggle',
     event = { 'InsertLeave', 'TextChanged' },
