@@ -1,4 +1,3 @@
-
 /* Settings for smoothing functions and transformations commonly
    used to display FFT output.
 
@@ -9,7 +8,7 @@
 
 /* The type of formula to use for weighting values when smoothing.
    Possible values:
-   
+
    - circular     heavily rounded points
    - sinusoidal   rounded at both low and high weighted values
                     like a sine wave
@@ -18,7 +17,7 @@
 #define ROUND_FORMULA sinusoidal
 
 /* The sampling mode for processing raw FFT input:
-   
+
    - average     averages all the inputs in the sample range for
                    a given point. Produces smooth output, but peaks
                    are not well represented
