@@ -5,7 +5,7 @@ return {
     {
       '<C-t>',
       '<cmd>ToggleTerm<cr>',
-      { desc = 'ToggleTerm', silent = true }
+      { desc = 'ToggleTerm' }
     }
   },
   opts = { size = 20 }

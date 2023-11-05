@@ -1,12 +1,16 @@
 return {
   'nvim-telescope/telescope.nvim',
   dependencies = {
-    { 'nvim-lua/plenary.nvim',                    lazy = true },
-    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make', },
+    { 'nvim-lua/plenary.nvim', },
+    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' }
   },
 
   keys = {
-    { '<C-p>', '<cmd>Telescope<CR>', desc = 'Telescope' },
+    {
+      '<C-p>',
+      '<cmd>Telescope<CR>',
+      desc = 'Telescope'
+    },
     {
       '<leader>w',
       function() require('telescope.builtin').grep_string() end,
@@ -75,10 +79,10 @@ return {
         mappings = {
           i = {
             ['<C-u>'] = false,
-            ['<C-d>'] = false,
-          },
-        },
-      },
+            ['<C-d>'] = false
+          }
+        }
+      }
     }
 
     pcall(require('telescope').load_extension, 'fzf') -- enable fzf-native
