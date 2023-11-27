@@ -4,7 +4,22 @@ return {
   lazy = false,
   build = ':TSUpdate',
   dependencies = {
-    'p00f/nvim-ts-rainbow',
+    {
+      'hiphish/rainbow-delimiters.nvim',
+      config = function()
+        vim.g.rainbow_delimiters = {
+          highlight = {
+            'GruvboxPurple',
+            'GruvboxBlue',
+            'GruvboxAqua',
+            'GruvboxGreen',
+            'GruvboxYellow',
+            'GruvboxOrange',
+            'GruvboxRed',
+          }
+        }
+      end
+    },
     'nvim-treesitter/nvim-treesitter-textobjects',
   },
   keys = {
@@ -54,21 +69,6 @@ return {
             ['[M'] = '@function.outer',
             ['[]'] = '@class.outer',
           }
-        }
-      },
-
-      -- parenthesis, brackets and braces have a different color depending op
-      -- the nesting level
-      rainbow = {
-        enable = true,
-        extended_mode = true, -- Also highlight html tags
-        colors = {
-          '#83A598',
-          '#8ec07c',
-          '#b8bb26',
-          '#fabd2f',
-          '#f38019',
-          '#fb4934'
         }
       }
     }

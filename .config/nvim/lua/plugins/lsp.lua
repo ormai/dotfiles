@@ -109,16 +109,19 @@ return {
       { desc = 'LSP: toggle inlay-hints' }
     )
 
-    local capabilities = vim.lsp.protocol.make_client_capabilities()
-    capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+    local capabilities = vim.tbl_deep_extend(
+      "force",
+      vim.lsp.protocol.make_client_capabilities(),
+      require('cmp_nvim_lsp').default_capabilities()
+    )
 
     require('mason-lspconfig').setup_handlers {
-      function(server_name)
-        require('lspconfig')[server_name].setup {
+      function(server)
+        require('lspconfig')[server].setup {
           capabilities = capabilities,
           on_attach = on_attach,
-          settings = servers[server_name],
-          filetypes = (servers[server_name] or {}).filetypes,
+          settings = servers[server],
+          filetypes = (servers[server] or {}).filetypes,
         }
       end,
     }

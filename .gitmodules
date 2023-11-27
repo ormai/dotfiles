@@ -4,3 +4,6 @@
 [submodule ".local/share/fonts/inter"]
 	path = .local/share/fonts/inter
 	url = git@github.com:rsms/inter.git
+[submodule ".local/share/fonts/monaspace"]
+	path = .local/share/fonts/monaspace
+	url = https://github.com/githubnext/monaspace.git
