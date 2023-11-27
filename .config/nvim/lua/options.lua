@@ -8,16 +8,17 @@ local options = {
   showmode = false,
 
   signcolumn = 'yes',
-  statuscolumn = '%s%l', -- sign column and line numbers
+  --statuscolumn = '%s%l', -- sign column and line numbers
 
   pumheight = 10,        -- max height of the pop up completion menu
   history = 100,
-  conceallevel = 0,
+  conceallevel = 2,
   list = true,
-  listchars = 'eol:↴,space:⋅,lead: ,trail:-,tab:  ',
+  --listchars = 'eol:↴,space:⋅,lead: ,trail:-,tab:  ',
+  listchars = 'trail:-,tab:  ',
   fillchars = 'eob: ', -- hide ~
   number = true,
-  relativenumber = false,
+  relativenumber = true,
   cursorline = true,
   cursorlineopt = 'number', -- highlight only active line number
 
@@ -52,7 +53,7 @@ local options = {
 
   foldmethod = 'marker',
 
-  spell = true,
+  spell = false,
   spelllang = { 'it', 'en' },
 }
 

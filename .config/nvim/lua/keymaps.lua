@@ -5,16 +5,16 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 k('', '<Space>', '<Nop>') -- unbind <space> as it is the leader key
 
--- Move text up and down
-k('n', '<A-j>', ':m .+1<CR>==', { silent = true, desc = 'Move line down' })
-k('n', '<A-k>', ':m .-2<CR>==', { silent = true, desc = 'Move line up' })
-k('x', '<A-j>', ":m '>+1<CR>gv-gv", { silent = true, desc = 'Move line down' })
-k('x', '<A-k>', ":m '<-2<CR>gv-gv", { silent = true, desc = 'Move line up' })
+k('n', '<C-s>', '<cmd>set invspell<cr>', { desc = 'Toggle spell checking' })
+
+k('n', '<A-k>', '<cmd>move .-2<CR>==', { desc = 'Move line up' })
+k('n', '<A-j>', '<cmd>move .+1<CR>==', { desc = 'Move line down' })
+k('x', '<A-k>', "<cmd>move '<-2<CR>gv-gv", { desc = 'Move line up' })
+k('x', '<A-j>', "<cmd>move '>+1<CR>gv-gv", { desc = 'Move line down' })
 
 -- Stay in indent mode
-k('v', '<', '<gv', { silent = true, desc = '[<] Remove indent' })
-k('v', '>', '>gv', { silent = true, desc = '[>] Add indent' })
--- Move text up and down
+k('v', '<', '<gv')
+k('v', '>', '>gv')
 
 -- dd on an empty line doesn't overwire the clipboard
 local function enhanced_dd()

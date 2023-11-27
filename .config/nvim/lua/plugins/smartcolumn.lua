@@ -1,5 +1,6 @@
 return {
   'm4xshen/smartcolumn.nvim',
+  enabled = false,
   opts = {
     colorcolumn = '80',
     -- scope = 'line',
