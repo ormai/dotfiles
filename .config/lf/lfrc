@@ -8,14 +8,16 @@ set cleaner ctpvclear
 &ctpvquit $id
 
 set cursorpreviewfmt "\033[7;90m"
+set timefmt "_2-03-2006 15:04:05"
+# set promptfmt " \033[32;1m%u@%h\033[0m \033[34;1m%d\033[0m\033[1m%f\033[0m"
+set promptfmt " \033[34;1m%d\033[0m\033[1m%f\033[0m"
+set rulerfmt "%a  |%p  |\033[7;31m %m \033[0m  |\033[7;33m %c \033[0m  |\033[7;35m %s \033[0m  |\033[7;34m %f \033[0m  |%i/%t"
+set statfmt "\033[36m%p\033[0m| %c| %u| %g| %S| %t| -> %l"
 set shell sh
 set shellopts '-eu'
 set ifs "\n"
 set scrolloff 2
 set icons true
-set dircounts true
-set autoquit true
-set timefmt "[2/03/2006 15:04:05]"
 set tabstop 2 
 set incsearch true
 
@@ -39,9 +41,7 @@ map u :{{
 cmd dir %mkdir $1 # create new directory
 cmd new %touch $1 # create new file
 
-%mkdir -p $XDG_CHACHE_HOME/trash
-
-cmd trash %set -f; mv $fx $XDG_CACHE_HOME/trash
+cmd trash %set -f; mv --force --backup=numbered $fx $XDG_CACHE_HOME/trash
 
 cmd extract ${{ # extract archive
     set -f
