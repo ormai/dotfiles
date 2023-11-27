@@ -19,3 +19,31 @@
 #urlbar-input-container {
     text-align: center;
 }
+
+/* Colors */
+:root {
+  --tab-selected-bgcolor: #32302f;
+}
+.browser-toolbar:not(.titlebar-color) {
+  background-color: #282828 !important;;
+}
+
+#urlbar-background,
+#searchbar {
+  background-color: #282828 !important;
+  border: none !important;
+}
+
+#navigator-toolbox {
+  border-bottom: none !important;
+}
+
+#urlbar[focused="true"]:not([suppress-focus-border]) > #urlbar-background,
+#searchbar:focus-within {
+  outline: none !important;
+}
+
+#urlbar[focused="true"] > #urlbar-background,
+#searchbar:focus-within {
+  box-shadow: none !important;
+}
