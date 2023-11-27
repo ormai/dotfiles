@@ -1,0 +1,3 @@
+#!/bin/sh
+
+qemu-system-x86_64 -enable-kvm -smp 4 -m 8G -drive file=/home/mario/Documents/virtual-machines/kali.qcow2,format=qcow2
