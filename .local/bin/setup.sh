@@ -1,19 +1,65 @@
 #!/usr/bin/env bash
 
-dotConfig=(
-  dunst glava hypr imv kitty lf ncmpcpp neofetch newsboat nvim rofi
-  sway waybar zathura zsh chromium-flags.conf electron-flags.conf mimeapps.list
-  wgetrc
-)
-for i in ${dotConfig[@]}; do
-  ln -s $dotfilesDir/.config/$i $XDG_CONFIG_HOME/
-done
+# Manually clone the repository in $GITDIR then run this script
 
-dotLocal=("share/fonts" "share/icons" "share/themes")
-for i in ${dotLocal[@]}; do
-  ln -s $dotfilesDir/.local/$i $XDG_DATA_HOME/$i
-done
+GITDIR="$HOME/vault/dotfiles" # Where I manage my dotfiles
 
-ln -s $dotfilesDir/.local/bin $HOME/.local/
-ln -s $dotfilesDir/.zshenv $HOME
-ln -s $dotfilesDir/.mozilla/mario/chrome $HOME/.mozilla/mario/chrome
+if [[ ! -d $GITDIR ]]
+then
+  echo "ERROR: $GITDIR does not exist."
+  exit -1
+fi
+
+links() {
+  # Make some symbolic links
+  mkdir -o $HOME/.config
+  for i in $(/usr/bin/ls -1 $GITDIR/.config)
+  do
+    ln -s $GITDIR/.config/$i $HOME/.config
+  done
+
+  mkdir -p $HOME/.local
+  ln -s $GITDIR/.local/bin $HOME/.local/
+  ln -s $GITDIR/.zshenv $HOME/
+  mkdir -p $HOME/.mozilla/mario/chrome
+  ln -s $GITDIR/.mozilla/mario/chrome $HOME/.mozilla/mario/chrome
+}
+
+installPackages() {
+  # Install packages in the two lists with pacman
+  sudo pacman --noconfirm -Syu $(< list.pacman)
+
+  # Will ask for password. There will probably be conflicts between packages
+  # and some AUR packages may not be found anymore. So manual intervention is
+  # inevitable.
+
+  # Install paru
+  git clone https://aur.archlinux.org/paru.git
+  cd paru
+  makepkg -si
+
+  paru --noconfirm -Syu  $(< list.aur)
+
+  figlet DONE # is one of the packages
+}
+
+backupPackages() {
+  pacman -Qm | grep -vx "$( pacman -Qmq )" > $GITDIR/list.pacman
+  pacman -Qmq > $GITDIR/list.aur
+  echo "Done!"
+}
+
+case $1 in
+  backup)
+    backupPackages
+    ;;
+  install)
+    links
+    installPackages
+    ;;
+  *)
+    echo "Commands: backup, install"
+    ;;
+esac
+
+exit 0

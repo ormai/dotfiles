@@ -1,11 +1,12 @@
+airshipper
+aurutils
 brother-dcp1610w
 brscan4
 cbonsai
-checkupdates-aur
 checkupdates-systemd-git
+checkupdates-with-aur
 ctpv-git
 debtap
-hyprland-bin
 hyprpicker
 iamb-git
 lavat-git
@@ -13,11 +14,9 @@ neovim-nightly-bin
 nvm
 pandoc-bin
 paru
-perl-checkupdates-aur
-perl-www-aur
 python2
+robin-hood-hashing
 rofi-lbonn-wayland-git
 visual-studio-code-bin
-wev
 xdg-desktop-portal-hyprland-git
 youtube-dl
