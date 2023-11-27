@@ -49,6 +49,7 @@
 		"tooltip-format-wifi": "{essid}, Strength: {signalStrength}%",
 		"tooltip-format-ethernet": "",
 		"max-length": 50,
+		"on-click": "nmcli device wifi rescan",
 		"on-click": "kitty"
 	},
 	"backlight": {
