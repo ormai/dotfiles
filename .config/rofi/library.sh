@@ -1,19 +1,12 @@
 #!/usr/bin/env bash
 
-library="$HOME/vault/library/"
-cd $library
+THEME="-theme ~/.config/rofi/themes/library.rasi"
+DIR="$HOME/vault"
+cd $DIR
 
-rofiTheme="-theme ~/.config/rofi/themes/library.rasi"
+FILE=$( fd . -tf -e 'pdf' -e 'epub' -e 'djvu' |
+  rofi -dmenu -i -matching normal -p "󱉟" $THEME )
 
-file=$(
-  fd . -tf -e 'pdf' -e 'epub' -e 'djvu' | \
-  rofi -dmenu -i -matching normal -p "󱉟" $rofiTheme \
-)
-
-# Open the file only if it exists
-if [[ -e $file ]]; then
-  zathura "$library/$file"
-  exit 0
+if [[ -e $FILE ]]
+then zathura "$DIR/$FILE"
 fi
-
-exit 1
