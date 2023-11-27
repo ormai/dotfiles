@@ -11,8 +11,6 @@ mode=$( < $FILE )
 dark() {
   sed -i "s/light-colors.css/dark-colors.css/" \
     ~/.config/waybar/style.css
-  sed -i "s/~\/Pictures\/wp\/light/~\/Pictures\/wp\/dark/" \
-    ~/.config/sway/config
   sed -i "s/light-theme-colors/dark-theme-colors/" \
     ~/.config/sway/config
   swaymsg reload
@@ -26,10 +24,10 @@ dark() {
     ~/.config/dunst/dunstrc
   pkill dunst
 
-  sed -i "s/@import 'light-colors'/@import 'dark-colors'/" \
+  sed -i "s/@import \"light-colors\"/@import \"dark-colors\"/" \
     ~/.config/rofi/config.rasi
 
-  sed -i "s/background = \"light\"/background = \"dark\"/" \
+  sed -i "s/background = 'light'/background = 'dark'/" \
     ~/.config/nvim/lua/options.lua
 
   for pipe in $(/usr/bin/fd --max-depth 1 nvim_ ~/.cache/nvim/)
@@ -49,8 +47,6 @@ dark() {
 light() {
   sed -i "s/dark-colors.css/light-colors.css/" \
     ~/.config/waybar/style.css
-  sed -i "s/~\/Pictures\/wp\/dark/~\/Pictures\/wp\/light/" \
-    ~/.config/sway/config
   sed -i "s/dark-theme-colors/light-theme-colors/" \
     ~/.config/sway/config
   swaymsg reload
