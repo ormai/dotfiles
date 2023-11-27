@@ -7,7 +7,7 @@
 }
 
 configuration {
-  font: "JetBrainsMono Nerd Font 11";
+  font: "JetBrainsMono NF 11";
   hide-scrollbar: true;
   disable-history: true;
   show-icons: false;
@@ -16,7 +16,7 @@ configuration {
 window {
   background-color: @bg;
   text-color: @text;
-  border: 2px;
+  border: 1px;
   border-color: @border;
   border-radius: @bordrad;
 }
@@ -38,7 +38,7 @@ inputbar {
 prompt {
   padding: -8 20 0 5;
   text-color: @accent;
-  font: "JetBrainsMono Nerd Font 20";
+  font: "JetBrainsMono NF 20";
   background-color: @transparent;
   text-color: @accent;
 }

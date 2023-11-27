@@ -1,15 +1,15 @@
 include dark-theme-colors
 
 exec {
-  "gsettings set org.gnome.desktop.interface cursor-theme $XCURSOR_THEME"
-  "gsettings set org.gnome.desktop.interface cursor-size $XCURSOR_SIZE"
-  "wl-paste --type text --watch cliphist store"
-  "wl-paste --type image --watch cliphist store"
-  "syncthing --no-browser"
-  "idle.sh"
+  gsettings set org.gnome.desktop.interface cursor-theme $XCURSOR_THEME
+  gsettings set org.gnome.desktop.interface cursor-size $XCURSOR_SIZE
+  wl-paste --type text --watch cliphist store
+  wl-paste --type image --watch cliphist store
+  syncthing --no-browser
+  idle.sh
+  dunst
 }
 
-exec_always "notify-send 'Reloading Sway'"
 xwayland enable
 set $SUPER Mod4
 
@@ -21,9 +21,9 @@ seat * {
 default_orientation auto
 
 default_floating_border none
-default_border pixel 2
+default_border pixel 1
 smart_borders on
-gaps inner 5
+gaps inner 8
 smart_gaps on
 focus_follows_mouse always
 
@@ -37,7 +37,11 @@ input * {
   tap enabled
 }
 
-output * background "`fd . ~/Pictures/wp/dark | sort -R | head -1`" fill #1d2021
+input TPPS/2_IBM_TrackPoint {
+  accel_profile adaptive
+  pointer_accel 1.0
+}
+
 output HDMI-A-2 resolution 1920x1080@60Hz position 0 -1080
 output eDP-1 resolution 1920x1080@60Hz position 0 0
 
@@ -46,7 +50,8 @@ floating_modifier $SUPER
 bindsym {
   $SUPER+RETURN exec kitty
   $SUPER+A exec "~/.config/rofi/library.sh"
-  $SUPER+B exec "pgrep waybar && killall -SIGUSR1 waybar || waybar"
+  #$SUPER+B exec "pgrep waybar && killall -SIGUSR1 waybar || waybar"
+  $SUPER+B exec "pgrep waybar && killall waybar || waybar"
   $SUPER+C exec "rofi -show calc -terse -no-history -no-sort -no-bold -theme ~/.config/rofi/themes/calc.rasi -hint-result '' -hint-welcome '' | wl-copy"
   $SUPER+M exec "kitty -e lf"
   $SUPER+S exec "color toggle"
