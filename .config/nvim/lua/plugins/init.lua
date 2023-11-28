@@ -44,7 +44,7 @@ return {
     config = function()
       require('nabla').enable_virt({
         align_center = false
-      });
+      })
     end
-  },
+  }
 }

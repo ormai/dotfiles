@@ -11,5 +11,5 @@ return {
     { 'gc', mode = { 'n', 'x' } },
     { 'gb', mode = { 'n', 'x' } }
   },
-  config = {}
+  opts = {}
 }
