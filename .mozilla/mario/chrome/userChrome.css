@@ -47,3 +47,10 @@
 #searchbar:focus-within {
   box-shadow: none !important;
 }
+
+#nav-bar:not([tabs-hidden="true"]) {
+  box-shadow: none !important;
+}
+.urlbarView-url {
+    color: #665c54 !important;
+}
