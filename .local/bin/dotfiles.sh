@@ -2,7 +2,7 @@
 
 # Manually clone the repository in $GITDIR then run this script
 
-GITDIR="$HOME/vault/dotfiles" # Where I manage my dotfiles
+GITDIR="$HOME/desk/dotfiles" # Where I manage my dotfiles
 
 if [[ ! -d $GITDIR ]]
 then
@@ -11,18 +11,18 @@ then
 fi
 
 links() {
-  # Make some symbolic links
-  mkdir -o $HOME/.config
+  # Make symbolic links
+  mkdir -p $HOME/.config
   for i in $(/usr/bin/ls -1 $GITDIR/.config)
   do
-    ln -s $GITDIR/.config/$i $HOME/.config
+    ln -f -s $GITDIR/.config/$i $HOME/.config
   done
 
   mkdir -p $HOME/.local
-  ln -s $GITDIR/.local/bin $HOME/.local/
-  ln -s $GITDIR/.zshenv $HOME/
+  ln -f -s $GITDIR/.local/bin $HOME/.local/
+  ln -f -s $GITDIR/.zshenv $HOME/
   mkdir -p $HOME/.mozilla/mario/chrome
-  ln -s $GITDIR/.mozilla/mario/chrome $HOME/.mozilla/mario/chrome
+  ln -f -s $GITDIR/.mozilla/mario/chrome $HOME/.mozilla/mario/chrome
 }
 
 installPackages() {
