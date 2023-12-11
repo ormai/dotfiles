@@ -1,26 +1,52 @@
 return {
   {
     'hrsh7th/nvim-cmp',
-    event = 'InsertEnter',
-    -- https://github.com/hrsh7th/nvim-cmp/wiki/List-of-sources
-    dependencies = {
+    event = { 'InsertEnter', 'CmdlineEnter' },
+    dependencies = { -- https://github.com/hrsh7th/nvim-cmp/wiki/List-of-sources
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-nvim-lsp-signature-help',
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
-      'hrsh7th/cmp-calc',
-      'L3MON4D3/LuaSnip',
+      'hrsh7th/cmp-cmdline',
       'saadparwaiz1/cmp_luasnip',
+      'L3MON4D3/LuaSnip'
     },
     config = function()
       local cmp = require('cmp')
       local luasnip = require('luasnip')
+      local icons = {
+        Text = "",
+        Method = "󰆧",
+        Function = "󰊕",
+        Constructor = "",
+        Field = "󰇽",
+        Variable = "󰂡",
+        Class = "󰠱",
+        Interface = "",
+        Module = "",
+        Property = "󰜢",
+        Unit = "",
+        Value = "󰎠",
+        Enum = "",
+        Keyword = "󰌋",
+        Snippet = "",
+        Color = "󰏘",
+        File = "󰈙",
+        Reference = "",
+        Folder = "󰉋",
+        EnumMember = "",
+        Constant = "󰏿",
+        Struct = "",
+        Event = "",
+        Operator = "󰆕",
+        TypeParameter = "󰅲"
+      }
 
-      cmp.setup {
+      cmp.setup({
         enabled = function()
           local disabled = false
           disabled = disabled or
-            (vim.api.nvim_get_option_value('buftype', { buf = 0 }) == 'prompt')
+              (vim.api.nvim_get_option_value('buftype', { buf = 0 }) == 'prompt')
           disabled = disabled or (vim.fn.reg_recording() ~= '')
           disabled = disabled or (vim.fn.reg_executing() ~= '')
           return not disabled
@@ -29,7 +55,7 @@ return {
         snippet = {
           expand = function(args)
             luasnip.lsp_expand(args.body)
-          end,
+          end
         },
 
         mapping = cmp.mapping.preset.insert {
@@ -64,29 +90,53 @@ return {
         },
 
         sources = {
-          { name = 'nvim_lsp',               group_index = 1 },
-          { name = 'nvim_lsp_signature_help', group_index = 2 },
-          { name = 'luasnip',                 group_index = 3 },
-          { name = 'path',                    group_index = 4 },
-          { name = 'buffer',                  group_index = 5 },
-          { name = 'calc',                    group_index = 6 },
+          { name = 'nvim_lsp' },
+          { name = 'nvim_lsp_signature_help' },
+          { name = 'luasnip' },
+          { name = 'path' },
+          { name = 'buffer' }
+        },
+
+        formatting = {
+          fields = { 'kind', 'abbr', 'menu' }, -- move kind on the left
+          format = function(_, vimItem)
+            -- Insert the icon just before the item kind
+            vimItem.kind = string.format('%s  %s', icons[vimItem.kind], vimItem.kind)
+            return vimItem;
+          end
         },
 
         view = {
-          entries = {
-            name = 'custom',
-            selection_order = 'top_down',
-          },
           docs = {
-            auto_open = true,
-          },
-        },
+            auto_open = true
+          }
+        }
+      })
 
-        --[[ window = {
-          completion = cmp.config.window.bordered(),
-          documentation = cmp.config.window.bordered(),
-        }, ]]
-      }
+      -- `:` cmdline setup.
+      cmp.setup.cmdline(':', {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources({
+            { name = 'path' }
+          },
+          {
+            {
+              name = 'cmdline',
+              option = {
+                ignore_cmds = { 'Man', '!' }
+              }
+            }
+          })
+      })
+
+      -- `/` cmdline setup.
+      cmp.setup.cmdline('/', {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = {
+          { name = 'buffer' }
+        }
+      })
+
       -- Put () after completing the name of a function
       cmp.event:on(
         'confirm_done',
