@@ -1,4 +1,3 @@
-adwaita-qt6-git
 airshipper
 aurutils
 brother-dcp1610w
@@ -8,18 +7,16 @@ checkupdates-systemd-git
 checkupdates-with-aur
 ctpv-git
 debtap
+flutter
 gimp-devel
+gnome-pomodoro-git
 iamb-git
-logseq-desktop-bin
 neovim-nightly-bin
-nvm
 pandoc-bin
 paru
-python2
 qoi-headers-git
 robin-hood-hashing
 rofi-lbonn-wayland-git
-visual-studio-code-bin
-vnote-bin
-xdg-desktop-portal-hyprland-git
+tor-browser-bin
+wlsunset
 youtube-dl
