@@ -25,10 +25,6 @@ return {
     opts = {}
   },
   {
-    'iamcco/markdown-preview.nvim', -- markdown preview plugin for (neo)vim
-    ft = 'markdown'
-  },
-  {
     'okuuva/auto-save.nvim', -- Automatically save your changes in NeoVim
     cmd = 'ASToggle',
     event = { 'InsertLeave', 'TextChanged' },
@@ -37,14 +33,5 @@ return {
         enabled = false
       }
     }
-  },
-  {
-    'Beastwick18/nabla.nvim', -- tmp
-    ft = { 'markdown', 'tex' },
-    config = function()
-      require('nabla').enable_virt({
-        align_center = false
-      })
-    end
   }
 }
