@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 THEME="-theme ~/.config/rofi/themes/library.rasi"
-DIR="$HOME/vault"
+DIR="$HOME/shelf"
 cd $DIR
 
 FILE=$( fd . -tf -e 'pdf' -e 'epub' -e 'djvu' |

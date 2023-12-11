@@ -47,7 +47,7 @@ export RANDOM
 export QT_QPA_PLATFORMTHEME=qt5ct
 export QT_DEBUG_PLUGINS=0
 export XCURSOR_SIZE=24
-export XCURSOR_THEME=Pix
+export XCURSOR_THEME=Adwaita
 
 export MANPAGER="nvim +Man!"
 

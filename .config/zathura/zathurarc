@@ -11,7 +11,7 @@ set statusbar-v-padding 3                # Defines the vertical padding of the s
 
 # COLORS
 # recoloring
-set recolor-lightcolor "#282828"         # Defines the color value that is used to represent dark colors in recoloring mode
+set recolor-lightcolor "#1d2021"         # Defines the color value that is used to represent dark colors in recoloring mode
 set recolor-darkcolor "#F9F5D7"          # Defines the color value that is used to represent light colors in recoloring mode
 # highlight
 set highlight-color "#A89984"            # Defines the color that is used for highlighting parts of the document (e.g.: show search results)
