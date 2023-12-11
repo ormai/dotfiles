@@ -3,6 +3,8 @@ include dark-theme-colors
 exec {
   gsettings set org.gnome.desktop.interface cursor-theme $XCURSOR_THEME
   gsettings set org.gnome.desktop.interface cursor-size $XCURSOR_SIZE
+  gsettings set org.gnome.desktop.default-applications.terminal exec $TERMINAL
+  gsettings set org.gnome.desktop.default-applications.terminal exec-arg '-e'
   wl-paste --type text --watch cliphist store
   wl-paste --type image --watch cliphist store
   syncthing --no-browser
