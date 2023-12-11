@@ -29,7 +29,7 @@ local options = {
   undofile = true,
   updatetime = 250,          -- (ms) time to save swap file
 
-  clipboard = 'unnamedplus', -- share system clipboard
+  -- clipboard = 'unnamedplus', -- need to learn registers
   completeopt = 'menuone,noselect',
   fileencoding = 'utf-8',
 
