@@ -13,9 +13,6 @@ return {
         left = '',
         right = ''
       },
-      disabled_filetypes = {
-        'toggleterm'
-      },
       always_divide_middle = true,
       globalstatus = true
     },
