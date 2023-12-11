@@ -3,12 +3,18 @@ return {
   lazy = false,
   priority = 1000,
   config = function()
-    require('gruvbox') .setup({
-      transparent_mode = true,
+    require('gruvbox').setup({
+      transparent_mode = true, -- Use only the terminal emulator's background
       overrides = {
-        StatusLine = { link = 'Normal' }, -- https://github.com/nvim-lualine/lualine.nvim/issues/867#issuecomment-1287689584
-        CursorLineNr = { bg = 'NONE' },
-        NoiceCmdlinePopupBorder = { link = 'FloatBorder' }
+        -- In order to use lualine configuration similar to <https://github.com/nvim-lualine/lualine.nvim/blob/master/examples/bubbles.lua>
+        -- Solution found here <https://github.com/nvim-lualine/lualine.nvim/blob/master/examples/bubbles.lua>
+        StatusLine = { link = 'Normal' },
+
+        CursorLineNr = { bg = 'NONE' },                     -- Highlight only the number of the current line
+
+        NoiceCmdlinePopupBorder = { link = 'FloatBorder' }, -- Pop up cmdline has grey border
+
+        SignColumn = { link = 'Normal' }                    -- Prevent extraneous background colors in the SignColumn
       }
     })
 
