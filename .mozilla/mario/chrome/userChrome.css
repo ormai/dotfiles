@@ -7,6 +7,7 @@
 @import url(snippets/prevent-tab-overflow.css);
 @import url(snippets/dim-pending-tabs.css);
 
+
 #tracking-protection-icon-container, #remote-control-box,
 #urlbar-search-button, #urlbar-label-box, #reader-mode-button,
 #urlbar-go-button, #star-button-box, #identity-box,
@@ -19,42 +20,6 @@
   --bg-dark: #1d2021;
   --text-dim: #665c54;
   --bg: #282828;
-  
-@media (prefers-color-scheme: dark) {
-  :host(:is(.anonymous-content-host, notification-message)), :root {
-  
-    --in-content-page-background: #282828;
-    --in-content-page-color: #fbf1c7 !important;
-
-    --in-content-box-background: #3c3836 !important;
-    --in-content-box-background-odd: rgba(249,249,250,0.05);
-    --in-content-box-info-background: rgba(249,249,250,0.15);
-
-    --in-content-border-color: #665c54;
-    --in-content-border-hover: rgba(249,249,250,0.3);
-    --in-content-border-invalid: rgb(255,132,139);
-
-    --in-content-error-text-color: #FF9AA2;
-    --in-content-warning-icon-color: #ffbd4f;
-    --in-content-success-icon-color: #54FFBD;
-
-    --in-content-icon-color: rgb(251,251,254);
-
-    --in-content-primary-button-text-color: rgb(43,42,51);
-    --in-content-primary-button-background: rgb(0,221,255);
-    --in-content-primary-button-background-hover: rgb(128,235,255);
-    --in-content-primary-button-background-active: rgb(170,242,255);
-
-    --in-content-danger-button-background: #ff848b;
-    --in-content-danger-button-background-hover: #ffbdc5;
-    --in-content-danger-button-background-active: #ffdfe7;
-
-    --in-content-table-background: rgb(35, 34, 43);
-
-    --card-outline-color: var(--grey-60);
-
-    --dialog-warning-text-color: var(--red-40);
-  }
 }
 
 .browser-toolbar:not(.titlebar-color) { background-color: var(--bg) !important; }

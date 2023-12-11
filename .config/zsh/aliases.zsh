@@ -11,6 +11,7 @@ alias sputifai="(pgrep mpd > /dev/null || mpd) && ncmpcpp"
 alias yarn='yarn --use-yarnrc "$XDG_CONFIG_HOME/yarn/config"' 
 alias camera="ffplay rtsp://admin:marioMARIO04@192.168.1.2:554/onvif2"
 alias newsboat="newsboat --quiet"
+alias ncdu="ncdu --color=dark"
 
 alias ssh="kitty +kitten ssh"
 
@@ -45,6 +46,9 @@ run() {
 alias freq="history 0 | sed 's/[\t ]*[0-9]\+[\t ]*\([^ ]*\).*/\1/' | sort | uniq -c | sort -n | tail | sort -rn"
 
 alias rescan="nmcli device wifi rescan"
+
+# daily journal note
+alias today="nvim ~/vault/diario/$(date +%Y-%m-%d).md"
 
 # Remove Kitty's paddings when running a tui
 # alias nvim="toggle-kitty-padding.sh nvim $@"
