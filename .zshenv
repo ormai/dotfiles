@@ -1,12 +1,15 @@
-export HOME="/home/$(whoami)"
+source /etc/locale.conf
 
+export HOME="/home/$(whoami)"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_SCREENSHOTS_DIR="$HOME/Pictures/Screenshots"
 
-export XCURSOR_PATH="${XCURSOR_PATH}:~/.local/share/icons"
+export LC_ALL="en_US.UTF-8"
+
+export XCURSOR_PATH="${XCURSOR_PATH}:~/.local/share/icons:/usr/share/icons"
 export GSETTINGS_SCHEMA_DIR="/usr/share/glib-2.0/schemas"
 
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
