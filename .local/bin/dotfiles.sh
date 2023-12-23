@@ -7,22 +7,22 @@ GITDIR="$HOME/desk/dotfiles" # Where I manage my dotfiles
 if [[ ! -d $GITDIR ]]
 then
   echo "ERROR: $GITDIR does not exist."
-  exit -1
+  return 1
 fi
 
 links() {
   # Make symbolic links
-  mkdir -p $HOME/.config
-  for i in $(/usr/bin/ls -1 $GITDIR/.config)
+  mkdir -p "$HOME"/.config
+  for i in $(/usr/bin/ls -1 "$GITDIR"/.config)
   do
-    ln -f -s $GITDIR/.config/$i $HOME/.config
+    ln -f -s "$GITDIR"/.config/"$i" "$HOME"/.config
   done
 
-  mkdir -p $HOME/.local
-  ln -f -s $GITDIR/.local/bin $HOME/.local/
-  ln -f -s $GITDIR/.zshenv $HOME/
-  mkdir -p $HOME/.mozilla/mario/chrome
-  ln -f -s $GITDIR/.mozilla/mario/chrome $HOME/.mozilla/mario/chrome
+  mkdir -p "$HOME"/.local
+  ln -f -s "$GITDIR"/.local/bin "$HOME"/.local/
+  ln -f -s "$GITDIR"/.zshenv "$HOME"/
+  mkdir -p "$HOME"/.mozilla/mario/chrome
+  ln -f -s "$GITDIR"/.mozilla/mario/chrome "$HOME"/.mozilla/mario/chrome
 }
 
 installPackages() {
@@ -35,17 +35,17 @@ installPackages() {
 
   # Install paru
   git clone https://aur.archlinux.org/paru.git
-  cd paru
+  cd paru || return
   makepkg -si
 
-  paru --noconfirm -Syu  $(< list.aur)
+  paru --noconfirm -Syu "$(< list.aur)"
 
   figlet DONE # is one of the packages
 }
 
 backupPackages() {
-  pacman -Qm | grep -vx "$( pacman -Qmq )" > $GITDIR/list.pacman
-  pacman -Qmq > $GITDIR/list.aur
+  pacman -Qeq | grep -vx "$( pacman -Qmq )" > "$GITDIR"/list.pacman
+  pacman -Qmq > "$GITDIR"/list.aur
   echo "Done!"
 }
 

@@ -9,7 +9,6 @@
 r="\e[0;31m\033[1m"
 b="\e[0;34m\033[1m"
 g="\e[0;36m\033[1m"
-m="\e[0;35m\033[1m"
 y="\e[0;33m"
 w="\e[0;37m"
 
@@ -17,7 +16,7 @@ w="\e[0;37m"
 comm=$1
 commands=("run" "exe" "dis" "gdb" "help")
 if [[ ! " ${commands[*]} " =~ " ${comm} " ]] ; then 
-  printf "${b}asm${g} [run, exe, dis, gdb, help]\n"
+  printf "${b}asm ${g}[run, exe, dis, gdb, help]\n"
   exit 1
 fi
 
@@ -26,7 +25,7 @@ if [[ $3 && " ${flags[*]} " =~ " ${2} " ]] ; then
   flag="$2"
   file="$3"
 else
-  t=$(echo $2 | sed -n "/^-/p")
+  t=$(echo "$2" | sed -n "/^-/p")
   if [[ $t ]]; then
     flag=$2
     file=""
@@ -36,7 +35,7 @@ else
   fi
 fi
 
-no_ext=$(echo $file | sed -e "s/.s$//")
+no_ext=$(echo "$file" | sed -e "s/.s$//")
 
 main() {
   case $comm in
@@ -67,7 +66,7 @@ debug() {
   if [[ $(whoami) == "osboxes" ]]; then # if we are on THE virtualmachine:
     # on debian
     pkill gdb-multiarch
-    aarch64-linux-gnu-gcc -static -o $no_ext -g $file
+    aarch64-linux-gnu-gcc -static -o "$no_ext" -g "$file"
     xfce4-terminal --hold -e "qemu-aarch64 -singlestep -g 1234 $no_ext"
     gdb-multiarch -tui -ex "file $no_ext" \
     -ex "target remote :1234" -ex "layout regs"
@@ -75,8 +74,8 @@ debug() {
   fi
 
   pkill aarch64-linux-gnu-gdb
-  aarch64-linux-gnu-gcc -static -o $no_ext -g $file
-  kitty --hold -e qemu-aarch64 -singlestep -g 1234 $no_ext &
+  aarch64-linux-gnu-gcc -static -o "$no_ext" -g "$file"
+  kitty --hold -e qemu-aarch64 -singlestep -g 1234 "$no_ext" &
   aarch64-linux-gnu-gdb -tui -ex "file $no_ext" \
     -ex "target remote :1234" -ex "layout regs"
   exit 0
@@ -88,8 +87,8 @@ disassembly() {
     printf "${b}asm ${g}dis${y} [-s, -t, -d, -D]${w} file.s\n"
     exit 1
   fi
-  aarch64-linux-gnu-gcc -c $file && \
-    aarch64-linux-gnu-objdump $flag "$no_ext.o" && \
+  aarch64-linux-gnu-gcc -c "$file" && \
+    aarch64-linux-gnu-objdump "$flag" "$no_ext.o" && \
     \rm -f "$no_ext.o"
   exit 0
 }
@@ -99,7 +98,7 @@ assembly_and_execute() {
     printf "${b}asm${g} run${w} file.s\n"
     exit 1
   fi
-  aarch64-linux-gnu-gcc -static -o $no_ext $file && qemu-aarch64 $no_ext
+  aarch64-linux-gnu-gcc -static -o "$no_ext" "$file" && qemu-aarch64 "$no_ext"
 
   if [[ $flag == "-k" ]] ; then
     exit 0
@@ -115,7 +114,7 @@ execute() {
       printf "${b}asm${g} exe${w} file.s\n"
       exit 1
   fi
-  qemu-aarch64 $file
+  qemu-aarch64 "$file"
   \rm -rf *.core
   exit 0
 }
