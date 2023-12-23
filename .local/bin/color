@@ -3,10 +3,10 @@
 FILE="/tmp/color.txt"
 if [[ ! -a $FILE ]]
 then
-  touch $FILE
-  echo "dark" > $FILE
+  touch "$FILE"
+  echo "dark" > "$FILE"
 fi
-mode=$( < $FILE )
+mode=$( < "$FILE" )
 
 dark() {
   sed -i "s/light-colors.css/dark-colors.css/" \
@@ -34,14 +34,14 @@ dark() {
   do
     if [[ -a $pipe ]]
     then
-      nvim --server $pipe --remote-send "<cmd>set bg=dark<CR>" &
+      nvim --server "$pipe" --remote-send "<cmd>set bg=dark<CR>" &
     fi
   done
 
   kitty +kitten themes --reload-in=all Gruvbox Dark
 
   # notify-send -t 2000 "Dark mode enabled"
-  echo "dark" > $FILE
+  echo "dark" > "$FILE"
 }
 
 light() {
@@ -70,20 +70,20 @@ light() {
   do
     if [[ -a $pipe ]]
     then
-      nvim --server $pipe --remote-send "<cmd>set bg=light<CR>" &
+      nvim --server "$pipe" --remote-send "<cmd>set bg=light<CR>" &
     fi
   done
 
   kitty +kitten themes --reload-in=all Gruvbox Light
 
   # notify-send -t 2000 "Light mode enabled"
-  echo "light" > $FILE
+  echo "light" > "$FILE"
 }
 
 changeTheme() {
   if [[ $mode != "$1" ]]
   then
-    $1
+    "$1"
   else
     echo "Nothing to do"
   fi
@@ -118,6 +118,6 @@ case "$1" in
     fi
     ;;
   * )
-    echo $mode
+    echo "$mode"
     ;;
 esac
