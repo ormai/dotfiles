@@ -1,5 +1,12 @@
 # vim:ft=conf
 
+urls-source "ttrss"
+ttrss-url "https://feed.ormai.dev/tt-rss/"
+ttrss-login "admin"
+ttrss-passwordfile "~/.config/newsboat/ttrss-pw.txt"
+ttrss-mode "single"		# "multi" is default
+ttrss-flag-star "s"
+
 feedlist-title-format "%N (%u/%t)"
 feedlist-format "%t"
 articlelist-title-format "%N · %T (%u/%t)"
