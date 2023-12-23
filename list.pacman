@@ -1,22 +1,173 @@
-airshipper 0.10.0-2
-aurutils 18.5-1
-brother-dcp1610w 3.0.1-1
-brscan4 0.4.11_1-2
-cbonsai 1.3.1-3
-checkupdates-systemd-git r7.d2b8af6-1
-checkupdates-with-aur 1.0-1
-ctpv-git r258.13aa7a3-1
-debtap 3.5.1-1
-flutter 3.16.3-1
-gimp-devel 2.99.16-2
-gnome-pomodoro-git r1281.3b293bf-1
-iamb-git 0.1.e98d58a-1
-neovim-nightly-bin 0.10.0+dev+468292d-1
-pandoc-bin 3.1.9-1
-paru 2.0.1-1
-qoi-headers-git r325.99159e0-1
-robin-hood-hashing 3.11.3-1
-rofi-lbonn-wayland-git 1.7.5.wayland1.r48.gd06095b5-1
-tor-browser-bin 13.0.6-1
-wlsunset 0.3.0-1
-youtube-dl 2021.12.17-2
+acpi_call
+base
+bat
+bc
+blender
+bluez
+bluez-utils
+brightnessctl
+btop
+btrfs-progs
+ccls
+chromium
+cliphist
+cmus
+cronie
+deno
+dhcpcd
+docker-compose
+dosfstools
+dunst
+efibootmgr
+ethtool
+eza
+fd
+ffmpeg
+ffmpegthumbnailer
+figlet
+firefox
+fortune-mod
+fuse2
+fzf
+gcr
+git
+glava
+glow
+gnome-themes-extra
+gnome-tweaks
+go
+grim
+grub
+gtk-engine-murrine
+gtk2
+gtk4
+gutenprint
+imv
+inkscape
+intel-media-driver
+irssi
+jq
+julia
+kitty
+kvantum
+lf
+libnotify
+libreoffice-fresh
+libva-intel-driver
+libva-utils
+linux
+linux-firmware
+linux-headers
+lshw
+lsof
+lua51
+luarocks
+lvm2
+ly
+lynx
+man-db
+man-pages
+mariadb
+mediainfo
+meson
+mpv
+nasm
+ncdu
+neofetch
+neovide
+netstat-nat
+networkmanager
+newsboat
+ninja
+nmap
+nodejs
+notification-daemon
+npm
+ntfs-3g
+obsidian
+onefetch
+opendoas
+openssl-1.1
+p7zip
+papirus-icon-theme
+pass
+pavucontrol
+perl-image-exiftool
+pipewire-pulse
+pkgconf
+postgresql
+powertop
+python-gobject
+python-pip
+python-pipx
+python-setuptools
+python-tqdm
+python-virtualenv
+qemu-full
+qemu-user
+qrencode
+qt5-wayland
+qt5ct
+qt6ct
+ripgrep
+rnote
+rofi-calc
+rsync
+rustup
+scdoc
+scrcpy
+simple-scan
+slurp
+smartmontools
+strace
+sudo
+sway
+swaybg
+swayidle
+swaylock
+syncthing
+systemd-resolvconf
+tesseract
+tk
+tlp
+tlp-rdw
+transmission-cli
+tree-sitter-cli
+ttf-crimson-pro
+ttf-jetbrains-mono-nerd
+ttf-nerd-fonts-symbols
+ufw
+unrar
+unzip
+usb_modeswitch
+v4l2loopback-utils
+valgrind
+virtualbox
+virtualbox-guest-iso
+virtualbox-guest-utils
+vulkan-intel
+vulkan-tools
+waybar
+wayland-protocols
+wev
+wf-recorder
+wget
+which
+whois
+wine
+wl-clipboard
+wlroots
+words
+xdg-desktop-portal-gtk
+xdg-desktop-portal-wlr
+xdg-user-dirs
+xf86-video-intel
+xorg-xlsclients
+zathura
+zathura-cb
+zathura-djvu
+zathura-pdf-mupdf
+zip
+zsh
+zsh-completions
+zsh-syntax-highlighting
