@@ -25,10 +25,10 @@ set completion-group-fg "#FABD2F"        # Defines the foreground color that is 
 set completion-highlight-bg "#FE8019"    # Defines the background color that is used for the current command line completion element
 set completion-highlight-fg "#1D2021"    # Defines the foreground color that is used for the current command line completion element
 # generic
-set render-loading-bg "#282828"          # Defines the background color that is used for the "Loading..." text.
+set render-loading-bg "##1d2021"          # Defines the background color that is used for the "Loading..." text.
 set render-loading-fg "#EBDBB2"          # Defines the foreground color that is used for the "Loading..." text.
 set default-fg "#EBDBB2"                 # Defines the default foreground color
-set default-bg "#282828"                 # Defines the default background color
+set default-bg "#1d2021"                 # Defines the default background color
 set font "JetBrainsMono NF normal 12"
 # inputbar
 set inputbar-bg "#3C3836"
@@ -45,6 +45,6 @@ set notification-warning-bg "#3C3836"    # Defines the background color for a wa
 set notification-warning-fg "#FABD2F"    # Defines the foreground color for a warning notification
 # index
 set index-fg "#EBDBB2"                   # Defines the foreground color of the index mode.
-set index-bg "#282828"                   # Define the background color of the index mode.
+set index-bg "#1d2021"                   # Define the background color of the index mode.
 set index-active-fg "#1D2021"            # Defines the foreground color of the selected element in index mode.
 set index-active-bg "#8EC07C"            # Define the background color of the selected element in index mode.
