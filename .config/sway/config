@@ -16,7 +16,7 @@ xwayland enable
 set $SUPER Mod4
 
 seat * {
-  xcursor_theme Pix 10
+  xcursor_theme Adwaita
   hide_cursor when-typing enable
 }
 
@@ -41,7 +41,7 @@ input * {
 
 input TPPS/2_IBM_TrackPoint {
   accel_profile adaptive
-  pointer_accel 1.0
+  pointer_accel 0.8
 }
 
 output HDMI-A-2 resolution 1920x1080@60Hz position 0 -1080
