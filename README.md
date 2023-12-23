@@ -4,5 +4,6 @@
 
 ### Themes
 
-- GTK theme: [Gruvbox-GTK-Theme](https://github.com/Fausto-Korpsvart/Gruvbox-GTK-Theme) 
-- Cursor theme: [Pix](https://www.gnome-look.org/p/1354435/)
+- GTK theme: [Gruvbox-GTK-Theme](https://github.com/Fausto-Korpsvart/Gruvbox-GTK-Theme)
+- Cursor theme: [Adwaita](https://gitlab.gnome.org/GNOME/adwaita-icon-theme)
+- Icon theme: [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)
