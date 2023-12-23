@@ -1,5 +1,5 @@
 vim.keymap.set(
   'n',
-  '<leader>r',
+  '<leader>make',
   ":TermExec cmd='make %:r && ./%:r'<CR>"
 )
