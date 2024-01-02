@@ -12,22 +12,22 @@ suspend="" # nf-fa-moon_o
 logout="" # nf-fa-sign_out
 
 options="$shutdown\n$reboot\n$lock\n$suspend\n$logout"
-action="$(echo -e "$options" | rofi -theme $theme -p -dmenu -selected-row 1)"
+action="$(echo -e "$options" | rofi -theme "$theme" -p -dmenu -selected-row 1)"
 
 case $action in
-  $shutdown)
+  "$shutdown")
     shutdown now
     ;;
-  $reboot)
+  "$reboot")
     systemctl reboot
     ;;
-  $lock)
+  "$lock")
     lock.sh
     ;;
-  $suspend)
+  "$suspend")
     systemctl suspend
     ;;
-  $logout)
+  "$logout")
     swaymsg exit
     ;;
 esac
