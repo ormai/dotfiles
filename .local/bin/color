@@ -15,7 +15,7 @@ dark() {
     ~/.config/sway/config
   swaymsg reload
 
-  gsettings set org.gnome.desktop.interface gtk-theme Gruvbox-Dark-BL
+  #gsettings set org.gnome.desktop.interface gtk-theme Gruvbox-Dark-BL
   gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 
   sed -i "s/background = \"#f9f5d7\"/background = \"#1d2021\"/" \
@@ -51,7 +51,7 @@ light() {
     ~/.config/sway/config
   swaymsg reload
 
-  gsettings set org.gnome.desktop.interface gtk-theme Gruvbox-Light
+  #gsettings set org.gnome.desktop.interface gtk-theme Gruvbox-Light
   gsettings set org.gnome.desktop.interface color-scheme prefer-light
 
   sed -i "s/background = \"#1d2021\"/background = \"#f9f5d7\"/" \
