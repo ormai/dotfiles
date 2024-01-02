@@ -69,8 +69,9 @@ source $ZDOTDIR/lscolors.sh # Used by lf, zsh completion menu, exa
 export RANDOM
 
 # Wayland
-export QT_QPA_PLATFORM="xcb"
-export SDL_VIDEODRIVER="wayland"
+export QT_QPA_PLATFORM=xcb
+export SDL_VIDEODRIVER=wayland
+export _JAVA_AWT_WM_NONREPARENTING=1
 
 # Firefox
 export MOZ_DBUS_REMOTE=1
