@@ -1,15 +1,21 @@
-include dark-theme-colors
+include light-theme-colors
 
 exec {
-  gsettings set org.gnome.desktop.interface cursor-theme $XCURSOR_THEME
-  gsettings set org.gnome.desktop.interface cursor-size $XCURSOR_SIZE
-  gsettings set org.gnome.desktop.default-applications.terminal exec $TERMINAL
-  gsettings set org.gnome.desktop.default-applications.terminal exec-arg '-e'
+  systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+  dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway XDG_SESSION_DESKTOP=sway
+
+  gsettings set {
+    org.gnome.desktop.default-applications.terminal exec $TERMINAL
+    org.gnome.desktop.default-applications.terminal exec-arg '-e'
+  }
+
   wl-paste --type text --watch cliphist store
   wl-paste --type image --watch cliphist store
+
   syncthing --no-browser
   idle.sh
   dunst
+  waybar
 }
 
 xwayland enable
@@ -22,10 +28,11 @@ seat * {
 
 default_orientation auto
 
+font pango:JetBrainsMono Nerd Font Regular 10
 default_floating_border none
-default_border pixel 1
+default_border pixel 2
 smart_borders on
-gaps inner 8
+#gaps inner 3
 smart_gaps on
 focus_follows_mouse always
 
@@ -125,5 +132,3 @@ bindsym {
   XF86AudioNext exec "playerctl next"
   XF86AudioPlay exec "playerctl play-pause""
 }
-
-bar swaybar_command waybar
