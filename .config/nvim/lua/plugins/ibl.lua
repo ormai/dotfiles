@@ -1,10 +1,11 @@
 return {
   'lukas-reineke/indent-blankline.nvim',
   main = 'ibl',
+  dependencies = 'nvim-treesitter/nvim-treesitter',
   opts = {
     indent = {
       char = '▏',
-      priority = 1,
+      tab_char = '▏',
       highlight = 'IblIndent'
     },
     scope = {
