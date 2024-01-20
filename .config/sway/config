@@ -1,4 +1,4 @@
-include light-theme-colors
+include dark-theme-colors
 
 exec {
   systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
@@ -16,6 +16,7 @@ exec {
   idle.sh
   dunst
   waybar
+  wlsunset -l 39.5 -L 16
 }
 
 xwayland enable
@@ -70,7 +71,7 @@ bindsym {
   PRINT exec "grimblast --notify copysave area"
   SHIFT+PRINT exec "grimblast --notify copysave screen"
 
-  $SUPER+SHIFT+Q exec "~/.config/rofi/powermenu.sh"
+  $SUPER+SHIFT+Q exec "$XDG_CONFIG_HOME/rofi/powermenu.sh"
   $SUPER+SHIFT+R reload
   $SUPER+Q kill
   $SUPER+F fullscreen toggle
