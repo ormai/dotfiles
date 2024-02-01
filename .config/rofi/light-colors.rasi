@@ -1,12 +1,12 @@
 // vim:ft=rasi
 
 * {
-  bg:          #fbf1c7;
-  bg-dim:      #f2e5bc;
-  bg-selected: #ebdbb2;
-  text:        #282828;
-  text-dim:    #665c54;
-  accent:      #8ec07c;
-  border:      #427b58;
-  red:         #fb4934;
+  bg:          #fafafa;
+  bg-dim:      #f3f3f3;
+  bg-selected: #ebebeb;
+  text:        #000000cc;
+  text-dim:    #77767b;
+  accent:      #242424;
+  border:      #242424;
+  red:         #e01b24;
 }

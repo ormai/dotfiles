@@ -1,9 +1,10 @@
-# vim:ft=swayconfig
-
-# classes               bar     bar bg  text    indicat border
-client.focused          #000000 #000000 #000000 #7c6f64 #665c54
-client.focused_inactive #000000 #000000 #000000 #504945 #3c3836
-client.unfocused        #000000 #000000 #000000 #504945 #32302f
+# class                 border  bg      text    indicat child_border
+client.focused          #000000 #000000 #000000 #9a9996 #5e5c64
+client.focused_inactive #000000 #000000 #000000 #5e5c64 #3d3846
+client.unfocused        #000000 #000000 #000000 #3d3846 #241f31
 client.urgent           #000000 #000000 #000000 #cc241d #cc241d
 
-output * background #1d2021 solid_color
+# output * background #1d2021 solid_color
+output * background "`fd . ~/Pictures/wp/dark | sort -R | head -1`" fill
+
+# vi:ft=swayconfig

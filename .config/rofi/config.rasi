@@ -1,4 +1,3 @@
-// vim:ft=rasi
 @import "dark-colors"
 
 * {
@@ -88,3 +87,5 @@ element selected {
 element-text selected {
   text-color: @text;
 }
+
+// vi:ft=rasi
