@@ -4,18 +4,16 @@ alias doas="doas "
 alias rz="source $ZDOTDIR/.zshrc"
 
 # applications
-alias open="xdg-open"
 alias trr="transmission-remote"
 alias tw="watch -n 0.2 \"transmission-remote -l\""
 alias sputifai="(pgrep mpd > /dev/null || mpd) && ncmpcpp"
 alias yarn='yarn --use-yarnrc "$XDG_CONFIG_HOME/yarn/config"' 
-alias camera="ffplay rtsp://admin:marioMARIO04@192.168.1.2:554/onvif2"
 alias newsboat="newsboat --quiet"
 alias ncdu="ncdu --color=dark"
 
 alias ssh="kitty +kitten ssh"
 
-alias nvim="nvim --listen ~/.cache/nvim/nvim_$RANDOM.pipe"
+#alias nvim="nvim --listen ~/.cache/nvim/nvim_$RANDOM.pipe"
 
 # safety
 alias rm="rm -i"
@@ -35,20 +33,12 @@ alias ga="git add ."
 alias gp="git push origin main"
 alias gr="git pull --rebase origin main"
 
-run() {
-  noext="${1%%.cpp}"
-  # /usr/bin/g++ -std=c++11 -Wall $1 -o $executable
-  make $noext
-  ./$noext
-  # rm -f $executable
-}
-
 alias freq="history 0 | sed 's/[\t ]*[0-9]\+[\t ]*\([^ ]*\).*/\1/' | sort | uniq -c | sort -n | tail | sort -rn"
 
 alias rescan="nmcli device wifi rescan"
 
 # daily journal note
-alias today="nvim ~/vault/diario/$(date +%Y-%m-%d).md"
+alias today="nvim +ZenMode ~/vault/diario/$(date -I).md"
 
 # Remove Kitty's paddings when running a tui
 # alias nvim="toggle-kitty-padding.sh nvim $@"

@@ -1,5 +1,4 @@
 source $ZDOTDIR/aliases.zsh
-source $ZDOTDIR/completion.zsh
 
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
 zle -N up-line-or-beginning-search
@@ -10,9 +9,8 @@ SAVEHIST=10000
 
 setopt auto_cd # auto change directory
 
-PROMPT="%F{cyan}%~%f %B%F{9}$%f%b "
+PROMPT="%F{8}%~%f %B%F{green}$%f%b "
 
-# lf
 lfcd () {
   tmp="$(mktemp)"
   /usr/bin/lf -last-dir-path="$tmp" "$@"
@@ -20,8 +18,6 @@ lfcd () {
   [[ -d "$dir" && "$dir" != "$(pwd)" ]] && cd "$dir"
 }
 bindkey -s '^o' 'lfcd\n'
-
-# External plugins
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -37,14 +33,13 @@ MODE_CURSOR_VLINE="block"
 MODE_INDICATOR=""
 source $ZDOTDIR/plugins/zsh-vim-mode/zsh-vim-mode.plugin.zsh
 
-# https://github.com/junegunn/fzf#fuzzy-completion-for-bash-and-zsh
 source /usr/share/fzf/completion.zsh
-#source /usr/share/doc/fzf/examples/completion.zsh # for Debian
 
 # https://github.com/junegunn/fzf#key-bindings-for-command-line
 FZF_CTRL_T_OPTS="--preview 'bat -n --color=always {}'
   --bind 'ctrl-/:change-preview-window(down|hidden|)'"
 source /usr/share/fzf/key-bindings.zsh
-#source /usr/share/doc/fzf/examples/key-bindings.zsh # for Debian
 
-
+bindkey '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
+zstyle ':autocomplete:menu-search:*' insert-unambiguous yes
+source $ZDOTDIR/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
