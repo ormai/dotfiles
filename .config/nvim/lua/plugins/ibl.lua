@@ -11,7 +11,7 @@ return {
     scope = {
       char = '▏',
       priority = 1024,
-      highlight = 'GruvboxYellow',
+      highlight = 'IblScope',
       include = { -- use additional nodes as scope
         node_type = {
           lua = {

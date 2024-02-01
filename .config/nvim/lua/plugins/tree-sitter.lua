@@ -50,7 +50,7 @@ return {
           swap_next = { ['<leader>a'] = '@parameter.inner' },
           swap_previous = { ['<leader>A'] = '@parameter.inner' }
         },
-        move = { -- Jump between textobjects
+        move = {            -- Jump between textobjects
           enable = true,
           set_jumps = true, -- Register jumps in the jump list
           goto_next_start = {
@@ -70,7 +70,14 @@ return {
             ['[]'] = '@class.outer',
           }
         }
-      }
+      },
+      disable = function(_, buf)
+        local max_filesize = 100 * 1024 -- 100 KB
+        local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+        if ok and stats and stats.size > max_filesize then
+          return true
+        end
+      end
     }
   end
 }

@@ -1,4 +1,4 @@
-local options = {
+for k, v in pairs({
   termguicolors = true, -- 24-bit RGB colors
   background = 'dark',
 
@@ -7,10 +7,9 @@ local options = {
   showcmdloc = 'statusline',
   showmode = false,
 
-  signcolumn = 'yes',
-  --statuscolumn = '%s%l', -- sign column and line numbers
+  signcolumn = 'yes:1',
 
-  pumheight = 10,        -- max height of the pop up completion menu
+  pumheight = 10, -- max height of the pop up completion menu
   history = 100,
   conceallevel = 2,
   list = true,
@@ -18,7 +17,6 @@ local options = {
   listchars = 'trail:-,tab:  ',
   fillchars = 'eob: ', -- hide ~
   number = true,
-  relativenumber = true,
   cursorline = true,
   cursorlineopt = 'number', -- highlight only active line number
 
@@ -27,9 +25,9 @@ local options = {
   backupdir = '/home/mario/.local/state/nvim/backup',
   swapfile = true,
   undofile = true,
-  updatetime = 250,          -- (ms) time to save swap file
+  updatetime = 250, -- (ms) time to save swap file
 
-  -- clipboard = 'unnamedplus', -- need to learn registers
+  clipboard = 'unnamedplus',
   completeopt = 'menuone,noselect',
   fileencoding = 'utf-8',
 
@@ -54,11 +52,9 @@ local options = {
   foldmethod = 'marker',
 
   spell = false,
-  spelllang = { 'it', 'en' },
-}
-
-vim.g.loaded_perl_provider = 0
-
-for k, v in pairs(options) do
+  spelllang = { 'en', 'it' },
+}) do
   vim.opt[k] = v
 end
+
+vim.g.loaded_perl_provider = 0

@@ -51,6 +51,7 @@ return {
   dependencies = {
     {
       'williamboman/mason.nvim',
+      cmd = 'Mason',
       opts = {
         ui = {
           border = 'rounded', -- nice
