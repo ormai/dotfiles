@@ -1,9 +1,9 @@
-# vim:ft=swayconfig
-
-# colors                border  bg      text    indicat child_border
-client.focused          #000000 #000000 #000000 #bdae93 #504945
-client.focused_inactive #000000 #000000 #000000 #7c6f64 #a89984
-client.unfocused        #000000 #000000 #000000 #bdae93 #ebdbb2
-client.urgent           #000000 #000000 #000000 #fb4934 #fb4934
+# class                 border  bg      text    indicat child_border
+client.focused          #000000 #000000 #000000 #dc8add #c061cb
+client.focused_inactive #000000 #000000 #000000 #dc8add #613583
+client.unfocused        #000000 #000000 #000000 #deddda #fafafa
+client.urgent           #000000 #000000 #000000 #ed333b #ed333b
 
 output * background "`fd . ~/Pictures/wp/light | sort -R | head -1`" fill
+
+# vi:ft=swayconfig
