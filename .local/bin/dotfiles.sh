@@ -10,10 +10,10 @@ then
   return 1
 fi
 
-links() {
-  # Make symbolic links
+make_symbolic_links() {
   mkdir -p "$HOME"/.config
-  for i in $(/usr/bin/ls -1 "$GITDIR"/.config)
+
+  for i in "$GITDIR"/.config/*
   do
     ln -f -s "$GITDIR"/.config/"$i" "$HOME"/.config
   done
@@ -25,41 +25,40 @@ links() {
   ln -f -s "$GITDIR"/.mozilla/mario/chrome "$HOME"/.mozilla/mario/chrome
 }
 
-installPackages() {
+install_packages() {
   # Install packages in the two lists with pacman
-  sudo pacman --noconfirm -Syu $(< list.pacman)
+  sudo pacman --noconfirm -Syu "$(< list.pacman)"
 
   # Will ask for password. There will probably be conflicts between packages
   # and some AUR packages may not be found anymore. So manual intervention is
   # inevitable.
 
   # Install paru
-  git clone https://aur.archlinux.org/paru.git
-  cd paru || return
-  makepkg -si
+  if ! command -v paru
+  then
+    git clone https://aur.archlinux.org/paru.git
+    cd paru || return
+    makepkg -si
+  fi
 
   paru --noconfirm -Syu "$(< list.aur)"
 
   figlet DONE # is one of the packages
 }
 
-backupPackages() {
+backup_packages() {
   pacman -Qeq | grep -vx "$( pacman -Qmq )" > "$GITDIR"/list.pacman
   pacman -Qmq > "$GITDIR"/list.aur
   echo "Done!"
 }
 
 case $1 in
-  backup)
-    backupPackages
-    ;;
+  backup) backup_packages ;;
   install)
-    links
-    installPackages
+    make_symbolic_links
+    install_packages
     ;;
-  *)
-    echo "Commands: backup, install"
-    ;;
+  *) echo "Usage: $(basename "$0") [backup, install]" ;;
 esac
 
 exit 0
