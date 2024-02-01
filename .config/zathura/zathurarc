@@ -12,7 +12,7 @@ set statusbar-v-padding 3         # Defines the vertical padding of the statusba
 set recolor-lightcolor "#242424" # Defines the color value that is used to represent dark colors in recoloring mode
 set recolor-darkcolor "#ffffff"  # Defines the color value that is used to represent light colors in recoloring mode
 
-set highlight-color "#3584e4"        # Defines the color that is used for highlighting parts of the document (e.g.: show search results)
+set highlight-color "#78aeed"        # Defines the color that is used for highlighting parts of the document (e.g.: show search results)
 set highlight-fg "#3584e4"           # Defines the color that is used for text when highlighting parts of the document (e.g.: number for links).
 set highlight-active-color "#78aeed" # Defines the color that is used to show the current selected highlighted element (e.g: current search result)
 
