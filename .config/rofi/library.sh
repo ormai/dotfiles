@@ -1,12 +1,10 @@
 #!/usr/bin/env bash
 
-THEME="-theme ~/.config/rofi/themes/library.rasi"
-DIR="$HOME/shelf"
-cd $DIR
+DIR="$HOME/"
+cd "$DIR" || exit
 
-FILE=$( fd . -tf -e 'pdf' -e 'epub' -e 'djvu' |
-  rofi -dmenu -i -matching normal -p "󱉟" $THEME )
+FILE=$(fd . -tf -e 'pdf' -e 'epub' -e 'djvu' | rofi -dmenu -i -matching normal -p "󱉟" -theme ~/.config/rofi/themes/library.rasi)
 
 if [[ -e $FILE ]]
-then zathura "$DIR/$FILE"
+then xdg-open "$DIR/$FILE"
 fi

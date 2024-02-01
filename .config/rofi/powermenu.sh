@@ -1,33 +1,21 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-# This script was adpated from 
+# This script was adpated from
 # https://github.com/adi1090x/rofi/tree/master/files/powermenu
 
-theme="$XDG_CONFIG_HOME/rofi/themes/power.rasi"
+THEME="$XDG_CONFIG_HOME/rofi/themes/power.rasi"
 
-shutdown="" # nf-fa-power_off
-reboot="" # nf-fa-refresh
-lock="" # nf-cod-lock
-suspend="" # nf-fa-moon_o
-logout="" # nf-fa-sign_out
+SHUTDOWN="" # nf-fa-power_off
+REBOOT="" # nf-fa-refresh
+LOCK="" # nf-cod-lock
+SUSPEND="" # nf-fa-moon_o
+LOGOUT="" # nf-fa-sign_out
 
-options="$shutdown\n$reboot\n$lock\n$suspend\n$logout"
-action="$(echo -e "$options" | rofi -theme "$theme" -p -dmenu -selected-row 1)"
-
-case $action in
-  "$shutdown")
-    shutdown now
-    ;;
-  "$reboot")
-    systemctl reboot
-    ;;
-  "$lock")
-    lock.sh
-    ;;
-  "$suspend")
-    systemctl suspend
-    ;;
-  "$logout")
-    swaymsg exit
-    ;;
+case $(printf '%s\n%s\n%s\n%s\n%s' $SHUTDOWN $REBOOT $LOCK $SUSPEND $LOGOUT\
+         | rofi -theme "$THEME" -dmenu -selected-row 3) in
+  "$SHUTDOWN") shutdown now ;;
+  "$REBOOT") systemctl reboot ;;
+  "$LOCK") lock.sh ;;
+  "$SUSPEND") systemctl suspend ;;
+  "$LOGOUT") swaymsg exit ;;
 esac

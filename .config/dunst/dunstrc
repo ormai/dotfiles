@@ -1,9 +1,7 @@
-# gruvbox-dark
-
 [global]
   monitor = 0
   follow = mouse
-  width = (0, 500) 
+  width = (0, 500)
   height = 600
   origin = top-right
   offset = 20x80
@@ -21,10 +19,10 @@
   horizontal_padding = 8
   text_icon_padding = 0
   frame_width = 1
-  frame_color = "#928374"
+  frame_color = "#77767b"
   separator_color = frame
   sort = yes
-  font = "JetBrainsMono NF 10"
+  font = "monospace 10"
   line_height = 3
   markup = full
   format = "<b>%s</b>\n%b"
@@ -42,7 +40,6 @@
   icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
   sticky_history = yes
   history_length = 20
-  browser = /usr/bin/firefox
   always_run_script = true
   title = Dunst
   class = Dunst
@@ -59,17 +56,17 @@
 
 
 [urgency_low]
-  background = "#1d2021"
-  foreground = "#f9f5d7"
+  background = "#3d3846"
+  foreground = "#fafafa"
   timeout = 10
 
 [urgency_normal]
-  background = "#1d2021"
-  foreground = "#f9f5d7"
+  background = "#3d3846"
+  foreground = "#fafafa"
   timeout = 15
 
 [urgency_critical]
-  background = "#1d2021"
-  foreground = "#f9f5d7"
-  frame_color = "#cc241d"
+  background = "#3d3846"
+  foreground = "#fafafa"
+  frame_color = "#e01b24"
   timeout = 0

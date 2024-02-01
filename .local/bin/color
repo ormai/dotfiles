@@ -1,87 +1,76 @@
-#!/usr/bin/env bash
+#!/bin/sh
+
+# Manage the system color scheme
 
 FILE="/tmp/color.txt"
-if [[ ! -a $FILE ]]
+if [ ! -e $FILE ]
 then
   touch "$FILE"
-  echo "dark" > "$FILE"
+  echo "dark" > "$FILE" # default to dark, for safety
 fi
-mode=$( < "$FILE" )
+mode="$(cat "$FILE")"
 
 dark() {
-  sed -i "s/light-colors.css/dark-colors.css/" \
-    ~/.config/waybar/style.css
-  sed -i "s/light-theme-colors/dark-theme-colors/" \
-    ~/.config/sway/config
+  sed -i "s/light-colors.css/dark-colors.css/" "$XDG_CONFIG_HOME"/waybar/style.css
+  sed -i "s/light-theme-colors/dark-theme-colors/" "$XDG_CONFIG_HOME"/sway/config
   swaymsg reload
 
-  #gsettings set org.gnome.desktop.interface gtk-theme Gruvbox-Dark-BL
   gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 
-  sed -i "s/background = \"#f9f5d7\"/background = \"#1d2021\"/" \
-    ~/.config/dunst/dunstrc
-  sed -i "s/foreground = \"#1d2021\"/foreground = \"#f9f5d7\"/" \
-    ~/.config/dunst/dunstrc
+  sed -i "s/background = \"#f6f5f4\"/background = \"#3d3846\"/;s/foreground = \"#1e1e1e\"/foreground = \"#fafafa\"/" "$XDG_CONFIG_HOME"/dunst/dunstrc
+  sed -i "" "$XDG_CONFIG_HOME"/dunst/dunstrc
   pkill dunst
 
-  sed -i "s/@import \"light-colors\"/@import \"dark-colors\"/" \
-    ~/.config/rofi/config.rasi
+  sed -i "s/@import \"light-colors\"/@import \"dark-colors\"/" "$XDG_CONFIG_HOME"/rofi/config.rasi
 
-  sed -i "s/background = 'light'/background = 'dark'/" \
-    ~/.config/nvim/lua/options.lua
+  # sed -i "s/background = 'light'/background = 'dark'/" \
+  #   ~/.config/nvim/lua/options.lua
 
-  for pipe in $(/usr/bin/fd --max-depth 1 nvim_ ~/.cache/nvim/)
-  do
-    if [[ -a $pipe ]]
-    then
-      nvim --server "$pipe" --remote-send "<cmd>set bg=dark<CR>" &
-    fi
-  done
+  # for pipe in $(/usr/bin/fd --max-depth 1 nvim_ ~/.cache/nvim/)
+  # do
+  #   if [[ -a $pipe ]]
+  #   then
+  #     nvim --server "$pipe" --remote-send "<cmd>set bg=dark<CR>" &
+  #   fi
+  # done
 
-  kitty +kitten themes --reload-in=all Gruvbox Dark
+  # kitty +kitten themes --reload-in=all Gruvbox Dark
 
-  # notify-send -t 2000 "Dark mode enabled"
+  notify-send -t 2000 "Dark mode enabled"
   echo "dark" > "$FILE"
 }
 
 light() {
-  sed -i "s/dark-colors.css/light-colors.css/" \
-    ~/.config/waybar/style.css
-  sed -i "s/dark-theme-colors/light-theme-colors/" \
-    ~/.config/sway/config
+  sed -i "s/dark-colors.css/light-colors.css/" "$XDG_CONFIG_HOME"/waybar/style.css
+  sed -i "s/dark-theme-colors/light-theme-colors/" "$XDG_CONFIG_HOME"/sway/config
   swaymsg reload
 
-  #gsettings set org.gnome.desktop.interface gtk-theme Gruvbox-Light
   gsettings set org.gnome.desktop.interface color-scheme prefer-light
 
-  sed -i "s/background = \"#1d2021\"/background = \"#f9f5d7\"/" \
-    ~/.config/dunst/dunstrc
-  sed -i "s/foreground = \"#f9f5d7\"/foreground = \"#1d2021\"/" \
-    ~/.config/dunst/dunstrc
+  sed -i "s/background = \"#3d3846\"/background = \"#f6f5f4\"/;s/foreground = \"#fafafa\"/foreground = \"#1e1e1e\"/" "$XDG_CONFIG_HOME"/dunst/dunstrc
   pkill dunst
 
-  sed -i "s/@import \"dark-colors\"/@import \"light-colors\"/" \
-    ~/.config/rofi/config.rasi
+  sed -i "s/@import \"dark-colors\"/@import \"light-colors\"/" "$XDG_CONFIG_HOME"/rofi/config.rasi
 
-  sed -i "s/background = 'dark'/background = 'light'/" \
-    ~/.config/nvim/lua/options.lua
+  # sed -i "s/background = 'dark'/background = 'light'/" \
+  #   ~/.config/nvim/lua/options.lua
 
-  for pipe in $(/usr/bin/fd --max-depth 1 nvim_ ~/.cache/nvim/)
-  do
-    if [[ -a $pipe ]]
-    then
-      nvim --server "$pipe" --remote-send "<cmd>set bg=light<CR>" &
-    fi
-  done
+  # for pipe in $(/usr/bin/fd --max-depth 1 nvim_ ~/.cache/nvim/)
+  # do
+  #   if [[ -a $pipe ]]
+  #   then
+  #     nvim --server "$pipe" --remote-send "<cmd>set bg=light<CR>" &
+  #   fi
+  # done
 
-  kitty +kitten themes --reload-in=all Gruvbox Light
+  # kitty +kitten themes --reload-in=all Gruvbox Light
 
-  # notify-send -t 2000 "Light mode enabled"
+  notify-send -t 2000 "Light mode enabled"
   echo "light" > "$FILE"
 }
 
 changeTheme() {
-  if [[ $mode != "$1" ]]
+  if [ "$mode" != "$1" ]
   then
     "$1"
   else
@@ -91,33 +80,27 @@ changeTheme() {
 }
 
 case "$1" in
-  dark )
-    changeTheme dark
-    ;;
-  light )
-    changeTheme light
-    ;;
-  toggle )
-    if [[ $mode == "dark" ]]
+  dark) changeTheme dark ;;
+  light) changeTheme light ;;
+  toggle)
+    if [ "$mode" = "dark" ]
     then
       light
     else
       dark
     fi
     ;;
-  auto ) # update the theme automatically
+  auto) # update the theme automatically
     DAWN=05
     SUNSET=20
     now=$(date +%H)
 
-    if [[ ${now#0} -gt $DAWN && ${now#0} -lt $SUNSET ]]
+    if [ "${now#0}" -gt $DAWN ] && [ "${now#0}" -lt $SUNSET ]
     then
       changeTheme light
     else
       changeTheme dark
     fi
     ;;
-  * )
-    echo "$mode"
-    ;;
+  *) echo "$mode" ;;
 esac
