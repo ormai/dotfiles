@@ -1,11 +1,9 @@
 # vim:ft=conf
 
-urls-source "ttrss"
-ttrss-url "https://feed.ormai.dev/tt-rss/"
-ttrss-login "admin"
-ttrss-passwordfile "~/.config/newsboat/ttrss-pw.txt"
-ttrss-mode "single"		# "multi" is default
-ttrss-flag-star "s"
+urls-source "miniflux"
+miniflux-url "https://feed.ormai.dev/"
+miniflux-login "mario"
+miniflux-passwordfile "~/.config/newsboat/secret.txt"
 
 feedlist-title-format "%N (%u/%t)"
 feedlist-format "%t"
