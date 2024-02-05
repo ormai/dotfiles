@@ -18,10 +18,9 @@ dark() {
   gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 
   sed -i "s/background = \"#f6f5f4\"/background = \"#3d3846\"/;s/foreground = \"#1e1e1e\"/foreground = \"#fafafa\"/" "$XDG_CONFIG_HOME"/dunst/dunstrc
-  sed -i "" "$XDG_CONFIG_HOME"/dunst/dunstrc
   pkill dunst
 
-  sed -i "s/@import \"light-colors\"/@import \"dark-colors\"/" "$XDG_CONFIG_HOME"/rofi/config.rasi
+  sed -i "s/@theme \"light\"/@theme \"dark\"/" "$XDG_CONFIG_HOME"/rofi/config.rasi
 
   # sed -i "s/background = 'light'/background = 'dark'/" \
   #   ~/.config/nvim/lua/options.lua
@@ -50,7 +49,7 @@ light() {
   sed -i "s/background = \"#3d3846\"/background = \"#f6f5f4\"/;s/foreground = \"#fafafa\"/foreground = \"#1e1e1e\"/" "$XDG_CONFIG_HOME"/dunst/dunstrc
   pkill dunst
 
-  sed -i "s/@import \"dark-colors\"/@import \"light-colors\"/" "$XDG_CONFIG_HOME"/rofi/config.rasi
+  sed -i "s/@theme \"dark\"/@theme \"light\"/" "$XDG_CONFIG_HOME"/rofi/config.rasi
 
   # sed -i "s/background = 'dark'/background = 'light'/" \
   #   ~/.config/nvim/lua/options.lua

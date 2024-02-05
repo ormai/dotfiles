@@ -1,6 +1,7 @@
-@import "dark-colors"
+@theme "dark"
 
 * {
+  // Some variables
   bordrad: 5px;
   transparent: #00000000;
 }
@@ -10,6 +11,9 @@ configuration {
   hide-scrollbar: true;
   disable-history: true;
   show-icons: false;
+
+  display-drun: "";
+  drun-display-format: "{name}";
 }
 
 window {
@@ -32,6 +36,8 @@ inputbar {
   text-color: @text;
   border-color: @bg-dim;
   padding: 15 20 5 15;
+
+  children: [prompt, entry];
 }
 
 prompt {
