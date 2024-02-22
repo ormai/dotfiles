@@ -1,105 +1,57 @@
 #!/bin/sh
 
-# Manage the system color scheme
+# Change the desktop color scheme
 
-FILE="/tmp/color.txt"
-if [ ! -e $FILE ]
-then
-  touch "$FILE"
-  echo "dark" > "$FILE" # default to dark, for safety
-fi
-mode="$(cat "$FILE")"
+VAL="$(gsettings get org.gnome.desktop.interface color-scheme)"
+VAL=${VAL#"'prefer-"}
+COLOR_SCHEME=${VAL%"'"}
 
-dark() {
-  sed -i "s/light-colors.css/dark-colors.css/" "$XDG_CONFIG_HOME"/waybar/style.css
-  sed -i "s/light-theme-colors/dark-theme-colors/" "$XDG_CONFIG_HOME"/sway/config
-  swaymsg reload
+setScheme() {
+  [ "$1" = "$COLOR_SCHEME" ] && exit 0
 
-  gsettings set org.gnome.desktop.interface color-scheme prefer-dark
-
-  sed -i "s/background = \"#f6f5f4\"/background = \"#3d3846\"/;s/foreground = \"#1e1e1e\"/foreground = \"#fafafa\"/" "$XDG_CONFIG_HOME"/dunst/dunstrc
-  pkill dunst
-
-  sed -i "s/@theme \"light\"/@theme \"dark\"/" "$XDG_CONFIG_HOME"/rofi/config.rasi
-
-  # sed -i "s/background = 'light'/background = 'dark'/" \
-  #   ~/.config/nvim/lua/options.lua
-
-  # for pipe in $(/usr/bin/fd --max-depth 1 nvim_ ~/.cache/nvim/)
-  # do
-  #   if [[ -a $pipe ]]
-  #   then
-  #     nvim --server "$pipe" --remote-send "<cmd>set bg=dark<CR>" &
-  #   fi
-  # done
-
-  # kitty +kitten themes --reload-in=all Gruvbox Dark
-
-  notify-send -t 2000 "Dark mode enabled"
-  echo "dark" > "$FILE"
-}
-
-light() {
-  sed -i "s/dark-colors.css/light-colors.css/" "$XDG_CONFIG_HOME"/waybar/style.css
-  sed -i "s/dark-theme-colors/light-theme-colors/" "$XDG_CONFIG_HOME"/sway/config
-  swaymsg reload
-
-  gsettings set org.gnome.desktop.interface color-scheme prefer-light
-
-  sed -i "s/background = \"#3d3846\"/background = \"#f6f5f4\"/;s/foreground = \"#fafafa\"/foreground = \"#1e1e1e\"/" "$XDG_CONFIG_HOME"/dunst/dunstrc
-  pkill dunst
-
-  sed -i "s/@theme \"dark\"/@theme \"light\"/" "$XDG_CONFIG_HOME"/rofi/config.rasi
-
-  # sed -i "s/background = 'dark'/background = 'light'/" \
-  #   ~/.config/nvim/lua/options.lua
-
-  # for pipe in $(/usr/bin/fd --max-depth 1 nvim_ ~/.cache/nvim/)
-  # do
-  #   if [[ -a $pipe ]]
-  #   then
-  #     nvim --server "$pipe" --remote-send "<cmd>set bg=light<CR>" &
-  #   fi
-  # done
-
-  # kitty +kitten themes --reload-in=all Gruvbox Light
-
-  notify-send -t 2000 "Light mode enabled"
-  echo "light" > "$FILE"
-}
-
-changeTheme() {
-  if [ "$mode" != "$1" ]
+  if [ "$1" = dark ]
   then
-    "$1"
+    old=light
+    kittyScheme="Gruvbox Dark Hard"
   else
-    echo "Nothing to do"
+    old=dark
+    kittyScheme="Grayscale Light"
   fi
-  exit 0
+
+  gsettings set org.gnome.desktop.interface color-scheme prefer-"$1"
+
+  sed -i "s/$old-colors.css/$1-colors.css/" "$XDG_CONFIG_HOME"/waybar/style.css
+  sed -i "s/$old-colors/$1-colors/" "$XDG_CONFIG_HOME"/sway/config
+  swaymsg reload
+
+  sed -i "s/@theme \"$old\"/@theme \"$1\"/" "$XDG_CONFIG_HOME"/rofi/config.rasi
+
+  kitten themes --reload-in=all "$kittyScheme"
+  sed -i "s/background = '$old'/background = '$1'/" "$XDG_CONFIG_HOME"/nvim/lua/options.lua
+  for pipe in /tmp/*-nvim.pipe
+  do
+    nvim --server "$pipe" --remote-send "<cmd>set bg=$1<cr>" 2>&1 /dev/null
+  done
 }
 
 case "$1" in
-  dark) changeTheme dark ;;
-  light) changeTheme light ;;
-  toggle)
-    if [ "$mode" = "dark" ]
-    then
-      light
-    else
-      dark
-    fi
-    ;;
-  auto) # update the theme automatically
-    DAWN=05
+  dark) setScheme dark ;;
+  light) setScheme light ;;
+  toggle) { [ "$COLOR_SCHEME" = dark ] && setScheme light; } || setScheme dark ;;
+  auto)
+    DAWN=06
     SUNSET=20
     now=$(date +%H)
 
-    if [ "${now#0}" -gt $DAWN ] && [ "${now#0}" -lt $SUNSET ]
+    if _=$((now > DAWN && now < SUNSET))
     then
-      changeTheme light
+      setScheme light
     else
-      changeTheme dark
+      setScheme dark
     fi
     ;;
-  *) echo "$mode" ;;
+  *)
+    echo "Usage: $(basename "$0") (dark|light|toggle|auto)"
+    echo "Current color scheme: $COLOR_SCHEME"
+    ;;
 esac
