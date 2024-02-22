@@ -1,4 +1,4 @@
-include dark-theme-colors
+include dark-colors
 
 exec {
   systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
@@ -8,14 +8,13 @@ exec {
   wl-paste --type image --watch cliphist store
 
   swayidle -w \
-    timeout 180 lock.sh \
+    timeout 180 swaylock \
     timeout 200 "swaymsg 'output * power off'" \
           resume "swaymsg 'output * power on'" \
-    before-sleep lock.sh
+    before-sleep swaylock
 
   syncthing --no-browser
   dunst
-  waybar
   wlsunset -l 39.5 -L 16
 }
 
@@ -115,7 +114,7 @@ bindsym {
   $SUPER+RETURN exec $TERMINAL
 
   # Open a document
-  $SUPER+A exec CHOICE="$(fd -e pdf -e epub -e djuv --base-directory "$HOME" | rofi -dmenu -i -p "󱉟")" && xdg-open "$HOME/$CHOICE"
+  $SUPER+A exec CHOICE="$(fd -e pdf -e epub -e cbz --base-directory "$HOME" | rofi -dmenu -i -p "󱉟")" && xdg-open "$HOME/$CHOICE"
   #$SUPER+B exec "pgrep waybar && killall -SIGUSR1 waybar || waybar"
   $SUPER+B exec pgrep waybar && killall waybar || waybar
   # $SUPER+C exec gnome-calculator
@@ -146,6 +145,6 @@ bindsym --locked {
   XF86AudioPlay exec playerctl play-pause"
 }
 
-# bar {
-#   position top
-# }
+bar {
+  swaybar_command waybar
+}
