@@ -1,0 +1,95 @@
+#!/usr/bin/env bash
+# convert cbr (rar) to cbz (zip)
+# by klaatu https://gitlab.com/notklaatu/cbr2cbz
+# by userlinux http://www.userlinux.net/1480_convertir_cbr_en_cbz_cbr2cbz_sh.html
+# by felipem https://felipem.com
+VERSION=0.4
+####
+# DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+#                   Version 2, December 2004
+#
+# Copyright (C) 2004 Sam Hocevar <sam@hocevar.net>
+#
+# Everyone is permitted to copy and distribute verbatim or modified
+# copies of this license document, and changing it is allowed as long
+# as the name is changed.
+#
+#           DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+#  TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
+#
+# 0. You just DO WHAT THE FUCK YOU WANT TO.
+####
+
+set -e
+
+print_help() {
+    ## this function provides help if user does
+    ## not know how to use the application
+
+    echo "cbr2cbz <OPTIONS> FILENAME.cbr OR DIRECTORY"
+    echo ""
+    exit
+}
+
+version_return() {
+    echo "$VERSION"
+    echo ""
+    exit
+}
+
+file_cbr2cbz() {
+  FILENAM="$(basename "${FILE}" .cbr)"
+  echo "${FILENAM}"
+
+  CWD=$(pwd)
+  TMP=/tmp/cbr2cbz
+
+  mkdir "${TMP}" || exit 1
+
+  # 7z problems with Method = m3:19,
+  unrar e "${FILE}" -o "${TMP}"
+  pushd "${TMP}"
+  zip -q "${FILENAM}.cbz" ./*
+  echo "${FILENAM}.cbz created"
+  mv -v "${FILENAM}.cbz" "${CWD}"
+  popd
+
+  echo "Conversion Complete."
+}
+
+trap "{ rm -r /tmp/cbr2cbz; }" SIGTERM SIGINT ERR EXIT
+
+while true
+do
+  if [ "$1" = "help" ] || [ "$1" = "--help" ] || [ "$1" = "-h" ] || [ "$1" = "" ]
+  then
+      print_help
+      # shift 1
+  elif [ "$1" = "version" ] || [ "$1" = "--version" ] || [ "$1" = "-v" ] || [ "$1" = "v" ]
+  then
+      echo "cbr2cbz version "
+      version_return
+      # shift 1
+  else
+      break
+  fi
+done
+
+# everything else left at this point
+# should be the name of book to convert
+set -e
+
+if [ -d "$1" ]
+then
+  find "$1" -name '*.cbr' | while read -r FILE
+  do
+    file_cbr2cbz
+  done
+elif [ -f "$1" ]
+then
+  FILE="$1"
+  file_cbr2cbz
+else
+    echo "$1 is not valid"
+    exit 1
+fi

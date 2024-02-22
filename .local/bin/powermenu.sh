@@ -10,7 +10,8 @@ SUSPEND="" # nf-fa-moon_o
 LOGOUT="" # nf-fa-sign_out
 
 CHOICE=$(printf '%s\n%s\n%s\n%s\n%s' $SHUTDOWN $REBOOT $LOCK $SUSPEND $LOGOUT \
-  | rofi -dmenu -selected-row 3 -theme-str "window { height: 264; width: 60; location: west; x-offset: 50; } mainbox { children: [ listview ]; } element-text { padding: 2 0 2 -3; font: \"JetBrainsMono Nerd Font 16\"; } element-text selected { text-color: @red; }")
+  | rofi -dmenu -selected-row 3 -theme-str \
+  "window { height: 264; width: 60; location: west; x-offset: 50; } mainbox { children: [ listview ]; } element-text { padding: 2 0 2 -3; font: \"JetBrainsMono Nerd Font 16\"; } element-text selected { text-color: @red; }")
 
 case "$CHOICE" in
   "$SHUTDOWN") shutdown now ;;

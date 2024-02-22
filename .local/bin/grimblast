@@ -1,16 +1,42 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 # Based on Grimblast, which is base on grimshot
 
 ## Author: Misterio (https://github.com/misterio77)
 ## https://github.com/swaywm/sway/blob/master/contrib/grimshot
 
-# Later modifications by Mario D'Andrea <https://ormai.dev>
+# Modified by Mario D'Andrea <https://ormai.me> for use with sway
 
-for command in grim swaymsg jq slurp wl-copy notify-send; do
-  if ! command -v "$command" >/dev/null 2>&1; then
+name=$(basename "$0")
+
+# Check if dependencies are available
+for command in grim swaymsg jq slurp wl-copy notify-send
+do
+  if ! command -v "$command" >/dev/null 2>&1
+  then
     echo "$command: not found"
   fi
+done
+
+NOTIFY=false
+CURSOR=false
+
+while [ $# -gt 0 ]; do
+  key="$1"
+
+  case $key in
+  -n | --notify)
+    NOTIFY=true
+    shift # past argument
+    ;;
+  -c | --cursor)
+    CURSOR=true
+    shift # past argument
+    ;;
+  *)      # unknown option
+    break # done with parsing --flags
+    ;;
+  esac
 done
 
 getTargetDirectory() {
@@ -20,131 +46,113 @@ getTargetDirectory() {
   echo "${XDG_SCREENSHOTS_DIR:-${XDG_PICTURES_DIR:-$HOME}}"
 }
 
-NOTIFY=no
-CURSOR=
-
-while [ $# -gt 0 ]; do
-  key="$1"
-
-  case $key in
-  -n | --notify)
-    NOTIFY=yes
-    shift # past argument
-    ;;
-  -c | --cursor)
-    CURSOR=yes
-    shift # past argument
-    ;;
-  *)      # unknown option
-    break # done with parsing --flags
-    ;;
-  esac
-done
-
 ACTION=${1:-usage}
 SUBJECT=${2:-screen}
 FILE=${3:-$(getTargetDirectory)/$(date --iso-8601=seconds).png}
 
-if [ "$ACTION" != "save" ] && [ "$ACTION" != "copy" ] && [ "$ACTION" != "copysave" ]; then
-  echo "Usage:"
-  echo "  grimblast [--notify] [--cursor] (copy|save|copysave) [active|screen|output|area] [FILE|-]"
-  echo "  grimblast usage"
-  echo ""
-  echo "Commands:"
-  echo "  copy: Copy the screenshot data into the clipboard."
-  echo "  save: Save the screenshot to a regular file or '-' to pipe to STDOUT."
-  echo "  copysave: Combine the previous 2 options."
-  echo "  usage: Show this message and exit."
-  echo ""
-  echo "Targets:"
-  echo "  active: Currently active window."
-  echo "  screen: All visible outputs."
-  echo "  output: Currently active output."
-  echo "  area: Manually select a region or window."
+if [ "$ACTION" != "save" ] && [ "$ACTION" != "copy" ] && [ "$ACTION" != "copysave" ]
+then
+  echo "Usage:
+  $name [--notify|-n] [--cursor|-c] (copy|save|copysave) [active|screen|output|area] [FILE|-]
+  $name usage
+
+Commands:
+  copy: Copy the screenshot data into the clipboard.
+  save: Save the screenshot to a regular file or '-' to pipe to STDOUT.
+  copysave: Combine the previous 2 options.
+  usage: Show this message and exit.
+
+Targets:
+  active: Currently active window.
+  screen: All visible outputs.
+  output: Currently active output.
+  area: Manually select a region or window."
   exit
 fi
 
 notify() {
-  notify-send --urgency=low --expire-time=3000 --app-name=grimblast "$@"
+  notify-send --urgency=low --expire-time=3000 --app-name="$name" "$@"
 }
 
 notifyOk() {
-  [ "$NOTIFY" = "no" ] && return
+  ! $NOTIFY && return
 
   notify "$@"
 }
 
-notifyError() {
-  if [ $NOTIFY = "yes" ]; then
-    TITLE=${2:-"Screenshot"}
-    MESSAGE=${1:-"Error taking screenshot with grim"}
-    notify -u critical "$TITLE" "$MESSAGE"
-  else
-    echo "$1"
-  fi
-}
-
 die() {
-  MSG=${1:-Bye}
-  notifyError "Error: $MSG"
+  MSG=${1:-Error taking screenshot with grim}
+  if $NOTIFY
+  then
+    notify -u critical "$MSG"
+  else
+    echo "$MSG"
+  fi
   exit 2
 }
-
 
 takeScreenshot() {
   FILE=$1
   GEOM=$2
   OUTPUT=$3
-  if [ -n "$OUTPUT" ]; then
+  if [ -n "$OUTPUT" ]
+  then
     grim ${CURSOR:+-c} -o "$OUTPUT" "$FILE" || die "Unable to invoke grim"
-  elif [ -z "$GEOM" ]; then
+  elif [ -z "$GEOM" ]
+  then
     grim ${CURSOR:+-c} "$FILE" || die "Unable to invoke grim"
   else
     grim ${CURSOR:+-c} -g "$GEOM" "$FILE" || die "Unable to invoke grim"
   fi
 }
 
-if [ "$SUBJECT" = "active" ]; then
-  FOCUSED=$(swaymsg -t get_tree | jq -r 'recurse(.nodes[]?, .floating_nodes[]?) | select(.focused)')
-  GEOM=$(echo "$FOCUSED" | jq -r '.rect | "\(.x),\(.y) \(.width)x\(.height)"')
-  APP_ID=$(echo "$FOCUSED" | jq -r '.app_id')
-  WHAT="$APP_ID window"
-elif [ "$SUBJECT" = "screen" ]; then
-  GEOM=""
-  WHAT="Screen"
-elif [ "$SUBJECT" = "output" ]; then
-  GEOM=""
-  OUTPUT=$(swaymsg -t get_outputs | jq -r '.[] | select(.focused)' | jq -r '.name')
-  WHAT="$OUTPUT"
-elif [ "$SUBJECT" = "area" ]; then
-  GEOM=$(swaymsg -t get_tree | jq -r '.. | select(.pid? and .visible?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | slurp -o)
-  # Check if user exited slurp without selecting the area
-  if [ -z "$GEOM" ]; then
-    exit 1
-  fi
-  WHAT="Area"
-else
-  die "Unknown subject to take a screen shot from" "$SUBJECT"
-fi
+case "$SUBJECT" in
+  active)
+    FOCUSED=$(swaymsg -t get_tree | jq -r 'recurse(.nodes[]?, .floating_nodes[]?) | select(.focused)')
+    GEOM=$(echo "$FOCUSED" | jq -r '.rect | "\(.x),\(.y) \(.width)x\(.height)"')
+    APP_ID=$(echo "$FOCUSED" | jq -r '.app_id')
+    WHAT="$APP_ID window"
+    ;;
+  screen)
+    GEOM=""
+    WHAT="Screen"
+    ;;
+  output)
+    GEOM=""
+    OUTPUT=$(swaymsg -t get_outputs | jq -r '.[] | select(.focused)' | jq -r '.name')
+    WHAT="$OUTPUT"
+    ;;
+  area)
+    GEOM=$(swaymsg -t get_tree | jq -r '.. | select(.pid? and .visible?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | slurp -o)
+    if [ -z "$GEOM" ] # Check if user exited slurp without selecting the area
+    then
+      exit 1
+    fi
+    WHAT="Area"
+    ;;
+  *) die "Unknown subject to take a screen shot from: '$SUBJECT'" ;;
+esac
 
-if [ "$ACTION" = "copy" ]; then
-  takeScreenshot - "$GEOM" "$OUTPUT" | wl-copy --type image/png || die "Clipboard error"
-  notifyOk "$WHAT copied to buffer"
-elif [ "$ACTION" = "save" ]; then
-  if takeScreenshot "$FILE" "$GEOM" "$OUTPUT"; then
-    TITLE="Screenshot of $SUBJECT"
-    MESSAGE=$(basename "$FILE")
-    notifyOk "$TITLE" "$MESSAGE" -i "$FILE"
-    echo "$FILE"
-  else
-    notifyError "Error taking screenshot with grim"
-  fi
-else
-  if [ "$ACTION" = "copysave" ]; then
+case "$ACTION" in
+  copy)
+    takeScreenshot - "$GEOM" "$OUTPUT" | wl-copy --type image/png || die "Clipboard error"
+    notifyOk "$WHAT copied to buffer"
+    ;;
+  save)
+    if takeScreenshot "$FILE" "$GEOM" "$OUTPUT"
+    then
+      TITLE="Screenshot of $SUBJECT"
+      MESSAGE=$(basename "$FILE")
+      notifyOk "$TITLE" "$MESSAGE" -i "$FILE"
+      echo "$FILE"
+    else
+      die
+    fi
+    ;;
+  copysave)
     takeScreenshot - "$GEOM" "$OUTPUT" | tee "$FILE" | wl-copy --type image/png || die "Clipboard error"
     notifyOk "$WHAT copied to clipboard and saved to $FILE" -i "$FILE"
     echo "$FILE"
-  else
-    notifyError "Error taking screenshot with grim"
-  fi
-fi
+    ;;
+  *) die "Unkown action for screen shot: '$ACTION'" ;;
+esac

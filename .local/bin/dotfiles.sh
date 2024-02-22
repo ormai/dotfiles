@@ -1,16 +1,16 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 # Manually clone the repository in $GITDIR then run this script
 
 GITDIR="$HOME/desk/dotfiles" # Where I manage my dotfiles
 
-if [[ ! -d $GITDIR ]]
+if [ ! -d "$GITDIR" ]
 then
   echo "ERROR: $GITDIR does not exist."
   return 1
 fi
 
-make_symbolic_links() {
+makeLinks() {
   mkdir -p "$HOME"/.config
 
   for i in "$GITDIR"/.config/*
@@ -25,9 +25,9 @@ make_symbolic_links() {
   ln -f -s "$GITDIR"/.mozilla/mario/chrome "$HOME"/.mozilla/mario/chrome
 }
 
-install_packages() {
+installPackages() {
   # Install packages in the two lists with pacman
-  sudo pacman --noconfirm -Syu "$(< list.pacman)"
+  sudo pacman --noconfirm -Syu "$(cat list.pacman)"
 
   # Will ask for password. There will probably be conflicts between packages
   # and some AUR packages may not be found anymore. So manual intervention is
@@ -41,22 +41,22 @@ install_packages() {
     makepkg -si
   fi
 
-  paru --noconfirm -Syu "$(< list.aur)"
+  paru --noconfirm -Syu "$(cat list.aur)"
 
   figlet DONE # is one of the packages
 }
 
-backup_packages() {
+backupPackageList() {
   pacman -Qeq | grep -vx "$( pacman -Qmq )" > "$GITDIR"/list.pacman
   pacman -Qmq > "$GITDIR"/list.aur
   echo "Done!"
 }
 
 case $1 in
-  backup) backup_packages ;;
+  backup) backupPackageList ;;
   install)
-    make_symbolic_links
-    install_packages
+    makeLinks
+    installPackages
     ;;
   *) echo "Usage: $(basename "$0") [backup, install]" ;;
 esac

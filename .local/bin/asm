@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# This script helps with working with aarch64 assembly.
-# Author: Mario D'Andrea <>
+# asm - Utility for working with aarch64 assembly
+# Mario D'Andrea https://github.com/ormai
 # Depends on:
 # - sed
 # - binutils-aarch64-linux-gnu (aarch64-linux-gnu-gcc for pacman)
@@ -15,8 +15,8 @@ w="\e[0;37m"
 # Get the arguments
 comm=$1
 commands=("run" "exe" "dis" "gdb" "help")
-if [[ ! " ${commands[*]} " =~ " ${comm} " ]] ; then 
-  printf "${b}asm ${g}[run, exe, dis, gdb, help]\n"
+if [[ ! " ${commands[*]} " =~ " ${comm} " ]] ; then
+  echo -e "${b}asm ${g}[run, exe, dis, gdb, help]\n"
   exit 1
 fi
 
@@ -35,31 +35,21 @@ else
   fi
 fi
 
-no_ext=$(echo "$file" | sed -e "s/.s$//")
+no_ext="${file%%.s}"
 
 main() {
   case $comm in
-    run)
-      assembly_and_execute
-      ;;
-    exe)
-      execute
-      ;;
-    dis)
-      disassembly
-      ;;
-    gdb)
-      debug
-      ;;
-    help)
-      print_help
-      ;;
+    run) assembly_and_execute ;;
+    exe) execute ;;
+    dis) disassembly ;;
+    gdb) debug ;;
+    help) print_help ;;
   esac
 }
 
 debug() {
   if [[ ! "$file" ]] ; then
-    printf "${b}asm${g} gdb${w} file.s\n"
+    echo -e "${b}asm${g} gdb${w} file.s\n"
     exit 1
   fi
 
@@ -83,8 +73,8 @@ debug() {
 
 disassembly() {
   dis_flags=("-s" "-t" "-d" "-D")
-  if [[ ! " ${dis_flags[*]} " =~ " ${flag} " ]] ; then 
-    printf "${b}asm ${g}dis${y} [-s, -t, -d, -D]${w} file.s\n"
+  if [[ ! " ${dis_flags[*]} " =~  " ${flag} " ]] ; then
+    echo -e "${b}asm ${g}dis${y} [-s, -t, -d, -D]${w} file.s\n"
     exit 1
   fi
   aarch64-linux-gnu-gcc -c "$file" && \
@@ -95,7 +85,7 @@ disassembly() {
 
 assembly_and_execute() {
   if [[ ! "$file" ]] ; then
-    printf "${b}asm${g} run${w} file.s\n"
+    echo -e "${b}asm${g} run${w} file.s\n"
     exit 1
   fi
   aarch64-linux-gnu-gcc -static -o "$no_ext" "$file" && qemu-aarch64 "$no_ext"
@@ -105,22 +95,22 @@ assembly_and_execute() {
   elif [[ -e $no_ext ]] ; then
     \rm -f "$no_ext"
   fi
-  \rm -rf *.core # remove .core qemu files to keep the directory clean
+  \rm -rf ./*.core # remove .core qemu files to keep the directory clean
   exit 0
 }
 
 execute() {
   if [[ ! $file ]] ; then
-      printf "${b}asm${g} exe${w} file.s\n"
+      echo -e "${b}asm${g} exe${w} file.s\n"
       exit 1
   fi
   qemu-aarch64 "$file"
-  \rm -rf *.core
+  rm -rf ./*.core
   exit 0
 }
 
 function print_help {
-  printf "\n${r}  Questo script rende più facile lavorare con aarch64 assembly.\n
+  echo -e "\n${r}  Questo script rende più facile lavorare con aarch64 assembly.\n
   ${w}Per vedere i comandi supportati esegui ${b}asm${w}. Comandi supportati:\n
   ${g}run${w}: assembla ed esegue partendo dal codice sorgente. Ha bisogn di un ${y}file sorgente
      ${w}come argomento. Normalmente il file eseguibile prodotto viene eliminato. Ciò può
