@@ -25,19 +25,10 @@ return {
     opts = {}
   },
   {
-    'okuuva/auto-save.nvim', -- Automatically save your changes in NeoVim
-    cmd = 'ASToggle',
-    event = { 'InsertLeave', 'TextChanged' },
-    opts = {
-      execution_message = {
-        enabled = false
-      }
-    }
-  },
-  {
     'stevearc/oil.nvim',
-    opts = {},
-    -- Optional dependencies
+    lazy = false,
+    keys = { '<leader>o', '<cmd>Oil<cr>', desc = 'Launch Oil' },
     dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = {},
   }
 }
