@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-qemu-system-x86_64 -enable-kvm -smp 4 -m 8G -drive file=/home/mario/.local/state/virtual-machines/"$1".qcow2,format=qcow2

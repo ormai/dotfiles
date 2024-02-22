@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# Convert a video to gif
+
+# https://superuser.com/questions/556029/how-do-i-convert-a-video-to-gif-using-ffmpeg-with-reasonable-quality
+# https://blog.pkh.me/p/21-high-quality-gif-with-ffmpeg.html
+
+INPUT="$1"
+OUTPUT=${INPUT%.*}.gif
+FPS=15
+# the width of the resulting gif (aspect ratio is preserved)
+SCALE=${2:=$(exiftool -b -ImageWidth "$INPUT")}
+DELAY=10 # delay between frames
+
+ffmpeg -i "$INPUT" -vf "fps=$FPS,scale=$SCALE:-1:flags=lanczos" -c:v pam \
+    -f image2pipe - | \
+    convert -delay "$DELAY" - -loop 0 -layers optimize "$OUTPUT"
