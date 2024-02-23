@@ -27,6 +27,7 @@ setScheme() {
   sed -i "s/@theme \"$old\"/@theme \"$1\"/" "$XDG_CONFIG_HOME"/rofi/config.rasi
 
   kitten themes --reload-in=all "$kittyScheme"
+  sed -i "s/--theme=gruvbox-$old/--theme=gruvbox-$1/" "$(bat --config-file)"
   sed -i "s/background = '$old'/background = '$1'/" "$XDG_CONFIG_HOME"/nvim/lua/options.lua
   for pipe in /tmp/*-nvim.pipe
   do
