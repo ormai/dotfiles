@@ -1,9 +1,4 @@
-local filetypes = { -- load only on these filetypes
-  'css',
-  'scss',
-  'html',
-  'rasi'
-}
+local filetypes = { 'css', 'scss', 'html', 'rasi' }
 
 return {
   'norcalli/nvim-colorizer.lua',
