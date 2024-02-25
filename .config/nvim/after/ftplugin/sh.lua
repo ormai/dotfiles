@@ -1,5 +1,7 @@
 vim.keymap.set(
   'n',
   '<leader>r',
-  ":TermExec cmd='sh %:.'<CR>"
+  ":TermExec cmd=''<CR>"
 )
+
+vim.opt.makeprg = 'sh %:.'
