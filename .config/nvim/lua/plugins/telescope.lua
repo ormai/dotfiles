@@ -36,11 +36,11 @@ return {
       function() require('telescope.builtin').find_files() end,
       desc = 'Telescope: files'
     },
-    {
-      '<leader>o',
-      function() require('telescope.builtin').oldfiles() end,
-      desc = 'Telescope: old files'
-    },
+    -- {
+    --   '<leader>o',
+    --   function() require('telescope.builtin').oldfiles() end,
+    --   desc = 'Telescope: old files'
+    -- },
     {
       '<leader>d',
       function() require('telescope.builtin').diagnostics() end,

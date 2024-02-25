@@ -25,7 +25,8 @@ return {
     },
     exclude = {
       filetypes = {
-        'asm'
+        'asm',
+        'oil'
       }
     }
   }

@@ -3,7 +3,6 @@ vim.loader.enable() -- experimental
 require('keymaps')  -- set leader before lazy
 require('options')
 require('autocommands')
-require('neovide')
 
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
