@@ -1,11 +1,11 @@
 # vim:ft=conf
 
 # SETTINGS
-set preview true
 set previewer ctpv
 set cleaner ctpvclear
 &ctpv -s $id
 &ctpvquit $id
+&test -d "$XDG_DATA_HOME"/Trash || mkdir -p "$XDG_DATA_HOME"/Trash
 
 set cursorpreviewfmt "\033[7;90m"
 set timefmt "_2-03-2006 15:04:05"
@@ -18,7 +18,7 @@ set shellopts '-eu'
 set ifs "\n"
 set scrolloff 2
 set icons true
-set tabstop 2 
+set tabstop 2
 set incsearch true
 
 # KEYMAPS
@@ -28,7 +28,7 @@ map I push A<c-a> # at the very beginning
 map i push A<a-b><a-b><a-f> # before extention
 map a push A<a-b> # after extention
 
-map Y $printf "%s" "$fx" | wl-copy # yank the path
+map Y $printf "%s" "$fx" | wl-copy "$fx" # yank the path
 map <enter> shell
 map t trash
 # map x delete
@@ -41,7 +41,7 @@ map u :{{
 cmd dir %mkdir $1 # create new directory
 cmd new %touch $1 # create new file
 
-cmd trash %set -f; mv --force --backup=numbered $fx $XDG_CACHE_HOME/trash
+cmd trash %mv -f --backup=numbered "$fx" "$XDG_DATA_HOME"/Trash
 
 cmd extract ${{ # extract archive
     set -f
