@@ -145,6 +145,12 @@ bindsym --locked {
   XF86AudioPlay exec playerctl play-pause"
 }
 
+bindgesture {
+  # 3 fingers left-right swipe
+  swipe:right workspace prev
+  swipe:left workspace next
+}
+
 bar {
   swaybar_command waybar
 }
