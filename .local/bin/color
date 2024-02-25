@@ -1,22 +1,13 @@
 #!/bin/sh
+# color - Change the desktop environment color scheme
 
-# Change the desktop color scheme
-
-VAL="$(gsettings get org.gnome.desktop.interface color-scheme)"
-VAL=${VAL#"'prefer-"}
-COLOR_SCHEME=${VAL%"'"}
+COLOR_SCHEME="$(gsettings get org.gnome.desktop.interface color-scheme)"
+COLOR_SCHEME=${COLOR_SCHEME#"'prefer-"}
+COLOR_SCHEME=${COLOR_SCHEME%"'"}
 
 setScheme() {
-  [ "$1" = "$COLOR_SCHEME" ] && exit 0
-
-  if [ "$1" = dark ]
-  then
-    old=light
-    kittyScheme="Gruvbox Dark Hard"
-  else
-    old=dark
-    kittyScheme="Grayscale Light"
-  fi
+  [ "$1" = "$COLOR_SCHEME" ] && exit 0 # $1 is the active color scheme already
+  [ "$1" = dark ] && old=light || old=dark
 
   gsettings set org.gnome.desktop.interface color-scheme prefer-"$1"
 
@@ -26,16 +17,18 @@ setScheme() {
 
   sed -i "s/@theme \"$old\"/@theme \"$1\"/" "$XDG_CONFIG_HOME"/rofi/config.rasi
 
-  kitten themes --reload-in=all "$kittyScheme"
+  # Terminal and shell
+  kitten themes --reload-in=all "Gruvbox $(echo "$1" | tr dl DL) Hard"
   sed -i "s/--theme=gruvbox-$old/--theme=gruvbox-$1/" "$(bat --config-file)"
+
   sed -i "s/background = '$old'/background = '$1'/" "$XDG_CONFIG_HOME"/nvim/lua/options.lua
   for pipe in /tmp/*-nvim.pipe
   do
-    nvim --server "$pipe" --remote-send "<cmd>set bg=$1<cr>" 2>&1 /dev/null
+    nvim --server "$pipe" --remote-send "<cmd>set bg=$1<cr>" > /dev/null 2>&1
   done
 }
 
-case "$1" in
+case "$1" in # parse invocation argument
   dark) setScheme dark ;;
   light) setScheme light ;;
   toggle) { [ "$COLOR_SCHEME" = dark ] && setScheme light; } || setScheme dark ;;
