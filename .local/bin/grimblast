@@ -48,7 +48,7 @@ getTargetDirectory() {
 
 ACTION=${1:-usage}
 SUBJECT=${2:-screen}
-FILE=${3:-$(getTargetDirectory)/$(date --iso-8601=seconds).png}
+FILE=${3:-$(getTargetDirectory)/$(date +%FT%H-%M-%S%z).png}
 
 if [ "$ACTION" != "save" ] && [ "$ACTION" != "copy" ] && [ "$ACTION" != "copysave" ]
 then
