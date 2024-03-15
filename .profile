@@ -6,10 +6,9 @@ export XDG_STATE_HOME="$HOME"/.local/state
 export XDG_SCREENSHOTS_DIR="$HOME"/Pictures/Screenshots
 
 export HISTFILE="$XDG_DATA_HOME"/bash/history
+export HISTSIZE=100000
 
-# from /etc/profile on Arch Linux
-# Append "$1" to "$PATH" when not already in.
-append_path () {
+append_path () { # from /etc/profile on Arch Linux
   case "$PATH" in
     *:"$1":*) ;; # do nothing
     *) PATH="${PATH:+$PATH:}$1" ;;
@@ -28,7 +27,7 @@ export PATH
 export SHELL=/usr/bin/bash
 export VISUAL=nvim
 export EDITOR=nvim
-export TERMINAL=kitty
+export TERMINAL=foot
 export BROWSER=firefox
 export OPENER=xdg-open
 export PAGER=less
@@ -57,4 +56,5 @@ export RANDFILE="$XDG_DATA_HOME"/open-ssl/rnd
 export PYTHONHISTFILE="$XDG_DATA_HOME"/python/history
 export NODE_REPL_HISTORY="$XDG_CACHE_HOME"/node_repl_history
 export WGETRC="$XDG_CONFIG_HOME"/wgetrc
+#export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 #export WINEPREFIX="$XDG_DATA_HOME"/wineprefixes/default
