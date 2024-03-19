@@ -27,7 +27,7 @@ export PATH
 export SHELL=/usr/bin/bash
 export VISUAL=nvim
 export EDITOR=nvim
-export TERMINAL=foot
+export TERMINAL=footclient
 export BROWSER=firefox
 export OPENER=xdg-open
 export PAGER=less
