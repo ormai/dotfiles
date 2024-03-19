@@ -1,4 +1,4 @@
-include dark-colors
+include light-colors
 
 exec {
   systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
@@ -16,6 +16,7 @@ exec {
   syncthing --no-browser
   dunst
   wlsunset -l 39.5 -L 16
+  foot --server
 }
 
 xwayland enable
@@ -51,8 +52,8 @@ input {
 }
 
 output {
-  HDMI-A-2 resolution 1920x1080@60Hz position 0 -1080
-  eDP-1 resolution 1920x1080@60Hz position 0 0
+  HDMI-A-2 resolution 1920x1080@60Hz position 0 0
+  eDP-1 resolution 1920x1080@60Hz position 0 1080
 }
 
 set $SUPER Mod4
@@ -115,8 +116,8 @@ bindsym {
 
   # Open a document
   $SUPER+A exec CHOICE="$(fd -e pdf -e epub -e cbz --base-directory "$HOME" | rofi -dmenu -i -p "󱉟")" && xdg-open "$HOME/$CHOICE"
-  #$SUPER+B exec "pgrep waybar && killall -SIGUSR1 waybar || waybar"
-  $SUPER+B exec pgrep waybar && killall waybar || waybar
+  # Toggle waybar
+  $SUPER+B exec "pgrep waybar && killall -SIGUSR1 waybar || waybar"
   # $SUPER+C exec gnome-calculator
   # $SUPER+C exec "rofi -show calc -terse -no-history -no-sort -no-bold -theme ~/.config/rofi/themes/calc.rasi -hint-result '' -hint-welcome '' | wl-copy"
   $SUPER+C exec $TERMINAL qalc
@@ -151,6 +152,4 @@ bindgesture {
   swipe:left workspace next
 }
 
-bar {
-  swaybar_command waybar
-}
+bar swaybar_command waybar
