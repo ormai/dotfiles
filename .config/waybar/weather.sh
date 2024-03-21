@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 TEMP=$(curl -sm 2 "https://www.3bmeteo.com/meteo/luzzi" \
   | rg tattuale | cut -d " " -f 3 | cut -d "'" -f 2)
@@ -17,4 +17,4 @@ case $ICON in
   ❄️) icon="snowflake";;
 esac
 
-echo -e "$HOME/.config/waybar/images/$icon.svg\n$TEMP°C"
+printf "%s\n%d°C" "$XDG_CONFIG_HOME/waybar/images/$icon.svg" "$TEMP"
