@@ -20,17 +20,17 @@
 		"on-click": "playerctl --player=cmus play-pause",
 		"on-click-middle": "playerctl --player=cmus previous",
 		"on-click-right": "playerctl --player=cmus next",
-		"interval": 2
+		"interval": 5
 	},
 	"custom/bat": {
 		"exec": "~/.config/waybar/bat.sh",
-		"interval": 5
+		"interval": 10
 	},
 	"custom/microphone": {
 		"exec": "~/.config/waybar/microphone.sh",
 		"on-click": "pavucontrol",
 		"format": "{}",
-		"interval": 2
+		"interval": 5
 	},
 	"bluetooth": {
 		"format": "󰂲",
@@ -39,7 +39,7 @@
 		"tooltip-format-connected": "{controller_alias}\t{controller_address}\n {num_connections} connected\n\n{device_enumerate}",
 		"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
 		"tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
-		"on-click": "kitty -e bluetoothctl"
+		"on-click": "$TERMINAL bluetoothctl"
 	},
 	"network": {
 		"format-wifi": "{icon}",
@@ -50,7 +50,7 @@
 		"tooltip-format-ethernet": "",
 		"max-length": 50,
 		"on-click": "nmcli device wifi rescan",
-		"on-click": "kitty"
+		"on-click": "$TERMINAL"
 	},
 	"backlight": {
 		"device": "intel_backlight",
@@ -87,7 +87,7 @@
 		"interval": 3600,
 		"exec-if": "ping -nc 1 wttr.in",
 		"exec": "~/.config/waybar/pacman.sh",
-		"on-click": "kitty -e paru -Syu && pkill -SIGRTMIN+8 waybar",
+		"on-click": "$TERMINAL paru -Syu && pkill -SIGRTMIN+8 waybar",
 		"signal": 8,
 		"tooltip": false
 	},

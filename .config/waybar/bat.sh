@@ -1,27 +1,31 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-BAT1=$( < /sys/class/power_supply/BAT0/capacity )
-BAT2=$( < /sys/class/power_supply/BAT1/capacity )
-LEVEL=$(( ($BAT1 + $BAT2) / 2 ))
+SYS=/sys/class/power_supply
 
-STATUS1=$( < /sys/class/power_supply/BAT0/status )
-STATUS2=$( < /sys/class/power_supply/BAT1/status )
-
-if [[ $STATUS1 == "Charging" || $STATUS2 == "Charging" ]]; then
-  CHARGING="  󱐋"
+if [ "$(cat $SYS/BAT0/status)" = "Charging" ] ||
+   [ "$(cat $SYS/BAT1/status)" = "Charging" ]
+then
+  CHARGING="󱐋"
 fi
 
-if [[ $LEVEL -lt 20 ]]; then
+LEVEL=$((($(cat $SYS/BAT0/capacity) + $(cat $SYS/BAT1/capacity)) / 2))
+
+if [ $LEVEL -lt 20 ]
+then
   ICON=" "
   CLASS="critical"
-elif [[ $LEVEL -lt 40 ]]; then
+elif [ $LEVEL -lt 40 ]
+then
   ICON=""
-elif [[ $LEVEL -lt 60 ]]; then
-  ICON=""
-elif [[ $LEVEL -lt 80 ]]; then
+elif [ $LEVEL -lt 60 ]
+then
+  ICON="" 
+elif [ $LEVEL -lt 80 ]
+then
   ICON=""
 else
   ICON=""
 fi
 
-echo -e "$LEVEL% $ICON$CHARGING\n\n$CLASS"
+echo "$CHARGING $LEVEL% $ICON"
+echo "$CLASS"

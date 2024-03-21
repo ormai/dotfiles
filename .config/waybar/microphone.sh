@@ -1,14 +1,13 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-if [[ ! $(wpctl status | rg "capture") ]]; then
-  echo ""
+if ! wpctl status | grep capture
+then
   exit 0
 fi
 
 text=""
-
-if [[ $(wpctl get-volume @DEFAULT_SOURCE@ | rg MUTED) ]]; then
+if wpctl get-volume @DEFAULT_SOURCE@ | grep MUTED
+then
   text=""
 fi
-
-echo -e "$text\n$(wpctl get-volume @DEFAULT_SOURCE@)"
+echo $text

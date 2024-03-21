@@ -1,8 +1,8 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 PACKAGES=$(checkupdates | wc -l)
 
-if [[ $PACKAGES == 0 ]]
+if [ "$PACKAGES" = 0 ]
 then
   exit 0
 fi
