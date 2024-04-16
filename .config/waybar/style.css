@@ -1,7 +1,7 @@
 @import "dark-colors.css";
 
 * {
-  font-family: "JetBrainsMono NF";
+  font-family: "JetBrainsMono Nerd Font";
   font-weight: 600;
   font-size: 12px;
 }
@@ -32,9 +32,9 @@ tooltip {
   min-height: 0;
   padding: 0;
 }
-#workspaces button label         { color: @text-dimmed; }
-#workspaces button.visible label { color: @text; }
-
+#workspaces button label { color: @text-dimmed; }
+#workspaces button:hover { background: @bg2; border: solid 1px @bg2; box-shadow: none; }
+#workspaces button.focused label { color: @text; }
 #custom-bat.critical, #custom-microphone { color: @red; }
 
 /* Layout */
