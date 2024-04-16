@@ -5,7 +5,7 @@ COLOR_SCHEME="$(gsettings get org.gnome.desktop.interface color-scheme)"
 COLOR_SCHEME=${COLOR_SCHEME#"'prefer-"}
 COLOR_SCHEME=${COLOR_SCHEME%"'"}
 
-setScheme() {
+set_scheme() {
   [ "$1" = "$COLOR_SCHEME" ] && exit 0 # $1 is the active color scheme already
   [ "$1" = dark ] && old=light || old=dark
 
@@ -18,20 +18,21 @@ setScheme() {
   sed -i "s/@theme \"$old\"/@theme \"$1\"/" "$XDG_CONFIG_HOME"/rofi/config.rasi
 
   # Terminal and shell
-  kitten themes --reload-in=all "Gruvbox $(echo "$1" | tr dl DL) Hard"
-  sed -i "s/--theme=gruvbox-$old/--theme=gruvbox-$1/" "$(bat --config-file)"
+  #sed -i "s/theme-$old.ini/theme-$1.ini/" "$XDG_CONFIG_HOME"/foot/foot.ini
+  #killall -SIGUSR1 bash # Bash will trap the signal and execute ~/.config/foot/theme.sh
 
-  sed -i "s/background = '$old'/background = '$1'/" "$XDG_CONFIG_HOME"/nvim/lua/options.lua
-  for pipe in /tmp/*-nvim.pipe
-  do
-    nvim --server "$pipe" --remote-send "<cmd>set bg=$1<cr>" > /dev/null 2>&1
-  done
+  # sed -i "s/--theme=gruvbox-$old/--theme=gruvbox-$1/" "$(bat --config-file)"
+  # sed -i "s/background = '$old'/background = '$1'/" "$XDG_CONFIG_HOME"/nvim/lua/options.lua
+  # for pipe in /tmp/*-nvim.pipe
+  # do
+  #   nvim --server "$pipe" --remote-send "<cmd>set bg=$1<cr>" > /dev/null 2>&1
+  # done
 }
 
-case "$1" in # parse invocation argument
-  dark) setScheme dark ;;
-  light) setScheme light ;;
-  toggle) { [ "$COLOR_SCHEME" = dark ] && setScheme light; } || setScheme dark ;;
+case "$1" in
+  dark) set_scheme dark ;;
+  light) set_scheme light ;;
+  toggle) { [ "$COLOR_SCHEME" = dark ] && set_scheme light; } || set_scheme dark ;;
   auto)
     DAWN=06
     SUNSET=20
@@ -39,13 +40,13 @@ case "$1" in # parse invocation argument
 
     if _=$((now > DAWN && now < SUNSET))
     then
-      setScheme light
+      set_scheme light
     else
-      setScheme dark
+      set_scheme dark
     fi
     ;;
   *)
-    echo "Usage: $(basename "$0") (dark|light|toggle|auto)"
+    echo "Usage: $(basename "$0") dark|light|toggle|auto"
     echo "Current color scheme: $COLOR_SCHEME"
     ;;
 esac

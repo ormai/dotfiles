@@ -16,7 +16,7 @@ CHOICE=$(printf '%s\n%s\n%s\n%s\n%s' $SHUTDOWN $REBOOT $LOCK $SUSPEND $LOGOUT \
 case "$CHOICE" in
   "$SHUTDOWN") shutdown now ;;
   "$REBOOT") systemctl reboot ;;
-  "$LOCK") lock.sh ;;
+  "$LOCK") swaylock ;;
   "$SUSPEND") systemctl suspend ;;
   "$LOGOUT") swaymsg exit ;;
 esac

@@ -2,7 +2,7 @@
 
 # Manually clone the repository in $GITDIR then run this script
 
-GITDIR="$HOME/desk/dotfiles" # Where I manage my dotfiles
+GITDIR="$HOME/Desktop/dotfiles" # Where I manage my dotfiles
 
 if [ ! -d "$GITDIR" ]
 then
@@ -15,14 +15,21 @@ makeLinks() {
 
   for i in "$GITDIR"/.config/*
   do
-    ln -f -s "$GITDIR"/.config/"$i" "$HOME"/.config
+    ln -f -s "$i" "$HOME"/.config
   done
 
   mkdir -p "$HOME"/.local
   ln -f -s "$GITDIR"/.local/bin "$HOME"/.local/
-  ln -f -s "$GITDIR"/.zshenv "$HOME"/
+  for dot in .bashrc .profile .inputrc
+  do
+    ln -f -s "$GITDIR"/$dot "$HOME"/
+  done
   mkdir -p "$HOME"/.mozilla/mario/chrome
   ln -f -s "$GITDIR"/.mozilla/mario/chrome "$HOME"/.mozilla/mario/chrome
+
+  # Electron
+  ln -f -s "$XDG_CONFIG_HOME"/chromium-flags.conf "$XDG_CONFIG_HOME"/electron-flags.conf
+  ln -f -s "$XDG_CONFIG_HOME"/chromium-flags.conf "$XDG_CONFIG_HOME"/electron28-flags.conf
 }
 
 installPackages() {
