@@ -5,9 +5,9 @@ then
   exit 0
 fi
 
-text=""
+icon=""
 if wpctl get-volume @DEFAULT_SOURCE@ | grep MUTED
 then
-  text=""
+  icon=""
 fi
-echo $text
+echo $icon
