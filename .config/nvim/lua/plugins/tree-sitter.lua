@@ -2,6 +2,7 @@
 return {
   'nvim-treesitter/nvim-treesitter',
   build = ':TSUpdate',
+  lazy = false,
   dependencies = {
     {
       'hiphish/rainbow-delimiters.nvim',
@@ -21,14 +22,14 @@ return {
     },
     'nvim-treesitter/nvim-treesitter-textobjects',
   },
-  keys = {
-    { '[d',        vim.diagnostic.goto_prev },
-    { ']d',        vim.diagnostic.goto_next },
-    { '<leader>e', vim.diagnostic.open_float },
-    { '<leader>q', vim.diagnostic.setloclist },
-    { '<c-space>', desc = 'Incremental selection' },
-    { '<bs>',      desc = 'Decremental selection ' }
-  },
+  -- keys = {
+  --   { '[d',        vim.diagnostic.goto_prev },
+  --   { ']d',        vim.diagnostic.goto_next },
+  --   { '<leader>e', vim.diagnostic.open_float },
+  --   { '<leader>q', vim.diagnostic.setloclist },
+  --   { '<c-space>', desc = 'Incremental selection' },
+  --   { '<bs>',      desc = 'Decremental selection ' }
+  -- },
   config = function()
     require('nvim-treesitter.configs').setup {
       auto_install = true,
@@ -69,14 +70,14 @@ return {
             ['[]'] = '@class.outer',
           }
         }
-      },
-      disable = function(_, buf)
-        local max_filesize = 100 * 1024 -- 100 KB
-        local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-        if ok and stats and stats.size > max_filesize then
-          return true
-        end
-      end
+      }--,
+      -- disable = function(_, buf)
+      --   local max_filesize = 100 * 1024 -- 100 KB
+      --   local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+      --   if ok and stats and stats.size > max_filesize then
+      --     return true
+      --   end
+      -- end
     }
   end
 }
