@@ -26,7 +26,7 @@ print_help() {
     ## this function provides help if user does
     ## not know how to use the application
 
-    echo "cbr2cbz <OPTIONS> FILENAME.cbr OR DIRECTORY"
+    echo "$0 <OPTIONS> FILENAME.cbr OR DIRECTORY"
     echo ""
     exit
 }
@@ -41,7 +41,6 @@ file_cbr2cbz() {
   FILENAM="$(basename "${FILE}" .cbr)"
   echo "${FILENAM}"
 
-  CWD=$(pwd)
   TMP=/tmp/cbr2cbz
 
   mkdir "${TMP}" || exit 1
@@ -51,7 +50,7 @@ file_cbr2cbz() {
   pushd "${TMP}"
   zip -q "${FILENAM}.cbz" ./*
   echo "${FILENAM}.cbz created"
-  mv -v "${FILENAM}.cbz" "${CWD}"
+  mv -v "${FILENAM}.cbz" "$PWD"
   popd
 
   echo "Conversion Complete."
