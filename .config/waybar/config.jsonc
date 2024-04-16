@@ -3,7 +3,8 @@
 	"position": "top",
 	"spacing": 5,
 	"height": 26,
-	"modules-left": ["idle_inhibitor", "sway/workspaces"],
+  "ipc": true,
+	"modules-left": ["idle_inhibitor", "sway/workspaces", "sway/scratchpad", "sway/window"],
 	"modules-center": ["custom/cmus", "image", "clock"],
 	"modules-right": [
 		"custom/pacman",
@@ -12,8 +13,15 @@
 		"bluetooth",
 		"pulseaudio",
 		"backlight",
-		"custom/bat"
+    "custom/bat"
 	],
+  "sway/scratchpad": {
+    "format": "{icon} {count}",
+    "show-empty": false,
+    "format-icons": ["", " "],
+    "tooltip": true,
+    "tooltip-format": "{app}: {title}"
+  },
 	"custom/cmus": {
 		"exec-if": "pgrep cmus",
 		"exec": "playerctl --player=cmus --format \"{{duration(position)}}/{{duration(mpris:length)}} {{trunc(title, 40)}} - {{trunc(artist, 20)}}\" metadata",
@@ -23,13 +31,12 @@
 		"interval": 5
 	},
 	"custom/bat": {
-		"exec": "~/.config/waybar/bat.sh",
-		"interval": 10
+		"exec": "~/.config/waybar/scripts/bat",
+		"interval": 60
 	},
 	"custom/microphone": {
-		"exec": "~/.config/waybar/microphone.sh",
+		"exec": "~/.config/waybar/scripts/microphone.sh",
 		"on-click": "pavucontrol",
-		"format": "{}",
 		"interval": 5
 	},
 	"bluetooth": {
@@ -85,16 +92,14 @@
 	},
 	"custom/pacman": {
 		"interval": 3600,
-		"exec-if": "ping -nc 1 wttr.in",
-		"exec": "~/.config/waybar/pacman.sh",
+		"exec": "~/.config/waybar/scripts/pacman.sh",
 		"on-click": "$TERMINAL paru -Syu && pkill -SIGRTMIN+8 waybar",
 		"signal": 8,
 		"tooltip": false
 	},
 	"image": {
-		"interval": 600,
-		"exec-if": "ping -nc 1 wttr.in",
-		"exec": "~/.config/waybar/weather.sh",
+		"interval": 3600,
+		"exec": "~/.config/waybar/scripts/weather.sh",
 		"on-click": "$BROWSER https://www.3bmeteo.com/meteo/luzzi &"
 	}
 }
