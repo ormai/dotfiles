@@ -5,7 +5,7 @@ return {
     { '<F10>',      function() require('dap').step_over() end },
     { '<F11>',      function() require('dap').step_into() end },
     { '<F12>',      function() require('dap').step_out() end },
-    { 'B',          function() require('dap').toggle_breakpoint() end },
+    { '<leader>b',  function() require('dap').toggle_breakpoint() end },
     { '<Leader>B',  function() require('dap').set_breakpoint() end },
     { '<Leader>lp', function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end },
     { '<Leader>dr', function() require('dap').repl.open() end },
