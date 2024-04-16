@@ -16,10 +16,6 @@ return {
     opts = {}
   },
   {
-    'fladson/vim-kitty', -- Vim syntax highlighting for Kitty terminal config
-    ft = 'kitty'
-  },
-  {
     'windwp/nvim-autopairs',
     event = 'InsertEnter',
     opts = {}
@@ -27,8 +23,10 @@ return {
   {
     'stevearc/oil.nvim',
     lazy = false,
-    keys = { '<leader>o', '<cmd>Oil<cr>', desc = 'Launch Oil' },
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = {},
+    keys = { { '<leader>o', '<cmd>Oil<cr>', desc = 'Launch Oil' } },
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    opts = {
+      delete_to_trash = true
+    }
   }
 }

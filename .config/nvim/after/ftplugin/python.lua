@@ -1,6 +1,6 @@
 vim.keymap.set(
   'n',
-  '<leader>r',
+  '<leader>e',
   "<cmd>TermExec cmd='python %:.'<CR>"
 )
 

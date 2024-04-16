@@ -5,6 +5,7 @@ for k, v in pairs({
   laststatus = 3, -- global status line
   cmdheight = 0,  -- hide the command line completely
   showcmdloc = 'statusline',
+  statusline = '%t %m%r%h%y%= %-3S  %3.(%l:%c%) %P',
   showmode = false,
 
   signcolumn = 'yes:1',
@@ -13,7 +14,7 @@ for k, v in pairs({
   history = 100,
   conceallevel = 2,
   list = true,
-  --listchars = 'eol:↴,space:⋅,lead: ,trail:-,tab:  ',
+  -- listchars = 'eol:↴,space:⋅,lead: ,trail:-,tab:  ',
   listchars = 'trail:-,tab:  ',
   fillchars = 'eob: ', -- hide ~
   number = true,
@@ -31,6 +32,7 @@ for k, v in pairs({
   completeopt = 'menuone,noselect',
   fileencoding = 'utf-8',
 
+  inccommand = 'split',
   hlsearch = true,
   ignorecase = true,
   smartcase = true,
@@ -57,6 +59,5 @@ for k, v in pairs({
   vim.opt[k] = v
 end
 
+vim.g.loaded_ruby_provider = 0
 vim.g.loaded_perl_provider = 0
-vim.g.loaded_netrw         = 1
-vim.g.loaded_netrwPlugin   = 1

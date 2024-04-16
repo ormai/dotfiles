@@ -25,12 +25,6 @@ local servers = { -- configured servers with settings
       }
     }
   },
-  marksman = {},
-  clangd = {},
-  pyright = {},
-  cssls = {},
-  html = {},
-  bashls = {},
   lua_ls = {
     Lua = {
       hint = {
@@ -46,7 +40,7 @@ local servers = { -- configured servers with settings
 
 return {
   'neovim/nvim-lspconfig',
-  event = { 'BufReadPre', 'BufNewFile' },
+  event = { 'BufReadPost' },
 
   dependencies = {
     {
