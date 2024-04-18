@@ -1,4 +1,4 @@
-# vim:ft=conf
+# vi:ft=conf
 
 urls-source "miniflux"
 miniflux-url "https://feed.ormai.dev/"
@@ -13,14 +13,14 @@ itemview-title-format "%N · %F · %T"
 
 download-full-page yes
 auto-reload yes
+datetime-format %Y-%m-%d
+text-width 100
 
-bind-key h toggle-show-read-feeds
-bind-key s sort
-bind-key ^W hard-quit
+bind-key T toggle-show-read-feeds
 bind-key r reload
 bind-key R reload-all
-bind-key O open-all-unread-in-browser-and-mark-read
 bind-key o open-in-browser
+bind-key o open-in-browser-and-mark-read
 bind-key l open
 bind-key h quit
 bind-key k up
@@ -33,26 +33,20 @@ bind-key ^F pagedown
 bind-key ^B pageup
 bind-key ? help
 
-# COLORS
-# NOTE: color0 through 15 are the terminal colors
-#     <element>           <fg>     <bg>     [<attribute> ...]
-color title               color9   color235
-color background          color15  color235
-color article             color15  color235
-color info                color208 color235 bold
+color title               blue  default
+color info                cyan  default bold
+color listnormal          white default dim
+color listfocus           white black bold
+color listnormal_unread   green default
+color listfocus_unread    green black bold
+color hint-key            cyan  default bold
+color hint-keys-delimiter cyan  default dim
+color hint-separator      cyan  default dim
+color hint-description    cyan  default dim
+color article             default default
+color end-of-text-marker  default default invis
 
-color listnormal          color8   color235
-color listfocus           color8   color237 bold
-color listnormal_unread   color10  color235
-color listfocus_unread    color10  color237 bold
-
-color hint-key            color14  color235 bold
-color hint-keys-delimiter color6   color235 dim
-color hint-separator      color6   color235 dim
-color hint-description    color6   color235
-
-highlight article "^(Title|Date|Author|Feed):.*$" color7  default dim
-highlight article "^Link: http.*$"                color7  default dim
-highlight article "https?://[^ ]+"                color13 default underline
-highlight article "\\[image\\ [0-9]+.*\\]"        color12 default bold
-highlight article "\\[[0-9]+\\]"                  color11 default bold
+highlight article "^(Title|Date|Author|Feed|Link):.*$" white default
+highlight article "https?://[^ ]+"                     yellow default underline
+highlight article "\\[image\\ [0-9]+.*\\]"             yellow default bold
+highlight article "\\[[0-9]+\\]"                       yellow default
