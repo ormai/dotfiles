@@ -1,0 +1,21 @@
+[user]
+  name = "Mario D'Andrea"
+  email = mdandrea@disroot.org
+[init]
+  defaultBranch = main
+[core]
+  editor = nvim
+	pager = nvim -R
+[push]
+  autoSetupRemote = true
+[merge]
+	conflictstyle = zdiff3
+[commit]
+	verbose = true
+[sendemail]
+	smtpserver = disroot.org
+	smtpuser = mdandrea@disroot.org
+	smtpencryption = ssl
+	smtpserverport = 465
+[color]
+	pager = false
