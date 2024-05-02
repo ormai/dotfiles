@@ -1,90 +1,49 @@
 return {
   'nvim-telescope/telescope.nvim',
   dependencies = {
-    { 'nvim-lua/plenary.nvim', },
-    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' }
+    'nvim-lua/plenary.nvim',
+    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+    'nvim-telescope/telescope-ui-select.nvim',
+    'nvim-tree/nvim-web-devicons'
   },
-
   keys = {
-    {
-      '<C-p>',
-      '<cmd>Telescope<CR>',
-      desc = 'Telescope'
-    },
-    {
-      '<leader>w',
-      function() require('telescope.builtin').grep_string() end,
-      desc = 'Telescope: search current word'
-    },
-    {
-      '<leader>g',
-      function() require('telescope.builtin').live_grep() end,
-      desc = 'Telescope: live grep'
-    },
-    {
-      '<leader>/',
-      function() require('telescope.builtin').current_buffer_fuzzy_find() end,
-      desc = 'Telescope: fuzzy find in buffer'
-    },
-    {
-      '<leader><tab>',
-      function() require('telescope.builtin').buffers() end,
-      desc = 'Telescope: buffers'
-    },
-    {
-      '<leader><space>',
-      function() require('telescope.builtin').find_files() end,
-      desc = 'Telescope: files'
-    },
-    -- {
-    --   '<leader>o',
-    --   function() require('telescope.builtin').oldfiles() end,
-    --   desc = 'Telescope: old files'
-    -- },
-    {
-      '<leader>d',
-      function() require('telescope.builtin').diagnostics() end,
-      desc = 'Telescope: diagnostics'
-    },
-    {
-      '<leader>h',
-      function() require('telescope.builtin').help_tags() end,
-      desc = 'Telescope: help'
-    },
-    {
-      '<leader>m',
-      function() require('telescope.builtin').man_pages() end,
-      desc = 'Telescope: man pages'
-    },
-    {
-      '<leader>k',
-      function() require('telescope.builtin').keymaps() end,
-      desc = 'Telescope: keymaps'
-    },
-    {
-      '<leader>r',
-      function() require('telescope.builtin').lsp_references() end,
-      'Telescope: LSP references'
-    },
-    {
-      '<leader>s',
-      function() require('telescope.builtin').lsp_document_symbols() end,
-      'Telescope: LSP symbols'
-    }
+    '<leader>th', '<leader>tk', '<leader>tf', '<leader>tt', '<leader>tw',
+    '<leader>tg', '<leader>td', '<leader>tr', '<leader>to', '<leader>tb',
+    '<leader>t/'
   },
-
   config = function()
-    require('telescope').setup {
-      defaults = {
-        mappings = {
-          i = {
-            ['<C-u>'] = false,
-            ['<C-d>'] = false
-          }
-        }
-      }
+    require 'telescope'.setup {
+      extensions = {
+        ['ui-select'] = {
+          require 'telescope.themes'.get_dropdown(),
+        },
+      },
     }
+    require 'telescope'.load_extension 'fzf'
+    require 'telescope'.load_extension 'ui-select'
 
-    pcall(require('telescope').load_extension, 'fzf') -- enable fzf-native
+    local builtin = require 'telescope.builtin'
+    vim.keymap.set('n', '<leader>th', builtin.help_tags,
+      { desc = 'Telescope: help tags' })
+    vim.keymap.set('n', '<leader>tk', builtin.keymaps,
+      { desc = 'Telescope: keymaps' })
+    vim.keymap.set('n', '<leader>tf', builtin.find_files,
+      { desc = 'Telescope: files' })
+    vim.keymap.set('n', '<leader>tt', builtin.builtin,
+      { desc = 'Telescope: pickers' })
+    vim.keymap.set('n', '<leader>tw', builtin.grep_string,
+      { desc = 'Telescope: grep current word' })
+    vim.keymap.set('n', '<leader>tg', builtin.live_grep,
+      { desc = 'Telescope: grep across files' })
+    vim.keymap.set('n', '<leader>td', builtin.diagnostics,
+      { desc = 'Telescope: diagnostics' })
+    vim.keymap.set('n', '<leader>tr', builtin.resume,
+      { desc = 'Telescope: resume search' })
+    vim.keymap.set('n', '<leader>to', builtin.oldfiles,
+      { desc = 'Telescope: old files' })
+    vim.keymap.set('n', '<leader>tb', builtin.buffers,
+      { desc = 'Telescope: buffers' })
+    vim.keymap.set('n', '<leader>t/', builtin.current_buffer_fuzzy_find,
+      { desc = 'Telescope: fuzzy find in buffer' })
   end
 }

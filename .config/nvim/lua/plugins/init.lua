@@ -1,24 +1,17 @@
 return {
-  --[[ {
-    'tpope/vim-fugitive', -- A Git wrapper so awesome, it should be illegal
-    cmd = {
-      'G', 'Git', 'Ggrep', 'Glrep', 'Gclog', 'Gcd', 'Glcd', 'Gedit', 'Gsplit',
-      'Gvsplit', 'Gtabedit', 'Gpedit', 'Gdrop', 'Gread', 'Gwrite', 'Gdiffsplit',
-      'Gvdiffsplit', 'Ghdiffsplit', 'GMove', 'Gremove', 'GUnlink', 'GBrowser'
-    }
-  }, ]]
-  -- 'tpope/vim-rhubarb', -- GitHub extension for fugitive.vim
-  -- 'tpope/vim-sleuth',  -- Heuristically set buffer options
-  'romainl/vim-cool',    -- A very simple plugin that makes hlsearch more useful.
   {
-    'folke/neodev.nvim', -- Neovim setup for init.lua and plugin development...
-    ft = 'lua',
-    opts = {}
+    'eandrju/cellular-automaton.nvim',
+    cmd = 'CellularAutomaton',
   },
   {
     'windwp/nvim-autopairs',
     event = 'InsertEnter',
-    opts = {}
+    dependencies = { 'hrsh7th/nvim-cmp' },
+    config = function()
+      require('nvim-autopairs').setup {}
+      require 'cmp'.event:on('confirm_done',
+        require 'nvim-autopairs.completion.cmp'.on_confirm_done())
+    end,
   },
   {
     'stevearc/oil.nvim',
@@ -28,5 +21,21 @@ return {
     opts = {
       delete_to_trash = true
     }
+  },
+  {
+    'akinsho/toggleterm.nvim',
+    cmd = { 'ToggleTerm', 'TermExec' },
+    keys = {
+      { '<C-t>', '<cmd>ToggleTerm<cr>', { desc = 'ToggleTerm' } }
+    },
+    opts = { size = 20 }
+  },
+  {
+    'norcalli/nvim-colorizer.lua',
+    ft = { 'css', 'scss', 'html', 'rasi' },
+    cmd = { 'ColorizerAttachToBuffer', 'ColorizerToggle' },
+    config = function(self)
+      require('colorizer').setup(self.ft)
+    end
   }
 }

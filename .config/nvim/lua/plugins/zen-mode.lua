@@ -6,7 +6,9 @@ return {
   cmd = 'ZenMode',
   opts = {
     window = {
-      width = 80,
+      backdrop = 1,
+      width = 100,
+      height = .95,
       options = {
         number = false,
         relativenumber = false,

@@ -1,4 +1,3 @@
----@diagnostic disable: missing-fields
 return {
   'nvim-treesitter/nvim-treesitter',
   build = ':TSUpdate',
@@ -20,18 +19,17 @@ return {
         }
       end
     },
-    'nvim-treesitter/nvim-treesitter-textobjects',
+    'nvim-treesitter/nvim-treesitter-textobjects'
   },
-  -- keys = {
-  --   { '[d',        vim.diagnostic.goto_prev },
-  --   { ']d',        vim.diagnostic.goto_next },
-  --   { '<leader>e', vim.diagnostic.open_float },
-  --   { '<leader>q', vim.diagnostic.setloclist },
-  --   { '<c-space>', desc = 'Incremental selection' },
-  --   { '<bs>',      desc = 'Decremental selection ' }
-  -- },
   config = function()
-    require('nvim-treesitter.configs').setup {
+    require 'nvim-treesitter.configs'.setup {
+      ensure_installed = {
+        'bash', 'c', 'html', 'lua', 'vim',
+        'luadoc', 'markdown', 'vimdoc'
+      },
+      modules = {},
+      sync_install = false,
+      ignore_install = {},
       auto_install = true,
       highlight = { enable = true },
       indent = { enable = true },
@@ -70,14 +68,7 @@ return {
             ['[]'] = '@class.outer',
           }
         }
-      }--,
-      -- disable = function(_, buf)
-      --   local max_filesize = 100 * 1024 -- 100 KB
-      --   local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-      --   if ok and stats and stats.size > max_filesize then
-      --     return true
-      --   end
-      -- end
+      }
     }
   end
 }
