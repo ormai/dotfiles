@@ -1,6 +1,5 @@
 for k, v in pairs {
   termguicolors = true, -- 24-bit RGB colors
-  background = 'dark',
   laststatus = 3,
   cmdheight = 0,
   showcmdloc = 'statusline',
