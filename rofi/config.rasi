@@ -1,0 +1,97 @@
+@theme "dark"
+
+* {
+  // Some variables
+  bordrad: 5px;
+  transparent: #00000000;
+}
+
+configuration {
+  font: "JetBrainsMono NF 11";
+  hide-scrollbar: true;
+  disable-history: true;
+  show-icons: false;
+
+  display-drun: "";
+  drun-display-format: "{name}";
+}
+
+window {
+  background-color: @bg;
+  text-color: @text;
+  border: 1px;
+  border-color: @border;
+  border-radius: @bordrad;
+}
+
+mainbox {
+  background-color: @bg-dim;
+  border: 1;
+  border-radius: @bordrad;
+  border-color: @bg-dim;
+}
+
+inputbar {
+  background-color: @bg-dim;
+  text-color: @text;
+  border-color: @bg-dim;
+  padding: 15 20 5 15;
+
+  children: [prompt, entry];
+}
+
+prompt {
+  padding: -8 20 0 5;
+  text-color: @accent;
+  font: "JetBrainsMono NF 20";
+  background-color: @transparent;
+  text-color: @accent;
+}
+
+entry {
+  background-color: @transparent;
+  text-color: @text;
+  placeholder-color: @text-dim;
+  blink: false;
+  horizontal-align: 0;
+  expand: true;
+}
+
+listview {
+  background-color: @bg;
+  border-radius: @bordrad;
+  border-color: @bg-dim;
+  border: 1px;
+  padding: 3;
+  columns: 1;
+  cycle: false;
+  dynamic: true;
+  layout: vertical;
+  margin: -2 -1 -1 -1;
+}
+
+element {
+  background-color: @transparent;
+  orientation: vertical;
+  border-radius: @bordrad;
+  padding: 8 0;
+}
+
+element-text {
+  text-color: @text-dim;
+  background-color: @transparent;
+  expand: true;
+  horizontal-align: 0.5;
+  vertical-align: 0.5;
+}
+
+element selected {
+  background-color: @bg-selected;
+  border-radius: @bordrad;
+}
+
+element-text selected {
+  text-color: @text;
+}
+
+// vi:ft=rasi

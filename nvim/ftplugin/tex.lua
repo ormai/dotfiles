@@ -1,0 +1,1 @@
+/home/mario/.config/nvim/ftplugin/text.lua

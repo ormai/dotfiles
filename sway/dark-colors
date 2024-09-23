@@ -1,0 +1,10 @@
+# class                 border  bg      text    indicat child_border
+client.focused          #000000 #000000 #000000 #9a9996 #5e5c64
+client.focused_inactive #000000 #000000 #000000 #5e5c64 #3d3846
+client.unfocused        #000000 #000000 #000000 #3d3846 #241f31
+client.urgent           #000000 #000000 #000000 #cc241d #cc241d
+
+# output * background #1d2021 solid_color
+output * background "`find ~/Pictures/wp/dark | shuf | head -1`" fill
+
+# vi:ft=swayconfig
