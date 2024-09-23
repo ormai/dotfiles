@@ -1,0 +1,172 @@
+include dark-colors
+
+set $SWAYLOCK swaylock -i $(find ~/Pictures/wp | shuf | head -1)
+
+exec {
+  systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+  dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY \
+    SWAYSOCK XDG_CURRENT_DESKTOP=sway XDG_SESSION_DESKTOP=sway
+
+  wl-paste -t text -w cliphist store
+  wl-paste -t image -w cliphist store
+
+  swayidle -w \
+    timeout 3 $SWAYLOCK \
+    timeout 200 "swaymsg 'output * power off'" \
+         resume "swaymsg 'output * power on'" \
+    before-sleep $SWAYLOCK
+
+  syncthing --no-browser
+  dunst
+  wlsunset -l 39.5 -L 16
+  foot -s
+}
+
+seat * {
+  xcursor_theme Adwaita
+  hide_cursor when-typing enable
+}
+
+input {
+  * {
+    xkb_layout "it"
+    repeat_delay 250
+    repeat_rate 60
+  }
+
+  2:7:SynPS/2_Synaptics_TouchPad {
+    accel_profile flat
+    pointer_accel 0.5
+    tap enabled
+  }
+}
+
+output {
+  HDMI-A-2 resolution 1920x1080@60Hz position 0 0
+  eDP-1 resolution 1920x1080@60Hz position 0 1080
+}
+
+set $SUPER Mod4
+# TODO: https://github.com/swaywm/sway/pull/8085, replace $SUPER with SUPER
+xwayland enable
+default_orientation horizontal
+font pango:JetBrainsMono Nerd Font Regular 10
+default_floating_border none
+default_border pixel 2
+smart_borders on
+focus_follows_mouse always
+bar swaybar_command waybar
+floating_modifier $SUPER
+
+bindsym {
+  $SUPER+H focus left
+  $SUPER+J focus down
+  $SUPER+K focus up
+  $SUPER+L focus right
+
+  $SUPER+SHIFT+H move left
+  $SUPER+SHIFT+J move down
+  $SUPER+SHIFT+K move up
+  $SUPER+SHIFT+L move right
+
+  $SUPER+1 workspace 1
+  $SUPER+2 workspace 2
+  $SUPER+3 workspace 3
+  $SUPER+4 workspace 4
+  $SUPER+5 workspace 5
+  $SUPER+6 workspace 6
+  $SUPER+7 workspace 7
+  $SUPER+8 workspace 8
+  $SUPER+9 workspace 9
+  $SUPER+0 workspace 10
+
+  $SUPER+SHIFT+1 move container to workspace 1
+  $SUPER+SHIFT+2 move container to workspace 2
+  $SUPER+SHIFT+3 move container to workspace 3
+  $SUPER+SHIFT+4 move container to workspace 4
+  $SUPER+SHIFT+5 move container to workspace 5
+  $SUPER+SHIFT+6 move container to workspace 6
+  $SUPER+SHIFT+7 move container to workspace 7
+  $SUPER+SHIFT+8 move container to workspace 8
+  $SUPER+SHIFT+9 move container to workspace 9
+  $SUPER+SHIFT+0 move container to workspace 10
+
+  $SUPER+CTRL+H move workspace to output left
+  $SUPER+CTRL+J move workspace to output down
+  $SUPER+CTRL+K move workspace to output up
+  $SUPER+CTRL+L move workspace to output right
+
+  $SUPER+T layout toggle split
+  $SUPER+P split horizontal
+  $SUPER+O split vertical
+
+  $SUPER+PLUS resize grow width 10 px
+  $SUPER+MINUS resize shrink width 10 px
+  $SUPER+SHIFT+PLUS resize grow height 10 px
+  $SUPER+SHIFT+MINUS resize shrink height 10 px
+
+  $SUPER+SPACE floating toggle
+  $SUPER+SHIFT+SPACE focus mode_toggle
+
+  $SUPER+SHIFT+BACKSPACE move scratchpad
+  $SUPER+BACKSPACE scratchpad show
+
+  $SUPER+SHIFT+Q exec powermenu.sh
+  $SUPER+SHIFT+R reload
+  $SUPER+Q kill
+  $SUPER+F fullscreen toggle
+
+  $SUPER+RETURN exec $TERMINAL
+  $SUPER+C exec $TERMINAL qalc
+  # $SUPER+M exec $TERMINAL lf
+  # $SUPER+S exec color toggle
+
+  # Edit today's note
+  $SUPER+N exec $TERMINAL nvim +ZenMode ~/Documents/notes/diario/$(date -I).md
+
+  # Open a document
+  $SUPER+A exec choice="$(fd -e pdf -e epub -e cbz -e djvu \
+                          | rofi -dmenu -i -p 󱉟)" \
+                && xdg-open "$HOME/$choice"
+
+  # Show/hide waybar
+  $SUPER+B exec pgrep waybar && killall -SIGUSR1 waybar || waybar
+
+  # Clipboard history
+  $SUPER+V exec cliphist list \
+                | rofi -dmenu -p 󰆒 -theme-str "window { \
+                                                 width: 800; \
+                                                 location: south west; \
+                                                 x-offset: 50; \
+                                                 y-offset: -50; } \
+                                               listview { lines: 8; } \
+                                               element-text { \
+                                                 horizontal-align: 0; \
+                                                 padding: 0 10; }" \
+                | cliphist decode | wl-copy
+
+  # App launcher
+  $SUPER+W exec rofi -show drun -theme-str "configuration { \
+                                              disable-history: false; } \
+                                            window { location: south east; \
+                                              x-offset: -50;\
+                                              y-offset:-50;\
+                                              width:300; }\
+                                            listview { lines: 8; }"
+
+  # Screenshots
+  PRINT exec pgrep scr.sh || scr.sh -ncst area
+  SHIFT+PRINT exec scr.sh -ncst screen
+}
+
+bindsym --locked {
+  XF86MonBrightnessUp exec brightnessctl set +5%
+  XF86MonBrightnessDown exec brightnessctl set 5%-
+  XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_SINK@ 0.05+
+  XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_SINK@ 0.05-
+  XF86AudioMute exec wpctl set-mute @DEFAULT_SINK@ toggle
+  XF86AudioMicMute exec wpctl set-mute @DEFAULT_SOURCE@ toggle
+  XF86AudioPrev exec playerctl previous
+  XF86AudioNext exec playerctl next
+  XF86AudioPlay exec playerctl play-pause
+}

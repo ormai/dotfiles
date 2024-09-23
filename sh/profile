@@ -1,0 +1,79 @@
+# Locations
+export XDG_CONFIG_HOME="$HOME"/.config
+export XDG_CACHE_HOME="$HOME"/.cache
+export XDG_DATA_HOME="$HOME"/.local/share
+export XDG_STATE_HOME="$HOME"/.local/state
+export XDG_SCREENSHOTS_DIR="$HOME"/Pictures/Screenshots
+
+# Applications
+export SHELL=/usr/bin/bash
+export EDITOR=nvim
+export VISUAL=$EDITOR
+export TERMINAL=footclient
+export BROWSER=firefox-developer-edition
+export OPENER=xdg-open
+export PAGER=less
+export MANPAGER="nvim +Man!"
+#export MANWIDTH=999 # groff soft-wraps man pages
+LS_COLORS=$(vivid generate gruvbox-dark-soft)
+export LS_COLORS
+export SAL_USE_VCLPLUGIN=gtk4 # https://wiki.documentfoundation.org/Development/GTK4
+
+export QT_QPA_PLATFORM=wayland
+export QT_QPA_PLATFORMTHEME=qt5ct:qt6ct
+export SDL_VIDEODRIVER=wayland
+export GDK_BACKEND=wayland
+export VDPAU_DRIVER=va_gl
+
+export RUSTC_WRAPPER=sccache
+
+export _JAVA_AWT_WM_NONREPARENTING=1 # otherwise swing doesn't work
+
+# Trying to keep ~ clean
+# https://wiki.archlinux.org/title/XDG_Base_Directory
+export ANDROID_USER_HOME="$XDG_DATA_HOME"/android
+export ANDROID_SDK_HOME=$ANDROID_USER_HOME
+export ANDROID_HOME=$ANDROID_HOME
+export LESSHISTFILE="$XDG_CACHE_HOME"/lesshst
+export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
+export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+export GOPATH="$XDG_DATA_HOME"/go
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
+export PIPX_BIN_DIR="$XDG_DATA_HOME"/pipx/bin
+export HOME_ETC="$XDG_CONFIG_HOME"
+export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
+export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+export RANDFILE="$XDG_DATA_HOME"/open-ssl/rnd
+export NODE_REPL_HISTORY="$XDG_CACHE_HOME"/node_repl_history
+export WGETRC="$XDG_CONFIG_HOME"/wgetrc
+export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
+export TERMINFO_DIRS="$XDG_DATA_HOME"/terminfo:/usr/share/terminfo
+export WINEPREFIX="$XDG_DATA_HOME"/wine
+
+export TEXMFHOME="$XDG_DATA_HOME"/texmf
+export TEXMFVAR="$XDG_CACHE_HOME"/texlive/texmf-var
+export TEXMFCONFIG="$XDG_CONFIG_HOME"/texlive/texmf-config
+export SQLITE_HISTORY="$XDG_DATA_HOME"/sqlite_history
+
+export PYTHON_HISTORY=$XDG_STATE_HOME/python/history # since python 3.13
+export PYTHONPYCACHEPREFIX=$XDG_CACHE_HOME/python
+export PYTHONUSERBASE=$XDG_DATA_HOME/python
+export MARIADB_HISTFILE="$XDG_DATA_HOME"/mariadb_history
+export INPUTRC="$XDG_CONFIG_HOME"/readline/inputrc
+
+path_append() {
+  case $PATH in
+  *:$1:*) ;;                   # do nothing
+  *) PATH=${PATH:+$PATH:}$1 ;; # append
+  esac
+}
+path_append "$HOME"/.local/bin
+path_append "$CARGO_HOME"/bin
+path_append "$XDG_DATA_HOME"/npm/bin
+path_append "$GOPATH"/bin
+path_append "$PIPX_BIN_DIR"
+path_append "$XDG_DATA_HOME"/nvim/mason/bin
+
+PS1="\w \[\e[93m\]\$\[\e[m\] "
