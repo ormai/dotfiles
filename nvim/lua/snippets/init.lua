@@ -26,6 +26,6 @@ Types = require("luasnip.util.types")
 Parse = require("luasnip.util.parser").parse_snippet
 MS = LS.multi_snippet
 
-require("snippets.asm")
-require("snippets.all")
-require("snippets.markdown")
+require 'snippets.markdown'
+require 'snippets.cpp'
+require 'snippets.python'

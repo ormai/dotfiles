@@ -1,7 +1,7 @@
 LS.add_snippets("asm", {
   -- The trigger should be already indented
 
-  S({ trig = ".type", desc = "Function boilerplate (Aarch-64)", },
+  S({ trig = ".type", desc = "Function boilerplate (Aarch-64)" },
     {
       T("            .type       "), I(1), T({ ", %function",                     --             .type       main, %function
       "            .global     " }), Rep(1), T({ "", "" }),                       --             .global     main
