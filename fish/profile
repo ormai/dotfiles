@@ -1,23 +1,22 @@
 # Locations
-export XDG_CONFIG_HOME="$HOME"/.config
-export XDG_CACHE_HOME="$HOME"/.cache
-export XDG_DATA_HOME="$HOME"/.local/share
-export XDG_STATE_HOME="$HOME"/.local/state
-export XDG_SCREENSHOTS_DIR="$HOME"/Pictures/Screenshots
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_SCREENSHOTS_DIR="$HOME/Pictures/Screenshots"
 
 # Applications
 export SHELL=/usr/bin/bash
 export EDITOR=nvim
 export VISUAL=$EDITOR
 export TERMINAL=footclient
-export BROWSER=firefox-developer-edition
+export BROWSER=firefox
 export OPENER=xdg-open
 export PAGER=less
 export MANPAGER="nvim +Man!"
-#export MANWIDTH=999 # groff soft-wraps man pages
 LS_COLORS=$(vivid generate gruvbox-dark-soft)
 export LS_COLORS
-export SAL_USE_VCLPLUGIN=gtk4 # https://wiki.documentfoundation.org/Development/GTK4
+#export SAL_USE_VCLPLUGIN=gtk4 # https://wiki.documentfoundation.org/Development/GTK4
 
 export QT_QPA_PLATFORM=wayland
 export QT_QPA_PLATFORMTHEME=qt5ct:qt6ct
@@ -27,6 +26,7 @@ export VDPAU_DRIVER=va_gl
 
 export RUSTC_WRAPPER=sccache
 
+export _JAVA_OPTIONS="-Djava.util.prefs.userRoot=$XDG_DATA_HOME/java"
 export _JAVA_AWT_WM_NONREPARENTING=1 # otherwise swing doesn't work
 
 # Trying to keep ~ clean
@@ -51,6 +51,8 @@ export WGETRC="$XDG_CONFIG_HOME"/wgetrc
 export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
 export TERMINFO_DIRS="$XDG_DATA_HOME"/terminfo:/usr/share/terminfo
 export WINEPREFIX="$XDG_DATA_HOME"/wine
+export KONAN_DATA_DIR="$XDG_DATA_HOME/konan"
+export PSQL_HISTORY="$XDG_STATE_HOME/psql_history"
 
 export TEXMFHOME="$XDG_DATA_HOME"/texmf
 export TEXMFVAR="$XDG_CACHE_HOME"/texlive/texmf-var
@@ -63,17 +65,17 @@ export PYTHONUSERBASE=$XDG_DATA_HOME/python
 export MARIADB_HISTFILE="$XDG_DATA_HOME"/mariadb_history
 export INPUTRC="$XDG_CONFIG_HOME"/readline/inputrc
 
-path_append() {
-  case $PATH in
-  *:$1:*) ;;                   # do nothing
-  *) PATH=${PATH:+$PATH:}$1 ;; # append
-  esac
-}
-path_append "$HOME"/.local/bin
-path_append "$CARGO_HOME"/bin
-path_append "$XDG_DATA_HOME"/npm/bin
-path_append "$GOPATH"/bin
-path_append "$PIPX_BIN_DIR"
-path_append "$XDG_DATA_HOME"/nvim/mason/bin
-
-PS1="\w \[\e[93m\]\$\[\e[m\] "
+# path_append() {
+#   case $PATH in
+#   *:$1:*) ;;                   # do nothing
+#   *) PATH=${PATH:+$PATH:}$1 ;; # append
+#   esac
+# }
+# path_append "$HOME"/.local/bin
+# path_append "$CARGO_HOME"/bin
+# path_append "$XDG_DATA_HOME"/npm/bin
+# path_append "$GOPATH"/bin
+# path_append "$PIPX_BIN_DIR"
+# path_append "$XDG_DATA_HOME"/nvim/mason/bin
+# path_append "$XDG_DATA_HOME/JetBrains/Toolbox/apps/intellij-idea-ultimate/bin"
+# export PATH

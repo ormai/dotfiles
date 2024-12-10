@@ -1,0 +1,43 @@
+# This file contains fish universal variable definitions.
+# VERSION: 3.0
+SETUVAR --export MARIADB_HISTFILE:/home/mario/\x2elocal/share/mariadb_history
+SETUVAR __fish_git_prompt_char_dirtystate:\x1d
+SETUVAR __fish_git_prompt_char_stagedstate:\x1d
+SETUVAR __fish_git_prompt_char_stateseparator:
+SETUVAR __fish_git_prompt_char_untrackedfiles:\x1d
+SETUVAR __fish_git_prompt_char_upstream_prefix:\x20
+SETUVAR __fish_git_prompt_color_branch_dirty:D65D0E
+SETUVAR __fish_git_prompt_color_branch_staged:yellow
+SETUVAR __fish_git_prompt_color_merging:brmagenta
+SETUVAR __fish_git_prompt_color_prefix:brblack
+SETUVAR __fish_git_prompt_color_suffix:brblack
+SETUVAR __fish_git_prompt_showcolorhints:true
+SETUVAR __fish_git_prompt_showstashstate:true
+SETUVAR __fish_git_prompt_showupstream:true
+SETUVAR __fish_git_prompt_use_informative_chars:\x1d
+SETUVAR __fish_initialized:3400
+SETUVAR fish_color_autosuggestion:brblack
+SETUVAR fish_color_command:blue
+SETUVAR fish_color_comment:brblack
+SETUVAR fish_color_cwd:green
+SETUVAR fish_color_end:magenta
+SETUVAR fish_color_error:brred
+SETUVAR fish_color_escape:brcyan
+SETUVAR fish_color_history_current:green
+SETUVAR fish_color_keyword:red
+SETUVAR fish_color_operator:magenta
+SETUVAR fish_color_option:yellow
+SETUVAR fish_color_param:cyan
+SETUVAR fish_color_quote:brgreen
+SETUVAR fish_color_redirection:magenta
+SETUVAR fish_color_selection:brblack\x1e\x2d\x2dbold\x1e\x2d\x2dbackground\x3dwhite
+SETUVAR fish_color_valid_path:brblue\x1e\x2d\x2dunderline
+SETUVAR fish_cursor_default:block
+SETUVAR fish_cursor_external:line
+SETUVAR fish_cursor_insert:line
+SETUVAR fish_cursor_replace:underscore
+SETUVAR fish_cursor_replace_one:underscore
+SETUVAR fish_cursor_visual:block
+SETUVAR fish_greeting:\x1d
+SETUVAR fish_key_bindings:fish_vi_key_bindings
+SETUVAR fish_vi_force_cursor:1
