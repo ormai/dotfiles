@@ -40,4 +40,9 @@ SETUVAR fish_cursor_replace_one:underscore
 SETUVAR fish_cursor_visual:block
 SETUVAR fish_greeting:\x1d
 SETUVAR fish_key_bindings:fish_vi_key_bindings
+SETUVAR fish_pager_color_description:yellow
+SETUVAR fish_pager_color_selected_background:\x2d\x2dbackground\x3dbrblack
+SETUVAR fish_pager_color_selected_completion:brmagenta
+SETUVAR fish_pager_color_selected_description:bryellow
+SETUVAR fish_pager_color_selected_prefix:blue
 SETUVAR fish_vi_force_cursor:1
