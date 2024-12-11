@@ -27,7 +27,7 @@ return {
     end
     local builtin = require 'telescope.builtin'
     keymap('h', builtin.help_tags, 'Help tags')
-    keymap('p', builtin.find_files, 'Project files')
+    keymap('<leader>', builtin.find_files, 'Project files')
     keymap('t', builtin.builtin, 'Telescope')
     keymap('sw', builtin.grep_string, 'Search current word')
     keymap('s', builtin.live_grep, 'Search everywhere')

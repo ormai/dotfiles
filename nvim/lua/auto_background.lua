@@ -7,10 +7,10 @@ if pcall(vim.system, { 'gsettings', '--version' }) then
     function()
       vim.fn.jobstart(
         table.concat({
-          "dbus-send --session --print-reply=literal --reply-timeout=1000",
-          "--dest=org.freedesktop.portal.Desktop",
-          "/org/freedesktop/portal/desktop",
-          "org.freedesktop.portal.Settings.Read",
+          'dbus-send --session --print-reply=literal --reply-timeout=1000',
+          '--dest=org.freedesktop.portal.Desktop',
+          '/org/freedesktop/portal/desktop',
+          'org.freedesktop.portal.Settings.Read',
           "string:'org.freedesktop.appearance'",
           "string:'color-scheme'",
         }, ' '),
@@ -18,7 +18,7 @@ if pcall(vim.system, { 'gsettings', '--version' }) then
         {
           stdout_buffered = true,
           on_stdout = function(_, res)
-            local scheme = string.match(res[1], "uint32 1") ~= nil and 'dark' or
+            local scheme = string.match(res[1], 'uint32 1') ~= nil and 'dark' or
                 'light'
             if vim.o.background ~= scheme then
               vim.o.background = scheme

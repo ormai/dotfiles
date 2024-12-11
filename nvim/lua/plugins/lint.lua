@@ -7,7 +7,6 @@ return {
       markdown = { 'alex', 'proselint' },
       asm = { 'proselint' },
       make = { 'checkmake' },
-      javascript = { 'eslint_d' },
     }
 
     vim.api.nvim_create_autocmd(

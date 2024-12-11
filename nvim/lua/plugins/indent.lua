@@ -12,7 +12,7 @@ return {
     scope = {
       char = '▏',
       priority = 1024,
-      highlight = 'IblScope',
+      highlight = 'GruvboxOrange',
       show_start = false,
       show_end = false,
       show_exact_scope = false,

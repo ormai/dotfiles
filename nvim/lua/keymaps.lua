@@ -1,9 +1,9 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-vim.keymap.set('n', '<C-s>', '<cmd>set invspell<cr>',
-  { desc = 'Toggle spell checking' })
-
+-- vim.keymap.set('n', '<C-s>', '<cmd>set invspell<cr>',
+--   { desc = 'Toggle spell checking' })
+--
 vim.keymap.set('n', '<A-k>', '<cmd>move .-2<cr>==', { desc = 'Move line up' })
 vim.keymap.set('n', '<A-j>', '<cmd>move .+1<cr>==', { desc = 'Move line down' })
 vim.keymap.set('x', '<A-k>', ":m '<-2<cr>gv-gv",
