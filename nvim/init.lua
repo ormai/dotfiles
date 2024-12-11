@@ -1,8 +1,10 @@
 require 'keymaps'
 require 'options'
 require 'autocommands'
+require 'auto_background'
 
 vim.filetype.add { extension = { dj = 'djot' } } -- djot.net
+vim.filetype.add { extension = { bnf = 'bnf' } }
 
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -41,7 +43,3 @@ vim.diagnostic.config {
     }
   }
 }
-
-if not vim.g.neovide then
-  require 'auto_background' -- https://neovide.dev/configuration.html#theme
-end
