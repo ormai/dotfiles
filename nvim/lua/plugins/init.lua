@@ -15,17 +15,12 @@ return {
   },
   {
     'stevearc/oil.nvim',
+    enabled = false,
     lazy = false,
     keys = { { '<leader>o', '<cmd>Oil<cr>', desc = 'Launch Oil' } },
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     opts = {
       delete_to_trash = true,
-      columns = {
-        'icon',
-        'permissions',
-        'size',
-        'mtime'
-      }
     }
   },
   {
@@ -84,6 +79,6 @@ return {
       "nvim-treesitter/nvim-treesitter",
 
       "nvim-tree/nvim-web-devicons"
-    },
+    }
   }
 }

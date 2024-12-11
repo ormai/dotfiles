@@ -7,11 +7,10 @@ return {
   opts = {
     window = {
       backdrop = 1,
-      width = 100,
+      width = 85,
       height = .95,
       options = {
         number = false,
-        relativenumber = false,
         cursorline = false,
         list = false,
         signcolumn = 'no'
