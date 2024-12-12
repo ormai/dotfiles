@@ -6,7 +6,6 @@ return {
   detect_password_input = false,
   allow_win32_input_mode = false,
 
-  default_prog = { "/usr/bin/fish" },
   clean_exit_codes = { 130 },
 
   adjust_window_size_when_changing_font_size = false,
