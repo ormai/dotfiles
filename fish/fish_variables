@@ -1,6 +1,5 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR --export MARIADB_HISTFILE:/home/mario/\x2elocal/share/mariadb_history
 SETUVAR __fish_git_prompt_char_dirtystate:\x1d
 SETUVAR __fish_git_prompt_char_stagedstate:\x1d
 SETUVAR __fish_git_prompt_char_stateseparator:
@@ -41,7 +40,7 @@ SETUVAR fish_cursor_visual:block
 SETUVAR fish_greeting:\x1d
 SETUVAR fish_key_bindings:fish_vi_key_bindings
 SETUVAR fish_pager_color_description:yellow
-SETUVAR fish_pager_color_selected_background:\x2d\x2dbackground\x3dbrblack
+SETUVAR fish_pager_color_selected_background:\x2d\x2dbackground\x3dblack
 SETUVAR fish_pager_color_selected_completion:brmagenta
 SETUVAR fish_pager_color_selected_description:bryellow
 SETUVAR fish_pager_color_selected_prefix:blue
