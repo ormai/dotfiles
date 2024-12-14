@@ -1,7 +1,7 @@
 function 2hevc --description 'Encode an AVC MP4 to HEVC'
   if test (count $argv) != 1
-    echo "Usage: 2hevc [all|check] [FILE]"
-    return
+    echo 'Usage: 2hevc [all|check] [FILE]'
+    return 1
   end
 
   function conv
@@ -20,11 +20,11 @@ function 2hevc --description 'Encode an AVC MP4 to HEVC'
   end
 
   switch $argv[1]
-  case 'all'
+  case all
     for v in (check)
       conv $v
     end
-  case 'check'
+  case check
     check
   case '*'
     conv $argv[1]

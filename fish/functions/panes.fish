@@ -1,4 +1,4 @@
-function panes --description "Draw colored panes"
+function panes --description 'Draw colored panes'
   set -l RESET '\e[0m'
 
   set -l black '\e[30m'
