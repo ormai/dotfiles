@@ -37,18 +37,20 @@ set -gx PYTHONPYCACHEPREFIX $XDG_CACHE_HOME/python
 set -gx PYTHONUSERBASE $XDG_DATA_HOME/python
 set -gx INPUTRC $XDG_CONFIG_HOME/readline/inputrc
 set -gx _JAVA_OPTIONS -Djava.util.prefs.userRoot=$XDG_DATA_HOME/java
+set -gx HISTFILE $XDG_DATA_HOME/sh_history
 
-# System paths from /etc/profile and /etc/profile.d/*.sh
+# Do what /etc/profile and /etc/profile.d/*.sh do
 fish_add_path -p /usr/local/sbin /usr/local/bin /usr/bin
 fish_add_path -p /usr/lib/jvm/default/bin
 fish_add_path -p /usr/bin/site_perl /usr/bin/vendor_perl /usr/bin/core_perl
 fish_add_path -p /usr/lib/rustup/bin
 
+set -e TERMCAP MANPATH
+
+# Other custom paths
 fish_add_path -p $HOME/.local/bin $GOPATH/bin $CARGO_HOME/bin $PIPX_BIN_DIR
 fish_add_path -p $XDG_DATA_HOME/npm/bin $XDG_DATA_HOME/nvim/mason/bin
 fish_add_path -p $XDG_DATA_HOME/JetBrains/Toolbox/apps/intellij-idea-ultimate/bin
-
-set -e TERMCAP MANPATH
 
 # Locale
 set -gx LANG en_US.UTF-8
@@ -72,7 +74,6 @@ set -gx TERMINAL blackbox
 set -gx BROWSER firefox
 set -gx OPENER xdg-open
 set -gx PAGER less
-set -gx MANPAGER 'nvim +Man!'
 set -gx LS_COLORS (vivid generate gruvbox-dark-soft)
 
 set -gx QT_QPA_PLATFORM wayland
