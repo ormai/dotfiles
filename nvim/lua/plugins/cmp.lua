@@ -1,6 +1,7 @@
 return {
   'hrsh7th/nvim-cmp',
   event = 'InsertEnter',
+  enabled = false,
   dependencies = { -- https://github.com/hrsh7th/nvim-cmp/wiki/List-of-sources
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-nvim-lsp-signature-help',

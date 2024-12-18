@@ -28,8 +28,6 @@ return {
         LspReferenceWrite = { link = 'CursorLine' },
         LspReferenceText = { link = 'CursorLine' },
         LspReferenceRead = { link = 'CursorLine' },
-
-        FoldColumn = { link = 'Comment' }
       }
     }
     vim.cmd.colorscheme 'gruvbox'

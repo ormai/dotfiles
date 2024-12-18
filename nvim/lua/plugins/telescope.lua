@@ -7,35 +7,32 @@ return {
     'nvim-tree/nvim-web-devicons'
   },
   keys = {
-    '<leader>th', '<leader>tk', '<leader>tf', '<leader>tt', '<leader>tw',
-    '<leader>tg', '<leader>td', '<leader>tr', '<leader>to', '<leader>tb',
-    '<leader>t/'
+    '<Space>h', '<Space><Space>', '<Space>t', '<Space>sw', '<Space>s', '<Space>rs', '<Space>p',
+    '<Space>rf', '<Space>k', '<Space><tab>', '<Space>/'
   },
   config = function()
-    require 'telescope'.setup {
+    local telescope = require('telescope')
+    telescope.setup {
       extensions = {
         ['ui-select'] = {
           require 'telescope.themes'.get_dropdown(),
         },
       },
     }
-    require 'telescope'.load_extension 'fzf'
-    require 'telescope'.load_extension 'ui-select'
+    telescope.load_extension('fzf')
+    telescope.load_extension('ui-select')
 
-    local keymap = function(key, action, desc)
-      vim.keymap.set('n', '<leader>' .. key, action, { desc = desc })
-    end
-    local builtin = require 'telescope.builtin'
-    keymap('h', builtin.help_tags, 'Help tags')
-    keymap('<leader>', builtin.find_files, 'Project files')
-    keymap('t', builtin.builtin, 'Telescope')
-    keymap('sw', builtin.grep_string, 'Search current word')
-    keymap('s', builtin.live_grep, 'Search everywhere')
-    keymap('rs', builtin.resume, 'Resume search')
-    keymap('p', builtin.diagnostics, 'Problems')
-    keymap('rf', builtin.oldfiles, 'Recent files')
-    keymap('k', builtin.keymaps, 'Keymaps')
-    keymap('<tab>', builtin.buffers, 'Buffers')
-    keymap('/', builtin.current_buffer_fuzzy_find, 'Fuzzy search')
+    local b = require 'telescope.builtin'
+    keymap('<Space>h', b.help_tags, 'Help tags')
+    keymap('<Space><Space>', b.find_files, 'Project files')
+    keymap('<Space>t', b.builtin, 'Telescope')
+    keymap('<Space>sw', b.grep_string, 'Search current word')
+    keymap('<Space>s', b.live_grep, 'Search everywhere')
+    keymap('<Space>rs', b.resume, 'Resume search')
+    keymap('<Space>p', b.diagnostics, 'Problems')
+    keymap('<Space>rf', b.oldfiles, 'Recent files')
+    keymap('<Space>k', b.keymaps, 'Keymaps')
+    keymap('<Space><tab>', b.buffers, 'Buffers')
+    keymap('<Space>/', b.current_buffer_fuzzy_find, 'Fuzzy search')
   end
 }
