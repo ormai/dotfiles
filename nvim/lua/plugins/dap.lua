@@ -9,30 +9,21 @@ return {
     local widgets = require 'dap.ui.widgets'
     local dap = require 'dap'
 
-    -- vim.keymap.set('n', '<F5>', dap.continue, { desc = 'DAP: continue' })
-    vim.keymap.set('n', '<F10>', dap.step_over, { desc = 'DAP: step over' })
-    -- vim.keymap.set('n', '<F11>', dap.step_into, { desc = 'DAP: step into' })
-    vim.keymap.set('n', '<F12>', dap.step_out, { desc = 'DAP: step out' })
-    vim.keymap.set('n', '<leader>b', dap.toggle_breakpoint,
-      { desc = 'DAP: toggle breakpoint' })
-    vim.keymap.set('n', '<Leader>B', dap.set_breakpoint,
-      { desc = 'DAP: step breakpoint' })
-    vim.keymap.set('n', '<Leader>lp',
-      function()
-        dap.set_breakpoint(nil, nil, vim.fn.input 'Log point message: ')
-      end, { desc = 'DAP: set breakpoint with log' })
-    vim.keymap.set('n', '<Leader>dr', dap.repl.open,
-      { desc = 'DAP: open REPL/debug console' })
-    vim.keymap.set('n', '<Leader>dl', dap.run_last,
-      { desc = 'DAP: re-run last debug adapter' })
-    vim.keymap.set({ 'n', 'v' }, '<Leader>dh',
-      widgets.hover { desc = 'DAP: evaluate and show expression under cursor' })
-    vim.keymap.set({ 'n', 'v' }, '<Leader>dp',
-      widgets.preview { desc = 'DAP: evaluate and show preview of expression under cursor' })
-    vim.keymap.set('n', '<Leader>df', widgets.centered_float(widgets.frames),
-      { desc = 'DAP: show stack frames' })
-    vim.keymap.set('n', '<Leader>ds', widgets.centered_float(widgets.scopes),
-      { desc = 'DAP: show variables in the current scopes' })
+    keymap('<F5>', dap.continue, 'DAP: continue')
+    keymap('<F10>', dap.step_over, 'DAP: step over')
+    keymap('<F11>', dap.step_into, 'DAP: step into')
+    keymap('<F12>', dap.step_out, 'DAP: step out')
+    keymap('<Space>b', dap.toggle_breakpoint, 'DAP: toggle breakpoint')
+    keymap('<Space>B', dap.set_breakpoint, 'DAP: step breakpoint')
+    keymap('<Space>lp', function()
+      dap.set_breakpoint(nil, nil, vim.fn.input 'Log point message: ')
+    end, 'DAP: set breakpoint with log')
+    keymap('<Space>dr', dap.repl.open, 'DAP: open REPL/debug console')
+    keymap('<Space>dl', dap.run_last, 'DAP: re-run last debug adapter')
+    keymap('<Space>dh', widgets.hover, 'DAP: evaluate and show expression under cursor', { 'n', 'v' })
+    keymap('<Space>dp', widgets.preview, 'DAP: evaluate and show preview of expression under cursor', { 'n', 'v' })
+    keymap('<Space>df', widgets.centered_float(widgets.frames), 'DAP: show stack frames')
+    keymap('<Space>ds', widgets.centered_float(widgets.scopes), 'DAP: show variables in the current scopes')
 
     dap.adapters = {
       cppdbg = {
@@ -67,8 +58,7 @@ return {
           miDebuggerPath = '/usr/bin/gdb',
           cwd = '${workspaceFolder}',
           program = function()
-            return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/',
-              'file')
+            return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
           end
         }
       }
