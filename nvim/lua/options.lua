@@ -8,7 +8,6 @@ for k, v in pairs {
   mouse = 'a',
   spelllang = { 'en', 'it' },
   wrap = false,
-  shell = '/usr/bin/fish',
 
   laststatus = 3,
   cmdheight = 0,
@@ -58,4 +57,4 @@ vim.g.loaded_ruby_provider = 0
 vim.g.loaded_perl_provider = 0
 --vim.g.loaded_python3_provider = 0
 vim.g.loaded_node_provider = 0
-vim.g.man_hardwrap=0
+vim.g.man_hardwrap = 0

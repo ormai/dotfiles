@@ -7,8 +7,9 @@ return {
     'nvim-tree/nvim-web-devicons'
   },
   keys = {
-    '<Space>h', '<Space><Space>', '<Space>t', '<Space>sw', '<Space>s', '<Space>rs', '<Space>p',
-    '<Space>rf', '<Space>k', '<Space><tab>', '<Space>/'
+    '<Space>h', '<Space><Space>', '<Space>t', '<Space>sw', '<Space>s',
+    '<Space>rs', '<Space>p', '<Space>rf', '<Space>k', '<Space><tab>',
+    '<Space>/'
   },
   config = function()
     local telescope = require('telescope')
@@ -23,16 +24,16 @@ return {
     telescope.load_extension('ui-select')
 
     local b = require 'telescope.builtin'
-    keymap('<Space>h', b.help_tags, 'Help tags')
-    keymap('<Space><Space>', b.find_files, 'Project files')
-    keymap('<Space>t', b.builtin, 'Telescope')
-    keymap('<Space>sw', b.grep_string, 'Search current word')
-    keymap('<Space>s', b.live_grep, 'Search everywhere')
-    keymap('<Space>rs', b.resume, 'Resume search')
-    keymap('<Space>p', b.diagnostics, 'Problems')
-    keymap('<Space>rf', b.oldfiles, 'Recent files')
-    keymap('<Space>k', b.keymaps, 'Keymaps')
-    keymap('<Space><tab>', b.buffers, 'Buffers')
-    keymap('<Space>/', b.current_buffer_fuzzy_find, 'Fuzzy search')
+    Keymap('<Space>h', b.help_tags, 'Help tags')
+    Keymap('<Space><Space>', b.find_files, 'Project files')
+    Keymap('<Space>t', b.builtin, 'Telescope')
+    Keymap('<Space>sw', b.grep_string, 'Search current word')
+    Keymap('<Space>s', b.live_grep, 'Search everywhere')
+    Keymap('<Space>rs', b.resume, 'Resume search')
+    Keymap('<Space>p', b.diagnostics, 'Problems')
+    Keymap('<Space>rf', b.oldfiles, 'Recent files')
+    Keymap('<Space>k', b.keymaps, 'Keymaps')
+    Keymap('<Space><tab>', b.buffers, 'Buffers')
+    Keymap('<Space>/', b.current_buffer_fuzzy_find, 'Fuzzy search')
   end
 }

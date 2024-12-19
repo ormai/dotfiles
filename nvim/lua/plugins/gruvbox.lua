@@ -1,6 +1,5 @@
 return {
   'ellisonleao/gruvbox.nvim',
-  lazy = false,
   priority = 1000,
   config = function()
     require 'gruvbox'.setup {
@@ -16,7 +15,7 @@ return {
       overrides = {
         CursorLineNr = { bg = '', bold = true }, -- Remove bg in line number
         SignColumn = { link = 'Normal' },        -- Normal bg
-        StatusLine = { link = 'Normal' },        -- transparent bg for '' and ''
+        StatusLine = { link = 'Normal' },        -- transparent bg for '' ''
         ZenBg = { link = 'Normal' },
 
         -- Remove lighter background from diagnostic signs

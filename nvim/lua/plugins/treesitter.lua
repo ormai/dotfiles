@@ -44,8 +44,8 @@ return {
         enable = true,
         swap = { -- Swap node under the cursor
           enable = true,
-          swap_next = { ['<leader>a'] = '@parameter.inner' },
-          swap_previous = { ['<leader>A'] = '@parameter.inner' }
+          swap_next = { ['<Space>a'] = '@parameter.inner' },
+          swap_previous = { ['<Space>A'] = '@parameter.inner' }
         },
         move = {
           enable = true,

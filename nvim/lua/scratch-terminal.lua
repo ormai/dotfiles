@@ -2,7 +2,7 @@
 
 local scratch_term = { win = -1, buf = -1 }
 
-keymap('<C-BS>', function()
+Keymap('<C-BS>', function()
   if not vim.api.nvim_win_is_valid(scratch_term.win) then
     if not vim.api.nvim_buf_is_valid(scratch_term.buf) then
       scratch_term.buf = vim.api.nvim_create_buf(false, true)
@@ -24,4 +24,4 @@ keymap('<C-BS>', function()
   else
     vim.api.nvim_win_hide(scratch_term.win)
   end
-end, 'Toggle scratch terminal', { 'n', 't' })
+end, 'Toggle scratch terminal', { 'n', 't', 'i', 'x' })

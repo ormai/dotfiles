@@ -16,7 +16,9 @@ return {
         {
           'filename',
           newfile_status = true,
-          symbols = { modified = '', readonly = '', unnamed = '', newfile = '' }
+          symbols = {
+            modified = '', readonly = '', unnamed = '', newfile = ''
+          }
         },
         { 'branch', icon = '' },
         {

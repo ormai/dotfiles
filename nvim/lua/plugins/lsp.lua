@@ -39,9 +39,9 @@ local servers = { -- configured servers with settings
       },
       format = {
         defaultConfig = {
-          indent_style = "space",
-          indent_size = "2",
-          -- max_line_length = "80"
+          indent_style = 'space',
+          indent_size = '2',
+          max_line_length = '80'
         }
       }
     }
@@ -55,7 +55,7 @@ local servers = { -- configured servers with settings
 
 local function inlay_hints(client)
   if client.server_capabilities.inlayHintProvider then
-    keymap('<Space>ih', function()
+    Keymap('<Space>ih', function()
       vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
     end, 'LSP: toggle inlay hints')
   end
@@ -81,7 +81,10 @@ local function highlight_current_symbol(client, bufnr)
       group = highlight_references,
       callback = function(event)
         vim.lsp.buf.clear_references()
-        vim.api.nvim_clear_autocmds { group = 'highlight_references', buffer = event.buf }
+        vim.api.nvim_clear_autocmds {
+          group = 'highlight_references',
+          buffer = event.buf
+        }
       end,
       desc = 'LSP: stop highlighting references.'
     })
@@ -89,27 +92,32 @@ local function highlight_current_symbol(client, bufnr)
 end
 
 local function format(client, bufnr)
-  keymap('<Space>f', vim.lsp.buf.format, 'LSP: format')
+  Keymap('<Space>f', vim.lsp.buf.format, 'LSP: format')
   if client.supports_method 'textDocument/formatting' then
     vim.api.nvim_create_autocmd('BufWritePre', {
       buffer = bufnr,
-      callback = function() vim.lsp.buf.format { bufnr = bufnr, id = client.id } end
+      callback = function()
+        vim.lsp.buf.format { bufnr = bufnr, id = client.id }
+      end
     })
   end
 end
 
 local function create_keymaps()
   local t = require 'telescope.builtin'
-  keymap('gd', t.lsp_definitions, 'LSP: go to definition')
-  keymap('gD', vim.lsp.buf.declaration, 'LSP: go to declaration')
-  keymap('gI', t.lsp_implementations, 'LSP: go to implementation')
-  keymap('gtd', t.lsp_type_definitions, 'LSP: go to type definition')
-  keymap('grr', t.lsp_references, 'LSP: references')
-  keymap('<leader>ds', t.lsp_document_symbols, 'LSP: document symbols')
-  keymap('<leader>ws', t.lsp_dynamic_workspace_symbols, 'LSP: workspace symbols')
-  keymap('<leader>wa', vim.lsp.buf.add_workspace_folder, 'LSP: add workspace folder')
-  keymap('<leader>wr', vim.lsp.buf.remove_workspace_folder, 'LSP: remove workspace folder')
-  keymap('<leader>wl', function()
+  Keymap('gd', t.lsp_definitions, 'LSP: go to definition')
+  Keymap('gD', vim.lsp.buf.declaration, 'LSP: go to declaration')
+  Keymap('gI', t.lsp_implementations, 'LSP: go to implementation')
+  Keymap('gtd', t.lsp_type_definitions, 'LSP: go to type definition')
+  Keymap('grr', t.lsp_references, 'LSP: references')
+  Keymap('<Space>ds', t.lsp_document_symbols, 'LSP: document symbols')
+  Keymap('<Space>ws', t.lsp_dynamic_workspace_symbols,
+    'LSP: workspace symbols')
+  Keymap('<Space>wa', vim.lsp.buf.add_workspace_folder,
+    'LSP: add workspace folder')
+  Keymap('<Space>wr', vim.lsp.buf.remove_workspace_folder,
+    'LSP: remove workspace folder')
+  Keymap('<Space>wl', function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, 'LSP: list workspace folders')
 end
@@ -139,10 +147,11 @@ return {
         config[server].setup {
           capabilities = vim.tbl_deep_extend('force',
             vim.lsp.protocol.make_client_capabilities(),
-            require 'blink.cmp'.get_lsp_capabilities(config[server].capabilities)
+            require 'blink.cmp'.get_lsp_capabilities(
+              config[server].capabilities)
           ),
           on_attach = function(client, bufnr)
-            create_keymaps(bufnr)
+            create_keymaps()
             if client then
               inlay_hints(client)
               highlight_current_symbol(client, bufnr)
