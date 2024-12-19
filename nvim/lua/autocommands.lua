@@ -1,10 +1,12 @@
-vim.api.nvim_create_augroup('init.lua', { clear = true })
+require 'auto-color-scheme'
+
+vim.api.nvim_create_augroup('user config', { clear = true })
 
 -- :h vim.highlight.on_yank()
 vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
   callback = function() vim.highlight.on_yank() end,
-  group = 'init.lua',
+  group = 'user config',
   desc = "Highlight on yank",
 })
 
@@ -13,7 +15,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.api.nvim_create_autocmd('BufReadPost', {
   pattern = '*',
   command = 'silent! normal! g`"zv',
-  group = 'init.lua',
+  group = 'user config',
   desc = 'Open file at last edit position',
 })
 
@@ -26,7 +28,7 @@ vim.api.nvim_create_autocmd(
         vim.cmd 'silent! update'
       end
     end,
-    group = 'init.lua',
+    group = 'user config',
     desc = 'Save current buffer automatically'
   }
 )

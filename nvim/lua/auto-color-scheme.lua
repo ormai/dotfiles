@@ -3,7 +3,7 @@
 if pcall(vim.system, { 'gsettings', '--version' }) then
   -- To disable the timer :lua vim.fn.timer_stop(AutoColorScheme)
   AutoColorScheme = vim.fn.timer_start(
-    2000, -- interval in ms
+    3000, -- interval in ms
     function()
       vim.fn.jobstart(
         table.concat({
@@ -18,8 +18,8 @@ if pcall(vim.system, { 'gsettings', '--version' }) then
         {
           stdout_buffered = true,
           on_stdout = function(_, res)
-            local scheme = string.match(res[1], 'uint32 1') ~= nil and 'dark' or
-                'light'
+            local scheme = string.match(res[1], 'uint32 1') ~= nil
+                and 'dark' or 'light'
             if vim.o.background ~= scheme then
               vim.o.background = scheme
             end

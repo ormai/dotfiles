@@ -113,7 +113,7 @@ return {
           -- Insert the icon just before the item kind
           -- vimItem.kind = string.format('%s  %s', icons[vimItem.kind],
           --   vimItem.kind)
-          vim_item.kind = string.format('%s ', icons[vim_item.kind]) -- testing: keep only icon
+          vim_item.kind = string.format('%s ', icons[vim_item.kind])
           return vim_item;
         end
       },
