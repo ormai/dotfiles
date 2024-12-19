@@ -36,7 +36,6 @@ set -gx TEXMFCONFIG $XDG_CONFIG_HOME/texlive/texmf-config
 set -gx PYTHONPYCACHEPREFIX $XDG_CACHE_HOME/python
 set -gx PYTHONUSERBASE $XDG_DATA_HOME/python
 set -gx INPUTRC $XDG_CONFIG_HOME/readline/inputrc
-set -gx _JAVA_OPTIONS -Djava.util.prefs.userRoot=$XDG_DATA_HOME/java
 set -gx HISTFILE $XDG_DATA_HOME/sh_history
 
 # Do what /etc/profile and /etc/profile.d/*.sh do
@@ -45,7 +44,7 @@ fish_add_path -p /usr/lib/jvm/default/bin
 fish_add_path -p /usr/bin/site_perl /usr/bin/vendor_perl /usr/bin/core_perl
 fish_add_path -p /usr/lib/rustup/bin
 
-set -e TERMCAP MANPATH
+set -e TERMCAP # MANPATH
 
 # Other custom paths
 fish_add_path -p $HOME/.local/bin $GOPATH/bin $CARGO_HOME/bin $PIPX_BIN_DIR
@@ -68,9 +67,10 @@ set -gx LC_TELEPHONE it_IT.UTF-8
 set -gx LC_TIME en_DK.UTF-8
 
 # Applications
+
 set -gx EDITOR nvim
 set -gx VISUAL $EDITOR
-set -gx TERMINAL blackbox
+set -gx TERMINAL footclient
 set -gx BROWSER firefox
 set -gx OPENER xdg-open
 set -gx PAGER less
@@ -84,4 +84,7 @@ set -gx VDPAU_DRIVER va_gl
 
 set -gx RUSTC_WRAPPER sccache
 
-set -gx _JAVA_AWT_WM_NONREPARENTING 1 # otherwise swing doesn't work
+set -gx _JAVA_AWT_WM_NONREPARENTING 1 # otherwise Swing doesn't work
+
+set -gx MANROFFOPT -P-i # man(1) > ENVIRONMENT > MANROFFOPT
+set -gx MANWIDTH 999 # for 'nvim +Man'
