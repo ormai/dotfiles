@@ -1,9 +1,0 @@
-# class                 border  bg      text    indicat child_border
-client.focused          #c061cb #c061cb #fafafa #dc8add #c061cb
-client.focused_inactive #000000 #c061cb #fafafa #dc8add #613583
-client.unfocused        #242424 #000000 #fafafa #deddda #fafafa
-client.urgent           #000000 #000000 #fafafa #ed333b #ed333b
-
-output * background "`find ~/Pictures/wp/light | shuf | head -1`" fill
-
-# vi:ft=swayconfig
