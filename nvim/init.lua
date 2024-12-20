@@ -19,7 +19,7 @@ require 'lazy'.setup('plugins', {
     rtp = {
       disabled_plugins = {
         'gzip', 'matchit', 'netrwPlugin', 'tarPlugin',
-        'tohtml', 'tutor', 'zipPlugin', 'rplugin', 'editorconfig', 'matchparen'
+        'tohtml', 'tutor', 'zipPlugin', 'rplugin', 'editorconfig', -- 'matchparen'
       }
     }
   }

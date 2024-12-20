@@ -1,4 +1,4 @@
-local servers = { -- configured servers with settings
+local servers = {
   tsserver = {
     javascript = {
       inlayHints = {
@@ -128,17 +128,6 @@ return {
     { 'williamboman/mason.nvim', cmd = 'Mason', opts = {} },
     'williamboman/mason-lspconfig.nvim',
     'nvim-telescope/telescope.nvim',
-    {
-      "folke/lazydev.nvim",
-      ft = "lua", -- only load on lua files
-      opts = {
-        library = {
-          -- See the configuration section for more details
-          -- Load luvit types when the `vim.uv` word is found
-          { path = "luvit-meta/library", words = { "vim%.uv" } }
-        }
-      }
-    }
   },
   config = function()
     local config = require 'lspconfig';
@@ -147,8 +136,8 @@ return {
         config[server].setup {
           capabilities = vim.tbl_deep_extend('force',
             vim.lsp.protocol.make_client_capabilities(),
-            require 'blink.cmp'.get_lsp_capabilities(
-              config[server].capabilities)
+            -- require 'blink.cmp'.get_lsp_capabilities(config[server].capabilities)
+            require 'cmp_nvim_lsp'.default_capabilities()
           ),
           on_attach = function(client, bufnr)
             create_keymaps()
