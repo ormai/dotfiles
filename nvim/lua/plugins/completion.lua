@@ -1,7 +1,8 @@
+local luasnip = require 'luasnip'
 return {
   'saghen/blink.cmp',
-  lazy = false,
   version = 'v0.*',
+  enabled = false,
   dependencies = {
     {
       'L3MON4D3/LuaSnip',
@@ -11,13 +12,29 @@ return {
       config = function()
         require 'luasnip.loaders.from_vscode'.lazy_load()
         require 'snippets'
-        require 'luasnip'.config.set_config {
-          history = true, -- remember the last snippet
+        luasnip.config.set_config {
+          history = true,
           updateevents = 'TextChanged,TextChangedI',
           enable_autosnippets = true,
         }
       end
-
+    },
+    -- {
+    --   'zbirenbaum/copilot.lua',
+    --   config = {
+    --     suggestion = { enabled = false },
+    --     panel = { enabled = false }
+    --   }
+    -- },
+    -- 'giuxtaposition/blink-cmp-copilot',
+    {
+      'folke/lazydev.nvim',
+      ft = 'lua',
+      opts = {
+        library = {
+          { path = '${3rd}/luv/library', words = { 'vim%.uv' } }
+        }
+      }
     }
   },
   opts = {
@@ -30,48 +47,54 @@ return {
         Method = '󰊕',
         Function = '󰊕',
         Constructor = '',
-
-        Field = '󰜢',
+        Constant = '󰏿',
         Variable = '󰂡',
         Property = '󰜢',
-
+        Field = '󰜢',
         Class = '󱡠',
         Interface = '󱡠',
         Struct = '󱡠',
         Module = '',
-
         Unit = '',
         Value = '󰎠',
         Enum = '',
         EnumMember = '',
-
         Keyword = '󰌋',
-        Constant = '󰏿',
-
         Snippet = '󱄽',
         Color = '󰏘',
-        File = '󰈔',
         Reference = '',
+        File = '󰈔',
         Folder = '󰉋',
         Event = '󱐋',
         Operator = '󰪚',
         TypeParameter = '󰠱',
+        -- Copilot = '',
       },
     },
     snippets = {
-      expand = function(snippet) require('luasnip').lsp_expand(snippet) end,
+      expand = luasnip.lsp_expand,
       active = function(filter)
         if filter and filter.direction then
-          return require('luasnip').jumpable(filter.direction)
+          return luasnip.jumpable(filter.direction)
         end
-        return require('luasnip').in_snippet()
+        return luasnip.in_snippet()
       end,
-      jump = function(direction) require('luasnip').jump(direction) end,
+      jump = luasnip.jump
     },
     sources = {
-      default = { 'lsp', 'path', 'luasnip', 'buffer' },
+      default = { 'lsp', 'path', 'luasnip', 'buffer', --[['copilot',]] 'lazydev' },
+      providers = {
+        -- copilot = {
+        --   name = 'copilot',
+        --   module = 'blink-cmp-copilot',
+        --   score_offset = 100,
+        --   async = true
+        -- },
+        lsp = { fallback_for = { 'lazydev' } },
+        lazydev = { name = 'LazyDev', module = 'lazydev.integrations.blink' }
+      }
     },
     signature = { enabled = true } -- experimental signature help support
   },
-  opts_extend = { "sources.default" }
+  opts_extend = { 'sources.default' }
 }
