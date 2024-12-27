@@ -1,0 +1,16 @@
+font-family = "Maple Mono NF"
+font-size = 12
+
+theme = dark: GruvboxDark, light: GruvboxLight
+
+cursor-style-blink = false
+mouse-hide-while-typing = true
+
+window-padding-x = 3
+window-padding-y = 3
+window-padding-balance = true
+gtk-single-instance = true
+
+keybind = ctrl+shift+h=toggle_window_decorations
+
+# vi:ft=config

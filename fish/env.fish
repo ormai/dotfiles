@@ -50,6 +50,7 @@ set -e TERMCAP # MANPATH
 fish_add_path -p $HOME/.local/bin $GOPATH/bin $CARGO_HOME/bin $PIPX_BIN_DIR
 fish_add_path -p $XDG_DATA_HOME/npm/bin $XDG_DATA_HOME/nvim/mason/bin
 fish_add_path -p $XDG_DATA_HOME/JetBrains/Toolbox/apps/intellij-idea-ultimate/bin
+fish_add_path -p $HOME/.luarocks/bin
 
 # Locale
 set -gx LANG en_US.UTF-8
@@ -70,7 +71,7 @@ set -gx LC_TIME en_DK.UTF-8
 
 set -gx EDITOR nvim
 set -gx VISUAL $EDITOR
-set -gx TERMINAL footclient
+set -gx TERMINAL ghostty
 set -gx BROWSER firefox
 set -gx OPENER xdg-open
 set -gx PAGER less
