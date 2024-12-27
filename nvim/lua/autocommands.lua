@@ -1,34 +1,31 @@
-require 'auto-color-scheme'
+local group = vim.api.nvim_create_augroup('config', { clear = true })
 
-vim.api.nvim_create_augroup('user config', { clear = true })
-
--- :h vim.highlight.on_yank()
 vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
-  callback = function() vim.highlight.on_yank() end,
-  group = 'user config',
-  desc = "Highlight on yank",
+  callback = function() vim.hl.on_yank { timeout = 500 } end,
+  group = group,
 })
 
 -- https://www.reddit.com/r/neovim/comments/1abd2cq/comment/kjo7moz/
 -- :h last-position-jump
 vim.api.nvim_create_autocmd('BufReadPost', {
   pattern = '*',
-  command = 'silent! normal! g`"zv',
-  group = 'user config',
+  callback = function()
+    vim.api.nvim_win_set_cursor(0, vim.api.nvim_buf_get_mark(0, '"'))
+  end,
+  group = group,
   desc = 'Open file at last edit position',
 })
 
--- https://github.com/okuuva/auto-save.nvim/tree/main
 vim.api.nvim_create_autocmd(
   { 'BufLeave', 'FocusLost', 'InsertLeave', 'TextChanged' },
   {
-    callback = function(opts)
-      if vim.fn.getbufvar(opts.buf, '&modifiable') == 1 then
-        vim.cmd 'silent! update'
+    callback = function(e)
+      if vim.bo[e.buf].modifiable and vim.bo[e.buf].modified then
+        vim.schedule(function() vim.cmd 'silent! write' end)
       end
     end,
-    group = 'user config',
-    desc = 'Save current buffer automatically'
+    group = group,
+    desc = 'Save buffer automatically'
   }
 )
