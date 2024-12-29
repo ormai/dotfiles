@@ -1,4 +1,4 @@
-function theme --description "Change the terminal' theme"
+function theme -d "Change terminal theme"
   # Update colorscheme of running instances of foot
   # org.gnome.desktop.interface color-scheme
   # <https://codeberg.org/dnkl/foot/wiki#dynamic-color-changes>

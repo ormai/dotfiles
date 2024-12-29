@@ -1,3 +1,3 @@
-function ls --wraps=eza --description 'alias ls eza'
+function ls -w eza
   eza $argv
 end

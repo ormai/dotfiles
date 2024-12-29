@@ -1,3 +1,3 @@
-function man --wraps="nvim '+hide Man'"
+function man -w nvim
   nvim "+hide Man $argv"
 end

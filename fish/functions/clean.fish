@@ -1,7 +1,7 @@
-function clean
-  sudo pacman -Rsu --noconfirm (pacman -Qqd) # orphans
+function clean -d 'Free storage'
+  sudo pacman -Rsu (pacman -Qqd) # orphans
   sudo paccache -r
-  paru -Sccd --noconfirm
+  paru -Sccd
   pip cache purge
   gio trash --empty
 end
