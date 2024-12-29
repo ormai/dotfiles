@@ -24,7 +24,7 @@ vim.api.nvim_create_autocmd('VimResized', {
   end
 })
 
-Keymap('<C-BS>', function()
+Keymap('<c-s-bs>', function()
   if not vim.api.nvim_win_is_valid(self.win) then
     if not vim.api.nvim_buf_is_valid(self.buf) then
       self.buf = vim.api.nvim_create_buf(false, true)

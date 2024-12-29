@@ -14,7 +14,12 @@ return {
       highlight = 'IblScope',
       show_start = false,
       show_end = false,
-      show_exact_scope = false
+      show_exact_scope = false,
+      include = {
+        node_type = {
+          xml = { 'element', 'content' }
+        }
+      }
     }
   }
 }

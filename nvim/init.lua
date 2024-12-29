@@ -36,3 +36,6 @@ vim.diagnostic.config {
     }
   }
 }
+
+vim.cmd.aunmenu 'PopUp.How-to\\ disable\\ mouse'
+vim.cmd.aunmenu 'PopUp.-2-'

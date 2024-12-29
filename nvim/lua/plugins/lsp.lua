@@ -55,7 +55,7 @@ local servers = {
 
 local function inlay_hints(client)
   if client.server_capabilities.inlayHintProvider then
-    Keymap('<Space>ih', function()
+    Keymap('<space>ih', function()
       vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
     end, 'LSP: toggle inlay hints')
   end
@@ -92,32 +92,31 @@ local function highlight_current_symbol(client, bufnr)
 end
 
 local function format(client, bufnr)
-  Keymap('<Space>f', vim.lsp.buf.format, 'LSP: format')
-  if client.supports_method 'textDocument/formatting' then
-    vim.api.nvim_create_autocmd('BufWritePre', {
-      buffer = bufnr,
-      callback = function()
-        vim.lsp.buf.format { bufnr = bufnr, id = client.id }
-      end
-    })
-  end
+  Keymap('<space>f', vim.lsp.buf.format, 'LSP: format')
+  -- if client.supports_method 'textDocument/formatting' then
+  --   vim.api.nvim_create_autocmd('BufWritePre', {
+  --     buffer = bufnr,
+  --     callback = function()
+  --       vim.lsp.buf.format { bufnr = bufnr, id = client.id }
+  --     end
+  --   })
+  -- end
 end
 
 local function create_keymaps()
   local t = require 'telescope.builtin'
   Keymap('gd', t.lsp_definitions, 'LSP: go to definition')
   Keymap('gD', vim.lsp.buf.declaration, 'LSP: go to declaration')
-  Keymap('gI', t.lsp_implementations, 'LSP: go to implementation')
+  Keymap('gri', t.lsp_implementations, 'LSP: go to implementation')
   Keymap('gtd', t.lsp_type_definitions, 'LSP: go to type definition')
   Keymap('grr', t.lsp_references, 'LSP: references')
-  Keymap('<Space>ds', t.lsp_document_symbols, 'LSP: document symbols')
-  Keymap('<Space>ws', t.lsp_dynamic_workspace_symbols,
-    'LSP: workspace symbols')
-  Keymap('<Space>wa', vim.lsp.buf.add_workspace_folder,
+  Keymap('gO', t.lsp_document_symbols, 'LSP: document symbols')
+  Keymap('<space>ws', t.lsp_dynamic_workspace_symbols, 'LSP: workspace symbols')
+  Keymap('<space>wa', vim.lsp.buf.add_workspace_folder,
     'LSP: add workspace folder')
-  Keymap('<Space>wr', vim.lsp.buf.remove_workspace_folder,
+  Keymap('<space>wr', vim.lsp.buf.remove_workspace_folder,
     'LSP: remove workspace folder')
-  Keymap('<Space>wl', function()
+  Keymap('<space>wl', function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, 'LSP: list workspace folders')
 end
@@ -136,8 +135,7 @@ return {
         config[server].setup {
           capabilities = vim.tbl_deep_extend('force',
             vim.lsp.protocol.make_client_capabilities(),
-            -- require 'blink.cmp'.get_lsp_capabilities(config[server].capabilities)
-            require 'cmp_nvim_lsp'.default_capabilities()
+            require 'blink.cmp'.get_lsp_capabilities(config[server].capabilities)
           ),
           on_attach = function(client, bufnr)
             create_keymaps()
