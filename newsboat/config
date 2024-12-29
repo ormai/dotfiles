@@ -1,0 +1,51 @@
+urls-source freshrss
+freshrss-url https://feed.ormai.dev/api/greader.php
+freshrss-login mario
+freshrss-passwordfile ~/.config/newsboat/secret.txt
+freshrss-show-special-feeds yes
+
+feedlist-title-format "%N (%u/%t)"
+feedlist-format "%t"
+articlelist-title-format "%N · %T (%u/%t)"
+articlelist-format "%t"
+itemview-title-format "%N · %F · %T"
+
+download-full-page yes
+auto-reload yes
+datetime-format %Y-%m-%d
+text-width 100
+
+bind-key T toggle-show-read-feeds
+bind-key r reload
+bind-key R reload-all
+bind-key o open-in-browser
+bind-key o open-in-browser-and-mark-read
+bind-key l open
+bind-key h quit
+bind-key k up
+bind-key j down
+bind-key g home
+bind-key G end
+bind-key ^U halfpageup
+bind-key ^D halfpagedown
+bind-key ^F pagedown
+bind-key ^B pageup
+bind-key ? help
+
+color title               blue  default
+color info                cyan  default bold
+color listnormal          white default dim
+color listfocus           white black bold
+color listnormal_unread   green default
+color listfocus_unread    green black bold
+color hint-key            cyan  default bold
+color hint-keys-delimiter cyan  default dim
+color hint-separator      cyan  default dim
+color hint-description    cyan  default dim
+color article             default default
+color end-of-text-marker  default default invis
+
+highlight article "^(Title|Date|Author|Feed|Link):.*$" white default
+highlight article "https?://[^ ]+"                     yellow default underline
+highlight article "\\[image\\ [0-9]+.*\\]"             yellow default bold
+highlight article "\\[[0-9]+\\]"                       yellow default

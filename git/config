@@ -1,0 +1,37 @@
+[user]
+  name = Mario D'Andrea
+  email = goffredo2004@gmail.com
+[init]
+  defaultBranch = main
+[core]
+  editor = nvim
+  utocrlf = input
+  ager = delta
+[pull]
+  rebase = true
+[push]
+  autoSetupRemote = true
+  default = current
+[merge]
+  onflictstyle = zdiff3
+[commit]
+  erbose = true
+[color]
+  ager = true
+[diff "exif"]
+  texconv = exiftool
+[filter "lfs"]
+  lean = git-lfs clean -- %f
+  mudge = git-lfs smudge -- %f
+  rocess = git-lfs filter-process
+  equired = true
+[bash]
+  showDirtyState = true
+  showUntrackedFiles = true
+[alias]
+  l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+[delta]
+  line-numbers = true
+  syntax-theme = gruvbox
+  side-by-side = false
+  file-modified-label = modified:
