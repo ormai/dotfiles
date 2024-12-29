@@ -1,8 +1,7 @@
 local luasnip = require 'luasnip'
 return {
   'saghen/blink.cmp',
-  version = 'v0.*',
-  enabled = false,
+  version = '*',
   dependencies = {
     {
       'L3MON4D3/LuaSnip',
@@ -19,57 +18,24 @@ return {
         }
       end
     },
-    -- {
-    --   'zbirenbaum/copilot.lua',
-    --   config = {
-    --     suggestion = { enabled = false },
-    --     panel = { enabled = false }
-    --   }
-    -- },
-    -- 'giuxtaposition/blink-cmp-copilot',
     {
       'folke/lazydev.nvim',
       ft = 'lua',
       opts = {
-        library = {
-          { path = '${3rd}/luv/library', words = { 'vim%.uv' } }
-        }
+        library = { { path = '${3rd}/luv/library', words = { 'vim%.uv' } } }
       }
     }
   },
   opts = {
-    keymap = { preset = 'default' },
     appearance = {
       use_nvim_cmp_as_default = true,
       nerd_font_variant = 'normal',
-      kind_icons = {
-        Text = '',
-        Method = '󰊕',
-        Function = '󰊕',
-        Constructor = '',
-        Constant = '󰏿',
-        Variable = '󰂡',
-        Property = '󰜢',
-        Field = '󰜢',
-        Class = '󱡠',
-        Interface = '󱡠',
-        Struct = '󱡠',
-        Module = '',
-        Unit = '',
-        Value = '󰎠',
-        Enum = '',
-        EnumMember = '',
-        Keyword = '󰌋',
-        Snippet = '󱄽',
-        Color = '󰏘',
-        Reference = '',
-        File = '󰈔',
-        Folder = '󰉋',
-        Event = '󱐋',
-        Operator = '󰪚',
-        TypeParameter = '󰠱',
-        -- Copilot = '',
-      },
+    },
+    completion = {
+      documentation = {
+        auto_show = true,
+        auto_show_delay_ms = 500
+      }
     },
     snippets = {
       expand = luasnip.lsp_expand,
@@ -82,19 +48,17 @@ return {
       jump = luasnip.jump
     },
     sources = {
-      default = { 'lsp', 'path', 'luasnip', 'buffer', --[['copilot',]] 'lazydev' },
+      default = { 'lsp', 'path', 'luasnip', 'buffer', 'lazydev' },
       providers = {
-        -- copilot = {
-        --   name = 'copilot',
-        --   module = 'blink-cmp-copilot',
-        --   score_offset = 100,
-        --   async = true
-        -- },
-        lsp = { fallback_for = { 'lazydev' } },
-        lazydev = { name = 'LazyDev', module = 'lazydev.integrations.blink' }
+        lazydev = {
+          name = 'LazyDev',
+          module = 'lazydev.integrations.blink',
+          fallbacks = { 'lsp' }
+        },
+        buffer = { min_keyword_length = 2 }
       }
     },
-    signature = { enabled = true } -- experimental signature help support
+    signature = { enabled = true } -- EXPERIMENTAL
   },
   opts_extend = { 'sources.default' }
 }

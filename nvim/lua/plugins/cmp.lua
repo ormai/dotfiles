@@ -1,6 +1,7 @@
 return {
   'hrsh7th/nvim-cmp',
   event = 'InsertEnter',
+  enabled = false,
   dependencies = { -- https://github.com/hrsh7th/nvim-cmp/wiki/List-of-sources
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-nvim-lsp-signature-help',
@@ -86,9 +87,9 @@ return {
       --     and vim.fn.reg_executing() == '',
       snippet = { expand = function(args) luasnip.lsp_expand(args.body) end },
       mapping = cmp.mapping.preset.insert {
-        ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-Space>'] = cmp.mapping.complete {},
+        ['<c-b>'] = cmp.mapping.scroll_docs(-4),
+        ['<c-f>'] = cmp.mapping.scroll_docs(4),
+        ['<c-space>'] = cmp.mapping.complete {},
         -- ['<C-e>'] = cmp.mapping { i = cmp.mapping.abort() },
         -- ['<C-y>'] = cmp.mapping.confirm { select = true }
         -- ['<CR>'] = cmp.mapping.confirm { select = true },
