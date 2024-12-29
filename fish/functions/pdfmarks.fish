@@ -1,4 +1,4 @@
-function pdfmarks --description 'Add table of contents to a PDF'
+function pdfmarks -d 'Add table of contents to a PDF'
   if test (count $argv) != 2 || not string match '*.pdf' $argv[1]
     echo Usage: pdfmarks input.pdf pdfmarks.txt
     return 1
