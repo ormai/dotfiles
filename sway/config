@@ -1,13 +1,14 @@
 set $LOCK 'swaylock --font-size 15 -eFi $(find ~/Pictures/wp/dark | shuf -n 1)'
+set $SWAY $XDG_CONFIG_HOME/sway
 
 exec {
   systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
   dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY \
     SWAYSOCK XDG_CURRENT_DESKTOP=sway XDG_SESSION_DESKTOP=sway
 
-  swayidle -w timeout 300 $LOCK \
-    timeout 200 "swaymsg 'output * power off'"
-    resume "swaymsg 'output * power on'" \
+  swayidle -w \
+    timeout 200 $LOCK \
+    timeout 300 'systemctl suspend' \
     before-sleep $LOCK
 
   mako
@@ -101,8 +102,8 @@ bindsym {
   super+return exec $TERMINAL
   super+c exec $TERMINAL qalc
 
-  print exec pgrep scr.sh || $XDG_CONFIG_HOME/sway/scr.sh -ncst area
-  shift+print exec $XDG_CONFIG_HOME/sway/scr.sh -ncst screen
+  print exec pgrep scr.sh || $SWAY/scr.sh -ncst area
+  shift+print exec $SWAY/scr.sh -ncst screen
 }
 
 bindsym --locked {
@@ -119,7 +120,7 @@ bindsym --locked {
 
 bar {
   position top
-  status_command while date +'%a %d %b %H:%M '; do sleep 60; done
+  status_command $SWAY/status.sh
 }
 
 xwayland enable
