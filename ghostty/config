@@ -11,6 +11,7 @@ window-padding-y = 3
 window-padding-balance = true
 gtk-single-instance = true
 
+keybind = ctrl+shift+semicolon=reload_config
 keybind = ctrl+shift+h=toggle_window_decorations
 
 # vi:ft=config
