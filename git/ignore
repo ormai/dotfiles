@@ -1,0 +1,10 @@
+target/
+build/
+out/
+.vscode
+.idea/
+*trash*
+*cache*
+*secret*
+*token*
+node_modules/

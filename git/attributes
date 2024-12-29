@@ -1,0 +1,3 @@
+# Take every file that ends in png and pre-process them with a strategy
+# called 'exif'
+*.png diff=exif
