@@ -38,6 +38,7 @@ return {
       }
     },
     snippets = {
+      preset = 'luasnip',
       expand = luasnip.lsp_expand,
       active = function(filter)
         if filter and filter.direction then
@@ -48,7 +49,7 @@ return {
       jump = luasnip.jump
     },
     sources = {
-      default = { 'lsp', 'path', 'luasnip', 'buffer', 'lazydev' },
+      default = { 'lsp', 'path', 'snippets', 'buffer', 'lazydev' },
       providers = {
         lazydev = {
           name = 'LazyDev',
