@@ -86,5 +86,6 @@ set -gx RUSTC_WRAPPER sccache
 
 set -gx _JAVA_AWT_WM_NONREPARENTING 1 # otherwise Swing doesn't work
 
+set -gx MANPAGER 'nvim +Man!'
 set -gx MANROFFOPT -P-i # man(1) > ENVIRONMENT > MANROFFOPT
-set -gx MANWIDTH 999 # for 'nvim +Man'
+# set -gx MANWIDTH 999 # 'nvim +Man' breaks tables, header and footer

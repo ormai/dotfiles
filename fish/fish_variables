@@ -29,6 +29,7 @@ SETUVAR fish_color_option:yellow
 SETUVAR fish_color_param:cyan
 SETUVAR fish_color_quote:brgreen
 SETUVAR fish_color_redirection:magenta
+SETUVAR fish_color_search_match:white\x1e\x2d\x2dbackground\x3dbrblack
 SETUVAR fish_color_selection:brblack\x1e\x2d\x2dbold\x1e\x2d\x2dbackground\x3dwhite
 SETUVAR fish_color_valid_path:brblue\x1e\x2d\x2dunderline
 SETUVAR fish_cursor_default:block
