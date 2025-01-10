@@ -8,8 +8,8 @@ if status is-interactive
 
   abbr --position anywhere ip ip -c
   abbr --position anywhere mv mv -iv
-  abbr --position anywhere rm rm -i
-  abbr --position anywhere cp cp -i
+  abbr --position anywhere rm rm -iv
+  abbr --position anywhere cp cp -iv
 
   abbr --position anywhere ncdu ncdu --color dark
 
