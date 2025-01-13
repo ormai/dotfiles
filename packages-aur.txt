@@ -179,6 +179,7 @@ onefetch
 opendoas
 openmpi
 openssl-1.1
+packagekit
 pacman-contrib
 pandoc-bin
 papers
@@ -222,7 +223,6 @@ raylib
 ripgrep
 rsync
 rustup
-rygel
 samba
 sccache
 sdl3

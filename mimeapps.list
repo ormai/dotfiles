@@ -99,6 +99,7 @@ video/x-theora=org.gnome.Showtime.desktop
 video/x-theora+ogg=org.gnome.Showtime.desktop
 x-scheme-handler/gitkraken=GitKraken.desktop
 x-scheme-handler/msteams=teams.desktop
+x-scheme-handler/discord-589393213723246592=discord-589393213723246592.desktop
 
 [Added Associations]
 text/x-python=nvim.desktop;

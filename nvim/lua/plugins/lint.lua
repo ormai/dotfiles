@@ -4,9 +4,10 @@ return {
     local lint = require 'lint'
 
     lint.linters_by_ft = {
-      markdown = { 'alex', 'proselint' },
-      asm = { 'proselint' },
+      markdown = { 'proselint' },
+      text = { 'proselint' },
       make = { 'checkmake' },
+      kotlin = { 'ktlint' }
     }
 
     vim.api.nvim_create_autocmd(
