@@ -1,0 +1,82 @@
+:root {
+  --accent-color: #9141ac;
+  --toolbar-field-focus-border-color: var(--accent-color) !important;
+  --toolbarbutton-icon-fill-attention: var(--accent-color) !important;
+  --toolbarbutton-icon-fill-attention-text: var(--accent-color) !important;
+  --button-primary-bgcolor: var(--accent-color) !important;
+  --attention-dot-color: var(--accent-color) !important;
+  --color-accent-primary: var(--accent-color) !important;
+  --download-progress-fill-color: var(--accent-color) !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --tab-selected-bgcolor: #4b4b4b !important;
+    --navbar-bgcolor: #303030 !important;
+    --toolbar-bgcolor: #303030 !important;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --tab-selected-bgcolor: #ebebeb !important;
+    --navbar-bgcolor: #fafafa !important;
+    --toolbar-bgcolor: #fafafa !important;
+  }
+}
+
+#navigator-toolbox {
+  border-bottom: none !important;
+
+  &:-moz-window-inactive {
+    background-color: var(--navbar-bgcolor) !important;
+  }
+}
+
+#nav-bar {
+  border-top: none !important;
+}
+
+.urlbarView-row[selected] {
+  background: var(--accent-color) !important;
+}
+
+.urlbarView-row[label="Firefox Suggest"],
+hbox.search-one-offs,
+.urlbarView-row .urlbarView-action {
+  display: none !important;
+}
+
+#urlbar-input::selection {
+  background-color: var(--accent-color) !important;
+}
+
+.urlbarView-url {
+  color: #aaaaaa !important;
+}
+
+#urlbar-results {
+  pointer-events: all !important;
+}
+
+/* Optional: To ensure it remains open while typing */
+#urlbar-results {
+  display: block !important;
+  opacity: 1 !important;
+}
+
+#urlbar-background {
+  background: var(--toolbar-bgcolor) !important;
+}
+
+@-moz-document url(chrome://browser/content/browser.xhtml){
+
+#main-window,
+browser[type="content-primary"],
+browser[type="content"],
+tabbrowser#content,
+#content,
+browser[type="content"]>html {
+  background: var(--navbar-bgcolor) !important;
+}
+}
