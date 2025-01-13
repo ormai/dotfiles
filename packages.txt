@@ -58,7 +58,6 @@ bison
 blas
 blender
 blosc
-blueprint-compiler
 bluez
 bluez-libs
 bluez-utils
@@ -179,7 +178,6 @@ faac
 faad2
 fakeroot
 fastfetch
-fcitx5
 fd
 ffcall
 ffmpeg
@@ -288,7 +286,6 @@ gnulib-l10n
 gnupg
 gnutls
 go
-gobject-introspection
 gobject-introspection-runtime
 gom
 gperf
@@ -314,8 +311,6 @@ gsm
 gsound
 gspell
 gssdp
-gst-devtools-libs
-gst-editing-services
 gst-libav
 gst-plugin-gtk4
 gst-plugin-pipewire
@@ -324,7 +319,6 @@ gst-plugins-bad-libs
 gst-plugins-base
 gst-plugins-base-libs
 gst-plugins-good
-gst-python
 gstreamer
 gtest
 gtk-update-icon-cache
@@ -337,8 +331,6 @@ gtksourceview4
 gtksourceview5
 guile
 gupnp
-gupnp-av
-gupnp-dlna
 gupnp-igd
 gvfs
 gvfs-afc
@@ -397,7 +389,6 @@ java-runtime-common
 jbig2dec
 jbigkit
 jdk-openjdk
-jdk17-openjdk
 jdk21-openjdk
 jemalloc
 jetbrains-toolbox
@@ -725,6 +716,7 @@ liborcus
 libosinfo
 libotr
 libp11-kit
+libpackagekit-glib
 libpagemaker
 libpaper
 libpcap
@@ -985,6 +977,7 @@ opus
 orc
 osinfo-db
 p11-kit
+packagekit
 pacman
 pacman-contrib
 pacman-mirrorlist
@@ -1068,7 +1061,6 @@ python-attrs
 python-autocommand
 python-beautifulsoup4
 python-blinker
-python-build
 python-cachecontrol
 python-cairo
 python-certifi
@@ -1096,7 +1088,6 @@ python-greenlet
 python-idna
 python-importlib_resources
 python-iniconfig
-python-installer
 python-itsdangerous
 python-jaraco.collections
 python-jaraco.context
@@ -1108,7 +1099,6 @@ python-jsonschema-specifications
 python-kiwisolver
 python-lockfile
 python-lxml
-python-mako
 python-markdown
 python-markupsafe
 python-matplotlib
@@ -1137,7 +1127,6 @@ python-pyfuse3
 python-pygments
 python-pynvim
 python-pyparsing
-python-pyproject-hooks
 python-pyqt5
 python-pyqt5-sip
 python-pyqt6
@@ -1154,7 +1143,6 @@ python-scipy
 python-send2trash
 python-sentry_sdk
 python-setuptools
-python-setuptools-scm
 python-six
 python-sniffio
 python-sortedcontainers
@@ -1313,7 +1301,6 @@ ruby-rdoc
 rubygems
 runc
 rustup
-rygel
 samba
 sane
 sbc
@@ -1486,7 +1473,6 @@ vulkan-intel
 vulkan-tools
 wavpack
 wayland
-wayland-protocols
 webkit2gtk-4.1
 webkitgtk-6.0
 webrtc-audio-processing-1
@@ -1509,7 +1495,6 @@ wpa_supplicant
 x264
 x265
 xbitmaps
-xcb-imdkit
 xcb-proto
 xcb-util
 xcb-util-cursor

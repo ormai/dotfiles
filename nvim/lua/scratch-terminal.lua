@@ -15,16 +15,7 @@ local function config()
   return c
 end
 
-vim.api.nvim_create_autocmd('VimResized', {
-  group = vim.api.nvim_create_augroup('scratch-terminal', { clear = true }),
-  callback = function()
-    if vim.api.nvim_win_is_valid(self.win) then
-      vim.api.nvim_win_set_config(self.win, config())
-    end
-  end
-})
-
-Keymap('<c-s-bs>', function()
+local function toggle()
   if not vim.api.nvim_win_is_valid(self.win) then
     if not vim.api.nvim_buf_is_valid(self.buf) then
       self.buf = vim.api.nvim_create_buf(false, true)
@@ -36,4 +27,17 @@ Keymap('<c-s-bs>', function()
   else
     vim.api.nvim_win_hide(self.win)
   end
-end, 'Toggle scratch terminal', { 'n', 't', 'i', 'x' })
+end
+
+vim.api.nvim_create_autocmd('VimResized', {
+  group = vim.api.nvim_create_augroup('scratch-terminal', { clear = true }),
+  callback = function()
+    if vim.api.nvim_win_is_valid(self.win) then
+      vim.api.nvim_win_set_config(self.win, config())
+    end
+  end
+})
+
+vim.api.nvim_create_user_command('Term', toggle, {})
+
+Keymap('<c-s-bs>', toggle, 'Toggle scratch terminal', { 'n', 't', 'i', 'x' })
