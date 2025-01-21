@@ -90,6 +90,7 @@ text:
       - .yaml
       - .yml
       - .rasi
+      - .zon
       - project.godot
       - .gmo
       - .po
