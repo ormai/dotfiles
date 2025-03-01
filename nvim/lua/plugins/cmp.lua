@@ -27,7 +27,7 @@ return {
     },
     {
       'windwp/nvim-autopairs',
-      config = {}
+      opts = {}
     },
     -- {
     --   'zbirenbaum/copilot.lua',

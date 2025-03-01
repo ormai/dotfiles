@@ -50,6 +50,9 @@ local servers = {
     java = {
       redhat = { telemetry = { enabled = { false } } },
     }
+  },
+  zls = {
+    enable_build_on_save = true,
   }
 }
 
