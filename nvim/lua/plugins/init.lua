@@ -23,5 +23,14 @@ return {
         { auto_command = 'InsertCharPre', sound = 'Chicken_step2.ogg' }
       }
     }
-  }
+  },
+  {
+    "j-hui/fidget.nvim",
+    opts = {}
+  },
+  -- {
+  --   "alexxGmZ/e-ink.nvim",
+  --   priority = 1000,
+  --   opts = {}
+  -- }
 }

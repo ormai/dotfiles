@@ -29,3 +29,4 @@ MS = LS.multi_snippet
 require 'snippets.markdown'
 require 'snippets.cpp'
 require 'snippets.python'
+require 'snippets.zig'

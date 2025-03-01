@@ -4,6 +4,7 @@ require 'autocommands'
 
 vim.filetype.add { extension = { dj = 'djot' } } -- djot.net
 vim.filetype.add { extension = { bnf = 'bnf' } }
+vim.filetype.add { filename = { ['config'] = 'config' } } -- use config instead of conf
 
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -18,7 +19,7 @@ require 'lazy'.setup('plugins', {
   performance = {
     rtp = {
       disabled_plugins = {
-        'gzip', 'matchit', --[['netrwPlugin',]] 'tarPlugin',
+        'gzip', 'matchit', 'netrwPlugin', 'tarPlugin',
         'tohtml', 'tutor', 'zipPlugin', 'rplugin', 'editorconfig', -- 'matchparen'
       }
     }
