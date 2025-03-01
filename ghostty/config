@@ -1,19 +1,22 @@
-font-family = "Maple Mono NF"
-# font-family = "JetBrainsMono NF"
-# font-family = "CaskaydiaCove NF"
-font-size = 12
+# font-family = "Maple Mono NF"
 
 theme = dark: GruvboxDark, light: GruvboxLight
 
 shell-integration-features = no-cursor
 mouse-hide-while-typing = true
 
-window-padding-x = 3
-window-padding-y = 3
+# window-padding-color = extend
 window-padding-balance = true
-gtk-single-instance = true
+
+window-padding-y = 10,0
+
+# adw-toolbar-style = flat
+# window-theme = ghostty
 
 keybind = ctrl+shift+semicolon=reload_config
 keybind = ctrl+shift+h=toggle_window_decorations
 
-# vi:ft=config
+keybind = ctrl+alt+h=goto_split:left
+keybind = ctrl+alt+j=goto_split:down
+keybind = ctrl+alt+k=goto_split:up
+keybind = ctrl+alt+l=goto_split:right
