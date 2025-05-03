@@ -28,9 +28,5 @@ return {
     "j-hui/fidget.nvim",
     opts = {}
   },
-  -- {
-  --   "alexxGmZ/e-ink.nvim",
-  --   priority = 1000,
-  --   opts = {}
-  -- }
+  { "OXY2DEV/ui.nvim" }
 }
