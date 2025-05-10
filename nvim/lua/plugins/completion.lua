@@ -1,7 +1,7 @@
-local luasnip = require 'luasnip'
+local luasnip = require('luasnip')
 return {
   'saghen/blink.cmp',
-  version = '*',
+  version = '1.*',
   dependencies = {
     {
       'L3MON4D3/LuaSnip',
@@ -9,8 +9,8 @@ return {
       version = 'v2.*',
       dependencies = 'rafamadriz/friendly-snippets',
       config = function()
-        require 'luasnip.loaders.from_vscode'.lazy_load()
-        require 'snippets'
+        require('luasnip.loaders.from_vscode').lazy_load()
+        require('snippets')
         luasnip.config.set_config {
           history = true,
           updateevents = 'TextChanged,TextChangedI',
@@ -27,15 +27,12 @@ return {
     }
   },
   opts = {
-    appearance = {
-      use_nvim_cmp_as_default = true,
-      nerd_font_variant = 'normal',
-    },
     completion = {
       documentation = {
         auto_show = true,
         auto_show_delay_ms = 500
-      }
+      },
+      ghost_text = { enabled = true }
     },
     snippets = {
       preset = 'luasnip',
@@ -59,7 +56,7 @@ return {
         buffer = { min_keyword_length = 2 }
       }
     },
-    signature = { enabled = true } -- EXPERIMENTAL
+    signature = { enabled = true }
   },
   opts_extend = { 'sources.default' }
 }
