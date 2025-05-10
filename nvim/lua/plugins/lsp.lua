@@ -9,7 +9,8 @@ end
 
 local function highlight_current_symbol(client, bufnr)
   if client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight, bufnr) then
-    local group = vim.api.nvim_create_augroup('highlight-references', { clear = false })
+    local group = vim.api.nvim_create_augroup('highlight-references',
+      { clear = false })
     vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
       buffer = bufnr,
       group = group,
@@ -45,10 +46,14 @@ local function create_keymaps()
   Keymap('grr', t.lsp_references, 'LSP: references')
   Keymap('gO', t.lsp_document_symbols, 'LSP: document symbols')
   Keymap('<space>ws', t.lsp_dynamic_workspace_symbols, 'LSP: workspace symbols')
-  Keymap('<space>wa', vim.lsp.buf.add_workspace_folder, 'LSP: add workspace folder')
-  Keymap('<space>wr', vim.lsp.buf.remove_workspace_folder, 'LSP: remove workspace folder')
-  Keymap('<space>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end,
+  Keymap('<space>wa', vim.lsp.buf.add_workspace_folder,
+    'LSP: add workspace folder')
+  Keymap('<space>wr', vim.lsp.buf.remove_workspace_folder,
+    'LSP: remove workspace folder')
+  Keymap('<space>wl',
+    function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end,
     'LSP: list workspace folders')
+  Keymap('<space>f', vim.lsp.buf.format, 'LSP: format file')
 end
 
 vim.api.nvim_create_autocmd('LspAttach', {
