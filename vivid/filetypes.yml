@@ -95,7 +95,11 @@ text:
       - .gmo
       - .po
       - .pot
+      - rc
       - LINGUAS
+      - .list
+      - .dirs
+
 
     metadata:
       - .xmp
@@ -155,6 +159,7 @@ programming:
   source:
     actionscript: [.as]
     ada: [.adb, .ads]
+    answer-set-programming: [.lp]
     applescript: [.applescript]
     asp: [.asa]
     assembly: [.asm, .s, .S]

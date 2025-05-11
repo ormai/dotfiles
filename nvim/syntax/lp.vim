@@ -20,8 +20,7 @@ syn match aspVariable "\<[A-Z][a-zA-Z0-9_]*\>"
 " Strings
 syn region aspString start=+"+ skip=+\\"+ end=+"+ contains=@Spell
 
-" Unquoted strings (must start with lowercase letter)
-syn match aspUnquotedString "\<[a-z][a-zA-Z0-9_]*\>"
+syn match aspPredicate "\<[a-z][a-zA-Z0-9_]*\>"
 
 " Numbers
 syn match aspNumber "\<\(0\|[1-9][0-9]*\)\(\.[0-9]\+\)\?\>"
@@ -51,7 +50,7 @@ hi def link aspComment Comment
 hi def link aspBlockComment Comment
 hi def link aspVariable @variable
 hi def link aspString String
-hi def link aspUnquotedString Function
+hi def link aspPredicate Function
 hi def link aspNumber Number
 hi def link aspAnnotationMarker PreProc
 hi def link aspAnnotationName PreProc
@@ -63,12 +62,12 @@ hi def link aspDirective PreProc
 
 " Common ASP symbols and operators
 " ASP specific operators
-syn match aspImplication ":-"
+syn match aspImplication "\:-" containedin=aspColon
 syn match aspConjunction ","
 syn match aspDisjunction ";"
 syn match aspPeriod "\."
-syn match aspAssign ":="
-syn match aspWeak "\~"
+"syn match aspAssign ":="
+syn match aspWeak "\:\~" containedin=aspColon
 syn match aspConditional "?:"
 syn match aspInterval "\.\."
 " Arithmetic and comparison operators
@@ -82,7 +81,7 @@ syn match aspColon ":"
 
 " Punctuation/brackets
 syn match aspBracket "[\[\](){}]"
-hi def link aspImplication Operator
+hi def link aspImplication Conditional
 hi def link aspConjunction Operator
 hi def link aspDisjunction Operator
 hi def link aspCompOp Operator
@@ -91,7 +90,7 @@ hi def link aspPeriod Operator
 hi def link aspAssign Operator
 hi def link aspConditional Operator
 hi def link aspArithOp Operator
-hi def link aspWeak PreProc
+hi def link aspWeak Conditional
 hi def link aspComp Operator
 hi def link aspInterval Operator
 hi def link aspOperator Operator
@@ -101,4 +100,4 @@ hi def link aspBracket Delimiter
 syn keyword aspKeyword not
 hi def link aspKeyword Keyword
 
-let b:current_syntax = "asp"
+let b:current_syntax = "lp"

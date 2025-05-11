@@ -3,9 +3,10 @@ require('options')
 require('autocommands')
 require('diagnostic')
 
-vim.filetype.add { extension = { dj = 'djot' } } -- djot.net
+vim.filetype.add { extension = { dj = 'djot' } }          -- djot.net
 vim.filetype.add { extension = { bnf = 'bnf' } }
 vim.filetype.add { filename = { ['config'] = 'config' } } -- use config instead of conf
+vim.filetype.add { extension = { lp = 'lp' } }
 
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
