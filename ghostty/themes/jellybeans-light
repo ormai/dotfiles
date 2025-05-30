@@ -1,0 +1,31 @@
+# name = "jellybeans-light"
+# author = "A. Fox"
+
+palette = 0=#f5f5f5
+palette = 1=#954d3b
+palette = 2=#386014
+palette = 3=#876820
+palette = 4=#234291
+palette = 5=#6a4abd
+palette = 6=#2B5B77
+palette = 7=#444444
+palette = 8=#787878
+palette = 9=#a02020
+palette = 10=#457039
+palette = 11=#a66a10
+palette = 12=#2952a3
+palette = 13=#540063
+palette = 14=#3a596a
+palette = 15=#252525
+palette = 16=#904070
+palette = 17=#556633
+palette = 18=#e0dcd7
+palette = 19=#595959
+palette = 20=#7a8490
+palette = 21=#f8f8f8
+
+background = F5E6D3
+foreground = 252525
+cursor-color = 252525
+selection-background = 787878
+selection-foreground = fdf6ec
