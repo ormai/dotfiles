@@ -1,0 +1,31 @@
+# name = "jellybeans-muted"
+# author = "A. Fox"
+
+palette = 0=#101010
+palette = 1=#cc4d4d
+palette = 2=#909c6e
+palette = 3=#e8c88c
+palette = 4=#7a8aa6
+palette = 5=#b8aed3
+palette = 6=#617b87
+palette = 7=#dad6c8
+palette = 8=#7a7a7a
+palette = 9=#7e2e23
+palette = 10=#6aa84c
+palette = 11=#d8a16c
+palette = 12=#83adc3
+palette = 13=#5c1e68
+palette = 14=#83adc3
+palette = 15=#e9e5dc
+palette = 16=#cc4d4d
+palette = 17=#d9a45a
+palette = 18=#1e1e1c
+palette = 19=#3c3936
+palette = 20=#6f6f6c
+palette = 21=#bebebe
+
+background = #101010
+foreground = #dad6c8
+cursor-color = #a6c3d9
+selection-background = #3c3b38
+selection-foreground = #dad6c8

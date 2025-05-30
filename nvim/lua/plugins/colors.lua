@@ -1,7 +1,6 @@
 return {
   {
     'ellisonleao/gruvbox.nvim',
-    priority = 1000,
     opts = {
       contrast = 'hard',
       italic = {
@@ -35,26 +34,24 @@ return {
   },
   {
     'wtfox/jellybeans.nvim',
-    enabled = false,
     priority = 1000,
-    lazy = false,
     opts = {
       flat_ui = false,
       transparent = false,
-      palette = 'jellybeans_muted'
     },
     config = function(_, opts)
-      require('lualine').setup {
-        options = { theme = 'jellybeans' }
-      }
       require('jellybeans').setup(opts)
+      -- vim.cmd.colorscheme('jellybeans-muted')
+      -- require('lualine').setup { options = { theme = 'jellybeans' } }
     end
   },
+  { 'projekt0n/github-nvim-theme' },
   {
-    'projekt0n/github-nvim-theme',
-    enabled = false
+    'Mofiqul/vscode.nvim',
+    config = function()
+      -- require('lualine').setup { options = { theme = 'vscode' } }
+    end
   },
-  {
-    "rebelot/kanagawa.nvim"
-  }
+  { 'mellow-theme/mellow.nvim' },
+  { "catppuccin/nvim",            name = "catppuccin" }
 }
