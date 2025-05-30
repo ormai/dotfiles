@@ -68,6 +68,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end
 })
 
+vim.lsp.enable('fish_lsp')
+
 return {
   'neovim/nvim-lspconfig',
   dependencies = {

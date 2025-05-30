@@ -30,7 +30,7 @@ return {
       Keymap('<Space>uh', g.undo_stage_hunk, 'Git: unstage hunk')
       Keymap('<Space>rb', g.reset_buffer, 'Git: reset buffer')
       Keymap('<Space>vh', g.preview_hunk, 'Git: preview hunk')
-      Keymap('<Space>bl', g.blame_line, 'Git: blame line')
+      Keymap('<Space>gb', g.blame_line, 'Git: blame line')
       Keymap('<Space>dt', g.diffthis, 'Git: diff against index')
       Keymap('<Space>dtc', function() g.diffthis '@' end,
         'Git: diff against latest commit')

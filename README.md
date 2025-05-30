@@ -1,3 +1,3 @@
-My custom configurations in `~/.config`.
+Some `~/.config`s.
 
 ![Fastfetch screenshot](fastfetch.png)

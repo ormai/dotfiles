@@ -7,8 +7,8 @@ return {
   opts = {
     window = {
       backdrop = 1,
-      width = 85,
-      height = .95,
+      width = 100,
+      -- height = .95,
       options = {
         number = false,
         cursorline = false,
