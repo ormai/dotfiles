@@ -1,35 +1,44 @@
 [user]
-  name = Mario D'Andrea
+  name = "Mario D'Andrea"
   email = goffredo2004@gmail.com
 [init]
   defaultBranch = main
+[status]
+  branch = true
+  showStash = true
+  showUntrackedFiles = all
 [core]
   editor = nvim
-  utocrlf = input
-  ager = delta
+  autocrlf = input
+  pager = delta
+  compression = 9
+  whitespace = error
+  preloadindex = true
+[advice]
+  addEmptyPathSpec = false
+  pushNonFastForward = false
+  statusHint = false
 [pull]
   rebase = true
 [push]
   autoSetupRemote = true
   default = current
 [merge]
-  onflictstyle = zdiff3
+  conflictstyle = zdiff3
 [commit]
-  erbose = true
+  verbose = true
 [color]
-  ager = true
+  pager = true
 [diff "exif"]
   texconv = exiftool
 [filter "lfs"]
-  lean = git-lfs clean -- %f
-  mudge = git-lfs smudge -- %f
-  rocess = git-lfs filter-process
-  equired = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
 [bash]
   showDirtyState = true
   showUntrackedFiles = true
-[alias]
-  l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 [delta]
   line-numbers = true
   syntax-theme = gruvbox
