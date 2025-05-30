@@ -8,3 +8,4 @@ out/
 *secret*
 *token*
 node_modules/
+.env
