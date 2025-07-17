@@ -7,8 +7,6 @@ set -gx XDG_STATE_HOME $HOME/.local/state
 # Trying to keep ~ clean
 # https://wiki.archlinux.org/title/XDG_Base_Directory
 set -gx ANDROID_USER_HOME $XDG_DATA_HOME/android
-set -gx ANDROID_SDK_HOME $ANDROID_USER_HOME
-set -gx ANDROID_HOME $ANDROID_USER_HOME
 set -gx PASSWORD_STORE_DIR $XDG_DATA_HOME/pass
 set -gx GNUPGHOME $XDG_DATA_HOME/gnupg
 set -gx GOPATH $XDG_DATA_HOME/go
@@ -37,6 +35,7 @@ set -gx PYTHONPYCACHEPREFIX $XDG_CACHE_HOME/python
 set -gx PYTHONUSERBASE $XDG_DATA_HOME/python
 set -gx INPUTRC $XDG_CONFIG_HOME/readline/inputrc
 set -gx HISTFILE $XDG_DATA_HOME/sh_history
+set -gx DOTNET_CLI_HOME $XDG_DATA_HOME/dotnet
 
 # Do what /etc/profile and /etc/profile.d/*.sh do
 fish_add_path -p /usr/local/sbin /usr/local/bin /usr/bin
@@ -50,7 +49,6 @@ set -e TERMCAP # MANPATH
 fish_add_path -p $HOME/.local/bin $GOPATH/bin $CARGO_HOME/bin $PIPX_BIN_DIR
 fish_add_path -p $XDG_DATA_HOME/npm/bin $XDG_DATA_HOME/nvim/mason/bin
 fish_add_path -p $XDG_DATA_HOME/JetBrains/Toolbox/apps/intellij-idea-ultimate/bin
-fish_add_path -p $XDG_CONFIG_HOME/luarocks/bin
 
 # Locale
 set -gx LANG en_US.UTF-8
@@ -71,13 +69,17 @@ set -gx LC_TIME en_DK.UTF-8
 set -gx EDITOR nvim
 set -gx VISUAL $EDITOR
 set -gx TERMINAL ghostty
-set -gx BROWSER firefox
+# set -gx BROWSER zen-browser
 set -gx OPENER xdg-open
 set -gx PAGER less
 set -gx LS_COLORS (vivid generate gruvbox-dark-soft)
 
+set -gx XCURSOR_SIZE 24
+
+set -gx CHROME_BIN chromium
+
 set -gx QT_QPA_PLATFORM wayland
-set -gx QT_QPA_PLATFORMTHEME qt5ct:qt6ct
+set -gx QT_QPA_PLATFORMTHEME qt6ct
 set -gx SDL_VIDEODRIVER wayland
 set -gx GDK_BACKEND wayland
 set -gx VDPAU_DRIVER va_gl
