@@ -1,17 +1,11 @@
 if status is-login
-  source $HOME/.config/fish/env.fish
+    source ~/.config/fish/env.fish
 end
 
 if status is-interactive
-  abbr s git status --short
-  abbr d git diff
-
-  abbr --position anywhere ip ip -c
-  abbr --position anywhere mv mv -iv
-  abbr --position anywhere rm rm -iv
-  abbr --position anywhere cp cp -iv
-
-  abbr --position anywhere ncdu ncdu --color dark
-
-  abbr adb HOME=$XDG_DATA_HOME/android adb
+    set_color brblack
+    and fortune -c art ascii-art computers cookie debian definitions disclaimer drugs education ethnic food fortunes goedel humorists kids knghtbrd law linux literature love magic medicine men-women miscellaneous news paradoxum people perl pets platitudes politics pratchett riddles rules-of-acquisition science shlomif-fav songs-poems sports startrek tao the-x-files-taglines translate-me wisdom work 0% zippy
+    # echo
+    # do
+    source ~/.config/fish/abbreviations.fish
 end
