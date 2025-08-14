@@ -7,7 +7,7 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "autosave": "on_focus_change",
+  "autosave": { "after_delay": { "milliseconds": 500 } },
   "cursor_blink": false,
   "telemetry": {
     "metrics": false
@@ -15,14 +15,20 @@
   "features": {
     "edit_prediction_provider": "none"
   },
-  "vim_mode": true,
+  // "vim_mode": true,
   "ui_font_size": 16,
   "buffer_font_size": 16,
-  "buffer_font_family": "FiraCode Nerd Font",
+  "buffer_font_family": "Maple Mono NF",
   "theme": {
     "mode": "system",
     "light": "Catppuccin Latte",
     "dark": "Catppuccin Mocha"
   },
-  "ui_font_family": "Adwaita Sans"
+  "icon_theme": {
+    "mode": "system",
+    "dark": "Catppuccin Mocha",
+    "light": "Catppuccin Latte"
+  },
+  "ui_font_family": "Adwaita Sans",
+  "diagnostics": { "inline": { "enabled": true } }
 }
