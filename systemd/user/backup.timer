@@ -1,0 +1,13 @@
+[Unit]
+Description=Daily $HOME backup
+Requires=backup.service
+After=network-online.target
+
+[Timer]
+OnCalendar=daily
+Unit=backup.service
+Persistent=true
+
+[Install]
+WantedBy=default.target
+

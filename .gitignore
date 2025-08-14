@@ -1,8 +1,5 @@
 aerc
-bat
 blender
-btop
-cava
 cef_user_data
 celluloid
 configstore
@@ -12,13 +9,7 @@ docker
 Electron
 epiphany
 exercism
-fastfetch
-fish
-fontconfig
-gdb
-ghostty
 GIMP
-git
 gnome-boxes
 gnome-session
 goa-1.0
@@ -36,7 +27,6 @@ libaccounts-glib
 libreoffice
 libvirt
 matplotlib
-maven
 menus
 mpv
 MusicBrainz
@@ -46,7 +36,6 @@ nicotine
 npm
 NuGet
 nushell
-nvim
 obs-studio
 obsidian
 pipewire
@@ -55,14 +44,12 @@ pulse
 qalculate
 qt5ct
 qt6ct
-readline
 servo
 simple-scan
 sway
 syncthing
 systemd
 tiling-assistant
-vivid
 zed
 kde*
 gtk*
