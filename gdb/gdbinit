@@ -1,0 +1,1 @@
+set debuginfo enabled on
