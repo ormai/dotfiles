@@ -1,0 +1,3 @@
+<settings>
+  <localRepository>${env.XDG_CACHE_HOME}/m2/repository</localRepository>
+</settings>
