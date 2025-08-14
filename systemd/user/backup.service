@@ -1,0 +1,8 @@
+[Unit]
+Description=Restic backup
+
+[Service]
+ExecStart=/usr/bin/fish -c backup
+
+[Install]
+WantedBy=default.target
