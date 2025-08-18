@@ -1,57 +1,53 @@
-for k, v in pairs {
-  title = true,
-  titlestring = '%{v:progname} %f %h',
-  guifont = 'JetBrainsMono Nerd Font:h12',
-  termguicolors = true,
-  clipboard = 'unnamedplus',
-  fileencoding = 'utf-8',
-  mouse = 'a',
-  spelllang = { 'en', 'it' },
-  wrap = false,
+vim.o.title = true
+vim.o.titlestring = '%{v:progname} %f %h'
+-- vim.o.guifont = 'JetBrainsMono Nerd Font:h12'
+vim.o.termguicolors = true
+vim.o.clipboard = 'unnamedplus'
+vim.o.fileencoding = 'utf-8'
+vim.o.mouse = 'a'
+vim.o.spelllang = 'en,it'
+vim.o.wrap = false
 
-  laststatus = 3,
-  cmdheight = 0,
-  showcmdloc = 'statusline',
-  showmode = false,
+vim.o.laststatus = 3
+vim.o.cmdheight = 0
+vim.o.showcmdloc = 'statusline'
+vim.o.showmode = false
 
-  pumheight = 8,
-  completeopt = { 'menu', 'menuone', 'noinsert', 'preview' },
+vim.o.pumheight = 8
+vim.o.completeopt = 'menu,menuone,noinsert,preview'
 
-  list = true,
-  listchars = { trail = '-', tab = '  ' },
-  fillchars = { eob = ' ', foldopen = '⌄', foldsep = '│', foldclose = '›' },
-  conceallevel = 2,
+vim.o.list = true
+vim.o.listchars = 'trail:-,tab:  '
+vim.o.fillchars = 'eob: ,foldopen:⌄,foldsep:│,foldclose:›'
+vim.o.conceallevel = 2
 
-  signcolumn = 'yes',
-  number = true,
-  -- relativenumber = true,
-  cursorline = true,
-  cursorlineopt = 'number',
+vim.o.signcolumn = 'yes'
+vim.o.number = true
+-- relativenumber = true
+vim.o.cursorline = true
+vim.o.cursorlineopt = 'number'
 
-  history = 1000,
-  backup = true,
-  backupdir = vim.fn.stdpath('state') .. 'backup/',
-  undofile = true,
-  updatetime = 200,
+vim.o.history = 1000
+vim.o.backup = true
+vim.o.backupdir = vim.fn.stdpath('state') .. 'backup/'
+vim.o.undofile = true
+vim.o.updatetime = 200
 
-  ignorecase = true,
-  smartcase = true,
+vim.o.ignorecase = true
+vim.o.smartcase = true
 
-  smartindent = true,
-  expandtab = true,
-  tabstop = 2,
-  shiftwidth = 2,
+vim.o.smartindent = true
+vim.o.expandtab = true
+vim.o.tabstop = 2
+vim.o.shiftwidth = 2
 
-  splitbelow = true,
-  splitright = true,
+splitbelow = true
+splitright = true
 
-  foldcolumn = 'auto:9',
-  foldlevel = 99,
-  foldlevelstart = 99,
-  foldenable = true
-} do
-  vim.opt[k] = v
-end
+vim.o.foldcolumn = 'auto:9'
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
 
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_perl_provider = 0

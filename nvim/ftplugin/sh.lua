@@ -1,1 +1,1 @@
-vim.opt.makeprg = 'sh %:.'
+vim.o.makeprg = 'sh %:.'
