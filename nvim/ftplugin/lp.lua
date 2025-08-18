@@ -1,1 +1,2 @@
-vim.opt.commentstring = '%%s'
+vim.o.commentstring = '%%s'
+vim.o.makeprg = 'dlv %:.'
