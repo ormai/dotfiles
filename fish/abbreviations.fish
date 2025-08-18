@@ -1,4 +1,4 @@
-abbr ll eza -Bla --sort=modified --git --time-style=long-iso
+abbr ll eza -laM --smart-group --sort=modified --git --time-style=iso
 abbr ls eza
 abbr trash gio trash
 abbr mv mv -iv
@@ -17,8 +17,9 @@ abbr s git status --short
 abbr d git diff
 abbr c git commit -v
 abbr l git log --graph --abbrev-commit --date=relative \
- --pretty=format:"'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset'"
+    --pretty=format:"'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset'"
 
 abbr adb HOME=$XDG_DATA_HOME/android adb
 abbr mvn mvn -gs $XDG_CONFIG_HOME/maven/settings.xml
-abbr irrsi irssi --config=$XDG_CONFIG_HOME/irssi/config --home=$XDG_DATA_HOME/irssi
+abbr irrsi irssi --config=$XDG_CONFIG_HOME/irssi/config \
+    --home=$XDG_DATA_HOME/irssi
