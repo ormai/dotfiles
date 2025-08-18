@@ -5,6 +5,10 @@
     "color": {
       "1": "blue",
       "2": "blue"
+    },
+    "padding": {
+      "left": 3,
+      "top": 1
     }
   },
   "modules": [
@@ -18,7 +22,7 @@
       "text": "echo $((($(date +%s) - $(stat -c %W /)) / 86400)) days"
     },
     "packages",
-    "break",
+    // "break",
     "host",
     {
       "type": "cpu",
@@ -26,12 +30,8 @@
     },
     "gpu",
     "display",
-    "processes",
     "memory",
     "disk",
-    "brightness",
-    "battery",
-    "break",
     "de",
     "font",
     "shell",
