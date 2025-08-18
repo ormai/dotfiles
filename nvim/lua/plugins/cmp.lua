@@ -79,7 +79,7 @@ return {
       Operator = '󰆕',
       TypeParameter = '󰅲'
     }
-    local cmp = require 'cmp'
+    local cmp = require('cmp')
     local luasnip = require 'luasnip'
     cmp.setup {
       -- enabled = vim.api.nvim_get_option_value('buftype', {}) ~= 'prompt'
