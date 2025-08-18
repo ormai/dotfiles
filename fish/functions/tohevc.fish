@@ -9,7 +9,7 @@ function tohevc -d 'Encode videos to HEVC/x265 mp4'
         echo
         echo Options
         echo '  -d, --dry-run      list files that can be converted'
-        echo '  -h, --help         show usage help'
+        echo '  -h, --help         show help usage'
         echo '  -r, --recursive    descend directories and search for videos to convert'
         return 0
     end
@@ -29,7 +29,7 @@ function tohevc -d 'Encode videos to HEVC/x265 mp4'
         set -l compressor_id (exiftool -b -CompressorID $argv[1] 2>/dev/null)
 
         if test -z "$compressor_id"
-            echo "Skipping '$argv[1]' because it has no CompressorID"
+            echo "[WARN] '$argv[1]' has no CompressorID"
             return 1
         end
 
@@ -50,16 +50,21 @@ function tohevc -d 'Encode videos to HEVC/x265 mp4'
 
     function convert
         set -l output (path dirname $argv[1])/.hevc_(path change-extension mp4 (path basename $argv[1]))
-        ffmpeg -i $argv[1] -c:v libx265 -vtag hvc1 $output
-        and gio trash $argv[1]
+        set -l size_before (du -h $argv[1] | cut -d \t -f 1)
+        set -l size_before_KiB (du $argv[1] | cut -d \t -f 1)
+        set -l start_time (date +%s)
+        ffmpeg -report -nostats -hide_banner -loglevel error -i $argv[1] -c:v libx265 -vtag hvc1 \
+            -x265-params "log-level=warning" $output
+        and echo "[INFO] Encoded '$argv[1]', $size_before -> $(du -h $output | cut -d \t -f 1)," \
+            "factor $(math $size_before_KiB / $(du $output | cut -d \t -f 1))," \
+            "in $(math (date +%s) - $start_time | awk '{printf "%02d:%02d:%02d\n", $1/3600, ($1%3600)/60, $1%60}')"
+        and gio trash $argv[1] # I usually refrain from removing files directly
         and mv $output (string replace .hevc_ '' $output)
     end
 
     for file in $files
         if should_be_converted $file
             convert $file
-        else
-            echo "Skipping '$file' because it is already encoded with HEVC"
         end
     end
 end
