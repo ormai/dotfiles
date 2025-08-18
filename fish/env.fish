@@ -28,14 +28,15 @@ set -gx PYTHON_HISTORY $XDG_STATE_HOME/python/history # since python 3.13
 set -gx MARIADB_HISTFILE $XDG_DATA_HOME/mariadb_history
 set -gx LESSHISTFILE $XDG_CACHE_HOME/lesshst
 set -gx NODE_REPL_HISTORY $XDG_CACHE_HOME/node_repl_history
-set -gx TEXMFHOME $XDG_DATA_HOME/texmf
-set -gx TEXMFVAR $XDG_CACHE_HOME/texlive/texmf-var
-set -gx TEXMFCONFIG $XDG_CONFIG_HOME/texlive/texmf-config
+# set -gx TEXMFHOME $XDG_DATA_HOME/texmf
+# set -gx TEXMFVAR $XDG_CACHE_HOME/texlive/texmf-var
+# set -gx TEXMFCONFIG $XDG_CONFIG_HOME/texlive/texmf-config
 set -gx PYTHONPYCACHEPREFIX $XDG_CACHE_HOME/python
 set -gx PYTHONUSERBASE $XDG_DATA_HOME/python
 set -gx INPUTRC $XDG_CONFIG_HOME/readline/inputrc
 set -gx HISTFILE $XDG_DATA_HOME/sh_history
 set -gx DOTNET_CLI_HOME $XDG_DATA_HOME/dotnet
+set -gx W3M_DIR $XDG_DATA_HOME/w3m
 
 # Do what /etc/profile and /etc/profile.d/*.sh do
 fish_add_path -p /usr/local/sbin /usr/local/bin /usr/bin
@@ -76,13 +77,16 @@ set -gx LS_COLORS (vivid generate gruvbox-dark-soft)
 
 set -gx XCURSOR_SIZE 24
 
-set -gx CHROME_BIN chromium
+set -gx CHROME_BIN chromium # Required by Karma
 
 set -gx QT_QPA_PLATFORM wayland
 set -gx QT_QPA_PLATFORMTHEME qt6ct
 set -gx SDL_VIDEODRIVER wayland
 set -gx GDK_BACKEND wayland
+
+# https://wiki.archlinux.org/title/Hardware_video_acceleration
 set -gx VDPAU_DRIVER va_gl
+#set -gx LIBVA_DRIVER_NAME iHD
 
 set -gx RUSTC_WRAPPER sccache
 
