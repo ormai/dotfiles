@@ -6,6 +6,7 @@ aerc
 android-tools
 baobab
 base
+base-devel
 bat
 bc
 bison
@@ -58,6 +59,7 @@ gdm
 ghostty
 gimp
 git
+git-delta
 git-filter-repo
 gnome-boxes
 gnome-browser-connector
