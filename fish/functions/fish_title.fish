@@ -1,5 +1,4 @@
 function fish_title
-    # emacs is basically the only term that can't handle it.
     set -l cmd (status current-command)
     switch $cmd
         case fish
