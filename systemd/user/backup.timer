@@ -1,7 +1,6 @@
 [Unit]
 Description=Daily $HOME backup
 Requires=backup.service
-After=network-online.target
 
 [Timer]
 OnCalendar=daily

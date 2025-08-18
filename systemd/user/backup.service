@@ -1,5 +1,7 @@
 [Unit]
 Description=Restic backup
+After=network-online.target
+Wants=network-online.target
 
 [Service]
 ExecStart=/usr/bin/fish -c backup
