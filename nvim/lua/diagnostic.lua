@@ -1,4 +1,4 @@
-vim.diagnostic.config {
+vim.diagnostic.config({
   severity_sort = true,
   float = { source = 'if_many' },
   signs = {
@@ -13,4 +13,4 @@ vim.diagnostic.config {
     source = 'if_many',
     spacing = 2,
   }
-}
+})

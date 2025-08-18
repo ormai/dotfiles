@@ -5,7 +5,7 @@ function Keymap(lhs, rhs, opts, mode)
   vim.keymap.set(mode, lhs, rhs, opts)
 end
 
-require 'scratch-terminal'
+--require 'scratch-terminal'
 
 Keymap('<C-s>', '<cmd>set invspell<cr>', 'Toggle spell checking')
 Keymap('<A-k>', '<cmd>move .-2<cr>==', 'Move line up')

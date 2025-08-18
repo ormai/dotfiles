@@ -11,5 +11,5 @@ return {
       require('colorizer').setup(self.ft)
     end
   },
-  { "OXY2DEV/ui.nvim" }
+  { "OXY2DEV/ui.nvim" },
 }
