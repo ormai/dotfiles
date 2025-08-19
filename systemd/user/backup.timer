@@ -1,5 +1,5 @@
 [Unit]
-Description=Daily $HOME backup
+Description=Backup the home directory with restic to a remote location
 Requires=backup.service
 
 [Timer]
@@ -8,5 +8,4 @@ Unit=backup.service
 Persistent=true
 
 [Install]
-WantedBy=default.target
-
+WantedBy=timers.target
