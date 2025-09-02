@@ -20,7 +20,7 @@ function tohevc -d 'Encode videos to HEVC/x265 mp4'
     end
 
     if set -q _flag_recursive
-        set -f files **/*.{mp4,m4a,mov}
+        set -f files **/*.{mp4,m4a,mov,m4v}
     else
         set -f files $argv
     end
