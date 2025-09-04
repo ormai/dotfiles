@@ -1,8 +1,9 @@
 # https://specifications.freedesktop.org/basedir-spec/latest/
-set -gx XDG_CONFIG_HOME $HOME/.config
-set -gx XDG_CACHE_HOME $HOME/.cache
 set -gx XDG_DATA_HOME $HOME/.local/share
+set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx XDG_STATE_HOME $HOME/.local/state
+set -gx XDG_CACHE_HOME $HOME/.cache # non-essential (cached) data files
+fish_add_path $HOME/.local/bin
 
 exportenv $XDG_CONFIG_HOME/user-dirs.dirs $XDG_CONFIG_HOME/locale.conf
 
@@ -11,9 +12,9 @@ fish_add_path /usr/local/sbin /usr/local/bin /usr/bin \
     /usr/lib/rustup/bin /usr/lib/jvm/default/bin \
     /usr/bin/site_perl /usr/bin/vendor_perl /usr/bin/core_perl \
     /var/lib/flatpak/exports/bin $XDG_DATA_HOME/flatpak/exports/bin \
-    $HOME/.local/bin $CARGO_HOME/bin $PIPX_BIN_DIR $XDG_DATA_HOME/npm/bin \
-    $XDG_DATA_HOME/nvim/mason/bin \
-    $XDG_DATA_HOME/JetBrains/Toolbox/apps/intellij-idea-ultimate/bin
+    $CARGO_HOME/bin $XDG_DATA_HOME/npm/bin $XDG_DATA_HOME/nvim/mason/bin \
+    $XDG_DATA_HOME/JetBrains/Toolbox/apps/intellij-idea-ultimate/bin \
+    $XDG_DATA_HOME/JetBrains/Toolbox/apps/android-studio/bin
 
 set -e TERMCAP # Ok, let's kill it.
 
@@ -67,13 +68,13 @@ set -gx PYTHON_HISTORY $XDG_STATE_HOME/python/history # since python 3.13
 set -gx MARIADB_HISTFILE $XDG_DATA_HOME/mariadb_history
 set -gx LESSHISTFILE $XDG_CACHE_HOME/lesshst
 set -gx NODE_REPL_HISTORY $XDG_CACHE_HOME/node_repl_history
-# set -gx TEXMFHOME $XDG_DATA_HOME/texmf
-# set -gx TEXMFVAR $XDG_CACHE_HOME/texlive/texmf-var
-# set -gx TEXMFCONFIG $XDG_CONFIG_HOME/texlive/texmf-config
+set -gx TEXMFHOME $XDG_DATA_HOME/texmf
+set -gx TEXMFVAR $XDG_CACHE_HOME/texlive/texmf-var
+set -gx TEXMFCONFIG $XDG_CONFIG_HOME/texlive/texmf-config
 set -gx PYTHONPYCACHEPREFIX $XDG_CACHE_HOME/python
 set -gx PYTHONUSERBASE $XDG_DATA_HOME/python
 set -gx INPUTRC $XDG_CONFIG_HOME/readline/inputrc
-set -gx HISTFILE $XDG_DATA_HOME/sh_history
+set -gx HISTFILE $XDG_STATE_HOME/sh_history
 set -gx DOTNET_CLI_HOME $XDG_DATA_HOME/dotnet
 set -gx W3M_DIR $XDG_DATA_HOME/w3m
 set -gx _JAVA_OPTIONS "-Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java"

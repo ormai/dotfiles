@@ -1,9 +1,9 @@
 if status is-login
-    source ~/.config/fish/env.fish
+    source $HOME/.config/fish/environment.fish
 end
 
 if status is-interactive
     set_color brblack
     and fortune
-    source ~/.config/fish/abbreviations.fish
+    source $XDG_CONFIG_HOME/fish/abbreviations.fish
 end
