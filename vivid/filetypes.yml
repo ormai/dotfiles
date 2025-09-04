@@ -100,7 +100,6 @@ text:
       - .list
       - .dirs
 
-
     metadata:
       - .xmp
 
@@ -126,6 +125,20 @@ text:
     system:
       - passwd
       - shadow
+
+    systemd:
+      - .service
+      - .socket
+      - .mount
+      - .automount
+      - .swap
+      - .path
+      - .device
+      - .nspawn
+      - .target
+      - .timer
+      - .slice
+      - .scope
 
   other:
     - .txt
