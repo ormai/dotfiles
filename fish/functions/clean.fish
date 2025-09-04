@@ -1,8 +1,8 @@
 function clean -d 'Free storage'
-    sudo pacman -Rsu (pacman -Qqd) # orphans
+    paru -Rsnu (paru -Qqd) # orphans
     sudo paccache -rk1
-    sudo paccahe -ruk0
-    paru -Sccd
+    sudo paccache -ruk0
+    paru --noconfirm -Sccd
     sudo docker system prune --all --force
     cargo cache --autoclean
     pip cache purge
