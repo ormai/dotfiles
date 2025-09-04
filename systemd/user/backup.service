@@ -2,9 +2,14 @@
 Description=Backup the home directory with restic to a remote location
 After=network-online.target
 Wants=network-online.target
+StartLimitBurst=5
+StartLimitIntervalSec=1h
 
 [Service]
+ExecStartPre=ping -nc 1 ping.archlinux.org
 ExecStart=/usr/bin/fish -c backup
+Restart=on-failure
+RestartSec=20s
 
 [Install]
 WantedBy=default.target
