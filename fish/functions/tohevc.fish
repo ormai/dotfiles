@@ -53,7 +53,7 @@ function tohevc -d 'Encode videos to HEVC/x265 mp4'
         set -l size_before (du -h $argv[1] | cut -d \t -f 1)
         set -l size_before_KiB (du $argv[1] | cut -d \t -f 1)
         set -l start_time (date +%s)
-        ffmpeg -report -nostats -hide_banner -loglevel error -i $argv[1] -c:v libx265 -vtag hvc1 \
+        ffmpeg -y -report -nostats -hide_banner -loglevel error -i $argv[1] -c:v libx265 -vtag hvc1 \
             -x265-params "log-level=warning" $output
         and echo "[INFO] Encoded '$argv[1]', $size_before -> $(du -h $output | cut -d \t -f 1)," \
             "factor $(math $size_before_KiB / $(du $output | cut -d \t -f 1))," \
