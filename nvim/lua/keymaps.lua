@@ -48,3 +48,11 @@ Keymap('<Space>l', function()
     'https://en.wiktionary.org/wiki/' .. word_under_cursor
   }
 end, 'Lookup word under cursor on the Wiktionary.')
+
+Keymap("'", [[:<C-u>normal!`>a'<Esc>`<i'<Esc>]], "Surround selection with '", "v")
+Keymap('"', [[:<C-u>normal!`>a"<Esc>`<i"<Esc>]], 'Surround selection with "', "v")
+Keymap('`', [[:<C-u>normal!`>a`<Esc>`<i`<Esc>]], "Surround selection with `", "v")
+Keymap('{', [[:<C-u>normal!`>a}<Esc>`<i{<Esc>]], "Surround selection with {", "v")
+Keymap('[', [[:<C-u>normal!`>a]<Esc>`<i[<Esc>]], "Surround selection with [", "v")
+Keymap('(', [[:<C-u>normal!`>a)<Esc>`<i(<Esc>]], "Surround selection with (", "v")
+Keymap('<', [[:<C-u>normal!`>a><Esc>`<i<<Esc>]], "Surround selection with <", "v")
