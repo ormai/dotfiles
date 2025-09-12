@@ -1,11 +1,11 @@
 function tohevc -d 'Encode videos to HEVC/x265 mp4'
     set -l options d/dry-run h/help r/recursive
-    argparse -n tohevc $options -- $argv
+    argparse $options -- $argv
     or return
 
     if set -q _flag_help
         echo Usage:
-        echo '  tohevc [options] files...'
+        echo "  $_ [options] files..."
         echo
         echo Options
         echo '  -d, --dry-run      list files that can be converted'
@@ -25,18 +25,13 @@ function tohevc -d 'Encode videos to HEVC/x265 mp4'
         set -f files $argv
     end
 
-    function should_be_converted -d 'Search for MP4s that that do not use HEVC'
+    function should_be_converted -d 'Determine if a file should be converted to HEVC'
         set -l compressor_id (exiftool -b -CompressorID $argv[1] 2>/dev/null)
-
         if test -z "$compressor_id"
             echo "[WARN] '$argv[1]' has no CompressorID"
             return 1
         end
-
-        if test $compressor_id != hev1 && test $compressor_id != hvc1
-            return 0
-        end
-        return 1
+        return (test $compressor_id != hev1 && test $compressor_id != hvc1)
     end
 
     if set -q _flag_dry_run
