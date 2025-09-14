@@ -1,5 +1,4 @@
 local function inlay_hints(client, bufnr)
-  vim.lsp.inlay_hint.enable(true)
   if client:supports_method(client.server_capabilities.inlayHintProvider, bufnr) then
     Keymap('<space>ih', function()
       vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr }))
@@ -67,8 +66,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
   end
 })
-
-vim.lsp.enable('fish_lsp')
 
 return {
   'neovim/nvim-lspconfig',

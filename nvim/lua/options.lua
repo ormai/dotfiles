@@ -1,6 +1,5 @@
 vim.o.title = true
 vim.o.titlestring = '%{v:progname} %f %h'
--- vim.o.guifont = 'JetBrainsMono Nerd Font:h12'
 vim.o.termguicolors = true
 vim.o.clipboard = 'unnamedplus'
 vim.o.fileencoding = 'utf-8'
@@ -41,13 +40,14 @@ vim.o.expandtab = true
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
 
-splitbelow = true
-splitright = true
+vim.o.splitbelow = true
+vim.o.splitright = true
 
 vim.o.foldcolumn = 'auto:9'
 vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
+
 
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_perl_provider = 0

@@ -28,5 +28,6 @@ require('lazy').setup('plugins', {
   }
 })
 
+-- Remove 'Disable mouse' option from the right-click menu
 vim.cmd.aunmenu('PopUp.How-to\\ disable\\ mouse')
 vim.cmd.aunmenu('PopUp.-2-')

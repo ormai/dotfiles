@@ -44,14 +44,5 @@ return {
       -- vim.cmd.colorscheme('jellybeans-muted')
       -- require('lualine').setup { options = { theme = 'jellybeans' } }
     end
-  },
-  { 'projekt0n/github-nvim-theme' },
-  {
-    'Mofiqul/vscode.nvim',
-    config = function()
-      -- require('lualine').setup { options = { theme = 'vscode' } }
-    end
-  },
-  { 'mellow-theme/mellow.nvim' },
-  { "catppuccin/nvim",            name = "catppuccin" }
+  }
 }

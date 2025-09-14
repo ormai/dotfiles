@@ -5,8 +5,6 @@ function Keymap(lhs, rhs, opts, mode)
   vim.keymap.set(mode, lhs, rhs, opts)
 end
 
---require 'scratch-terminal'
-
 Keymap('<C-s>', '<cmd>set invspell<cr>', 'Toggle spell checking')
 Keymap('<A-k>', '<cmd>move .-2<cr>==', 'Move line up')
 Keymap('<A-j>', '<cmd>move .+1<cr>==', 'Move line down')
@@ -19,8 +17,8 @@ Keymap('<A-j>', ":m '>+1<cr>gv-gv",
 Keymap('<', '<gv', 'De-indent line or selection', 'v')
 Keymap('>', '>gv', 'Indent line or selection', 'v')
 
-Keymap('[d', vim.diagnostic.goto_prev, 'Previous diagnostic message')
-Keymap(']d', vim.diagnostic.goto_next, 'Next diagnostic mesage')
+-- Keymap('[d', vim.diagnostic.goto_prev, 'Previous diagnostic message')
+-- Keymap(']d', vim.diagnostic.goto_next, 'Next diagnostic mesage')
 Keymap('<Space>e', vim.diagnostic.open_float, 'Show diagnostic message')
 Keymap('<Space>q', vim.diagnostic.setloclist, 'Open diagnostics quickfix list')
 
@@ -48,11 +46,3 @@ Keymap('<Space>l', function()
     'https://en.wiktionary.org/wiki/' .. word_under_cursor
   }
 end, 'Lookup word under cursor on the Wiktionary.')
-
-Keymap("'", [[:<C-u>normal!`>a'<Esc>`<i'<Esc>]], "Surround selection with '", "v")
-Keymap('"', [[:<C-u>normal!`>a"<Esc>`<i"<Esc>]], 'Surround selection with "', "v")
-Keymap('`', [[:<C-u>normal!`>a`<Esc>`<i`<Esc>]], "Surround selection with `", "v")
-Keymap('{', [[:<C-u>normal!`>a}<Esc>`<i{<Esc>]], "Surround selection with {", "v")
-Keymap('[', [[:<C-u>normal!`>a]<Esc>`<i[<Esc>]], "Surround selection with [", "v")
-Keymap('(', [[:<C-u>normal!`>a)<Esc>`<i(<Esc>]], "Surround selection with (", "v")
-Keymap('<', [[:<C-u>normal!`>a><Esc>`<i<<Esc>]], "Surround selection with <", "v")
