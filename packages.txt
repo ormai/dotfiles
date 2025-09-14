@@ -45,7 +45,6 @@ ffmpeg
 ffmpegthumbnailer
 figlet
 fish
-flatpak
 flex
 foliate
 fractal
@@ -86,7 +85,6 @@ gperf
 grilo-plugins
 grub
 gst-libav
-gtk2
 gtk4
 gvfs-afc
 gvfs-goa
@@ -95,6 +93,8 @@ gvfs-gphoto2
 gvfs-mtp
 gvfs-nfs
 gvfs-smb
+hunspell-en_us
+hunspell-it
 ibus
 inkscape
 intel-gpu-tools
@@ -105,6 +105,7 @@ jdk21-openjdk
 jq
 kdenlive
 keepassxc
+lf
 libdecor
 libnotify
 libqalculate
@@ -152,6 +153,7 @@ piper
 pipewire-pulse
 pkgconf
 pkgstats
+pnpm
 postgresql
 power-profiles-daemon
 python-gobject
@@ -174,9 +176,7 @@ rsync
 rustup
 sccache
 simple-scan
-slurp
 source-highlight
-steam
 strace
 sudo
 syncthing
@@ -188,7 +188,6 @@ tokei
 ttf-jetbrains-mono-nerd
 ttf-nerd-fonts-symbols
 typst
-udftools
 ufw
 unrar
 unzip
@@ -205,7 +204,6 @@ wl-clipboard
 xdg-desktop-portal-gnome
 xdg-user-dirs
 xdg-user-dirs-gtk
-xorg-server
 xorg-xwayland
 yt-dlp
 zip
