@@ -39,7 +39,6 @@ nushell
 obs-studio
 obsidian
 pipewire
-procps
 pulse
 qalculate
 qt5ct
@@ -55,3 +54,11 @@ kde*
 gtk*
 .android
 pavucontrol.ini
+*flags.conf
+monitors.xml*
+.gsd-keyboard.settings-ported
+fish/functions/streamer.fish
+QtProject.conf
+java
+evolution
+cava

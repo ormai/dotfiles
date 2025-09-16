@@ -22,7 +22,7 @@ vim.o.conceallevel = 2
 
 vim.o.signcolumn = 'yes'
 vim.o.number = true
--- relativenumber = true
+vim.o.relativenumber = false
 vim.o.cursorline = true
 vim.o.cursorlineopt = 'number'
 
@@ -48,9 +48,9 @@ vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 
-
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_perl_provider = 0
---vim.g.loaded_python3_provider = 0
+vim.g.loaded_python3_provider = 0
 vim.g.loaded_node_provider = 0
+
 vim.g.man_hardwrap = 0

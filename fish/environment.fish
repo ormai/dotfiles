@@ -5,16 +5,15 @@ set -gx XDG_STATE_HOME $HOME/.local/state
 set -gx XDG_CACHE_HOME $HOME/.cache # non-essential (cached) data files
 fish_add_path $HOME/.local/bin
 
-exportenv $XDG_CONFIG_HOME/user-dirs.dirs $XDG_CONFIG_HOME/locale.conf
-
 # Set paths from /etc/profile and /etc/profile.d/*.sh, and other paths.
-fish_add_path /usr/local/sbin /usr/local/bin /usr/bin \
+fish_add_path /usr/bin /usr/local/bin /usr/local/sbin \
     /usr/lib/rustup/bin /usr/lib/jvm/default/bin \
     /usr/bin/site_perl /usr/bin/vendor_perl /usr/bin/core_perl \
-    /var/lib/flatpak/exports/bin $XDG_DATA_HOME/flatpak/exports/bin \
     $CARGO_HOME/bin $XDG_DATA_HOME/npm/bin $XDG_DATA_HOME/nvim/mason/bin \
     $XDG_DATA_HOME/JetBrains/Toolbox/apps/intellij-idea-ultimate/bin \
     $XDG_DATA_HOME/JetBrains/Toolbox/apps/android-studio/bin
+
+exportenv $XDG_CONFIG_HOME/user-dirs.dirs $XDG_CONFIG_HOME/locale.conf
 
 set -e TERMCAP # Ok, let's kill it.
 
@@ -28,7 +27,7 @@ set -gx LS_COLORS (vivid generate gruvbox-dark-soft)
 
 set -gx CHROME_BIN chromium # Required by Karma
 
-set -gx XCURSOR_SIZE 24
+# set -gx XCURSOR_SIZE 24
 set -gx QT_QPA_PLATFORM wayland
 set -gx QT_QPA_PLATFORMTHEME qt6ct
 set -gx SDL_VIDEODRIVER wayland

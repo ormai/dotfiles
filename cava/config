@@ -20,12 +20,12 @@ foreground = default
 gradient = 1
 gradient_count = 5
 gradient_color_1 = '#8ec07c'
-gradient_color_2 = '#b8bb26'
-gradient_color_3 = '#fabd2f'
-gradient_color_4 = '#f38019'
-gradient_color_5 = '#fb4934'
+# gradient_color_2 = '#b8bb26'
+gradient_color_2 = '#fabd2f'
+# gradient_color_3 = '#f38019'
+gradient_color_3 = '#fb4934'
 
 [smoothing]
 monstercat = 0
 waves = 0
-noise_reduction = 77
+noise_reduction = 70

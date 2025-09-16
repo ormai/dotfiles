@@ -1,8 +1,7 @@
 function Keymap(lhs, rhs, opts, mode)
   opts = type(opts) == 'string' and { desc = opts }
       or vim.tbl_extend('error', opts --[[@as table]], { buffer = bufnr })
-  mode = mode or 'n'
-  vim.keymap.set(mode, lhs, rhs, opts)
+  vim.keymap.set(mode or 'n', lhs, rhs, opts)
 end
 
 Keymap('<C-s>', '<cmd>set invspell<cr>', 'Toggle spell checking')

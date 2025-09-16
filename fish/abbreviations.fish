@@ -5,6 +5,7 @@ abbr mv mv -iv
 abbr rm rm -iv
 abbr cp cp -iv
 
+abbr top top -u (whoami)
 abbr ip ip -c
 abbr dlv dlv --silent
 abbr duf duf --only local

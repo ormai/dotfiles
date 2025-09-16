@@ -13,6 +13,7 @@ maplemono-nf
 nautilus-open-any-terminal
 paru-bin
 python-pysdl3
+recordbox
 tauon-music-box
 xdg-ninja-git
 xdg-terminal-exec-git

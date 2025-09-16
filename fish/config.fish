@@ -3,7 +3,5 @@ if status is-login
 end
 
 if status is-interactive
-    set_color brblack
-    and fortune
     source $XDG_CONFIG_HOME/fish/abbreviations.fish
 end

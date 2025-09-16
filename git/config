@@ -1,7 +1,7 @@
 [user]
   name = "Mario D'Andrea"
   email = goffredo2004@gmail.com
-	signingkey = ~/.ssh/git_signing.pub
+  signingkey = /home/mario/.ssh/git_signing.pub
 [init]
   defaultBranch = main
 [status]
@@ -28,7 +28,7 @@
   conflictstyle = zdiff3
 [commit]
   verbose = true
-	gpgsign = true
+  gpgsign = true
 [color]
   pager = true
 [diff "exif"]
@@ -47,4 +47,6 @@
   side-by-side = false
   file-modified-label = modified:
 [gpg]
-	format = ssh
+  format = ssh
+[gpg "ssh"]
+  allowedSignersFile = /home/mario/.config/git/allowed_signers

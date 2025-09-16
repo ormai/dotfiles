@@ -1,31 +1,33 @@
-#font-family = "Adwaita Mono"
-font-family = "Maple Mono NF"
-#font-family = "CommitMono Nerd Font"
-#font-family = "CaskaydiaCove Nerd Font"
-#font-family = "Source Code Pro"
+font-family = JetBrainsMono Nerd Font
+#font-family = Maple Mono NF
 font-size = 11
 
 theme = dark: GruvboxDark, light: GruvboxLight
 # theme = dark: jellybeans-muted, light: jellybeans-light
 
+# Disable cursor blink
 shell-integration-features = no-cursor
+
 mouse-hide-while-typing = true
 
-# window-padding-color = extend
+# Distribute padding on each side uniformly
 window-padding-balance = true
 
-#window-padding-y = 10,0
-#window-padding-color = extend-always
-
-# adw-toolbar-style = flat
-# window-theme = ghostty
-#
-# why would anyone use this
-
+# Can't press ctrl+shift+ on an ISO keyboard
 keybind = ctrl+shift+semicolon=reload_config
+# This one is from the Blackbox terminal emulator
 keybind = ctrl+shift+h=toggle_window_decorations
 
+keybind = ctrl+shift+w=close_surface
+
+keybind = ctrl+alt+shift+l=new_split:right
+keybind = ctrl+alt+shift+j=new_split:down
 keybind = ctrl+alt+h=goto_split:left
 keybind = ctrl+alt+j=goto_split:down
 keybind = ctrl+alt+k=goto_split:up
 keybind = ctrl+alt+l=goto_split:right
+
+window-width = 100
+window-height = 26
+
+# vi: ft=config

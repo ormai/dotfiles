@@ -4,7 +4,7 @@ function exportenv -d 'Export NAME=VALUE variables from files'
     # ~/.config/user-dirs.dirs and ~/.config/locale.conf
 
     if test (count $argv) -lt 1
-        echo "Usage: $_ var-files..."
+        echo "Usage: $_ files..."
     end
 
     for file in $argv

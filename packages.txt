@@ -10,6 +10,7 @@ base-devel
 bat
 bc
 bison
+blueprint-compiler
 bluez
 box2d
 breeze
@@ -105,7 +106,6 @@ jdk21-openjdk
 jq
 kdenlive
 keepassxc
-lf
 libdecor
 libnotify
 libqalculate
