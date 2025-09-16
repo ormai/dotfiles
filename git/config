@@ -1,6 +1,7 @@
 [user]
   name = "Mario D'Andrea"
   email = goffredo2004@gmail.com
+	signingkey = ~/.ssh/git_signing.pub
 [init]
   defaultBranch = main
 [status]
@@ -27,6 +28,7 @@
   conflictstyle = zdiff3
 [commit]
   verbose = true
+	gpgsign = true
 [color]
   pager = true
 [diff "exif"]
@@ -44,3 +46,5 @@
   syntax-theme = gruvbox
   side-by-side = false
   file-modified-label = modified:
+[gpg]
+	format = ssh
