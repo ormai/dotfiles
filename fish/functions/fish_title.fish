@@ -2,25 +2,27 @@ function fish_title
     set -l cmd (status current-command)
     switch $cmd
         case fish
-            set cmd "🐟 "
-        # case nvim # nvim sets its own title
-        #     set cmd "📝 "
-        case git lazygit
-            set cmd "🌿 "
+            set cmd 🐟
+        case nvim
+            set cmd 📝
+        case man less
+            set cmd 📖
+        case git
+            set cmd 🌿
         case curl wget ping
-            set cmd "🌐 "
+            set cmd 🌐
         case ssh
-            set cmd "🖥️ "
-        case cargo
-            set cmd "🦀 "
-        case docker docker-compose lazydocker
-            set cmd "🐳 "
-        case make
-            set cmd "🛠️ "
+            set cmd 🖥️
+        case cargo rustc
+            set cmd 🦀
+        case docker docker-compose
+            set cmd 🐳
+        case make meson cmake
+            set cmd 🛠️
         case node
-            set cmd "🌲 "
+            set cmd 🌲
         case pacman paru
-            set cmd "📦 "
+            set cmd 📦
     end
     echo "$cmd   $(prompt_pwd)"
 end

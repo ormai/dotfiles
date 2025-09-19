@@ -1,5 +1,5 @@
-vim.o.title = true
-vim.o.titlestring = '%{v:progname} %f %h'
+-- vim.o.title = true
+-- vim.o.titlestring = '%{v:progname} %f %h'
 vim.o.termguicolors = true
 vim.o.clipboard = 'unnamedplus'
 vim.o.fileencoding = 'utf-8'
