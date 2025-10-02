@@ -12,6 +12,7 @@ abbr duf duf --only local
 abbr venv source .venv/bin/activate.fish
 abbr copy wl-copy
 abbr paste wl-paste
+abbr hx helix
 
 abbr a git add
 abbr s git status --short

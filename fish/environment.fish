@@ -15,6 +15,8 @@ fish_add_path /usr/bin /usr/local/bin /usr/local/sbin \
 
 exportenv $XDG_CONFIG_HOME/user-dirs.dirs $XDG_CONFIG_HOME/locale.conf
 
+set -gx LD_LIBRARY_PATH /lib:/usr/lib:/usr/local/lib
+
 set -e TERMCAP # Ok, let's kill it.
 
 set -gx EDITOR nvim

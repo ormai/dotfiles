@@ -1,19 +1,22 @@
 font-family = JetBrainsMono Nerd Font
-#font-family = Maple Mono NF
 font-size = 11
 
 theme = dark: GruvboxDark, light: GruvboxLight
 # theme = dark: jellybeans-muted, light: jellybeans-light
 
 # Disable cursor blink
-shell-integration-features = no-cursor
+shell-integration-features = no-cursor, ssh-terminfo
 
 mouse-hide-while-typing = true
 
 # Distribute padding on each side uniformly
 window-padding-balance = true
+# window-width = 100
+# window-height = 26
 
-# Can't press ctrl+shift+ on an ISO keyboard
+keybind = global:alt+t=toggle_quick_terminal
+
+# Can't press ctrl+shift+comma on an ISO keyboard
 keybind = ctrl+shift+semicolon=reload_config
 # This one is from the Blackbox terminal emulator
 keybind = ctrl+shift+h=toggle_window_decorations
@@ -27,7 +30,5 @@ keybind = ctrl+alt+j=goto_split:down
 keybind = ctrl+alt+k=goto_split:up
 keybind = ctrl+alt+l=goto_split:right
 
-window-width = 100
-window-height = 26
 
 # vi: ft=config

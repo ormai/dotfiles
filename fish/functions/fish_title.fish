@@ -5,6 +5,8 @@ function fish_title
             set cmd 🐟
         case nvim
             set cmd 📝
+        case helix hx
+            set cmd 🧬
         case man less
             set cmd 📖
         case git
