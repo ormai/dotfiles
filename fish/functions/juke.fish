@@ -1,6 +1,5 @@
 function juke -d 'Musing library management helpers'
-    set -l options h/help l/add-lyrics r/recursive
-    argparse $options -- $argv
+    argparse h/help l/add-lyrics r/recursive -- $argv
     or return
 
     if set -q _flag_help
@@ -23,9 +22,9 @@ function juke -d 'Musing library management helpers'
 
     if test -d $target
         if set -q _flag_recursive
-            set target $target/**/*.mp3
+            set target $target/**/*.{mp3,flac}
         else
-            set target $target/*.mp3
+            set target $target/*.{mp3,flac}
         end
     end
 
