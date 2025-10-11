@@ -3,3 +3,4 @@
 # run `bat --help` to get a list of all possible configuration options.
 
 --italic-text=always
+--theme=gruvbox-dark

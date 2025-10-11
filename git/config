@@ -1,7 +1,7 @@
 [user]
   name = "Mario D'Andrea"
   email = goffredo2004@gmail.com
-  signingkey = /home/mario/.ssh/git_signing.pub
+  signingkey = /home/mario/.ssh/git_signing_key.pub
 [init]
   defaultBranch = main
 [status]
@@ -9,7 +9,6 @@
   showStash = true
   showUntrackedFiles = all
 [core]
-  editor = nvim
   autocrlf = input
   pager = delta
   compression = 9
@@ -19,8 +18,6 @@
   addEmptyPathSpec = false
   pushNonFastForward = false
   statusHint = false
-[pull]
-  rebase = true
 [push]
   autoSetupRemote = true
   default = current
@@ -43,9 +40,7 @@
   showUntrackedFiles = true
 [delta]
   line-numbers = true
-  syntax-theme = gruvbox
   side-by-side = false
-  file-modified-label = modified:
 [gpg]
   format = ssh
 [gpg "ssh"]

@@ -26,8 +26,12 @@ input * {
   repeat_rate 60
 
   accel_profile flat
-  pointer_accel 0.5
+  pointer_accel 0.7
   tap enabled
+}
+
+input 1133:49298:Logitech_G203_LIGHTSYNC_Gaming_Mouse {
+  pointer_accel 0.05
 }
 
 output HDMI-A-2 resolution 2560x1440@59.951Hz position 0 0
@@ -136,4 +140,4 @@ client.focused_inactive #000000 #000000 #000000 #5e5c64 #303030
 client.unfocused        #000000 #000000 #000000 #3d3846 #282828
 client.urgent           #000000 #000000 #000000 #cc241d #cc241d
 
-output * background $(find ~/Pictures/wp/dark | shuf -n 1) fill
+output * background $(find ~/Pictures/Backgrounds/Dark | shuf -n 1) fill

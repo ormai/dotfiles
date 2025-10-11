@@ -17,9 +17,9 @@ exportenv $XDG_CONFIG_HOME/user-dirs.dirs $XDG_CONFIG_HOME/locale.conf
 
 set -gx LD_LIBRARY_PATH /lib:/usr/lib:/usr/local/lib
 
-set -e TERMCAP # Ok, let's kill it.
+#set -e TERMCAP # Ok, let's kill it.
 
-set -gx EDITOR nvim
+set -gx EDITOR helix
 set -gx VISUAL $EDITOR
 set -gx TERMINAL ghostty
 # set -gx BROWSER zen-browser
@@ -40,7 +40,8 @@ set -gx GDK_BACKEND wayland
 
 set -gx RUSTC_WRAPPER sccache
 
-set -gx _JAVA_AWT_WM_NONREPARENTING 1 # otherwise Swing doesn't work
+# set -gx _JAVA_AWT_WM_NONREPARENTING 1 # Otherwise Swing doesn't work
+set -gx JAVA_HOME /usr/lib/jvm/java-21-openjdk
 
 set -gx MANPAGER 'nvim +Man!'
 set -gx MANROFFOPT -P-i # man(1) > ENVIRONMENT > MANROFFOPT
@@ -79,3 +80,5 @@ set -gx HISTFILE $XDG_STATE_HOME/sh_history
 set -gx DOTNET_CLI_HOME $XDG_DATA_HOME/dotnet
 set -gx W3M_DIR $XDG_DATA_HOME/w3m
 set -gx _JAVA_OPTIONS "-Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java"
+set -gx R_HISTFILE $XDG_CONFIG_HOME/R/history
+set -gs JUPYTERLAB_DIR $XDG_DATA_HOME/jupyter/lab

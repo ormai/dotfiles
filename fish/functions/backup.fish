@@ -2,7 +2,7 @@ function backup -d 'Backup ~ with restic to a sftp location'
     set -l output (systemd-inhibit --why='Home backup' \
         restic backup \
         --json --quiet \
-        --repo sftp:server:ssd/arch-t470 \
+        --repo sftp:server:laptop-backup \
         --password-command='secret-tool lookup service restic_backup' \
         --exclude='**/*cache*' \
         --exclude='**/*Cache*' \
