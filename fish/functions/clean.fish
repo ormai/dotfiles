@@ -1,4 +1,4 @@
-function clean -d 'Free storage'
+function clean --description 'Free storage'
     paru -Rsnu (paru -Qqd) # orphans
     sudo paccache -rk1
     sudo paccache -ruk0
@@ -8,4 +8,5 @@ function clean -d 'Free storage'
     pip cache purge
     uv cache clean
     gio trash --empty
+    cargo clean-all -i ~
 end

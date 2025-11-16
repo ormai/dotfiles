@@ -1,30 +1,33 @@
 function fish_title
     set -l cmd (status current-command)
+    set -l icon
     switch $cmd
         case fish
-            set cmd 🐟
-        case nvim
-            set cmd 📝
+            set icon 🐟
         case helix hx
-            set cmd 🧬
-        case man less
-            set cmd 📖
+            set icon 🧬
+        case man
+            set icon 📖
         case git
-            set cmd 🌿
+            set icon 🌿
         case curl wget ping
-            set cmd 🌐
+            set icon 🌐
         case ssh
-            set cmd 🖥️
-        case cargo rustc
-            set cmd 🦀
+            set icon 🖥️
+        case cargo rustc rustup
+            set icon 🦀
         case docker docker-compose
-            set cmd 🐳
-        case make meson cmake
-            set cmd 🛠️
-        case node
-            set cmd 🌲
+            set icon 🐳
+        case make cmake meson ninja ./mach
+            set icon 🛠️
+        case gradle ./gradlew psql
+            set icon 🐘
+        case mvn ./mvnw
+            set icon 🪶
+        case node npm pnpm
+            set icon 🌲
         case pacman paru
-            set cmd 📦
+            set icon 📦
     end
-    echo "$cmd   $(prompt_pwd)"
+    echo "$icon  $cmd"
 end

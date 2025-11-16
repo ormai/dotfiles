@@ -1,4 +1,4 @@
-function backup -d 'Backup ~ with restic to a sftp location'
+function backup --description 'Backup ~ with restic to a sftp location'
     set -l output (systemd-inhibit --why='Home backup' \
         restic backup \
         --json --quiet \

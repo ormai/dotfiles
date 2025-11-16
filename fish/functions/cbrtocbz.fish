@@ -1,4 +1,4 @@
-function cbrtocbz -d 'Convert a comic book from RAR to ZIP'
+function cbrtocbz --description 'Convert a comic book from RAR to ZIP'
     if test (count $argv) -lt 1
         echo "Usage: $_ files..."
         return 1

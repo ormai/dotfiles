@@ -17,35 +17,22 @@ exportenv $XDG_CONFIG_HOME/user-dirs.dirs $XDG_CONFIG_HOME/locale.conf
 
 set -gx LD_LIBRARY_PATH /lib:/usr/lib:/usr/local/lib
 
-#set -e TERMCAP # Ok, let's kill it.
-
 set -gx EDITOR helix
 set -gx VISUAL $EDITOR
 set -gx TERMINAL ghostty
-# set -gx BROWSER zen-browser
+set -gx BROWSER zen-browser
 set -gx OPENER xdg-open
 set -gx PAGER less
 set -gx LS_COLORS (vivid generate gruvbox-dark-soft)
 
-set -gx CHROME_BIN chromium # Required by Karma
+zoxide init fish | source
+batman --export-env | source
 
-# set -gx XCURSOR_SIZE 24
 set -gx QT_QPA_PLATFORM wayland
 set -gx QT_QPA_PLATFORMTHEME qt6ct
 set -gx SDL_VIDEODRIVER wayland
 set -gx GDK_BACKEND wayland
-
-#set -gx VDPAU_DRIVER va_gl
-#set -gx LIBVA_DRIVER_NAME iHD
-
 set -gx RUSTC_WRAPPER sccache
-
-# set -gx _JAVA_AWT_WM_NONREPARENTING 1 # Otherwise Swing doesn't work
-set -gx JAVA_HOME /usr/lib/jvm/java-21-openjdk
-
-set -gx MANPAGER 'nvim +Man!'
-set -gx MANROFFOPT -P-i # man(1) > ENVIRONMENT > MANROFFOPT
-# set -gx MANWIDTH 999 # 'nvim +Man' breaks tables, header and footer
 
 # Keep $HOME tidy (https://wiki.archlinux.org/title/XDG_Base_Directory)
 set -gx ANDROID_USER_HOME $XDG_DATA_HOME/android
@@ -81,4 +68,5 @@ set -gx DOTNET_CLI_HOME $XDG_DATA_HOME/dotnet
 set -gx W3M_DIR $XDG_DATA_HOME/w3m
 set -gx _JAVA_OPTIONS "-Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java"
 set -gx R_HISTFILE $XDG_CONFIG_HOME/R/history
-set -gs JUPYTERLAB_DIR $XDG_DATA_HOME/jupyter/lab
+set -gx JUPYTERLAB_DIR $XDG_DATA_HOME/jupyter/lab
+set -gx KERAS_HOME $XDG_STATE_HOME/keras

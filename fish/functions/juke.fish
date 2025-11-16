@@ -1,4 +1,4 @@
-function juke -d 'Musing library management helpers'
+function juke --description 'Music library management helpers'
     argparse h/help l/add-lyrics r/recursive -- $argv
     or return
 
@@ -18,7 +18,7 @@ function juke -d 'Musing library management helpers'
     test (count $argv) -gt 0
     or set target .
     test -e $target
-    or echo "error: $target does not exists" && return 1
+    or echo "error: $target does not exist" && return 1
 
     if test -d $target
         if set -q _flag_recursive
@@ -28,7 +28,7 @@ function juke -d 'Musing library management helpers'
         end
     end
 
-    function lrclib -d 'Download synced lyrics for a song' -a song
+    function lrclib -a song --description 'Download synced lyrics for a song'
         # https://lrclib.net/docs
         # Takes a relative path to an mp3 file
         # Creates a file with the same base path of the mp3 but with lrc extension

@@ -1,4 +1,4 @@
-function tohevc -d 'Encode videos to HEVC/x265 mp4'
+function tohevc --description 'Encode videos to HEVC/x265 mp4'
     argparse d/dry-run h/help r/recursive -- $argv
     or return
 

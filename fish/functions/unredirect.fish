@@ -1,8 +1,6 @@
-function unredirect -d 'Takes an URL and prints the redirection chain'
-    if test (count $argv) != 1
-        echo You must provide an URL
-        return 1
-    end
+function unredirect --description 'Takes an URL and prints the redirection chain'
+    test (count $argv) -eq 1
+    or echo "Usage: $_ [URI]" && return 1
 
     # https://unix.stackexchange.com/a/680583/648549
     set -l url $argv[1]
@@ -12,7 +10,8 @@ function unredirect -d 'Takes an URL and prints the redirection chain'
         echo -n $count
         set_color normal
         echo " $url"
-        test -z $next_url; and break
+        test -z "$next_url"
+        and break
         set count (math $count + 1)
         set url $next_url
     end

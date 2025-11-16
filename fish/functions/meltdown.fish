@@ -1,4 +1,4 @@
-function meltdown -d 'Melt your computer'
+function meltdown --description 'Melt your computer'
     function int --on-signal INT
         kill (jobs -p)
     end
