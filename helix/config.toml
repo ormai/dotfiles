@@ -1,14 +1,23 @@
-theme = 'gruvbox_dark_hard'
 # https://github.com/helix-editor/helix/pull/14356
+# [theme]
+# dark = "gruvbox_dark_hard"
+# light = "gruvbox_light_hard"
+theme = "gruvbox_dark_hard"
 
 [editor.cursor-shape]
-insert = 'bar'
+insert = "bar"
+
+[editor.indent-guides]
+render = true
+character = "▏"
 
 [editor.auto-save]
 focus-lost = true
 after-delay.enable = true
 after-delay.timeout = 400
 
+[editor]
+end-of-line-diagnostics = "hint"
+
 [editor.inline-diagnostics]
-cursor-line = 'hint'
-other-lines = 'hint'
+cursor-line = "warning"

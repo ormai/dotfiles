@@ -1,7 +1,70 @@
+[language-server]
+harper = { command = "harper-ls", args = ["--stdio"] }
+rumdl = { command = "rumdl", args = ["server"] }
+emmet = { command = "emmet-language-server", args = ["--stdio"] }
+
+[language-server.eslint]
+command = "eslint-language-server"
+args = ["--stdio"]
+
+[language-server.eslint.config]
+codeActionsOnSave = { mode = "all", "source.fixAll.eslint" = true }
+format = { enable = true }
+nodePath = ""
+quiet = false
+rulesCustomizations = []
+run = "onType"
+validate = "on"
+experimental = {}
+problems = { shortenToSingleLine = false }
+
+[language-server.eslint.config.codeAction]
+disableRuleComment = { enable = true, location = "separateLine" }
+showDocumentation = { enable = false }
+
+[language-server.vscode-json-language-server.config]
+json = { validate = { enable = true }, format = { enable = true } }
+provideFormatter = true
+
+[language-server.vscode-css-language-server.config]
+css = { validate = { enable = true } }
+scss = { validate = { enable = true } }
+less = { validate = { enable = true } }
+provideFormatter = true
+
 [[language]]
 name = "markdown"
 soft-wrap = { enable = true, wrap-at-text-width = true }
+language-servers = ["marksman", "rumdl", "harper"]
 
 [[language]]
 name = "typst"
 soft-wrap = { enable = true, wrap-at-text-width = true }
+language-servers = ["tinymist", "harper"]
+
+[[language]]
+name = "typescript"
+language-servers = [ "typescript-language-server", "eslint", "emmet" ]
+formatter = { command = "dprint", args = [ "fmt", "--stdin", "typescript" ] }
+auto-format = true
+
+[[language]]
+name = "javascript"
+language-servers = [ "typescript-language-server", "eslint", "emmet" ]
+formatter = { command = "dprint", args = [ "fmt", "--stdin", "javascript" ] }
+auto-format = true
+
+[[language]]
+name = "json"
+formatter = { command = "dprint", args = [ "fmt", "--stdin", "json" ] }
+auto-format = true
+
+[[language]]
+name = "html"
+language-servers = [ "vscode-html-language-server", "superhtml", "emmet" ]
+auto-format = true
+
+[[language]]
+name = "css"
+language-servers = [ "vscode-css-language-server", "emmet" ]
+auto-format = true
