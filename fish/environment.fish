@@ -25,7 +25,9 @@ set -gx OPENER xdg-open
 set -gx PAGER less
 set -gx LS_COLORS (vivid generate gruvbox-dark-soft)
 
-zoxide init fish | source
+# For Xwayland
+set -gx XCURSOR_SIZE 48
+
 batman --export-env | source
 
 set -gx QT_QPA_PLATFORM wayland
