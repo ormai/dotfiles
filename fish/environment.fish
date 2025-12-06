@@ -25,15 +25,14 @@ set -gx OPENER xdg-open
 set -gx PAGER less
 set -gx LS_COLORS (vivid generate gruvbox-dark-soft)
 
-# For Xwayland
-set -gx XCURSOR_SIZE 48
-
 batman --export-env | source
 
-set -gx QT_QPA_PLATFORM wayland
-set -gx QT_QPA_PLATFORMTHEME qt6ct
-set -gx SDL_VIDEODRIVER wayland
-set -gx GDK_BACKEND wayland
+# For Xwayland
+# set -gx XCURSOR_SIZE 48
+# set -gx QT_QPA_PLATFORM wayland
+# set -gx QT_QPA_PLATFORMTHEME qt6ct
+# set -gx SDL_VIDEODRIVER wayland
+# set -gx GDK_BACKEND wayland
 set -gx RUSTC_WRAPPER sccache
 
 # Keep $HOME tidy (https://wiki.archlinux.org/title/XDG_Base_Directory)
@@ -41,12 +40,12 @@ set -gx ANDROID_USER_HOME $XDG_DATA_HOME/android
 set -gx PASSWORD_STORE_DIR $XDG_DATA_HOME/pass
 set -gx GNUPGHOME $XDG_DATA_HOME/gnupg
 set -gx GOPATH $XDG_DATA_HOME/go
-set -gx CARGO_HOME $XDG_DATA_HOME/cargo
 set -gx PIPX_BIN_DIR $XDG_DATA_HOME/pipx/bin
 set -gx HOME_ETC $XDG_CONFIG_HOME
 set -gx DOCKER_CONFIG $XDG_CONFIG_HOME/docker
 set -gx NPM_CONFIG_USERCONFIG $XDG_CONFIG_HOME/npm/npmrc
 set -gx RUSTUP_HOME $XDG_DATA_HOME/rustup
+set -gx CARGO_HOME $XDG_DATA_HOME/cargo
 set -gx GTK2_RC_FILES $XDG_CONFIG_HOME/gtk-2.0/gtkrc
 set -gx RANDFILE $XDG_DATA_HOME/open-ssl/rnd
 set -gx WGETRC $XDG_CONFIG_HOME/wgetrc
