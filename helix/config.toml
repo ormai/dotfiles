@@ -7,6 +7,9 @@ theme = "gruvbox_dark_hard"
 [editor.cursor-shape]
 insert = "bar"
 
+[editor.file-picker]
+hidden = false
+
 [editor.indent-guides]
 render = true
 character = "▏"
