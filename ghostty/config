@@ -1,16 +1,16 @@
-font-family = JetBrainsMono Nerd Font
-
+# font-family = JetBrainsMono Nerd Font
+font-family = Maple Mono NF
 theme = dark: GruvboxDark, light: GruvboxLight
-
 mouse-hide-while-typing = true
 window-padding-balance = true
+window-inherit-font-size = false
+gtk-single-instance = true
 
-# Can't press ctrl+shift+comma on an ISO keyboard
-keybind = ctrl+shift+semicolon=reload_config
-keybind = ctrl+shift+h=toggle_window_decorations
 keybind = ctrl+shift+w=close_surface
-keybind = ctrl+alt+shift+l=new_split:right
+keybind = ctrl+alt+shift+h=new_split:left
 keybind = ctrl+alt+shift+j=new_split:down
+keybind = ctrl+alt+shift+k=new_split:up
+keybind = ctrl+alt+shift+l=new_split:right
 keybind = ctrl+alt+h=goto_split:left
 keybind = ctrl+alt+j=goto_split:down
 keybind = ctrl+alt+k=goto_split:up

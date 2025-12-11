@@ -1,7 +1,7 @@
 [user]
   name = "Mario D'Andrea"
   email = goffredo2004@gmail.com
-  signingkey = /home/mario/.ssh/git_signing_key.pub
+  signingkey = /home/mario/.ssh/commit/key.pub
 [init]
   defaultBranch = main
 [status]
