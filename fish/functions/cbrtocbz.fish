@@ -4,6 +4,9 @@ function cbrtocbz -d 'Convert a comic book archive from RAR to ZIP'
         return 1
     end
 
+    require_command unrar zip gio rm mktemp
+    or return $status
+
     # Extracts the .cbr with unrar, then creates a .cbz with zip
     function convert -a file
         set -l workdir (mktemp -d)
@@ -17,7 +20,7 @@ function cbrtocbz -d 'Convert a comic book archive from RAR to ZIP'
         if test -f $file && test (path extension $file) = .cbr
             convert $file
         else
-            echo "[WARN] skipping '$file': it is not a valid comic book RAR archive"
+            warn "skipping '$file': it is not a valid comic book RAR archive"
         end
     end
 end

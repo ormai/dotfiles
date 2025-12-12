@@ -18,7 +18,10 @@ function juke --description 'Music library management helpers'
     test (count $argv) -gt 0
     or set target .
     test -e $target
-    or echo "error: $target does not exist" && return 1
+    or begin
+        error "$target does not exist"
+        return 1
+    end
 
     if test -d $target
         if set -q _flag_recursive
@@ -58,11 +61,11 @@ function juke --description 'Music library management helpers'
                 echo
             else
                 echo "$plain_lyrics" >$txt_file
-                echo "info: downloaded plain lyrics: $txt_file"
+                info "downloaded plain lyrics: $txt_file"
             end
         else
             echo "$synced_lyrics" >$lrc_file
-            echo "info: downloaded synced lyrics: $lrc_file"
+            info "downloaded synced lyrics: $lrc_file"
         end
     end
 
