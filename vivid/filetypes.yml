@@ -167,6 +167,7 @@ markup:
     - .typ
     - .x
     - .xml
+    - .blp # GTK blueprint compiler
 
 programming:
   source:
@@ -449,6 +450,8 @@ media:
     - .vob
     - .webm
     - .wmv
+    - .asf
+    - .m2p
 
   fonts:
     - .fnt

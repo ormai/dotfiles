@@ -1,6 +1,6 @@
-function tohevc --description 'Encode videos to HEVC/x265 mp4'
+function tohevc -d 'Encode videos to HEVC/x265 mp4'
     argparse d/dry-run h/help r/recursive -- $argv
-    or return
+    or return 1
 
     if set -q _flag_help
         echo Usage:
@@ -19,7 +19,7 @@ function tohevc --description 'Encode videos to HEVC/x265 mp4'
     end
 
     if set -q _flag_recursive
-        set -f files **/*.{mp4,m4a,mov,m4v,wmv,mkv,ts,mpg}
+        set -f files **/*.{mp4,m4a,mov,m4v,wmv,mkv,ts,mpg,avi,mp2,flv}
     else
         set -f files $argv
     end
@@ -28,7 +28,7 @@ function tohevc --description 'Encode videos to HEVC/x265 mp4'
         set -l compressor_id (exiftool -b -CompressorID $argv[1] 2>/dev/null)
         if test -z "$compressor_id"
             warn "'$argv[1]' has no CompressorID"
-            return
+            return 0
         end
         return (test $compressor_id != hev1 && test $compressor_id != hvc1)
     end

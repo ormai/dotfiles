@@ -21,6 +21,7 @@ after-delay.timeout = 400
 
 [editor]
 end-of-line-diagnostics = "hint"
+# bufferline = "multiple"
 
 [editor.inline-diagnostics]
 cursor-line = "warning"

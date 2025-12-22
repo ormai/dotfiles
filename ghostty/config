@@ -6,6 +6,8 @@ window-padding-balance = true
 window-inherit-font-size = false
 gtk-single-instance = true
 
+# shell-integration-features = ssh-terminfo
+
 keybind = ctrl+shift+w=close_surface
 keybind = ctrl+alt+shift+h=new_split:left
 keybind = ctrl+alt+shift+j=new_split:down

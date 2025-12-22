@@ -104,6 +104,7 @@ x-scheme-handler/readest=readest-handler.desktop
 x-scheme-handler/tg=org.telegram.desktop.desktop
 x-scheme-handler/unknown=firefox.desktop
 x-scheme-handler/webcal=firefox.desktop
+application/vnd.comicbook+zip=org.gnome.Papers.desktop
 
 [Added Associations]
 application/xhtml+xml=chromium.desktop;
@@ -160,3 +161,4 @@ x-scheme-handler/http=zen.desktop;chromium.desktop;
 x-scheme-handler/https=zen.desktop;chromium.desktop;
 x-scheme-handler/mailto=org.gnome.Geary.desktop;
 x-scheme-handler/chrome=zen.desktop;
+application/vnd.comicbook+zip=org.gnome.Papers.desktop;
