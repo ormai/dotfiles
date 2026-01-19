@@ -31,6 +31,7 @@ decibels
 decoder
 dhcpcd
 dialect
+dino
 discord
 docker
 docker-buildx
@@ -117,7 +118,6 @@ ibus
 icon-library
 inkscape
 intel-media-driver
-inter-font
 iptables-nft
 irssi
 itstool
@@ -163,7 +163,6 @@ ninja
 nmap
 npm
 ntfs-3g
-obs-studio
 obsidian
 onefetch
 openssl-1.1
@@ -228,9 +227,6 @@ tokei
 tombi
 torbrowser-launcher
 transmission-cli
-ttf-firacode-nerd
-ttf-inconsolata-nerd
-ttf-jetbrains-mono-nerd
 ttf-libertinus
 ttf-nerd-fonts-symbols
 typescript-language-server

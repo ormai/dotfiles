@@ -1,3 +1,11 @@
+# This file will be merged with this: https://github.com/helix-editor/helix/blob/master/languages.toml
+# A key for which the value is an inline table or an array will not be merged, but overwirtten.
+# So the default configuration for that key is lost. 
+
+# Web development config slop from here: https://dev.to/morlinbrot/configure-helix-for-typescript-eslint-prettierdprint-33bk
+
+# TODO: add spell check to .git/COMMIT_EDITMSG
+
 [language-server]
 harper = { command = "harper-ls", args = ["--stdio"] }
 rumdl = { command = "rumdl", args = ["server"] }
@@ -43,28 +51,32 @@ soft-wrap = { enable = true, wrap-at-text-width = true }
 language-servers = ["tinymist", "harper"]
 
 [[language]]
+name = "toml"
+formatter = { command = "taplo", args = ["format"] }
+
+[[language]]
 name = "typescript"
-language-servers = [ "typescript-language-server", "eslint", "emmet" ]
-formatter = { command = "dprint", args = [ "fmt", "--stdin", "typescript" ] }
+language-servers = ["typescript-language-server", "eslint", "emmet"]
+formatter = { command = "dprint", args = ["fmt", "--stdin", "typescript"] }
 auto-format = true
 
 [[language]]
 name = "javascript"
-language-servers = [ "typescript-language-server", "eslint", "emmet" ]
-formatter = { command = "dprint", args = [ "fmt", "--stdin", "javascript" ] }
+language-servers = ["typescript-language-server", "eslint", "emmet"]
+formatter = { command = "dprint", args = ["fmt", "--stdin", "javascript"] }
 auto-format = true
 
 [[language]]
 name = "json"
-formatter = { command = "dprint", args = [ "fmt", "--stdin", "json" ] }
+formatter = { command = "dprint", args = ["fmt", "--stdin", "json"] }
 auto-format = true
 
 [[language]]
 name = "html"
-language-servers = [ "vscode-html-language-server", "superhtml", "emmet" ]
+language-servers = ["vscode-html-language-server", "superhtml", "emmet"]
 auto-format = true
 
 [[language]]
 name = "css"
-language-servers = [ "vscode-css-language-server", "emmet" ]
+language-servers = ["vscode-css-language-server", "emmet"]
 auto-format = true

@@ -99,6 +99,7 @@ text:
       - LINGUAS
       - .list
       - .dirs
+      - .properties
 
     metadata:
       - .xmp
