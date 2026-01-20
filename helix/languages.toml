@@ -41,6 +41,10 @@ less = { validate = { enable = true } }
 provideFormatter = true
 
 [[language]]
+name = "git-commit"
+language-servers = ["harper"]
+
+[[language]]
 name = "markdown"
 soft-wrap = { enable = true, wrap-at-text-width = true }
 language-servers = ["marksman", "rumdl", "harper"]

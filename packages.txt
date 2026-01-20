@@ -255,4 +255,6 @@ xdg-user-dirs-gtk
 xorg-xwayland
 yaml-language-server
 yt-dlp
+zathura
+zathura-pdf-mupdf
 zip
