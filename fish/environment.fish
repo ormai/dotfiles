@@ -67,7 +67,6 @@ set -gx INPUTRC $XDG_CONFIG_HOME/readline/inputrc
 set -gx HISTFILE $XDG_STATE_HOME/sh_history
 set -gx DOTNET_CLI_HOME $XDG_DATA_HOME/dotnet
 set -gx W3M_DIR $XDG_DATA_HOME/w3m
-set -gx _JAVA_OPTIONS "-Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java"
 set -gx R_HISTFILE $XDG_CONFIG_HOME/R/history
 set -gx JUPYTERLAB_DIR $XDG_DATA_HOME/jupyter/lab
 set -gx KERAS_HOME $XDG_STATE_HOME/keras

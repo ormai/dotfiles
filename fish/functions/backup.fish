@@ -9,6 +9,7 @@ function backup --description 'Backup ~ with restic to a sftp location'
         --exclude='**/.var' \
         --exclude='**/.local/share/gnome-boxes' \
         --exclude='**/.local/share/rustup' \
+        --exclude='**/.local/share/waydroid' \
         --exclude='**/Downloads' \
         --exclude='**/Trash' \
         $HOME
