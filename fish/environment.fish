@@ -17,7 +17,7 @@ exportenv $XDG_CONFIG_HOME/user-dirs.dirs $XDG_CONFIG_HOME/locale.conf
 
 set -gx LD_LIBRARY_PATH /lib:/usr/lib:/usr/local/lib
 
-set -gx EDITOR helix
+set -gx EDITOR hx
 set -gx VISUAL $EDITOR
 set -gx TERMINAL ghostty
 set -gx BROWSER zen-browser

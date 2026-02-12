@@ -4,9 +4,8 @@ function clean --description 'Free storage'
     sudo paccache -ruk0
     paru --noconfirm -Sccd
     sudo docker system prune --all --force
-    cargo cache --autoclean
+    # cargo cache --autoclean
     pip cache purge
     uv cache clean
     gio trash --empty
-    cargo clean-all -i ~
 end

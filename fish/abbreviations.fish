@@ -7,7 +7,6 @@ abbr cp 'cp -iv'
 abbr ip 'ip -c'
 abbr df 'duf --only local,network'
 abbr du dust # Du, du hast, du hast mich...
-abbr hx helix
 abbr cat bat
 abbr top 'top -u $USER'
 abbr copy wl-copy

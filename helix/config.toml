@@ -1,8 +1,6 @@
-# https://github.com/helix-editor/helix/pull/14356
-# [theme]
-# dark = "gruvbox_dark_hard"
-# light = "gruvbox_light_hard"
-theme = "gruvbox_dark_hard"
+[theme]
+dark = "gruvbox_dark_hard"
+light = "gruvbox_light_hard"
 
 [editor.cursor-shape]
 insert = "bar"
@@ -18,10 +16,3 @@ character = "▏"
 focus-lost = true
 after-delay.enable = true
 after-delay.timeout = 400
-
-[editor]
-end-of-line-diagnostics = "hint"
-# bufferline = "multiple"
-
-[editor.inline-diagnostics]
-cursor-line = "warning"
