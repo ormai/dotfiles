@@ -1,16 +1,11 @@
 [theme]
-dark = "gruvbox_dark_hard"
-light = "gruvbox_light_hard"
+# dark = "gruvbox_dark_hard"
+# light = "gruvbox_light_hard"
+dark = "jellybeans"
+light = "adwaita-light"
 
 [editor.cursor-shape]
 insert = "bar"
-
-[editor.file-picker]
-hidden = false
-
-[editor.indent-guides]
-render = true
-character = "▏"
 
 [editor.auto-save]
 focus-lost = true
