@@ -1,41 +1,56 @@
 # This file will be merged with this: https://github.com/helix-editor/helix/blob/master/languages.toml
-# A key for which the value is an inline table or an array will not be merged, but overwirtten.
-# So the default configuration for that key is lost.
+# but inline tables and arrays are not merged.
 
-# Web development config slop from here: https://dev.to/morlinbrot/configure-helix-for-typescript-eslint-prettierdprint-33bk
+[language-server]
+harper = { command = "harper-ls", args = ["--stdio"] }
+rumdl = { command = "rumdl", args = ["server"] }
+scls = { command = "simple-completion-language-server" }
+codebook = { command="codebook-lsp", args = ["serve"] }
+eslint = { command = "eslint-language-server", args = ["--stdio"] }
 
 [[language]]
 name = "rust"
-language-servers = ["rust-analyzer", "scls"]
+language-servers = ["rust-analyzer", "scls", "codebook"]
 
 [[language]]
 name = "git-commit"
-language-servers = ["harper", "scls"]
+language-servers = ["harper", "codebook"]
 
 [[language]]
 name = "markdown"
-soft-wrap = { enable = true, wrap-at-text-width = true }
-language-servers = ["marksman", "rumdl", "harper"]
+soft-wrap = { enable = true, wrap-at-text-width = false }
+language-servers = ["marksman", "rumdl", "harper", "codebook"]
 
 [[language]]
 name = "typst"
 soft-wrap = { enable = true, wrap-at-text-width = true }
-language-servers = ["tinymist", "harper"]
+language-servers = ["tinymist", "harper", "codebook"]
+
+[[language]]
+name = "xml"
+file-types = ["xml", "svg", "rss", "atom", "ui", "doap", { glob = "fontconfig/fonts.conf" }]
+language-servers = ["harper", "codebook"]
 
 [[language]]
 name = "toml"
 formatter = { command = "tombi", args = ["format"] }
 
 [[language]]
+name = "svelte"
+language-servers = ["svelteserver", "eslint", "codebook"]
+formatter = { command = "dprint", args = ["fmt", "--stdin", "svelte"] }
+auto-format = true
+
+[[language]]
 name = "typescript"
-language-servers = ["typescript-language-server", "eslint", "emmet"]
-formatter = { command = "dprint", args = ["fmt", "--stdin", "typescript"] }
+language-servers = ["typescript-language-server", "eslint", "codebook"]
+formatter = { command = "dprint", args = ["fmt", "--stdin", "ts"] }
 auto-format = true
 
 [[language]]
 name = "javascript"
-language-servers = ["typescript-language-server", "eslint", "emmet"]
-formatter = { command = "dprint", args = ["fmt", "--stdin", "javascript"] }
+language-servers = ["typescript-language-server", "eslint", "codebook"]
+formatter = { command = "dprint", args = ["fmt", "--stdin", "js"] }
 auto-format = true
 
 [[language]]
@@ -45,47 +60,11 @@ auto-format = true
 
 [[language]]
 name = "html"
-language-servers = ["vscode-html-language-server", "superhtml", "emmet"]
+language-servers = ["vscode-html-language-server", "superhtml", "harper", "codebook"]
 formatter = { command = "dprint", args = ["fmt", "--stdin", "html"] }
 auto-format = true
 
 [[language]]
 name = "css"
-language-servers = ["vscode-css-language-server", "emmet"]
+language-servers = ["vscode-css-language-server", "codebook"]
 auto-format = true
-
-[language-server]
-harper = { command = "harper-ls", args = ["--stdio"] }
-rumdl = { command = "rumdl", args = ["server"] }
-emmet = { command = "emmet-language-server", args = ["--stdio"] }
-scls = { command = "simple-completion-language-server" }
-
-[language-server.eslint]
-command = "eslint-language-server"
-args = ["--stdio"]
-
-[language-server.eslint.config]
-codeActionsOnSave = { mode = "all", "source.fixAll.eslint" = true }
-format = { enable = true }
-nodePath = ""
-quiet = false
-rulesCustomizations = []
-run = "onType"
-validate = "on"
-experimental = {  }
-problems = { shortenToSingleLine = false }
-
-[language-server.eslint.config.codeAction]
-disableRuleComment = { enable = true, location = "separateLine" }
-showDocumentation = { enable = false }
-
-[language-server.vscode-json-language-server.config]
-json = { validate = { enable = true }, format = { enable = true } }
-provideFormatter = true
-
-[language-server.vscode-css-language-server.config]
-css = { validate = { enable = true } }
-scss = { validate = { enable = true } }
-less = { validate = { enable = true } }
-provideFormatter = true
-
