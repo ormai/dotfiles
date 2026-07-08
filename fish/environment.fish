@@ -9,31 +9,29 @@ fish_add_path $HOME/.local/bin
 fish_add_path /usr/bin /usr/local/bin /usr/local/sbin \
     /usr/lib/rustup/bin /usr/lib/jvm/default/bin \
     /usr/bin/site_perl /usr/bin/vendor_perl /usr/bin/core_perl \
-    $CARGO_HOME/bin $XDG_DATA_HOME/npm/bin $XDG_DATA_HOME/nvim/mason/bin \
-    $XDG_DATA_HOME/JetBrains/Toolbox/apps/intellij-idea-ultimate/bin \
-    $XDG_DATA_HOME/JetBrains/Toolbox/apps/android-studio/bin
-
+    $CARGO_HOME/bin $XDG_DATA_HOME/npm/bin $XDG_DATA_HOME/nvim/mason/bin
+# gnome-shell sets some locale types in the systemd environment
 exportenv $XDG_CONFIG_HOME/user-dirs.dirs $XDG_CONFIG_HOME/locale.conf
 
 set -gx LD_LIBRARY_PATH /lib:/usr/lib:/usr/local/lib
 
-set -gx EDITOR hx
-set -gx VISUAL $EDITOR
-set -gx TERMINAL ghostty
+set -gx VISUAL hx
+set -gx EDITOR $VISUAL
+set -gx TERMINAL kgx
 set -gx BROWSER zen-browser
 set -gx OPENER xdg-open
 set -gx PAGER less
-set -gx LS_COLORS (vivid generate gruvbox-dark-soft)
+set -gx LS_COLORS (vivid generate terminal)
+set -gx QT_QPA_PLATFORMTHEME qt6ct # Required by qt6ct
+set -gx RUSTC_WRAPPER sccache
 
+# https://github.com/eth-p/bat-extras#batman
 batman --export-env | source
 
-# For Xwayland
-# set -gx XCURSOR_SIZE 48
-# set -gx QT_QPA_PLATFORM wayland
-# set -gx QT_QPA_PLATFORMTHEME qt6ct
-# set -gx SDL_VIDEODRIVER wayland
-# set -gx GDK_BACKEND wayland
-set -gx RUSTC_WRAPPER sccache
+# Anki
+set -gx QTWEBENGINE_LOCALES_PATH /usr/share/qt6/translations/qtwebengine_locales/
+set -gx QTWEBENGINE_RESOURCES_PATH /usr/share/qt6/resources/
+set -gx ANKI_WAYLAND 1
 
 # Keep $HOME tidy (https://wiki.archlinux.org/title/XDG_Base_Directory)
 set -gx ANDROID_USER_HOME $XDG_DATA_HOME/android
