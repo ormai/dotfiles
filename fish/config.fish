@@ -4,4 +4,5 @@ end
 
 if status is-interactive
     source $XDG_CONFIG_HOME/fish/abbreviations.fish
+    autols
 end

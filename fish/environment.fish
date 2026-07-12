@@ -26,6 +26,7 @@ set -gx QT_QPA_PLATFORMTHEME qt6ct # Required by qt6ct
 set -gx RUSTC_WRAPPER sccache
 
 # https://github.com/eth-p/bat-extras#batman
+# FIXME: some pages are broken
 batman --export-env | source
 
 # Anki
