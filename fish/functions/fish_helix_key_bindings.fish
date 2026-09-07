@@ -64,40 +64,50 @@ function fish_helix_key_bindings --description 'helix-like key bindings for fish
     bind -s --preset -M insert "" self-insert
 
     # Space and other command terminators expand abbrs _and_ inserts itself.
-    bind -s --preset -M insert " " self-insert expand-abbr
-    bind -s --preset -M insert ";" self-insert expand-abbr
-    bind -s --preset -M insert "|" self-insert expand-abbr
-    bind -s --preset -M insert "&" self-insert expand-abbr
-    bind -s --preset -M insert "^" self-insert expand-abbr
-    bind -s --preset -M insert ">" self-insert expand-abbr
-    bind -s --preset -M insert "<" self-insert expand-abbr
+    bind -s --preset -M insert space self-insert expand-abbr
+    bind -s --preset -M insert ';' self-insert expand-abbr
+    bind -s --preset -M insert '|' self-insert expand-abbr
+    bind -s --preset -M insert '&' self-insert expand-abbr
+    bind -s --preset -M insert '^' self-insert expand-abbr
+    bind -s --preset -M insert '>' self-insert expand-abbr
+    bind -s --preset -M insert '<' self-insert expand-abbr
     # Closing a command substitution expands abbreviations
-    bind -s --preset -M insert ")" self-insert expand-abbr
+    bind -s --preset -M insert ')' self-insert expand-abbr
+
     # Ctrl-space inserts space without expanding abbrs
-    bind -s --preset -M insert -k nul 'commandline -i " "'
+    bind -s --preset -M insert ctrl-space 'commandline -i " "'
 
     # Switching to insert mode
     for mode in default visual
-        bind -s --preset -M $mode -m insert \cc end-selection cancel-commandline repaint-mode
+        bind -s --preset -M $mode -m insert ctrl-c end-selection cancel-commandline repaint-mode
         bind -s --preset -M $mode -m insert \n end-selection execute
         bind -s --preset -M $mode -m insert \r end-selection execute
         bind -s --preset -M $mode -m insert o end-selection insert-line-under repaint-mode
         bind -s --preset -M $mode -m insert O end-selection insert-line-over repaint-mode
         # FIXME i/a should keep selection, maybe
-        bind -s --preset -M $mode i "fish_helix_command insert_mode"
-        bind -s --preset -M $mode I "fish_helix_command prepend_to_line"
-        bind -s --preset -M $mode a "fish_helix_command append_mode"
-        bind -s --preset -M $mode A "fish_helix_command append_to_line"
+        bind -s --preset -M $mode i 'fish_helix_command insert_mode'
+        bind -s --preset -M $mode I 'fish_helix_command prepend_to_line'
+        bind -s --preset -M $mode a 'fish_helix_command append_mode'
+        bind -s --preset -M $mode A 'fish_helix_command append_to_line'
     end
 
     # Switching from insert mode
     # Note if we are paging, we want to stay in insert mode
     # See #2871
-    bind -s --preset -M insert \e "if commandline -P; commandline -f cancel; else; set fish_bind_mode default; commandline -f begin-selection repaint-mode; end"
+    function return_to_default_mode
+        if commandline -P
+            commandline -f cancel
+        else
+            set fish_bind_mode default
+            commandline -f begin-selection repaint-mode
+        end
+    end
+
+    bind -s --preset -M insert escape return_to_default_mode
 
     # Switching between normal and visual mode
     bind -s --preset -M default -m visual v repaint-mode
-    for key in v \e
+    for key in v escape
         bind -s --preset -M visual -m default $key repaint-mode
     end
 
@@ -106,11 +116,11 @@ function fish_helix_key_bindings --description 'helix-like key bindings for fish
         if test $mode = default
             set -f n_begin_selection begin-selection # only begin-selection if current mode is Normal
             set -f ns_move_extend move
-            set -f commandline_v_repaint ""
+            set -f commandline_v_repaint ''
         else
             set -f n_begin_selection
             set -f ns_move_extend extend
-            set -f commandline_v_repaint "commandline -f repaint-mode"
+            set -f commandline_v_repaint 'commandline -f repaint-mode'
         end
 
         for key in (seq 0 9)
@@ -118,53 +128,53 @@ function fish_helix_key_bindings --description 'helix-like key bindings for fish
             # FIXME example to bind 0
             # FIXME backspace to edit count
         end
-        for key in h \e\[D \eOD "-k left"
+        for key in h \e\[D \eOD left
             bind -s --preset -M $mode $key "fish_helix_command "$ns_move_extend"_char_left"
         end
-        for key in l \e\[C \eOC "-k right"
+        for key in l \e\[C \eOC right
             bind -s --preset -M $mode $key "fish_helix_command "$ns_move_extend"_char_right"
         end
-        for key in k \e\[A \eOA "-k up"
-            bind -s --preset -M $mode $key "fish_helix_command char_up"
+        for key in k \e\[A \eOA up
+            bind -s --preset -M $mode $key 'fish_helix_command char_up'
         end
-        for key in j \e\[B \eOB "-k down"
-            bind -s --preset -M $mode $key "fish_helix_command char_down"
+        for key in j \e\[B \eOB down
+            bind -s --preset -M $mode $key 'fish_helix_command char_down'
         end
 
-        bind -s --preset -M $mode w "fish_helix_command next_word_start"
-        bind -s --preset -M $mode b "fish_helix_command prev_word_start"
-        bind -s --preset -M $mode e "fish_helix_command next_word_end"
-        bind -s --preset -M $mode W "fish_helix_command next_long_word_start"
-        bind -s --preset -M $mode B "fish_helix_command prev_long_word_start"
-        bind -s --preset -M $mode E "fish_helix_command next_long_word_end"
+        bind -s --preset -M $mode w 'fish_helix_command next_word_start'
+        bind -s --preset -M $mode b 'fish_helix_command prev_word_start'
+        bind -s --preset -M $mode e 'fish_helix_command next_word_end'
+        bind -s --preset -M $mode W 'fish_helix_command next_long_word_start'
+        bind -s --preset -M $mode B 'fish_helix_command prev_long_word_start'
+        bind -s --preset -M $mode E 'fish_helix_command next_long_word_end'
 
-        bind -s --preset -M $mode t "fish_helix_command till_next_char"
-        bind -s --preset -M $mode f "fish_helix_command find_next_char"
-        bind -s --preset -M $mode T "fish_helix_command till_prev_char"
-        bind -s --preset -M $mode F "fish_helix_command find_prev_char"
+        bind -s --preset -M $mode t 'fish_helix_command till_next_char'
+        bind -s --preset -M $mode f 'fish_helix_command find_next_char'
+        bind -s --preset -M $mode T 'fish_helix_command till_prev_char'
+        bind -s --preset -M $mode F 'fish_helix_command find_prev_char'
 
-        bind -s --preset -M $mode t\e ""
-        bind -s --preset -M $mode f\e ""
-        bind -s --preset -M $mode T\e ""
-        bind -s --preset -M $mode F\e ""
+        bind -s --preset -M $mode t\e ''
+        bind -s --preset -M $mode f\e ''
+        bind -s --preset -M $mode T\e ''
+        bind -s --preset -M $mode F\e ''
 
         for enter in \r \n
-            bind -s --preset -M $mode t$enter "fish_helix_command till_next_cr"
-            bind -s --preset -M $mode f$enter "fish_helix_command find_next_cr"
-            bind -s --preset -M $mode T$enter "fish_helix_command till_prev_cr"
-            bind -s --preset -M $mode F$enter "fish_helix_command find_prev_cr"
+            bind -s --preset -M $mode t$enter 'fish_helix_command till_next_cr'
+            bind -s --preset -M $mode f$enter 'fish_helix_command find_next_cr'
+            bind -s --preset -M $mode T$enter 'fish_helix_command till_prev_cr'
+            bind -s --preset -M $mode F$enter 'fish_helix_command find_prev_cr'
         end
 
-        for key in gh \e\[H \eOH "-k home"
-            bind -s --preset -M $mode $key "fish_helix_command goto_line_start"
+        for key in gh \e\[H \eOH home
+            bind -s --preset -M $mode $key 'fish_helix_command goto_line_start'
         end
-        for key in gl \e\[F \eOF "-k end"
-            bind -s --preset -M $mode $key "fish_helix_command goto_line_end"
+        for key in gl \e\[F \eOF end
+            bind -s --preset -M $mode $key 'fish_helix_command goto_line_end'
         end
-        bind -s --preset -M $mode gs "fish_helix_command goto_first_nonwhitespace"
-        bind -s --preset -M $mode gg "fish_helix_command goto_file_start"
-        bind -s --preset -M $mode G "fish_helix_command goto_line"
-        bind -s --preset -M $mode ge "fish_helix_command goto_last_line"
+        bind -s --preset -M $mode gs 'fish_helix_command goto_first_nonwhitespace'
+        bind -s --preset -M $mode gg 'fish_helix_command goto_file_start'
+        bind -s --preset -M $mode G 'fish_helix_command goto_line'
+        bind -s --preset -M $mode ge 'fish_helix_command goto_last_line'
 
         # FIXME alt-. doesn't work with t/T
         # FIXME alt-. doesn't work with [ftFT][\n\r]
@@ -183,21 +193,21 @@ function fish_helix_key_bindings --description 'helix-like key bindings for fish
 
         bind -s --preset -M $mode -m default d "fish_helix_command delete_selection; $commandline_v_repaint"
         bind -s --preset -M $mode -m default \ed "fish_helix_command delete_selection_noyank; $commandline_v_repaint"
-        bind -s --preset -M $mode -m insert c "fish_helix_command delete_selection; commandline -f end-selection repaint-mode"
-        bind -s --preset -M $mode -m insert \ec "fish_helix_command delete_selection_noyank; commandline -f end-selection repaint-mode"
+        bind -s --preset -M $mode -m insert c 'fish_helix_command delete_selection; commandline -f end-selection repaint-mode'
+        bind -s --preset -M $mode -m insert \ec 'fish_helix_command delete_selection_noyank; commandline -f end-selection repaint-mode'
 
-        bind -s --preset -M $mode -m default y "fish_helix_command yank"
-        bind -s --preset -M $mode p "fish_helix_command paste_after"
-        bind -s --preset -M $mode P "fish_helix_command paste_before"
-        bind -s --preset -M $mode R "fish_helix_command replace_selection"
+        bind -s --preset -M $mode -m default y 'fish_helix_command yank'
+        bind -s --preset -M $mode p 'fish_helix_command paste_after'
+        bind -s --preset -M $mode P 'fish_helix_command paste_before'
+        bind -s --preset -M $mode R 'fish_helix_command replace_selection'
 
-        bind -s --preset -M $mode -m default " y" "fish_clipboard_copy; $commandline_v_repaint"
-        bind -s --preset -M $mode " p" "fish_helix_command paste_after_clip"
-        bind -s --preset -M $mode " P" "fish_helix_command paste_before_clip"
-        bind -s --preset -M $mode " R" "fish_helix_command replace_selection_clip"
+        bind -s --preset -M $mode -m default space,y "fish_clipboard_copy; $commandline_v_repaint"
+        bind -s --preset -M $mode space,p "fish_helix_command paste_after_clip"
+        bind -s --preset -M $mode space,P "fish_helix_command paste_before_clip"
+        bind -s --preset -M $mode space,R "fish_helix_command replace_selection_clip"
 
         # FIXME keep selection
-        bind -s --preset -M $mode ~ togglecase-selection
+        bind -s --preset -M $mode '~' togglecase-selection
         # FIXME ` and \e`
 
         # FIXME .
@@ -217,7 +227,7 @@ function fish_helix_key_bindings --description 'helix-like key bindings for fish
         bind -s --preset -M $mode \e\; swap-selection-start-stop
         # FIXME \e:
 
-        bind -s --preset -M $mode % "fish_helix_command select_all"
+        bind -s --preset -M $mode % 'fish_helix_command select_all'
 
         # FIXME x X \ex
         # FIXME J
@@ -248,8 +258,8 @@ function fish_helix_key_bindings --description 'helix-like key bindings for fish
     bind -s --preset -M default -k dc delete-char forward-single-char backward-char
 
     # Backspace deletes a char in insert mode, but not in normal/default mode.
-    bind -s --preset -M insert -k backspace backward-delete-char
-    bind -s --preset -M default -k backspace backward-char
+    bind -s --preset -M insert backspace backward-delete-char
+    bind -s --preset -M default backspace backward-char
     bind -s --preset -M insert \ch backward-delete-char
     bind -s --preset -M default \ch backward-char
     bind -s --preset -M insert \x7f backward-delete-char
@@ -404,7 +414,9 @@ function fish_helix_key_bindings --description 'helix-like key bindings for fish
                     __fish_helix_extend_by_mode
 
                 case insert_mode
-                    commandline -C (commandline -B)
+                    if commandline --selection-start
+                        commandline --cursor (commandline --selection-start)
+                    end
                     set fish_bind_mode insert
                     commandline -f end-selection repaint-mode
 
@@ -542,12 +554,12 @@ function fish_helix_key_bindings --description 'helix-like key bindings for fish
         end
         set -l line (commandline -L)
         if commandline --search-mode || test $line = 1
-            for i in (seq 1 (math min \($count, (count $history)\)))
+            for i in (seq 1 (math "min($count, $(count $history))"))
                 commandline -f history-search-backward
             end
             return
         end
-        set -l count (math min\($count, $line-1\))
+        set -l count (math "min($count, $line - 1)")
         for i in (seq 1 $count)
             commandline -f up-line
         end
@@ -564,12 +576,12 @@ function fish_helix_key_bindings --description 'helix-like key bindings for fish
         set -l line (commandline -L)
         set -l total (count (commandline))
         if commandline --search-mode || test $line = $total
-            for i in (seq 1 (math min \($count, (count $history)\)))
+            for i in (seq 1 (math "min($count, $(count $history))"))
                 commandline -f history-search-forward
             end
             return
         end
-        set -l count (math min\($count, $total - $line\))
+        set -l count (math "min($count, $total - $line)")
         for i in (seq 1 $count)
             commandline -f down-line
         end

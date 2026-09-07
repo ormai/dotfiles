@@ -1,7 +1,6 @@
 function fish_prompt
     set -l last_pipestatus $pipestatus
     set -lx __fish_last_status $status
-
     set -l bold_flag --bold
     set -q __fish_prompt_status_generation
     or set -g __fish_prompt_status_generation $status_generation
@@ -15,7 +14,7 @@ function fish_prompt
 
     set -l cwd (set_color $fish_color_cwd) (prompt_pwd)
     set -l git (fish_git_prompt)
-    set -l sym (set_color yellow) ' € '
+    set -l sym (set_color white) ' € '
 
     echo -n -s $cwd (set_color normal) $git $prompt_status $sym
 end

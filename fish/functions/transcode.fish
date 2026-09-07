@@ -49,11 +49,11 @@ function transcode -d 'Transcode videos to av1 mkv'
         set -l start_time (date +%s)
         # Transcodig is lossy.
         # TODO: silence svtav1
-        ffmpeg -y -nostats -hide_banner -loglevel error -i $argv[1] -c:v libsvtav1 -svtav1-params progress=0 -c:a libopus $output
+        ffmpeg -y -hide_banner -i $argv[1] -c:v libsvtav1 -svtav1-params progress=0 -c:a libopus $output
         and info "encoded '$argv[1]', $size_before -> $(du -h $output | cut -d \t -f 1)," \
             "factor $(math $size_before_KiB / $(du $output | cut -d \t -f 1))," \
             "in $(math (date +%s) - $start_time | awk '{printf "%02d:%02d:%02d\n", $1/3600, ($1%3600)/60, $1%60}')"
-        and gio trash $argv[1] # Original file is not lost
+        # and gio trash $argv[1] # Original file is not lost
         and mv $output (string replace .ffmpeg_ '' $output)
     end
 

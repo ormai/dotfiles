@@ -1,3 +1,10 @@
+# This function is run by:
+# - ~/.config/systemd/user/backup.service
+# - ~/.config/systemd/user/backup.timer
+
+# `secret-tool` let's us interact with the GNOME keyring, where the restic
+# repository password is stored in.
+
 function backup --description 'Backup ~ with restic to a sftp location'
     set -l output (systemd-inhibit --why='Home backup' \
         restic backup \
@@ -10,8 +17,11 @@ function backup --description 'Backup ~ with restic to a sftp location'
         --exclude='**/.local/share/gnome-boxes' \
         --exclude='**/.local/share/rustup' \
         --exclude='**/.local/share/waydroid' \
+        --exclude='**/.local/share/cargo' \
         --exclude='**/Downloads' \
         --exclude='**/Trash' \
+        --exclude='**/node_modules' \
+        --exclude='**/target' \
         $HOME
     )
 
@@ -29,7 +39,4 @@ function backup --description 'Backup ~ with restic to a sftp location'
     end
 
     notify-send -a Backup -i drive-harddisk -u $urgency "$summary" "$body"
-
-    # see also ~/.config/systemd/user/backup.service
-    #      and ~/.config/systemd/user/backup.timer
 end

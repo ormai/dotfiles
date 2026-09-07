@@ -28,7 +28,7 @@ text/english=Helix.desktop;
 text/html=zen.desktop
 text/javascript=Helix.desktop
 text/markdown=Helix.desktop
-text/plain=helix.desktop
+text/plain=Helix.desktop
 text/x-c++=Helix.desktop;
 text/x-c++hdr=Helix.desktop;
 text/x-c++src=Helix.desktop;
@@ -89,5 +89,13 @@ video/x-theora+ogg=mpv.desktop
 video/x-theora=mpv.desktop
 x-scheme-handler/http=zen.desktop
 x-scheme-handler/https=zen.desktop
-x-scheme-handler/mailto=zen.desktop
+x-scheme-handler/mailto=org.tabos.stamp.desktop
 x-scheme-handler/chrome=zen.desktop
+application/json=Helix.desktop
+
+[Added Associations]
+x-scheme-handler/mailto=org.tabos.stamp.desktop;
+application/json=Helix.desktop;
+x-scheme-handler/http=zen.desktop;
+x-scheme-handler/https=zen.desktop;
+x-scheme-handler/chrome=zen.desktop;
