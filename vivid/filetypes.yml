@@ -99,6 +99,7 @@ text:
       - LINGUAS
       - .list
       - .dirs
+      - POTFILES
       - .properties
 
     metadata:
@@ -185,7 +186,25 @@ programming:
     crystal: [.cr]
     csharp: [.cs, .csx]
     css: [.css]
-    cxx: [.c, .cpp, .cc, .cp, .cxx, .c++, .h, .hh, .hpp, .hxx, .h++, .ino, .inc, .inl, .ipp, .def]
+    cxx:
+      [
+        .c,
+        .cpp,
+        .cc,
+        .cp,
+        .cxx,
+        .c++,
+        .h,
+        .hh,
+        .hpp,
+        .hxx,
+        .h++,
+        .ino,
+        .inc,
+        .inl,
+        .ipp,
+        .def,
+      ]
     d: [.d, .di]
     dart: [.dart]
     diff: [.diff, .patch]
@@ -240,6 +259,7 @@ programming:
     tcl: [.tcl]
     typescript: [.ts, .tsx]
     v: [.v, .vsh]
+    vala: [.vala]
     viml: [.vim]
     zig: [.zig]
 
@@ -263,10 +283,12 @@ programming:
         - .rgignore
         - .tfignore
 
-    # build:
-    #   automake:
-    #     - Makefile.am
-    #     - .m4
+    build:
+      input: [.in] # Input template file for build scripts
+
+      automake:
+        - Makefile.am
+        - .m4
 
       make:
         - BSDmakefile
@@ -638,7 +660,7 @@ unimportant:
     - .bak
     - .ctags
     - .dat
-    - .git  # only works for '.git' files (submodules)
+    - .git # only works for '.git' files (submodules)
     - .lock
     - .log
     - .orig
