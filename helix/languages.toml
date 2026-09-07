@@ -2,11 +2,16 @@
 # but inline tables and arrays are not merged.
 
 [language-server]
-harper = { command = "harper-ls", args = ["--stdio"] }
-rumdl = { command = "rumdl", args = ["server"] }
 scls = { command = "simple-completion-language-server" }
 codebook = { command="codebook-lsp", args = ["serve"] }
 eslint = { command = "eslint-language-server", args = ["--stdio"] }
+
+[language-server.harper-ls.config.harper-ls.linters]
+UseTitleCase = false
+
+[[language]]
+name = "kotlin"
+language-servers = ["kotlin-lsp"]
 
 [[language]]
 name = "rust"
@@ -14,22 +19,26 @@ language-servers = ["rust-analyzer", "scls", "codebook"]
 
 [[language]]
 name = "git-commit"
-language-servers = ["harper", "codebook"]
+language-servers = ["harper-ls", "codebook"]
 
 [[language]]
 name = "markdown"
 soft-wrap = { enable = true, wrap-at-text-width = false }
-language-servers = ["marksman", "rumdl", "harper", "codebook"]
+language-servers = ["marksman", "rumdl", "harper-ls"]
 
 [[language]]
 name = "typst"
 soft-wrap = { enable = true, wrap-at-text-width = true }
-language-servers = ["tinymist", "harper", "codebook"]
+language-servers = ["tinymist", "harper-ls"]
+
+[[language]]
+name = "latex"
+soft-wrap = { enable = true, wrap-at-text-width = true }
 
 [[language]]
 name = "xml"
 file-types = ["xml", "svg", "rss", "atom", "ui", "doap", { glob = "fontconfig/fonts.conf" }]
-language-servers = ["harper", "codebook"]
+language-servers = ["harper-ls", "codebook"]
 
 [[language]]
 name = "toml"
@@ -60,11 +69,12 @@ auto-format = true
 
 [[language]]
 name = "html"
-language-servers = ["vscode-html-language-server", "superhtml", "harper", "codebook"]
+language-servers = ["vscode-html-language-server", "superhtml", "harper-ls", "codebook"]
 formatter = { command = "dprint", args = ["fmt", "--stdin", "html"] }
 auto-format = true
 
 [[language]]
 name = "css"
 language-servers = ["vscode-css-language-server", "codebook"]
+formatter = { command = "dprint", args = ["fmt", "--stdin", "css"] }
 auto-format = true

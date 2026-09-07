@@ -1,8 +1,6 @@
 [theme]
-# dark = "gruvbox_dark_hard"
-# light = "gruvbox_light_hard"
-dark = "jellybeans"
-light = "adwaita-light"
+dark = "gruvbox_material_dark_hard"
+light = "gruvbox_material_light_soft"
 
 [editor.cursor-shape]
 insert = "bar"
