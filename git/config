@@ -2,12 +2,22 @@
   name = "Mario D'Andrea"
   email = goffredo2004@gmail.com
   signingkey = /home/mario/.ssh/commit/key.pub
+[commit]
+  verbose = true
+  gpgsign = true
+[gpg]
+  format = ssh
+[gpg "ssh"]
+  allowedSignersFile = /home/mario/.config/git/allowed_signers
 [init]
   defaultBranch = main
 [status]
   branch = true
   showStash = true
   showUntrackedFiles = all
+[bash]
+  showDirtyState = true
+  showUntrackedFiles = true
 [core]
   autocrlf = input
   pager = delta
@@ -23,25 +33,19 @@
   default = current
 [merge]
   conflictstyle = zdiff3
-[commit]
-  verbose = true
-  gpgsign = true
 [color]
   pager = true
-[diff "exif"]
-  texconv = exiftool
 [filter "lfs"]
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
   process = git-lfs filter-process
   required = true
-[bash]
-  showDirtyState = true
-  showUntrackedFiles = true
 [delta]
   line-numbers = true
   side-by-side = false
-[gpg]
-  format = ssh
-[gpg "ssh"]
-  allowedSignersFile = /home/mario/.config/git/allowed_signers
+[diff "exif"]
+  texconv = exiftool
+[alias]
+  lg = log --color --graph --abbrev-commit --pretty=format:'%Cred%h%Creset ·%C(yellow)%d%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset'
+[am]
+	threeWay = true
