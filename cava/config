@@ -3,7 +3,7 @@
 [general]
 framerate = 60
 autosens = 0
-sensitivity = 220
+sensitivity = 100
 bar_width = 1
 bar_spacing = 0
 
@@ -15,15 +15,25 @@ alacritty_sync = 0
 show_idle_bar_heads = 1
 
 [color]
-background = default
-foreground = default
+background = '#000000'
+foreground = '#202122'
 gradient = 1
-gradient_count = 5
-gradient_color_1 = '#8ec07c'
+# gradient_count = 5
+# gradient_color_1 = '#8ec07c'
 # gradient_color_2 = '#b8bb26'
-gradient_color_2 = '#fabd2f'
+# gradient_color_2 = '#fabd2f'
 # gradient_color_3 = '#f38019'
-gradient_color_3 = '#fb4934'
+# gradient_color_3 = '#fb4934'
+
+gradient_count = 8
+gradient_color_1 = '#57e389'
+gradient_color_2 = '#f9f06b'
+gradient_color_3 = '#ffbe6f'
+gradient_color_4 = '#ff7800'
+gradient_color_5 = '#c64600'
+gradient_color_6 = '#e01b24'
+gradient_color_7 = '#dc8add'
+gradient_color_8 = '#9141ac'
 
 [smoothing]
 monstercat = 0

@@ -4,5 +4,5 @@
 
 --italic-text=always
 --theme=auto
---theme-dark=gruvbox-dark
---theme-light=gruvbox-light
+# --theme-dark=gruvbox-dark
+# --theme-light=gruvbox-light
