@@ -3,7 +3,7 @@ function clean --description 'Free storage'
     sudo paccache -rk1
     sudo paccache -ruk0
     yes | paru -Sccd
-    sudo docker system prune --all --force
+    podman system prune --all --force
     # cargo cache --autoclean
     pip cache purge
     uv cache clean
