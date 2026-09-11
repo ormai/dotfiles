@@ -3,14 +3,6 @@ set -gx XDG_DATA_HOME $HOME/.local/share
 set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx XDG_STATE_HOME $HOME/.local/state
 set -gx XDG_CACHE_HOME $HOME/.cache # non-essential (cached) data files
-fish_add_path $HOME/.local/bin
-
-# Set paths from /etc/profile and /etc/profile.d/*.sh, and other paths.
-fish_add_path /usr/bin /usr/local/bin /usr/local/sbin \
-    /usr/lib/rustup/bin /usr/lib/jvm/default/bin \
-    /usr/bin/site_perl /usr/bin/vendor_perl /usr/bin/core_perl \
-    $CARGO_HOME/bin $XDG_DATA_HOME/npm/bin
-
 exportenv $XDG_CONFIG_HOME/user-dirs.dirs $XDG_CONFIG_HOME/locale.conf
 
 set -gx LD_LIBRARY_PATH /lib:/usr/lib:/usr/local/lib
@@ -73,3 +65,11 @@ set -gx TEXMFVAR $XDG_CACHE_HOME/texlive/texmf-var
 set -gx W3M_DIR $XDG_DATA_HOME/w3m
 set -gx WGETRC $XDG_CONFIG_HOME/wgetrc
 set -gx WINEPREFIX $XDG_DATA_HOME/wine
+
+fish_add_path $HOME/.local/bin
+
+# Set paths from /etc/profile and /etc/profile.d/*.sh, and other paths.
+fish_add_path /usr/bin /usr/local/bin /usr/local/sbin \
+    /usr/lib/rustup/bin /usr/lib/jvm/default/bin \
+    /usr/bin/site_perl /usr/bin/vendor_perl /usr/bin/core_perl \
+    $CARGO_HOME/bin $XDG_DATA_HOME/npm/bin
