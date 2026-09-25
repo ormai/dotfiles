@@ -1,7 +1,7 @@
 abbr t transmission-remote
 abbr ls eza
-abbr ll 'eza -laM -s modified --icons --git --time-style=iso'
-abbr lt 'eza -T --icons'
+abbr ll 'eza -laM -s modified --icons auto --git --time-style=iso'
+abbr lt 'eza -T --icons auto'
 abbr mv 'mv -iv'
 abbr rm 'rm -iv'
 abbr cp 'cp -iv'
