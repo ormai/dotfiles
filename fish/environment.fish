@@ -42,6 +42,7 @@ set -gx HISTFILE $XDG_STATE_HOME/sh_history
 set -gx HOME_ETC $XDG_CONFIG_HOME
 set -gx INPUTRC $XDG_CONFIG_HOME/readline/inputrc
 set -gx JUPYTERLAB_DIR $XDG_DATA_HOME/jupyter/lab
+set -gx JUPYTER_CONFIG_DIR $XDG_CONFIG_HOME/jupyter
 set -gx KERAS_HOME $XDG_STATE_HOME/keras
 set -gx KONAN_DATA_DIR $XDG_DATA_HOME/konan
 set -gx LESSHISTFILE $XDG_CACHE_HOME/lesshst

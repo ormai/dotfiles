@@ -3,6 +3,7 @@ aur-auto-vote-git
 brother-dcp1610w
 brscan4
 cmd-wrapped-bin
+convey
 exercism
 fish-lsp
 helix-git
@@ -16,9 +17,9 @@ plattenalbum
 recordbox-debug
 rstudio-desktop-bin
 simple-completion-language-server-git
-stamp-git
 superhtml-bin
 vala-language-server
 xdg-ninja-git
 xdg-terminal-exec-git
 zen-browser-bin
+zuban-bin

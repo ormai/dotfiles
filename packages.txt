@@ -43,6 +43,7 @@ efibootmgr
 epiphany
 eslint-language-server
 exfat-utils
+extension-manager
 eyedropper
 eza
 fakeroot
@@ -61,6 +62,7 @@ fuse2
 fwupd
 fwupd-efi
 fzf
+gcc-fortran
 gcr
 gdb
 gdm
@@ -98,7 +100,6 @@ gnome-user-share
 gnome-weather
 gperf
 gradia
-graphs
 grilo-plugins
 grub
 gst-libav
@@ -173,6 +174,7 @@ palette
 papers
 pass
 patch
+pdftk
 perf
 perl-image-exiftool
 picard
@@ -223,6 +225,7 @@ sudo
 svelte-language-server
 symbolic-preview
 syncthing
+systemd-lsp
 systemd-resolvconf
 tecla
 texinfo
@@ -258,6 +261,7 @@ torbrowser-launcher
 transmission-cli
 ttf-libertinus
 ttf-nerd-fonts-symbols
+ty
 typescript-language-server
 typography
 typst
